@@ -8,6 +8,10 @@ type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
     me: User @middleware(checks:["auth:api"]) @auth
+    
+    getCableSubscription(cable: String! @where(operator: "=")): [CableSubscription!]! @all
+    getDataPriceListing(network: String! @where(operator: "=")): [DataPriceListing!]! @all
+    
 }
 type Mutation {
     createUser(
@@ -30,4 +34,19 @@ type User {
     created_at: DateTime!
     updated_at: DateTime!
 }
+
+type CableSubscription {
+    id: ID!
+    cable: String!
+    plan: String!
+    price: String!
+}
+
+type DataPriceListing {
+    id: ID!
+    network: String!
+    plan: String!
+    price: String!
+}
+
 
