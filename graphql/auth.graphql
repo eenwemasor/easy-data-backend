@@ -11,7 +11,7 @@ type User {
     id: ID!
     full_name: String!
     email: String!
-    phone: String! 
+    phone: String!
     wallet: String!
 }
 
