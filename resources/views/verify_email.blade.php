@@ -62,7 +62,7 @@
         <p>Please click the below to verify your email address.</p>
         <br>
         <br><br>
-        <a class="verify-btn" href={{$url}}>Verify Email Address</a>
+        <a class="verify-btn" href="{{$url}}">Verify Email Address</a>
         <br>
         <br><br>
         <p>if you did not create account an with Gtserviz communication, no further actions is required.</p>
