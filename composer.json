@@ -15,6 +15,7 @@
         "laravel/framework": "^6.2",
         "laravel/passport": "^7.5",
         "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.1",
         "nuwave/lighthouse": "^4.4"
     },
     "require-dev": {

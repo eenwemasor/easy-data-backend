@@ -13,6 +13,11 @@ type User {
     email: String!
     phone: String!
     wallet: String!
+    accessibility:String!
+    email_confirmed:Boolean!
+    phone_verified:Boolean!
+    unique_id:String!
+    password: String!
 }
 
 type AuthPayload {
