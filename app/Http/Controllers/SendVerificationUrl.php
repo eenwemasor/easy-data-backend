@@ -14,6 +14,6 @@ class SendVerificationUrl extends Controller
             $url = $request->url;
             $email = $request->email;
 
-            Mail::to($email)->send(new VerificationEmail($url, $email, $name));
+            Mail::to($email)->send(new VerificationEmail($email, $url, $name));
         }
 }
