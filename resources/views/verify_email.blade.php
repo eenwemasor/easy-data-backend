@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<div class="body">
+<div>
     <div>
         <h4>Hello, {{$name}}</h4>
         <p>Please click the below to verify your email address.</p>
@@ -13,14 +13,14 @@
         <a class = "verify_btn" href={{$url}}>Verify Email Address</a>
         <br>
         <br><br>
-        <p>if you did not create an with Gtserviz communication, no further actions is required.</p>
+        <p>if you did not create account an with Gtserviz communication, no further actions is required.</p>
         <p>Regards</p>
         <a href="https://gtserviz.com">Gtserviz Communication.</a>
     </div>
 </div>
 </body>
 <style>
-    .body {
+    body {
         width: 60%;
         margin: 40px auto;
         text-align: center;
