@@ -5,7 +5,7 @@ use App\Mail\VerificationEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class SendVerificationUrl extends Controller
+class SendVerificationUrlController extends Controller
 {
     function index(Request $request)
 

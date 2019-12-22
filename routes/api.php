@@ -13,4 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/send_verification_email', 'SendVerificationUrl@index');
+Route::post('/send_verification_email', 'SendVerificationUrlController@index');
+Route::post('/referral_reward', 'ReferralRewardController@index');
