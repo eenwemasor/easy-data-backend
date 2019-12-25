@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::post('/send_verification_email', 'SendVerificationUrlController@index');
 Route::post('/referral_reward', 'ReferralRewardController@index');
 Route::post('/save_referral', 'ReferralRewardController@save_referral');
+
+
+Route::post('/password/email', 'Api\ForgotPasswordController@sendResetLinkEmail');
+Route::post('/password/reset', 'Api\ResetPasswordController@reset');

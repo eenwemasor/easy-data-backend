@@ -3,6 +3,7 @@
 namespace App;
 
 
+use App\Notifications\ResetPasswordNotification;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -71,5 +72,10 @@ class User extends Authenticatable implements MustVerifyEmail
                 $electricity->delete();
             });
         });
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
