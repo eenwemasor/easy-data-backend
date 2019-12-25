@@ -7,12 +7,17 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
-            userUniqueID(unique_id: ID @eq): User @find
+
+    data_transaction(id: ID @eq): DataTransaction @find
+    cable_transaction(id: ID @eq): CableTransaction@find
+    airtime_transaction(id: ID @eq): AirtimeTransaction @find
+    electricity_transaction(id: ID @eq): ElectricityTransaction @find
+
+    userUniqueID(unique_id: ID @eq): User @find
     me: User @middleware(checks:["auth:api"]) @auth
-    
     getCableSubscription(cable: String! @where(operator: "=")): [CableSubscription!]! @all
     getDataPriceListing(network: String! @where(operator: "=")): [DataPriceListing!]! @all
-    
+
 }
 type Mutation {
     createUser(
@@ -25,7 +30,52 @@ type Mutation {
         email_confirmed:Boolean @rules(apply: ["required"])
         phone_verified:Boolean @rules(apply: ["required"])
         unique_id:String @rules(apply: ["required"])
+        active:Boolean @rules(apply: ["required"])
+        bonus_wallet:Float @rules(apply: ["required"])
     ): User @create(model: "App\\User")
+
+    createDataTransaction(
+        reference: String @rules(apply: ["required"])
+        network: String @rules(apply: ["required"])
+        data: String @rules(apply: ["required"])
+        price: Float @rules(apply: ["required"])
+        beneficiary: String @rules(apply: ["required"])
+        status:String @rules(apply: ["required"])
+        method:String @rules(apply: ["required"])
+    ): DataTransaction @create(model: "App\\DataTransaction")
+
+    createCableTransaction(
+        reference: String @rules(apply: ["required"])
+        service: String @rules(apply: ["required"])
+        decoder_number: String @rules(apply: ["required"])
+        initial_balance: Float @rules(apply: ["required"])
+        price: Float @rules(apply: ["required"])
+        new_balance:Float @rules(apply: ["required"])
+        status:String @rules(apply: ["required"])
+        method:String @rules(apply: ["required"])
+    ): CableTransaction @create(model: "App\\CableTransaction")
+
+    createAirtimeTransaction(
+        reference: String @rules(apply: ["required"])
+        phone: String @rules(apply: ["required"])
+        value: String @rules(apply: ["required"])
+        initial_balance: Float @rules(apply: ["required"])
+        price: Float @rules(apply: ["required"])
+        new_balance:Float @rules(apply: ["required"])
+        status:String @rules(apply: ["required"])
+        method:String @rules(apply: ["required"])
+    ): AirtimeTransaction @create(model: "App\\AirtimeTransaction")
+
+    createElectricityTransaction(
+        reference: String @rules(apply: ["required"])
+        service: String @rules(apply: ["required"])
+        decoder_number: String @rules(apply: ["required"])
+        initial_balance: Float @rules(apply: ["required"])
+        price: Float @rules(apply: ["required"])
+        new_balance:Float @rules(apply: ["required"])
+        status:String @rules(apply: ["required"])
+        method:String @rules(apply: ["required"])
+    ): ElectricityTransaction @create(model: "App\\ElectricityTransaction")
 
     updateUser(
         id:ID!
@@ -39,6 +89,74 @@ type Mutation {
         phone_verified:Boolean
         unique_id:String
     ): User @update(model: "App\\User")
+
+    updateDataTransaction(
+        id:ID!
+        reference: String
+        network: String
+        data: String
+        price: Float
+        beneficiary: String
+        status:String
+        method:String
+    ): DataTransaction @update(model: "App\\DataTransaction")
+
+    updateCableTransaction(
+        id:ID!
+        reference: String
+        service: String
+        decoder_number: String
+        initial_balance: Float
+        price: Float
+        new_balance:Float
+        status:String
+        method:String
+    ): CableTransaction @update(model: "App\\CableTransaction")
+
+    updateAirtimeTransaction(
+        id:ID!
+        reference: String
+        phone: String
+        value: String
+        initial_balance: Float
+        price: Float
+        new_balance:Float
+        status:String
+        method:String
+    ): AirtimeTransaction @update(model: "App\\AirtimeTransaction")
+
+    updateElectricityTransaction(
+        id:ID!
+        reference: String
+        service: String
+        decoder_number: String
+        initial_balance: Float
+        price: Float
+        new_balance:Float
+        status:String
+        method:String
+    ): ElectricityTransaction @update(model: "App\\ElectricityTransaction")
+
+    deleteUser(
+        id:ID!
+    ): User @delete(model: "App\\User")
+
+    deleteDataTransaction(
+        id:ID!
+    ): DataTransaction @delete(model: "App\\DataTransaction")
+
+    deleteCableTransaction(
+        id:ID!
+    ): CableTransaction @delete(model: "App\\CableTransaction")
+
+    deleteAirtimeTransaction(
+        id:ID!
+    ): AirtimeTransaction @delete(model: "App\\AirtimeTransaction")
+
+    deleteElectricityTransaction(
+        id:ID!
+    ): ElectricityTransaction @delete(model: "App\\ElectricityTransaction")
+
 }
 
 type CableSubscription {
@@ -55,4 +173,49 @@ type DataPriceListing {
     price: String!
 }
 
+type AirtimeTransaction {
+    id: ID!
+    reference:String!
+    phone:String!
+    value:String!
+    initial_balance:Float!
+    price:Float!
+    new_balance:Float!
+    status:String!
+    method:String!
+}
 
+type CableTransaction {
+    id: ID!
+    reference:String!
+    service:String!
+    decoder_number:String!
+    initial_balance:Float!
+    price:Float!
+    new_balance:Float!
+    status:String!
+    method:String!
+}
+
+type DataTransaction {
+    id: ID!
+    reference:String!
+    network:String!
+    data:String!
+    price:Float!
+    beneficiary:String!
+    status:String!
+    method:String!
+}
+
+type ElectricityTransaction {
+    id: ID!
+    reference:String!
+    service:String!
+    decoder_number:String!
+    initial_balance:Float!
+    price:Float!
+    new_balance:Float!
+    status:String!
+    method:String!
+}

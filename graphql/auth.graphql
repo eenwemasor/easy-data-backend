@@ -17,7 +17,13 @@ type User {
     email_confirmed:Boolean!
     phone_verified:Boolean!
     unique_id:String!
+    active:Boolean!
+    bonus_wallet:String!
     password: String!
+    data_transactions: [DataTransaction !]! @hasMany
+    cable_transactions: [CableTransaction !]! @hasMany
+    airtime_transactions: [AirtimeTransaction !]! @hasMany
+    electricity_transactions: [ElectricityTransaction !]! @hasMany
 }
 
 type AuthPayload {

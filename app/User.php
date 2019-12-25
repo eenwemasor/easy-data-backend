@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'phone', 'wallet','accessibility','email_confirmed','phone_verified','unique_id','password'
+        'full_name', 'email', 'phone', 'wallet','accessibility','email_confirmed','phone_verified','unique_id','active','bonus_wallet','password'
     ];
 
     /**
@@ -38,4 +38,38 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function data_transactions(){
+        return $this->hasMany(DataTransaction::class);
+    }
+
+    public function cable_transactions(){
+        return $this->hasMany(CableTransaction::class);
+    }
+
+    public function airtime_transactions(){
+        return $this->hasMany(AirtimeTransaction::class);
+    }
+    public function electricity_transactions(){
+        return $this->hasMany(ElectricityTransaction::class);
+    }
+
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($user) {
+            $user->data_transactions()->each(function($data){
+                $data->delete();
+            });
+            $user->cable_transactions()->each(function($cable) {
+                $cable->delete();
+            });
+            $user->airtime_transactions()->each(function($airtime) {
+                $airtime->delete();
+            });
+            $user->electricity_transactions()->each(function($electricity) {
+                $electricity->delete();
+            });
+        });
+    }
 }

@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('email_confirmed');
             $table->string('phone_verified');
             $table->string('unique_id');
+            $table->boolean('active');
+            $table->float('bonus_wallet');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

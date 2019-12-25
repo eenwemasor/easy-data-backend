@@ -17,6 +17,7 @@ class CreateReferralStacksTable extends Migration
             $table->bigIncrements('id');
             $table->string('referrer');
             $table->string('referee');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
