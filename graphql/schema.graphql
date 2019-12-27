@@ -38,43 +38,49 @@ type Mutation {
         reference: String @rules(apply: ["required"])
         network: String @rules(apply: ["required"])
         data: String @rules(apply: ["required"])
+        initial_balance: Float
         price: Float @rules(apply: ["required"])
         beneficiary: String @rules(apply: ["required"])
+        new_balance:Float
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
+        user_id:String
     ): DataTransaction @create(model: "App\\DataTransaction")
 
     createCableTransaction(
         reference: String @rules(apply: ["required"])
         service: String @rules(apply: ["required"])
         decoder_number: String @rules(apply: ["required"])
-        initial_balance: Float @rules(apply: ["required"])
+        initial_balance: Float
         price: Float @rules(apply: ["required"])
-        new_balance:Float @rules(apply: ["required"])
+        new_balance:Float
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
+        user_id:String
     ): CableTransaction @create(model: "App\\CableTransaction")
 
     createAirtimeTransaction(
         reference: String @rules(apply: ["required"])
         phone: String @rules(apply: ["required"])
         value: String @rules(apply: ["required"])
-        initial_balance: Float @rules(apply: ["required"])
+        initial_balance: Float
         price: Float @rules(apply: ["required"])
-        new_balance:Float @rules(apply: ["required"])
+        new_balance:Float
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
+        user_id:String
     ): AirtimeTransaction @create(model: "App\\AirtimeTransaction")
 
     createElectricityTransaction(
         reference: String @rules(apply: ["required"])
         service: String @rules(apply: ["required"])
         decoder_number: String @rules(apply: ["required"])
-        initial_balance: Float @rules(apply: ["required"])
+        initial_balance: Float
         price: Float @rules(apply: ["required"])
-        new_balance:Float @rules(apply: ["required"])
+        new_balance:Float
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
+        user_id:String
     ): ElectricityTransaction @create(model: "App\\ElectricityTransaction")
 
     updateUser(
@@ -99,6 +105,7 @@ type Mutation {
         beneficiary: String
         status:String
         method:String
+
     ): DataTransaction @update(model: "App\\DataTransaction")
 
     updateCableTransaction(
@@ -178,11 +185,12 @@ type AirtimeTransaction {
     reference:String!
     phone:String!
     value:String!
-    initial_balance:Float!
+    initial_balance:Float
     price:Float!
-    new_balance:Float!
+    new_balance:Float
     status:String!
     method:String!
+    user_id:String
 }
 
 type CableTransaction {
@@ -195,6 +203,7 @@ type CableTransaction {
     new_balance:Float!
     status:String!
     method:String!
+    user_id:String
 }
 
 type DataTransaction {
@@ -202,10 +211,13 @@ type DataTransaction {
     reference:String!
     network:String!
     data:String!
+    initial_balance:Float
     price:Float!
     beneficiary:String!
+    new_balance:Float
     status:String!
     method:String!
+    user_id:String
 }
 
 type ElectricityTransaction {
@@ -213,9 +225,10 @@ type ElectricityTransaction {
     reference:String!
     service:String!
     decoder_number:String!
-    initial_balance:Float!
+    initial_balance:Float
     price:Float!
-    new_balance:Float!
+    new_balance:Float
     status:String!
     method:String!
+    user_id:String
 }

@@ -18,12 +18,12 @@ class CreateElectricityTransactionsTable extends Migration
             $table->string('reference');
             $table->string('service');
             $table->string('decoder_number');
-            $table->float('initial_balance');
+            $table->float('initial_balance')->nullable();
             $table->float('price');
-            $table->float('new_balance');
+            $table->float('new_balance')->nullable();
             $table->string('status');
             $table->string('method');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

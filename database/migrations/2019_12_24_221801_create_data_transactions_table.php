@@ -18,11 +18,13 @@ class CreateDataTransactionsTable extends Migration
             $table->string('reference');
             $table->string('network');
             $table->string('data');
+            $table->float('initial_balance')->nullable();
             $table->float('price');
             $table->string('beneficiary');
+            $table->float('new_balance')->nullable();
             $table->string('status');
             $table->string('method');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
