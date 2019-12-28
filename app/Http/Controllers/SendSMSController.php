@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use AfricasTalking\SDK\AfricasTalking;
 
-class SendSMSCOntroller extends Controller
+class SendSMSController extends Controller
 {
    function index(Request $request){
        $number = $request->phone;
@@ -24,6 +24,6 @@ class SendSMSCOntroller extends Controller
            'message' => $message
        ]);
 
-       return response()->json(['response' => $result]);
+       return $result;
    }
 }

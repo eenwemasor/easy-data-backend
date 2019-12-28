@@ -12,7 +12,7 @@ class AdminChannelUtil extends Seeder
     public function run()
     { DB::table('admin_channel_utils')->insert([
         [
-            'phone' => '09096006817',
+            'phone' => '+2349096006817',
             'email' => 'qhodeweb@gmail.com',
         ],
     ]);
