@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DataPricingListing::class);
         $this->call(CableSubscriptions::class);
         $this->call(ReferralReward::class);
+        $this->call(AdminChannelUtil::class);
     }
 }

@@ -14,6 +14,7 @@ type Query {
     electricity_transaction(id: ID @eq): ElectricityTransaction @find
 
     userUniqueID(unique_id: ID @eq): User @find
+    AdminChanelUtil(id: ID @eq): AdminChanelUtil @find
     me: User @middleware(checks:["auth:api"]) @auth
     getCableSubscription(cable: String! @where(operator: "=")): [CableSubscription!]! @all
     getDataPriceListing(network: String! @where(operator: "=")): [DataPriceListing!]! @all
@@ -82,6 +83,18 @@ type Mutation {
         method:String @rules(apply: ["required"])
         user_id:String
     ): ElectricityTransaction @create(model: "App\\ElectricityTransaction")
+
+    createQuickBuy(
+        reference: String @rules(apply: ["required"])
+        transaction_type: String
+        network: String
+        plan: String
+        amount: Float @rules(apply: ["required"])
+        beneficiary:String
+        email:String @rules(apply: ["required"])
+        status:String
+    ): QuickBuy @create(model: "App\\QuickBuy")
+
 
     updateUser(
         id:ID!
@@ -231,4 +244,21 @@ type ElectricityTransaction {
     status:String!
     method:String!
     user_id:String
+}
+
+type QuickBuy {
+    id: ID!
+    reference:String!
+    transaction_type:String!
+    network:String
+    plan:String
+    amount:Float!
+    beneficiary:String
+    email:String!
+    status:String
+}
+type AdminChanelUtil {
+    id: ID!
+    phone:String!
+    email:String!
 }
