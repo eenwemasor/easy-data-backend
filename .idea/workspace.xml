@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+            <state relative-caret-position="314">
+              <caret line="44" column="46" lean-forward="true" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphql/schema.graphql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+            <state relative-caret-position="161">
+              <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -162,7 +160,6 @@
         <option value="$PROJECT_DIR$/app/QuickBuy.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_27_182252_create_quick_buys_table.php" />
         <option value="$PROJECT_DIR$/app/AdminChanelUtil.php" />
-        <option value="$PROJECT_DIR$/graphql/schema.graphql" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_chanel_utils_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php" />
         <option value="$PROJECT_DIR$/app/AdminChannelUtil.php" />
@@ -170,6 +167,7 @@
         <option value="$PROJECT_DIR$/database/seeds/AdminChannelUtil.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/graphql/schema.graphql" />
       </list>
     </option>
   </component>
@@ -325,6 +323,11 @@
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="gtservizBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtservizBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="graphql" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -421,12 +424,12 @@
       <workItem from="1577461490931" duration="1353000" />
       <workItem from="1577469632822" duration="1791000" />
       <workItem from="1577471567069" duration="1232000" />
-      <workItem from="1577515819586" duration="897000" />
+      <workItem from="1577515819586" duration="1117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61939000" />
+    <option name="totallyTimeSpent" value="62159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,7 +460,7 @@
       <window_info anchor="bottom" id="GraphQL" order="9" weight="0.42967033" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.2043956" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.3857143" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -751,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/schema.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -812,8 +808,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="314">
+          <caret line="44" column="46" lean-forward="true" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/schema.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
         </state>
       </provider>
     </entry>

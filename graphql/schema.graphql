@@ -14,7 +14,7 @@ type Query {
     electricity_transaction(id: ID @eq): ElectricityTransaction @find
 
     userUniqueID(unique_id: ID @eq): User @find
-    AdminChanelUtil(id: ID @eq): AdminChanelUtil @find
+    AdminChannelUtil(id: ID @eq): AdminChannelUtil @find
     me: User @middleware(checks:["auth:api"]) @auth
     getCableSubscription(cable: String! @where(operator: "=")): [CableSubscription!]! @all
     getDataPriceListing(network: String! @where(operator: "=")): [DataPriceListing!]! @all
@@ -257,7 +257,7 @@ type QuickBuy {
     email:String!
     status:String
 }
-type AdminChanelUtil {
+type AdminChannelUtil {
     id: ID!
     phone:String!
     email:String!
