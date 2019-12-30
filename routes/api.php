@@ -16,3 +16,6 @@ Route::post('/send_verification_email', 'SendVerificationUrlController@index');
 Route::post('/referral_reward', 'ReferralRewardController@index');
 Route::post('/save_referral', 'ReferralRewardController@save_referral');
 Route::post('/sms/send_notification', 'SendSMSController@index');
+Route::post('/sms/send_phone_verification', 'SendPhoneVerification@generateToken');
+Route::post('/sms/resend_phone_verification', 'SendPhoneVerification@resendToken');
+Route::post('/sms/verify_token', 'SendPhoneVerification@verifyToken');
