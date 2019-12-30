@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use AfricasTalking\SDK\AfricasTalking;
 
 class SendSMSController extends Controller
 {
@@ -12,18 +11,33 @@ class SendSMSController extends Controller
        $number = $request->phone;
        $message = $request->message;
 
-       $username = 'sandbox'; // use 'sandbox' for development in the test environment
-       $apiKey   = '567a99a94c41364e92ac589d0176e7ddbc3a2e8076b1efecbc67249aa50c2a30'; // use your sandbox app API key for development in the test environment
-       $AT       = new AfricasTalking($username, $apiKey);
+       $senderid = 'Gtserviz';
+       $to = $number;
+       $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
+       $baseurl = 'https://smartsmssolutions.com/api/json.php?';
 
+       $sms_array = array
+       (
+           'sender' => $senderid,
+           'to' => $to,
+           'message' => $message,
+           'type' => '0',
+           'routing' => 3,
+           'token' => $token
+       );
 
-       $sms      = $AT->sms();
+       $params = http_build_query($sms_array);
+       $ch = curl_init();
 
-       $result   = $sms->send([
-           'to'      => $number,
-           'message' => $message
-       ]);
+       curl_setopt($ch, CURLOPT_URL,$baseurl);
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+       curl_setopt($ch, CURLOPT_POST, 1);
+       curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 
-       return $result;
+       $response = curl_exec($ch);
+
+       curl_close($ch);
+
+       return $response;
    }
 }

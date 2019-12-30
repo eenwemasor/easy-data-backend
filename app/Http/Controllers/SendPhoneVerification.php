@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use AfricasTalking\SDK\AfricasTalking;
 use App\PhoneVerification;
 use App\User;
 use Illuminate\Http\Request;
 
 class SendPhoneVerification extends Controller
 {
-
-
     function generateToken(Request $request){
-        $username = 'sandbox'; // use 'sandbox' for development in the test environment
-        $apiKey   = '567a99a94c41364e92ac589d0176e7ddbc3a2e8076b1efecbc67249aa50c2a30'; // use your sandbox app API key for development in the test environment
-        $AT       = new AfricasTalking($username, $apiKey);
         $phone = $request->phone;
         $phone_user = User::where('phone', $phone)->first();
 
@@ -28,21 +22,36 @@ class SendPhoneVerification extends Controller
                 $phoneVerification->phone = $phone;
                 $phoneVerification->token = $token;
                 $phoneVerification->save();
+                $message = "Gtserviz DeletePhoneToken Verification token " . $token;
 
-                if (strpos($phone, '0') === 0 && strlen($phone) === 11) {
-                    $send_phone = substr($phone, 1);
-                    $phone = "+234".$send_phone;
-                }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
-                    $phone = "+234".$phone;
-                }
-                        $message = "Gtserviz DeletePhoneToken Verification token " . $token;
-                        $sms      = $AT->sms();
+                $senderid = 'Gtserviz';
+                $to = $phone;
+                $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
+                $baseurl = 'https://smartsmssolutions.com/api/json.php?';
 
-                        $result   = $sms->send([
-                            'to'      => $phone,
-                            'message' => $message
-                        ]);
-                return $result;
+                $sms_array = array
+                (
+                    'sender' => $senderid,
+                    'to' => $to,
+                    'message' => $message,
+                    'type' => '0',
+                    'routing' => 3,
+                    'token' => $token
+                );
+
+                $params = http_build_query($sms_array);
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_URL,$baseurl);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+
+                $response = curl_exec($ch);
+
+                curl_close($ch);
+
+                return $response;
 
             }else{
                 return response()->json(['message' => 'Token has already been sent', 'error_code'=>'201']);
@@ -52,12 +61,7 @@ class SendPhoneVerification extends Controller
         }
     }
 
-
-
     function resendToken(Request $request){
-        $username = 'sandbox'; // use 'sandbox' for development in the test environment
-        $apiKey   = '567a99a94c41364e92ac589d0176e7ddbc3a2e8076b1efecbc67249aa50c2a30'; // use your sandbox app API key for development in the test environment
-        $AT       = new AfricasTalking($username, $apiKey);
         $phone = $request->phone;
         $phone_user = User::where('phone', $phone)->first();
 
@@ -80,13 +84,34 @@ class SendPhoneVerification extends Controller
                         $phone = "+234".$phone;
                     }
                     $message = "Gtserviz DeletePhoneToken Verification token " . $token;
-                    $sms      = $AT->sms();
+                $senderid = 'Gtserviz';
+                $to = $phone;
+                $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
+                $baseurl = 'https://smartsmssolutions.com/api/json.php?';
 
-                    $result   = $sms->send([
-                        'to'      => $phone,
-                        'message' => $message
-                    ]);
-                return $result;
+                $sms_array = array
+                (
+                    'sender' => $senderid,
+                    'to' => $to,
+                    'message' => $message,
+                    'type' => '0',
+                    'routing' => 3,
+                    'token' => $token
+                );
+
+                $params = http_build_query($sms_array);
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_URL,$baseurl);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+
+                $response = curl_exec($ch);
+
+                curl_close($ch);
+
+                return $response;
 
             }
         }else{
