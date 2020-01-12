@@ -18,13 +18,14 @@ type Query {
     me: User @middleware(checks:["auth:api"]) @auth
     getCableSubscription(cable: String! @where(operator: "=")): [CableSubscription!]! @all
     getDataPriceListing(network: String! @where(operator: "=")): [DataPriceListing!]! @all
+    getAirtimeTransactions(user_id: ID! @where(operator: "=")): [AirtimeTransaction!]! @all
 
 }
 type Mutation {
     createUser(
-        email: String @rules(apply: ["required"])
+        email: String @rules(apply: ["required","unique:users"])
         full_name: String @rules(apply: ["required"])
-        phone: String @rules(apply: ["required"])
+        phone: String @rules(apply: ["required","unique:users"])
         wallet: String @rules(apply: ["required"])
         password: String @bcrypt(apply: ["required"])
         accessibility:String @rules(apply: ["required"])
@@ -39,13 +40,13 @@ type Mutation {
         reference: String @rules(apply: ["required"])
         network: String @rules(apply: ["required"])
         data: String @rules(apply: ["required"])
-        initial_balance: Float
+        initial_balance: Float @rules(apply: ["required"])
         price: Float @rules(apply: ["required"])
         beneficiary: String @rules(apply: ["required"])
-        new_balance:Float
+        new_balance:Float @rules(apply: ["required"])
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
-        user_id:String
+        user_id:String @rules(apply: ["required"])
     ): DataTransaction @create(model: "App\\DataTransaction")
 
     createCableTransaction(
@@ -64,21 +65,21 @@ type Mutation {
         reference: String @rules(apply: ["required"])
         phone: String @rules(apply: ["required"])
         value: String @rules(apply: ["required"])
-        initial_balance: Float
+        initial_balance: Float @rules(apply: ["required"])
         price: Float @rules(apply: ["required"])
-        new_balance:Float
+        new_balance:Float @rules(apply: ["required"])
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
-        user_id:String
+        user_id:String @rules(apply: ["required"])
     ): AirtimeTransaction @create(model: "App\\AirtimeTransaction")
 
     createElectricityTransaction(
         reference: String @rules(apply: ["required"])
         service: String @rules(apply: ["required"])
         decoder_number: String @rules(apply: ["required"])
-        initial_balance: Float
+        initial_balance: Float @rules(apply: ["required"])
         price: Float @rules(apply: ["required"])
-        new_balance:Float
+        new_balance:Float @rules(apply: ["required"])
         status:String @rules(apply: ["required"])
         method:String @rules(apply: ["required"])
         user_id:String
@@ -95,6 +96,16 @@ type Mutation {
         status:String
     ): QuickBuy @create(model: "App\\QuickBuy")
 
+    createAdminChannelUtil(
+        phone: String
+        email: String
+        account_activation_amount: Float
+        glo_discount:Int
+        airtel_discount:Int
+        mtn_discount:Int
+        etisalat_discount:Int
+    ): AdminChannelUtil @create(model: "App\\AdminChannelUtil")
+
 
     updateUser(
         id:ID!
@@ -107,6 +118,8 @@ type Mutation {
         email_confirmed:Boolean
         phone_verified:Boolean
         unique_id:String
+        active:Boolean
+        bonus_wallet:String
     ): User @update(model: "App\\User")
 
     updateDataTransaction(
@@ -157,6 +170,17 @@ type Mutation {
         method:String
     ): ElectricityTransaction @update(model: "App\\ElectricityTransaction")
 
+    updateAdminChannelUtil(
+        id:ID!
+        phone: String
+        email: String
+        account_activation_amount: Float
+        glo_discount:Int
+        airtel_discount:Int
+        mtn_discount:Int
+        etisalat_discount:Int
+    ): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+
     deleteUser(
         id:ID!
     ): User @delete(model: "App\\User")
@@ -177,6 +201,9 @@ type Mutation {
         id:ID!
     ): ElectricityTransaction @delete(model: "App\\ElectricityTransaction")
 
+    deleteAdminChannelUtil(
+        id:ID!
+    ): AdminChannelUtil @delete(model: "App\\AdminChannelUtil")
 }
 
 type CableSubscription {
@@ -184,6 +211,7 @@ type CableSubscription {
     cable: String!
     plan: String!
     price: String!
+    product_code:String!
 }
 
 type DataPriceListing {
@@ -259,6 +287,11 @@ type QuickBuy {
 }
 type AdminChannelUtil {
     id: ID!
-    phone:String!
-    email:String!
+    phone:String
+    email:String
+    account_activation_amount:Float,
+    glo_discount:Int
+    airtel_discount:Int
+    mtn_discount:Int
+    etisalat_discount:Int
 }

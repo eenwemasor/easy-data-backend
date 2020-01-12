@@ -18,6 +18,7 @@ class CreateCableSubscriptionsTable extends Migration
             $table->string('cable');
             $table->string('plan');
             $table->string('price');
+            $table->string('product_code');
             $table->timestamps();
         });
     }

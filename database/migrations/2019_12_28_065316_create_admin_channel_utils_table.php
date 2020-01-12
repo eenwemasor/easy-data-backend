@@ -17,6 +17,11 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->bigIncrements('id');
             $table->string('phone');
             $table->string('email');
+            $table->string('account_activation_amount');
+            $table->string('glo_discount');
+            $table->string('airtel_discount');
+            $table->string('mtn_discount');
+            $table->string('etisalat_discount');
             $table->timestamps();
         });
     }
