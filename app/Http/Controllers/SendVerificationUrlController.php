@@ -16,6 +16,9 @@ class SendVerificationUrlController extends Controller
 
             if(Mail::to($email)->send(new VerificationEmail($email, $url, $name))){
                 return "done";
+            }else{
+                return "not sent";
+
             }
         }
 }
