@@ -17,13 +17,12 @@ class CreateAirtimeTransactionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('reference');
             $table->string('phone');
-            $table->string('value');
             $table->float('initial_balance')->nullable();
             $table->float('price');
             $table->float('new_balance')->nullable();
             $table->string('status');
             $table->string('method');
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

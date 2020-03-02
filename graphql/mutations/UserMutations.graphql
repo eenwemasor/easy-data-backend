@@ -1,0 +1,7 @@
+extend type Mutation {
+    CreateUser(input: CreateUserInput! @spread): User @create(model: "App\\User")
+
+    UpdateUser(input: UpdateUserInput! @spread): User @update(model: "App\\User")
+
+    UpdateUserPassword(id: ID!, password: String! @bcrypt): User @update(model: "App\\User")
+}

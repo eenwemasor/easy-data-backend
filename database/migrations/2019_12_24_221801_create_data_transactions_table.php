@@ -24,7 +24,7 @@ class CreateDataTransactionsTable extends Migration
             $table->float('new_balance')->nullable();
             $table->string('status');
             $table->string('method');
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

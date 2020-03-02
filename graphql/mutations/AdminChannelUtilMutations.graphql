@@ -1,0 +1,5 @@
+extend type Mutation {
+    CreateAdminChannelUtil(input: CreateAdminChannelUtilInput! @spread): AdminChannelUtil @create(model: "App\\AdminChannelUtil")
+
+    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+}

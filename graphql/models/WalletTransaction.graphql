@@ -1,0 +1,24 @@
+type WalletTransaction{
+    id: ID!
+    transaction_type: TransactionType!
+    description:String!
+    amount: String!
+    initial_balance: Float!
+    balance: Float!
+    wallet: WalletType!
+    beneficiary: String
+    user_id: ID
+    status:String
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+enum WalletType{
+    WALLET
+    BONUS_WALLET
+}
+
+enum TransactionType{
+    DEBIT
+    CREDIT
+}

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DataPriceListing extends Model
+class CablePlanList extends Model
 {
     protected $fillable = [
-        'network','plan','price'
+        'cable','plan','price','product_code'
     ];
 }

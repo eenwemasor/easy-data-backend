@@ -1,0 +1,4 @@
+type PowerPlanList{
+    id: ID!
+    description: String!
+}

@@ -1,0 +1,4 @@
+extend type Mutation {
+    CreateDataTransaction(input: CreateDataTransactionInput! @spread): DataTransaction @field(resolver: "DataTransaction@resolve")
+
+}

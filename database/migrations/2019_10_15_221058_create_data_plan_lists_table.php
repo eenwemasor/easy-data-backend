@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDataPriceListingsTable extends Migration
+class CreateDataPlanListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDataPriceListingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_price_listings', function (Blueprint $table) {
+        Schema::create('data_plan_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('network');
             $table->string('plan');
@@ -29,6 +29,6 @@ class CreateDataPriceListingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_price_listings');
+        Schema::dropIfExists('data_plan_lists');
     }
 }

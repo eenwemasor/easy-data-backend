@@ -1,0 +1,11 @@
+type AdminChannelUtil {
+    id: ID!
+    phone: String
+    email: String
+    account_activation_amount: Float
+    glo_discount: Int
+    airtel_discount: Int
+    mtn_discount: Int
+    etisalat_discount: Int
+        bitcoin_buying_rate:Float
+}

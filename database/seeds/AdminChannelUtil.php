@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminChannelUtil extends Seeder
 {
@@ -18,7 +19,8 @@ class AdminChannelUtil extends Seeder
             'glo_discount'=> '3',
             'airtel_discount'=> '2',
             'mtn_discount'=> '2',
-            'etisalat_discount'=> '2'
+            'etisalat_discount'=> '2',
+            'bitcoin_buying_rate'=>'340'
         ],
     ]);
     }

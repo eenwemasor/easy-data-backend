@@ -2,8 +2,9 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class CableSubscriptions extends Seeder
+class CablePlanListSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +13,7 @@ class CableSubscriptions extends Seeder
      */
     public function run()
     {
-        DB::table('cable_subscriptions')->insert([
+        DB::table('cable_plan_lists')->insert([
             [
                 'cable' => 'GOTV',
                 'plan' => 'Gotv Value',
@@ -120,5 +121,5 @@ class CableSubscriptions extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
         ]);
-    }
+}
 }

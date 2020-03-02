@@ -1,0 +1,3 @@
+extend type Mutation {
+    CreateWalletTransaction(input: CreateWalletTransactionInput! @spread): WalletTransaction @field(resolver: "WalletTransaction@resolve")
+}

@@ -1,0 +1,30 @@
+input CreateUserInput{
+    email: String @rules(apply: ["required", "unique:users"])
+    full_name: String!
+    phone: String @rules(apply: ["required", "unique:users"])
+    wallet: Float!
+    password: String @bcrypt(apply: ["required"])
+    accessibility: String!
+    email_confirmed: Boolean!
+    phone_verified: Boolean!
+    unique_id: String!
+    active: Boolean!
+    bonus_wallet: Float!
+}
+input UpdateUserInput{
+    id:ID!
+    email: String
+    full_name: String
+    phone: String
+    password: String
+    accessibility: String
+    email_confirmed: Boolean
+    phone_verified: Boolean
+}
+input SyncTransactionInput{
+    id:ID!
+    wallet: Float!
+    bonus_wallet: Float!
+    from:String!
+}
+

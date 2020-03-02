@@ -1,0 +1,7 @@
+type CablePlanList {
+    id: ID!
+    cable: String!
+    plan: String!
+    price: String!
+    product_code: String!
+}

@@ -1,0 +1,16 @@
+type ElectricityTransaction {
+    id: ID!
+    reference: String!
+    decoder:decoder!
+    decoder_number:String!
+    beneficiary_name:String!
+    plan:String!
+    initial_balance: Float
+    price: Float!
+    new_balance: Float
+    status: String!
+    method: WalletType!
+    user_id: String
+    created_at: DateTime
+    updated_at: DateTime
+}

@@ -1,0 +1,4 @@
+extend type Mutation {
+    CreateElectricityTransaction(input: CreateElectricityTransactionInput! @spread): ElectricityTransaction @field(resolver: "ElectricityTransaction@resolve")
+
+}

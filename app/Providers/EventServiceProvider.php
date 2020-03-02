@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Listeners\AdminListener;
+use App\Listeners\TransactionListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +20,36 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\AirtimeTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+        'App\Events\CableTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+        'App\Events\DataTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+        'App\Events\ElectricityTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\QuickBuyEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+        'App\Events\WalletTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+    ];
+
+    protected $subscribe = [
+        AdminListener::class,
+        TransactionListener::class
     ];
 
     /**

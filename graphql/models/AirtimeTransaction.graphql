@@ -1,0 +1,14 @@
+type AirtimeTransaction {
+    id: ID!
+    reference: String!
+    phone: String!
+    initial_balance: Float
+    price: Float!
+    new_balance: Float
+    status: String!
+    method: WalletType!
+    user_id: String
+    created_at: DateTime
+    updated_at: DateTime
+}
+

@@ -22,6 +22,7 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->string('airtel_discount');
             $table->string('mtn_discount');
             $table->string('etisalat_discount');
+            $table->float('bitcoin_buying_rate');
             $table->timestamps();
         });
     }

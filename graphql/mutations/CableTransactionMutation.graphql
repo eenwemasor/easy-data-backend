@@ -1,0 +1,4 @@
+extend type Mutation {
+    CreateCableTransaction(input: CreateCableTransactionInput! @spread): CableTransaction @field(resolver: "CableTransaction@resolve")
+
+}

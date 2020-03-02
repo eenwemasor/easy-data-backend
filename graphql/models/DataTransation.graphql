@@ -1,0 +1,15 @@
+type DataTransaction {
+    id: ID!
+    reference: String!
+    network: String!
+    data: String!
+    initial_balance: Float
+    price: Float!
+    beneficiary: String!
+    new_balance: Float
+    status: String!
+    method: WalletType!
+    user_id: String!
+    created_at: DateTime
+    updated_at: DateTime
+}

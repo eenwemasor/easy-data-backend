@@ -1,0 +1,13 @@
+type QuickBuy {
+    id: ID!
+    reference: String!
+    transaction_type: String!
+    network: String
+    plan: String
+    amount: Float!
+    beneficiary: String
+    email: String!
+    status: String
+    created_at: DateTime
+    updated_at: DateTime
+}

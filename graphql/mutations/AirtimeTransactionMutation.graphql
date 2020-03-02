@@ -1,0 +1,4 @@
+extend type Mutation {
+    CreateAirtimeTransaction(input: CreateAirtimeTransactionInput! @spread): AirtimeTransaction @field(resolver: "AirtimeTransaction@resolve")
+
+}
