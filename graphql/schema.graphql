@@ -42,7 +42,7 @@ type Query {
 
 type Mutation {
     # This mutation is just here so the graphql schema can be properly compiled, please define an actual correct mutation for your application
-    createUser(id: ID!): User! @create
+    registereUser(id: ID!): User! @create
 }
 
 
