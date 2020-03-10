@@ -1,0 +1,3 @@
+extend type Mutation {
+    CreateGiftcardTransaction(input: CreateGiftcardTransactionInput! @spread): GiftcardTransaction @field(resolver: "GiftcardTransaction@resolve")
+}

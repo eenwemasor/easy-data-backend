@@ -7,5 +7,5 @@ type AdminChannelUtil {
     airtel_discount: Int
     mtn_discount: Int
     etisalat_discount: Int
-        bitcoin_buying_rate:Float
+    bitcoin_buying_rate:Float
 }

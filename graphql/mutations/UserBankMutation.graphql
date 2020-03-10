@@ -1,0 +1,3 @@
+extend type Mutation {
+    CreateUserBank(input: CreateUserBankInput! @spread): UserBank @field(resolver: "UserBank@resolve")
+}

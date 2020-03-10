@@ -1,0 +1,10 @@
+input CreateGiftcardTransactionInput{
+    reference_number: String!
+    gift_card_type: String!
+    amount_to_sell: Float!
+    amount_to_receive: Float!
+    initial_balance: Float!
+    balance: Float!
+    user_id: ID!
+    status:TransactionStatus!
+}

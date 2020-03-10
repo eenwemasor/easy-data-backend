@@ -1,0 +1,3 @@
+extend type Mutation {
+    CreateAirtimeToCashTransaction(input: CreateAirtimeToCashTransactionInput! @spread): AirtimeToCashTransaction @field(resolver: "AirtimeToCashTransaction@resolve")
+}

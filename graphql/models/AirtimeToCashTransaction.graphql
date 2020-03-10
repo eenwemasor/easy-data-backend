@@ -1,0 +1,13 @@
+type AirtimeToCashTransaction {
+    id: ID!
+    reference_number:String!
+    network:String!
+    amount:Float!
+    sender_phone:String!
+    recipient_phone:String!
+    initial_balance:Float!
+    balance:Float!
+    user_id:ID!
+    status:TransactionStatus!
+}
+

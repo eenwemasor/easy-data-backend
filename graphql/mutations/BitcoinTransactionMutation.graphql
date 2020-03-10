@@ -1,0 +1,4 @@
+extend type Mutation {
+    CreateBitcoinTransaction(input: CreateBitcoinTransactionInput! @spread): BitcoinTransaction @field(resolver: "BitcoinTransaction@resolve")
+
+}

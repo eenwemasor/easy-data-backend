@@ -14,6 +14,7 @@ type CableTransaction {
     created_at: DateTime
     updated_at: DateTime
 }
+
 enum decoder{
     DSTV
     GOTV
