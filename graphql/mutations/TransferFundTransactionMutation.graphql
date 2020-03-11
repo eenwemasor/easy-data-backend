@@ -1,0 +1,3 @@
+extend type Mutation {
+    CreateTransferFundTransaction(input: CreateTransferFundTransactionInput! @spread): TransferFundTransaction @field(resolver: "TransferFundTransaction@resolve")
+}

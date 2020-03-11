@@ -1,0 +1,4 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getWalletTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [WalletTransaction!]! @paginate(type: "paginator" model: "App\\WalletTransaction")
+
+}

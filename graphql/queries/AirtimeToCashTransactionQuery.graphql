@@ -1,0 +1,3 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getAirtimeToCashTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [AirtimeToCashTransaction!]! @paginate(type: "paginator" model: "App\\AirtimeToCashTransaction")
+}

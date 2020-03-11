@@ -1,0 +1,15 @@
+extend type Query{
+
+    getAdminChannelUtil(id: ID @eq): AdminChannelUtil @find
+
+    getCablePlanList(
+        cable: String! @where(operator: "=")
+    ): [CablePlanList!]! @all
+    getDataPlanList(
+        network: String! @where(operator: "=")
+    ): [DataPlanList!]! @all
+
+    getAllDataPlanList: [DataPlanList!]! @all
+    getAllCablePlanList: [CablePlanList!]! @all
+    getAllPowerPlanList: [PowerPlanList!]! @all
+}

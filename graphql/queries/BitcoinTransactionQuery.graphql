@@ -1,0 +1,3 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getBitcoinTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [BitcoinTransaction!]! @paginate(type: "paginator" model: "App\\BitcoinTransaction")
+}

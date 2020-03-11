@@ -6,38 +6,13 @@ scalar DateTime
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
-    users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
-
-    data_transaction(id: ID @eq): DataTransaction @find
-    cable_transaction(id: ID @eq): CableTransaction @find
-    airtime_transaction(id: ID @eq): AirtimeTransaction @find
-    electricity_transaction(id: ID @eq): ElectricityTransaction @find
-
-    userUniqueID(unique_id: ID @eq): User @find
-    getAdminChannelUtil(id: ID @eq): AdminChannelUtil @find
-    me: User @middleware(checks: ["auth:api"]) @auth
-    getCablePlanList(
-        cable: String! @where(operator: "=")
-    ): [CablePlanList!]! @all
-    getDataPlanList(
-        network: String! @where(operator: "=")
-    ): [DataPlanList!]! @all
-
-    getAllDataPlanList: [DataPlanList!]! @all
-    getAllCablePlanList: [CablePlanList!]! @all
-    getAllPowerPlanList: [PowerPlanList!]! @all
-
-    getAirtimeTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [AirtimeTransaction!]! @paginate(type: "paginator" model: "App\\AirtimeTransaction")
-    getWalletTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [WalletTransaction!]! @paginate(type: "paginator" model: "App\\WalletTransaction")
-    getDataTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [DataTransaction!]! @paginate(type: "paginator" model: "App\\DataTransaction")
-    getCableTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [CableTransaction!]! @paginate(type: "paginator" model: "App\\CableTransaction")
-    getElectricityTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [ElectricityTransaction!]! @paginate(type: "paginator" model: "App\\ElectricityTransaction")
 }
 
 #import inputs/*.graphql
 #import models/*.graphql
 #import mutations/*.graphql
+#import queries/*.graphql
 
 
 type Mutation {

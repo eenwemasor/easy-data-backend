@@ -1,0 +1,10 @@
+type TransferFundTransaction {
+    id: ID!
+    reference_number: String!
+    amount: Float!
+    initial_balance: Float!
+    balance: Float!
+    bank_id: ID!
+    user_id: ID!
+    status: TransactionStatus!
+}

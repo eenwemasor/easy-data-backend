@@ -1,0 +1,3 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getElectricityTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [ElectricityTransaction!]! @paginate(type: "paginator" model: "App\\ElectricityTransaction")
+}

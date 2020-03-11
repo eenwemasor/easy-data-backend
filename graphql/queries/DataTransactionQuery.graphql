@@ -1,0 +1,3 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getDataTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [DataTransaction!]! @paginate(type: "paginator" model: "App\\DataTransaction")
+}
