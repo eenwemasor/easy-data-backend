@@ -11,8 +11,7 @@ interface WalletTransactionContract
 {
     /**
      * @param array $WalletTransaction
-     * @param User $user
      * @return WalletTransaction
      */
-    public function create(array $WalletTransaction,User $user):WalletTransaction;
+    public function create(array $WalletTransaction):WalletTransaction;
 }

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
-use App\AirtimeTransaction;
+use App\AirtimeToCashTransaction;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AirtimeTransactionUserMail extends Mailable
+class AirtimeToCashTransactionUserMail extends Mailable
 {
     use Queueable, SerializesModels;
     /**
@@ -17,21 +17,21 @@ class AirtimeTransactionUserMail extends Mailable
      */
     public $user;
     /**
-     * @var AirtimeTransaction
+     * @var AirtimeToCashTransaction
      */
-    public $airtimeTransaction;
+    public $airtimeToCashTransaction;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param AirtimeTransaction $airtimeTransaction
+     * @param AirtimeToCashTransaction $airtimeToCashTransaction
      */
-    public function __construct(User $user, AirtimeTransaction $airtimeTransaction)
+    public function __construct(User $user, AirtimeToCashTransaction $airtimeToCashTransaction)
     {
         //
         $this->user = $user;
-        $this->airtimeTransaction = $airtimeTransaction;
+        $this->airtimeToCashTransaction = $airtimeToCashTransaction;
     }
 
     /**
@@ -41,6 +41,6 @@ class AirtimeTransactionUserMail extends Mailable
      */
     public function build()
     {
-        return $this->view('user.user_airtime_transaction');
+        return $this->view('user.user_airtime_to_cash_transaction');
     }
 }

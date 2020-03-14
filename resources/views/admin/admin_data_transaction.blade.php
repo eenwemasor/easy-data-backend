@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td>Amount:</td>
-                        <td>{{$dataTransaction->price}}</td>
+                        <td>{{$dataTransaction->amount}}</td>
                     </tr>
 
                     <tr>

@@ -1,4 +1,4 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateDataTransaction(input: CreateDataTransactionInput! @spread): DataTransaction @field(resolver: "DataTransaction@resolve")
 
 }

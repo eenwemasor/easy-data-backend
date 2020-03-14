@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
-use App\CableTransaction;
+use App\GiftcardTransaction;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class CableTransactionUserMail extends Mailable
+class GiftcardTransactionUserMail extends Mailable
 {
     use Queueable, SerializesModels;
     /**
@@ -17,23 +17,22 @@ class CableTransactionUserMail extends Mailable
      */
     public $user;
     /**
-     * @var CableTransaction
+     * @var GiftcardTransaction
      */
-    public $cableTransaction;
+    public $giftcardTransaction;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param CableTransaction $cableTransaction
+     * @param GiftcardTransaction $giftcardTransaction
      */
-    public function __construct(User $user, CableTransaction $cableTransaction)
+    public function __construct(User $user, GiftcardTransaction $giftcardTransaction)
     {
         //
         $this->user = $user;
-        $this->cableTransaction = $cableTransaction;
+        $this->giftcardTransaction = $giftcardTransaction;
     }
-
 
     /**
      * Build the message.
@@ -42,6 +41,6 @@ class CableTransactionUserMail extends Mailable
      */
     public function build()
     {
-        return $this->view('user.user_cable_transaction');
+        return $this->view('user.user_gift_card_transaction');
     }
 }

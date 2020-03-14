@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class DataPlanList extends Model
 {
     protected $fillable = [
-        'network','plan','price'
+        'network','plan','amount'
     ];
 }

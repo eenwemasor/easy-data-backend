@@ -26,7 +26,7 @@ class CableTransactionRepository implements CableTransactionContract
         $beneficiary_name = $cableTransaction["beneficiary_name"];
         $decoder_number = $cableTransaction["decoder_number"];
         $plan = $cableTransaction["plan"];
-        $amount = $cableTransaction["price"];
+        $amount = $cableTransaction["amount"];
 
         $message = "Cable Tv Purchase Request: Decoder: "
             .$decoder." Beneficiary Name: "

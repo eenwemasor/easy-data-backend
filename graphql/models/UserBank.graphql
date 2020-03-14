@@ -4,4 +4,6 @@ type UserBank {
     bank_name: String!
     bank_number: String!
     user_id: ID!
+    created_at: DateTime
+    updated_at: DateTime
 }

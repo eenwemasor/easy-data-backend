@@ -45,6 +45,35 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
         ],
+        'App\Events\AirtimeToCashTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\AirtimeToWalletTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\BitcoinTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\GiftcardTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\TransferFundTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
+
+        'App\Events\WithdrawFundTransactionEvent' => [
+            'App\Listeners\AdminListener',
+            'App\Listeners\TransactionListener',
+        ],
     ];
 
     protected $subscribe = [

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,9 +22,14 @@ class CreateCableTransactionsTable extends Migration
             $table->string('beneficiary_name');
             $table->string('plan');
             $table->float('initial_balance')->nullable();
-            $table->float('price');
+            $table->float('amount');
             $table->float('new_balance')->nullable();
-            $table->string('status');
+            $table->enum('status', [
+                TransactionStatus::SENT,
+                TransactionStatus::COMPLETED,
+                TransactionStatus::PROCESSING,
+                TransactionStatus::FAILED,
+            ]);
             $table->string('method');
             $table->bigInteger('user_id');
             $table->timestamps();

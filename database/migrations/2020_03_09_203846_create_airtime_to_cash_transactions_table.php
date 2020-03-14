@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\NetworkType;
+use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,15 +17,25 @@ class CreateAirtimeToCashTransactionsTable extends Migration
     {
         Schema::create('airtime_to_cash_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('reference_number');
-            $table->string('network');
+            $table->string('reference');
+            $table->enum('network', [
+                NetworkType::AIRTEL,
+                NetworkType::GLO,
+                NetworkType::MTN,
+                NetworkType::NINE_MOBILE,
+            ]);
             $table->float('amount');
-            $table->float('sender_phone');
-            $table->float('recipient_phone');
+            $table->string('sender_phone');
+            $table->string('recipient_phone');
             $table->float('initial_balance');
-            $table->float('balance');
+            $table->float('new_balance');
             $table->bigInteger('user_id');
-            $table->string('status');
+            $table->enum('status', [
+                TransactionStatus::SENT,
+                TransactionStatus::COMPLETED,
+                TransactionStatus::PROCESSING,
+                TransactionStatus::FAILED,
+            ]);
             $table->timestamps();
         });
     }

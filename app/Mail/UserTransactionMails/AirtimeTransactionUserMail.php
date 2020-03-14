@@ -1,40 +1,38 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
-use App\ElectricityTransaction;
+use App\AirtimeTransaction;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ElectricityTransactionUserMail extends Mailable
+class AirtimeTransactionUserMail extends Mailable
 {
     use Queueable, SerializesModels;
-
     /**
      * @var User
      */
     public $user;
     /**
-     * @var ElectricityTransaction
+     * @var AirtimeTransaction
      */
-    public $electricityTransaction;
+    public $airtimeTransaction;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param ElectricityTransaction $electricityTransaction
+     * @param AirtimeTransaction $airtimeTransaction
      */
-    public function __construct(User $user, ElectricityTransaction $electricityTransaction)
+    public function __construct(User $user, AirtimeTransaction $airtimeTransaction)
     {
         //
         $this->user = $user;
-        $this->electricityTransaction = $electricityTransaction;
+        $this->airtimeTransaction = $airtimeTransaction;
     }
-
 
     /**
      * Build the message.
@@ -43,6 +41,6 @@ class ElectricityTransactionUserMail extends Mailable
      */
     public function build()
     {
-        return $this->view('user.user_electricity_transaction');
+        return $this->view('user.user_airtime_transaction');
     }
 }

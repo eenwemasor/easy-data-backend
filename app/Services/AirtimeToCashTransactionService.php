@@ -10,6 +10,8 @@ namespace App\Services;
 
 
 use App\AirtimeToCashTransaction;
+use App\Enums\TransactionStatus;
+use App\Events\AirtimeToCashTransactionEvent;
 use App\Http\Controllers\UserController;
 use App\Repositories\AirtimeToCashTransactionRepository;
 
@@ -19,16 +21,21 @@ class AirtimeToCashTransactionService
      * @var AirtimeToCashTransactionRepository
      */
     private $airtime_to_cash_transaction_repository;
+    /**
+     * @var WalletTransactionService
+     */
+    private $walletTransactionService;
 
     /**
      * AirtimeToCashTransactionService constructor.
      * @param AirtimeToCashTransactionRepository $airtime_to_cash_transaction_repository
      */
-    function __construct(AirtimeToCashTransactionRepository $airtime_to_cash_transaction_repository)
+    function __construct(AirtimeToCashTransactionRepository $airtime_to_cash_transaction_repository, WalletTransactionService $walletTransactionService)
     {
         $this->airtime_to_cash_transaction_repository = $airtime_to_cash_transaction_repository;
 
 
+        $this->walletTransactionService = $walletTransactionService;
     }
 
 
@@ -39,7 +46,36 @@ class AirtimeToCashTransactionService
      */
     public function create(array  $airtimeToCashTransaction )
     {
-        $airtime_to_cash_transaction = $this->airtime_to_cash_transaction_repository->create($airtimeToCashTransaction);
+
+        $data = collect($airtimeToCashTransaction);
+
+        $walletTransactionData = $data->only([
+            'transaction_type',
+            'description',
+            'amount',
+            'beneficiary',
+            'user_id',
+        ])->toArray();
+
+
+        $walletTransactionResult =  $this->walletTransactionService->create($walletTransactionData);
+        $airtimeToCashData = $data->only([
+            'phone',
+            'network',
+            'sender_phone',
+            'recipient_phone'
+        ])->toArray();
+
+        $wallet_result = collect($walletTransactionResult);
+        $wallet_result['status'] =TransactionStatus::SENT;
+        $airtimeToCashTransactionData = array_merge(
+            $wallet_result->except([
+                'transaction_type',
+                'description'
+            ])->toArray(), $airtimeToCashData);
+        
+        
+        $airtime_to_cash_transaction = $this->airtime_to_cash_transaction_repository->create($airtimeToCashTransactionData);
         $user_cont = New UserController();
         $user = $user_cont->getUserById($airtimeToCashTransaction["user_id"]);
         $admin = $user_cont->getAdmin();

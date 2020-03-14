@@ -1,38 +1,37 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
-use App\DataTransaction;
 use App\User;
+use App\WalletTransaction;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class DataTransactionUserMail extends Mailable
+class WalletTransactionUserMail extends Mailable
 {
     use Queueable, SerializesModels;
-
     /**
      * @var User
      */
     public $user;
     /**
-     * @var DataTransaction
+     * @var WalletTransaction
      */
-    public $dataTransaction;
+    public $walletTransaction;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param DataTransaction $dataTransaction
+     * @param WalletTransaction $walletTransaction
      */
-    public function __construct(User  $user, DataTransaction $dataTransaction)
+    public function __construct(User $user, WalletTransaction $walletTransaction)
     {
         //
         $this->user = $user;
-        $this->dataTransaction = $dataTransaction;
+        $this->walletTransaction = $walletTransaction;
     }
 
     /**
@@ -42,6 +41,6 @@ class DataTransactionUserMail extends Mailable
      */
     public function build()
     {
-        return $this->view('user.user_data_transaction');
+        return $this->view('user.user_wallet_transaction');
     }
 }

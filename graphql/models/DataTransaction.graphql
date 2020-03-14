@@ -1,15 +1,15 @@
 type DataTransaction {
     id: ID!
     reference: String!
-    network: String!
+    network: NetworkType!
     data: String!
     initial_balance: Float
-    price: Float!
+    amount: Float!
     beneficiary: String!
     new_balance: Float
-    status: String!
+    status: TransactionStatus!
     method: WalletType!
-    user_id: String!
+    user_id: ID!
     created_at: DateTime
     updated_at: DateTime
 }

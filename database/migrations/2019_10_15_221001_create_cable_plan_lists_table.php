@@ -17,7 +17,7 @@ class CreateCablePlanListsTable extends Migration
            $table->increments('id');
             $table->string('cable');
             $table->string('plan');
-            $table->string('price');
+            $table->string('amount');
             $table->string('product_code');
             $table->timestamps();
         });

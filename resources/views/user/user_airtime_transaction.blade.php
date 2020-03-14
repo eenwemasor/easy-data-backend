@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td>Amount:</td>
-                        <td>{{$airtimeTransaction->price}}</td>
+                        <td>{{$airtimeTransaction->amount}}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -16,27 +16,27 @@
                     <tbody>
                     <tr>
                         <td>Reference:</td>
-                        <td>{{$cableTransaction->reference}}</td>
+                        <td>{{$electricityTransaction->reference}}</td>
                     </tr>
                     <tr>
                         <td>Decoder:</td>
-                        <td>{{$cableTransaction->decoder}}</td>
+                        <td>{{$electricityTransaction->decoder}}</td>
                     </tr>
                     <tr>
                         <td>Decoder Number:</td>
-                        <td>{{$cableTransaction->decoder_number}}</td>
+                        <td>{{$electricityTransaction->decoder_number}}</td>
                     </tr>
                     <tr>
                         <td>Beneficiary Name: </td>
-                        <td>{{$cableTransaction->beneficiary_name}}</td>
+                        <td>{{$electricityTransaction->beneficiary_name}}</td>
                     </tr>
                     <tr>
                         <td>Plan: </td>
-                        <td>{{$cableTransaction->plan}}</td>
+                        <td>{{$electricityTransaction->plan}}</td>
                     </tr>
                     <tr>
                         <td>Amount:</td>
-                        <td>{{$cableTransaction->price    }}</td>
+                        <td>{{$electricityTransaction->amount    }}</td>
                     </tr>
                     <tr>
                         <td>From:</td>

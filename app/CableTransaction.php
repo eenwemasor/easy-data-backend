@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CableTransaction extends Model
 {
     protected $fillable = [
-        'reference','decoder','decoder_number','beneficiary_name','plan','initial_balance','price','new_balance','status','method','user_id'
+        'reference','decoder','decoder_number','beneficiary_name','plan','initial_balance','amount','new_balance','status','method','user_id'
     ];
 
     public function user(){

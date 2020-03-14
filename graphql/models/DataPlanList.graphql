@@ -1,6 +1,6 @@
 type DataPlanList{
     id: ID!
-    network: String!
+    network: NetworkType!
     plan: String!
-    price: String!
+    amount: String!
 }

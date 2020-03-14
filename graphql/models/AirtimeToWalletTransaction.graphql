@@ -1,12 +1,14 @@
 type AirtimeToWalletTransaction {
     id: ID!
-    reference_number:String!
-    network:String!
+    reference:String!
+    network:NetworkType!
     amount:Float!
     sender_phone:String!
     recipient_phone:String!
     initial_balance:Float!
-    balance:Float!
+    new_balance:Float!
     user_id:ID!
     status:TransactionStatus!
+    created_at: DateTime
+    updated_at: DateTime
 }

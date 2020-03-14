@@ -1,35 +1,39 @@
 <?php
 
-namespace App\Mail\AdminMails;
+namespace App\Mail\AdminTransactionMails;
 
-use App\QuickBuy;
+use App\DataTransaction;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class QuickBuyAdminMail extends Mailable
+class DataTransactionAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
+    /**
+     * @var User
+     */
     public $admin;
     /**
-     * @var QuickBuy
+     * @var DataTransaction
      */
-    public $quickBuy;
+    public $dataTransaction;
     public $user;
 
     /**
      * Create a new message instance.
      *
-     * @param $admin
-     * @param QuickBuy $quickBuy
+     * @param User $admin
+     * @param DataTransaction $dataTransaction
      * @param $user
      */
-    public function __construct($admin, QuickBuy $quickBuy, $user)
+    public function __construct(User  $admin, DataTransaction $dataTransaction, $user)
     {
         //
         $this->admin = $admin;
-        $this->quickBuy = $quickBuy;
+        $this->dataTransaction = $dataTransaction;
         $this->user = $user;
     }
 
@@ -40,6 +44,6 @@ class QuickBuyAdminMail extends Mailable
      */
     public function build()
     {
-        return $this->view('admin.admin_quick_buy');
+        return $this->view('admin.admin_data_transaction');
     }
 }

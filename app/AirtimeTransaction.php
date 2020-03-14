@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AirtimeTransaction extends Model
 {
     protected $fillable = [
-        'reference','phone','initial_balance','price','new_balance','status','method','user_id'
+        'reference','phone','initial_balance','amount','new_balance','status','method','user_id'
     ];
 
     public function user(){

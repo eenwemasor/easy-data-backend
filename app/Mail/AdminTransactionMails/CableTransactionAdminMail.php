@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Mail\AdminMails;
+namespace App\Mail\AdminTransactionMails;
 
-use App\DataTransaction;
+use App\CableTransaction;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class DataTransactionAdminMail extends Mailable
+class CableTransactionAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
     /**
@@ -17,23 +17,23 @@ class DataTransactionAdminMail extends Mailable
      */
     public $admin;
     /**
-     * @var DataTransaction
+     * @var CableTransaction
      */
-    public $dataTransaction;
+    public $cableTransaction;
     public $user;
 
     /**
      * Create a new message instance.
      *
      * @param User $admin
-     * @param DataTransaction $dataTransaction
+     * @param CableTransaction $cableTransaction
      * @param $user
      */
-    public function __construct(User  $admin, DataTransaction $dataTransaction, $user)
+    public function __construct(User $admin, CableTransaction $cableTransaction, $user)
     {
         //
         $this->admin = $admin;
-        $this->dataTransaction = $dataTransaction;
+        $this->cableTransaction = $cableTransaction;
         $this->user = $user;
     }
 
@@ -44,6 +44,6 @@ class DataTransactionAdminMail extends Mailable
      */
     public function build()
     {
-        return $this->view('admin.admin_data_transaction');
+        return $this->view('admin.admin_cable_transaction');
     }
 }

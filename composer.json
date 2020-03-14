@@ -15,6 +15,7 @@
         "bensampo/laravel-enum": "^1.33",
         "fideloper/proxy": "^4.0",
         "fzaninotto/faker": "^1.4",
+        "guzzlehttp/guzzle": "~6.3.3",
         "joselfonseca/lighthouse-graphql-passport-auth": "^2.0",
         "laravel/framework": "^6.2",
         "laravel/passport": "^7.5",

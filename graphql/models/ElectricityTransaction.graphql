@@ -6,11 +6,11 @@ type ElectricityTransaction {
     beneficiary_name:String!
     plan:String!
     initial_balance: Float
-    price: Float!
+    amount: Float!
     new_balance: Float
-    status: String!
+    status: TransactionStatus!
     method: WalletType!
-    user_id: String
+    user_id: ID!
     created_at: DateTime
     updated_at: DateTime
 }

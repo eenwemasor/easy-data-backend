@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
 use App\QuickBuy;
 use Illuminate\Bus\Queueable;

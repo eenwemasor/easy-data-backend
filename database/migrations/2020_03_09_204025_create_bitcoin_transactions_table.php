@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,14 +16,19 @@ class CreateBitcoinTransactionsTable extends Migration
     {
         Schema::create('bitcoin_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('reference_number');
+            $table->string('reference');
             $table->string('amount_to_sell');
             $table->string('amount_to_receive');
             $table->float('initial_balance');
-            $table->float('balance');
+            $table->float('new_balance');
             $table->float('buying_rate');
             $table->bigInteger('user_id');
-            $table->string('status');
+            $table->enum('status', [
+                TransactionStatus::SENT,
+                TransactionStatus::COMPLETED,
+                TransactionStatus::PROCESSING,
+                TransactionStatus::FAILED,
+            ]);
             $table->timestamps();
         });
     }

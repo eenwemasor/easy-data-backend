@@ -36,7 +36,7 @@
                     </tr>
                     <tr>
                         <td>Amount:</td>
-                        <td>{{$electricityTransaction->price}}</td>
+                        <td>{{$electricityTransaction->amount}}</td>
                     </tr>
                     </tbody>
                 </table>

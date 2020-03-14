@@ -1,4 +1,4 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateAirtimeTransaction(input: CreateAirtimeTransactionInput! @spread): AirtimeTransaction @field(resolver: "AirtimeTransaction@resolve")
 
 }

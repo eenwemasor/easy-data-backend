@@ -37,3 +37,25 @@ enum TransactionStatus{
     COMPLETED
     FAILED
 }
+
+enum WalletTransactionStatus{
+    SUCCESSFUL
+    FAILED
+}
+enum WalletType{
+    WALLET
+    BONUS_WALLET
+}
+
+enum NetworkType{
+    GLO
+    MTN
+    AIRTEL
+    ETISALAT
+}
+
+
+enum TransactionType{
+    DEBIT
+    CREDIT
+}

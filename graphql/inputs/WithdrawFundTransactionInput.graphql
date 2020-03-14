@@ -1,9 +1,7 @@
 input CreateWithdrawFundTransactionInput{
-    reference_number: String!
+    transaction_type: TransactionType!
+    description:String!
     amount: Float!
-    initial_balance: Float!
-    balance: Float!
     bank_id: ID!
     user_id: ID!
-    status: TransactionStatus!
 }

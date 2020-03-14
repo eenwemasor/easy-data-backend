@@ -1,39 +1,35 @@
 <?php
 
-namespace App\Mail\AdminMails;
+namespace App\Mail\AdminTransactionMails;
 
-use App\CableTransaction;
-use App\User;
+use App\QuickBuy;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class CableTransactionAdminMail extends Mailable
+class QuickBuyAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
-    /**
-     * @var User
-     */
     public $admin;
     /**
-     * @var CableTransaction
+     * @var QuickBuy
      */
-    public $cableTransaction;
+    public $quickBuy;
     public $user;
 
     /**
      * Create a new message instance.
      *
-     * @param User $admin
-     * @param CableTransaction $cableTransaction
+     * @param $admin
+     * @param QuickBuy $quickBuy
      * @param $user
      */
-    public function __construct(User $admin, CableTransaction $cableTransaction, $user)
+    public function __construct($admin, QuickBuy $quickBuy, $user)
     {
         //
         $this->admin = $admin;
-        $this->cableTransaction = $cableTransaction;
+        $this->quickBuy = $quickBuy;
         $this->user = $user;
     }
 
@@ -44,6 +40,6 @@ class CableTransactionAdminMail extends Mailable
      */
     public function build()
     {
-        return $this->view('admin.admin_cable_transaction');
+        return $this->view('admin.admin_quick_buy');
     }
 }

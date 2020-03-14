@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Mail\UserMails;
+namespace App\Mail\UserTransactionMails;
 
+use App\CableTransaction;
 use App\User;
-use App\WalletTransaction;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class WalletTransactionUserMail extends Mailable
+class CableTransactionUserMail extends Mailable
 {
     use Queueable, SerializesModels;
     /**
@@ -17,22 +17,23 @@ class WalletTransactionUserMail extends Mailable
      */
     public $user;
     /**
-     * @var WalletTransaction
+     * @var CableTransaction
      */
-    public $walletTransaction;
+    public $cableTransaction;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param WalletTransaction $walletTransaction
+     * @param CableTransaction $cableTransaction
      */
-    public function __construct(User $user, WalletTransaction $walletTransaction)
+    public function __construct(User $user, CableTransaction $cableTransaction)
     {
         //
         $this->user = $user;
-        $this->walletTransaction = $walletTransaction;
+        $this->cableTransaction = $cableTransaction;
     }
+
 
     /**
      * Build the message.
@@ -41,6 +42,6 @@ class WalletTransactionUserMail extends Mailable
      */
     public function build()
     {
-        return $this->view('user.user_wallet_transaction');
+        return $this->view('user.user_cable_transaction');
     }
 }

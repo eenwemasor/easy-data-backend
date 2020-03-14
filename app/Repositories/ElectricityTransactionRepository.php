@@ -26,7 +26,7 @@ class ElectricityTransactionRepository implements ElectricityTransactionContract
         $beneficiary_name = $electricityTransaction["beneficiary_name"];
         $decoder_number = $electricityTransaction["decoder_number"];
         $plan = $electricityTransaction["plan"];
-        $amount = $electricityTransaction["price"];
+        $amount = $electricityTransaction["amount"];
 
         $message = "Electricity Purchase Request: Decoder: "
             .$decoder." Beneficiary Name: "

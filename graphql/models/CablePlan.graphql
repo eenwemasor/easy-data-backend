@@ -2,6 +2,6 @@ type CablePlanList {
     id: ID!
     cable: String!
     plan: String!
-    price: String!
+    amount: String!
     product_code: String!
 }

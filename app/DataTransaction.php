@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataTransaction extends Model
 {
     protected $fillable = [
-        'reference','network','data','initial_balance','price','beneficiary','new_balance','status','method','user_id'
+        'reference','network','data','initial_balance','amount','beneficiary','new_balance','status','method','user_id'
     ];
 
     public function user(){

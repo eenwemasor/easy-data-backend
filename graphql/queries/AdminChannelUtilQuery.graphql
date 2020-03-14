@@ -6,7 +6,7 @@ extend type Query{
         cable: String! @where(operator: "=")
     ): [CablePlanList!]! @all
     getDataPlanList(
-        network: String! @where(operator: "=")
+        network: NetworkType! @where(operator: "=")
     ): [DataPlanList!]! @all
 
     getAllDataPlanList: [DataPlanList!]! @all

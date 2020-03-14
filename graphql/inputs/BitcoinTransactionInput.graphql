@@ -1,10 +1,11 @@
 input CreateBitcoinTransactionInput{
-    reference_number: String!
+    transaction_type: TransactionType!
+    description:String!
+    beneficiary: String!
+
+
     amount_to_sell: Float!
     amount_to_receive: Float!
-    initial_balance: Float!
-    balance: Float!
     buying_rate: Float!
     user_id: ID!
-    status:TransactionStatus!
 }

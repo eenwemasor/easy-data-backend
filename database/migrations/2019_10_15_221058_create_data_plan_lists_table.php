@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\NetworkType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,9 +16,14 @@ class CreateDataPlanListsTable extends Migration
     {
         Schema::create('data_plan_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('network');
+            $table->enum('network', [
+                NetworkType::AIRTEL,
+                NetworkType::GLO,
+                NetworkType::MTN,
+                NetworkType::NINE_MOBILE,
+            ]);
             $table->string('plan');
-            $table->string('price');
+            $table->string('amount');
             $table->timestamps();
         });
     }

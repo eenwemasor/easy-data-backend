@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Mail\AdminMails;
+namespace App\Mail\AdminTransactionMails;
 
-use App\ElectricityTransaction;
+use App\GiftcardTransaction;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ElectricityTransactionAdminMail extends Mailable
+class GiftcardTransactionAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
     /**
@@ -17,23 +17,26 @@ class ElectricityTransactionAdminMail extends Mailable
      */
     public $admin;
     /**
-     * @var ElectricityTransaction
+     * @var GiftcardTransaction
      */
-    public $electricityTransaction;
+    public $giftcardTransaction;
+    /**
+     * @var User
+     */
     public $user;
 
     /**
      * Create a new message instance.
      *
      * @param User $admin
-     * @param ElectricityTransaction $electricityTransaction
-     * @param $user
+     * @param GiftcardTransaction $giftcardTransaction
+     * @param User $user
      */
-    public function __construct(User $admin, ElectricityTransaction $electricityTransaction, $user)
+    public function __construct(User $admin, GiftcardTransaction $giftcardTransaction, User $user)
     {
         //
         $this->admin = $admin;
-        $this->electricityTransaction = $electricityTransaction;
+        $this->giftcardTransaction = $giftcardTransaction;
         $this->user = $user;
     }
 
@@ -44,6 +47,6 @@ class ElectricityTransactionAdminMail extends Mailable
      */
     public function build()
     {
-        return $this->view('admin.admin_electricity_transaction');
+        return $this->view('admin.admin_gift_card_transaction');
     }
 }
