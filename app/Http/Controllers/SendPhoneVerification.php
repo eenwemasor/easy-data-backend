@@ -22,9 +22,9 @@ class SendPhoneVerification extends Controller
                 $phoneVerification->phone = $phone;
                 $phoneVerification->token = $token;
                 $phoneVerification->save();
-                $message = "Gtserviz DeletePhoneToken Verification token " . $token;
+                $message = "EasyData DeletePhoneToken Verification token " . $token;
 
-                $senderid = 'Gtserviz';
+                $senderid = 'EasyData';
                 $to = $phone;
                 $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
                 $baseurl = 'https://smartsmssolutions.com/api/json.php?';
@@ -83,8 +83,8 @@ class SendPhoneVerification extends Controller
                     }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
                         $phone = "+234".$phone;
                     }
-                    $message = "Gtserviz DeletePhoneToken Verification token " . $token;
-                $senderid = 'Gtserviz';
+                    $message = "EasyData DeletePhoneToken Verification token " . $token;
+                $senderid = 'EasyData';
                 $to = $phone;
                 $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
                 $baseurl = 'https://smartsmssolutions.com/api/json.php?';

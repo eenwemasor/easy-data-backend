@@ -23,7 +23,7 @@ class SendSMSController extends Controller
     function sendSMS($message){
        $body = strval($message);
         $channel = AdminChannelUtil::findOrFail(1);
-        $senderid = 'Gtserviz';
+        $senderid = 'EasyData';
         $to = '08155400780';
         $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
         $baseurl = 'https://smartsmssolutions.com/api/json.php?';

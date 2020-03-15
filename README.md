@@ -1,5 +1,5 @@
-# gtserviz-api
-backend code base for gtserviz communication
+# easydataapi-api
+backend code base for easydat communication
 
 Uses the graphql lighthouse api
 

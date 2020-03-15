@@ -13,9 +13,9 @@
 {{--        <a class = "verify_btn" href={{$url}}>Verify Email Address</a>--}}
 {{--        <br>--}}
 {{--        <br><br>--}}
-{{--        <p>if you did not create account an with Gtserviz communication, no further actions is required.</p>--}}
+{{--        <p>if you did not create account an with EasyData communication, no further actions is required.</p>--}}
 {{--        <p>Regards</p>--}}
-{{--        <a href="https://gtserviz.com">Gtserviz Communication.</a>--}}
+{{--        <a href="https://easy-data.com">EasyData Communication.</a>--}}
 {{--    </div>--}}
 {{--</div>--}}
 {{--</body>--}}
@@ -65,9 +65,9 @@
         <a class="verify-btn" href="{{$url}}">Verify Email Address</a>
         <br>
         <br><br>
-        <p>if you did not create account an with Gtserviz communication, no further actions is required.</p>
+        <p>if you did not create account an with EasyData communication, no further actions is required.</p>
         <p>Regards</p>
-        <a href="https://gtserviz.com">Gtserviz Communication.</a>
+        <a href="https://easy-data.com">EasyData Communication.</a>
 </body>
 <style type="text/css">
     .message-body-inner a{
