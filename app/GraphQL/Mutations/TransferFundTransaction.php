@@ -33,7 +33,30 @@ class TransferFundTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
         return $this->transfer_fund_transaction_service->create($args);
     }
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\TransferFundTransaction
+     */
+    public function approve_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo){
+        return $this->transfer_fund_transaction_service->approve_transaction($args['transaction_id']);
+    }
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\TransferFundTransaction
+     */
+    public function decline_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo){
+        return $this->transfer_fund_transaction_service->decline_transaction($args['transaction_id']);
+}
 }

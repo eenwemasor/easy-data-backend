@@ -15,10 +15,11 @@ class CreateReferralRewardTable extends Migration
     {
         Schema::create('referral_rewards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('referrer_percentage');
+            $table->string('registration_fee');
+            $table->string('direct_referrer_percentage');
             $table->string('indirect_referrer_percentage');
             $table->string('referee_percentage');
-            $table->string('widget');
+            $table->string('site_percentage');
             $table->timestamps();
         });
     }

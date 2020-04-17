@@ -13,13 +13,17 @@ type User {
     email: String!
     phone: String!
     wallet: String!
-    accessibility:String!
+    accessibility:AccountAccessibility!
     email_confirmed:Boolean!
     phone_verified:Boolean!
     unique_id:String!
     active:Boolean!
     bonus_wallet:String!
-    password: String!
+    username:String!
+    referrer_id:ID!
+    referrer: User @belongsTo
+    referrals: [User !]! @hasMany
+    banks: [UserBank !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany
     cable_transactions: [CableTransaction !]! @hasMany
     airtime_transactions: [AirtimeTransaction !]! @hasMany

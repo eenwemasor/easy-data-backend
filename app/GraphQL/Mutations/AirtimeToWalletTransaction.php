@@ -33,7 +33,33 @@ class AirtimeToWalletTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
        return  $this->airtime_to_wallet_transaction_service->create($args);
     }
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\AirtimeToWalletTransaction
+     */
+    public function approve_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return  $this->airtime_to_wallet_transaction_service->approve_transaction($args['transaction_id']);
+    }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\AirtimeToWalletTransaction
+     */
+    public function decline_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return  $this->airtime_to_wallet_transaction_service->decline_transaction($args['transaction_id']);
+    }
+
+
 }

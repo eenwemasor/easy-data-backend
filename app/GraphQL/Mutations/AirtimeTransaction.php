@@ -29,7 +29,6 @@ class AirtimeTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
         return $this->airtime_transaction->create($args);
     }
 }

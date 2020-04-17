@@ -1,18 +1,19 @@
 extend type Mutation {
-#    CreateUser(input: CreateUserInput! @spread): User @create(model: "App\\User")
     CreateUser(
-        email: String @rules(apply: ["required", "unique:users"])
-        full_name: String!
-        phone: String @rules(apply: ["required", "unique:users"])
-        wallet: Float!
-        password: String @bcrypt(apply: ["required"])
-        accessibility: String!
-        email_confirmed: Boolean!
-        phone_verified: Boolean!
-        unique_id: String!
-        active: Boolean!
-        bonus_wallet: Float!): User @create(model: "User")
-    UpdateUser(input: UpdateUserInput! @spread): User @update(model: "App\\User")
+    email: String @rules(apply: ["required", "unique:users"])
+    full_name: String!
+    phone: String @rules(apply: ["required", "unique:users"])
+    password: String @bcrypt(apply: ["required"])
+    username:String @rules(apply: ["required", "unique:users"])
+    referrer_id:ID): User @field(resolver: "CreateUser@resolve")
 
+    UpdateUser(input: UpdateUserInput! @spread):User @update(model: "App\\User")
     UpdateUserPassword(id: ID!, password: String! @bcrypt): User @update(model: "App\\User")
+    CreateTransactionPin(
+    user_id: ID!): User @field(resolver: "CreateUser@create_transaction_pin")
+    UpdateTransactionPin(
+        user_id: ID!, current_transaction_pin:String!, new_transaction_pin: String!): User @field(resolver: "CreateUser@update_transaction_pin")
+    ActivateAccount(
+        user_id: ID!): User @field(resolver: "CreateUser@activate_account")
+
 }

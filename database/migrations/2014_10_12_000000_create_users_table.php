@@ -24,9 +24,12 @@ class CreateUsersTable extends Migration
             $table->string('email_confirmed');
             $table->string('phone_verified');
             $table->string('unique_id');
+            $table->string('transaction_pin')->nullable();
             $table->boolean('active');
             $table->float('bonus_wallet');
             $table->string('password');
+            $table->string('username')->unique();
+            $table->unsignedBigInteger('referrer_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

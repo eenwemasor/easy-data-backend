@@ -22,6 +22,8 @@ class CreateDataPlanListsTable extends Migration
                 NetworkType::MTN,
                 NetworkType::NINE_MOBILE,
             ]);
+            $table->string('vendor_amount')->nullable();
+            $table->string('product_code')->nullable();
             $table->string('plan');
             $table->string('amount');
             $table->timestamps();

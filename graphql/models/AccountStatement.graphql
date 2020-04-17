@@ -1,0 +1,4 @@
+type AccountStatement {
+    statement_link: String
+    message:String
+}

@@ -9,7 +9,7 @@ type WalletTransaction{
     wallet: WalletType!
     beneficiary: String
     user_id: ID
-    status:TransactionStatus!
+    status:WalletTransactionStatus!
     created_at: DateTime
     updated_at: DateTime
 }

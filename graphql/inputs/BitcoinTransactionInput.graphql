@@ -1,9 +1,4 @@
 input CreateBitcoinTransactionInput{
-    transaction_type: TransactionType!
-    description:String!
-    beneficiary: String!
-
-
     amount_to_sell: Float!
     amount_to_receive: Float!
     buying_rate: Float!

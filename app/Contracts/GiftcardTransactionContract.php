@@ -18,4 +18,18 @@ interface GiftcardTransactionContract
      * @return GiftcardTransaction
      */
     public function create(array $giftcardTransaction): GiftcardTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return GiftcardTransaction
+     */
+    public function mark_transaction_successful(string $transaction_id): GiftcardTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return GiftcardTransaction
+     */
+    public function mark_transaction_failed(string $transaction_id): GiftcardTransaction;
+
+
 }

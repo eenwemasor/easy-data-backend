@@ -21,7 +21,6 @@ class UserBankRepository implements UserBankContract
      */
     public function create(array $userBank): UserBank
     {
-        // TODO: Implement create() method.
        return  UserBank::create($userBank);
     }
 }

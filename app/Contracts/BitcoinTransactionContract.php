@@ -18,4 +18,16 @@ interface BitcoinTransactionContract
      * @return BitcoinTransaction
      */
     public function create(array $bitcoinTransaction): BitcoinTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return BitcoinTransaction
+     */
+    public function mark_transaction_successful(string $transaction_id): BitcoinTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return BitcoinTransaction
+     */
+    public function mark_transaction_failed(string $transaction_id): BitcoinTransaction;
 }

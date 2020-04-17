@@ -17,6 +17,7 @@ class CreateTransferFundTransactionsTable extends Migration
         Schema::create('transfer_fund_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
+            $table->string('description');
             $table->float('amount');
             $table->float('initial_balance');
             $table->float('new_balance');

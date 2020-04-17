@@ -33,8 +33,6 @@ class AirtimeToCashTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
-
         return $this->airtime_to_cash_transaction_service->create($args);
     }
 }

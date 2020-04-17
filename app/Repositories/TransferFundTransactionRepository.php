@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Contracts\TransferFundTransactionContract;
+use App\Enums\TransactionStatus;
 use App\TransferFundTransaction;
 
 class TransferFundTransactionRepository implements TransferFundTransactionContract
@@ -21,7 +22,30 @@ class TransferFundTransactionRepository implements TransferFundTransactionContra
      */
     public function create(array $transferFundTransaction): TransferFundTransaction
     {
-        // TODO: Implement create() method.
         return TransferFundTransaction::create($transferFundTransaction);
+    }
+
+    /**
+     * @param string $transaction_id
+     * @return TransferFundTransaction
+     */
+    public function approve_transaction(string $transaction_id): TransferFundTransaction
+    {
+        $transaction = TransferFundTransaction::findOrFail($transaction_id);
+        $transaction->status = TransactionStatus::COMPLETED;
+        $transaction->save();
+        return $transaction;
+    }
+
+    /**
+     * @param string $transaction_id
+     * @return TransferFundTransaction
+     */
+    public function decline_transaction(string $transaction_id): TransferFundTransaction
+    {
+        $transaction = TransferFundTransaction::findOrFail($transaction_id);
+        $transaction->status = TransactionStatus::FAILED;
+        $transaction->save();
+        return $transaction;
     }
 }

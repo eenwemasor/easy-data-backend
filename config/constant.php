@@ -2,15 +2,22 @@
 
 //api urls for transaction
 return [
-    'CLUBKONNECT_API_URL_AIRTIME' => 'https://www.nellobytesystems.com/APIAirtimeV1.asp',
-    'CLUBKONNECT_API_URL_DATA' => 'https://www.nellobytesystems.com/APIDatabundleV1.asp',
-    'CLUBKONNECT_API_URL_CHECK_WALLET_BALANCE' => 'https://www.nellobytesystems.com/APIWalletBalanceV1.asp',
-    'MOBILE_NG_API_URL_CHECK_WALLET_BALANCE' => 'https://mobilenig.com/API/new_balance',
-    'MOBILE_NG_DECODER_USER_CHECK' => 'https://mobilenig.com/API/bills/user_check',
-    'MOBILE_NG_BILLS' => 'https://mobilenig.com/API/bills',  //append with /ikeja /gotv /dstv /startimes or any service related to bills in mobileng
+    'MOBILE_NG_DECODER_USER_CHECK' => 'https://mobilenig.com/API/bills/user_check?',
+    'MOBILE_NG_API_KEY' => "2d195bc941ee83b8af742e70e452f0e8",
+    'MOBILE_NG_API_USERNAME' => 'rajdolla',
+
+    'AIRTIME_DATA_END_POINT'=>'https://www.api.ringo.ng/api/agent/p2',
+    'BILLS_END_POINT'=>'https://www.api.ringo.ng/api/agent/p2',
+    'SERVICE_END_POINT' =>'https://www.api.ringo.ng/api/agent/p2',
+    'CABLE_END_POINT' =>'https://www.api.ringo.ng/api/agent/p2',
+    'ELECTRICITY_END_POINT' =>'https://www.api.ringo.ng/api/agent/p2',
+
+    //smart sms api constant
+    'SMS_URL'=>'https://www.bulksmsnigeria.com/api/v1/sms/create',
+    'SENDER_ID'=>'GTSERVIZ',
+    'API_KEY'=>'QKgDlF3FAHw0Wbzhd5BdxffVXGlcRs9wjNJjcJlRoBW3kgvN4n7TDyhsc6zq',
+    'HEADERS' =>['headers' => ['email' => 'gtservizonline@gmail.com', 'password' => 'raj@gpconcept01'],
+
+]
+
 ];
-
-
-
-
-

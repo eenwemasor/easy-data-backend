@@ -1,0 +1,13 @@
+type NewsFeed{
+    id: ID!
+    title: String!,
+    image_url:String!
+    body:String!
+}
+
+
+type NewsUpdate{
+    id: ID!
+    title: String!,
+    body:String!
+}

@@ -3,8 +3,6 @@ type BitcoinTransaction {
     reference: String!
     amount_to_sell: Float!
     amount_to_receive: Float!
-    initial_balance: Float!
-    new_balance: Float!
     buying_rate: Float!
     user_id: ID!
     status:TransactionStatus!

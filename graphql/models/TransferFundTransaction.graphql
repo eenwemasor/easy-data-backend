@@ -1,11 +1,13 @@
 type TransferFundTransaction {
     id: ID!
     reference: String!
+    description:String!
     amount: Float!
     initial_balance: Float!
     new_balance: Float!
     recipient_id: ID!
     user_id: ID!
+    recipient:User @hasOne
     status: TransactionStatus!
     created_at: DateTime
     updated_at: DateTime

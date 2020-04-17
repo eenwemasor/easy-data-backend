@@ -1,0 +1,6 @@
+extend type Mutation{
+    CreateTransferFundRegister(input: CreateTransferFundRegisterInput! @spread): RequestRegister @field(resolver: "CreateTransferFundRegister@resolve")
+    CreateWithdrawFundRegister(input: CreateTransferFundRegisterInput! @spread): RequestRegister @field(resolver: "CreateWithdrawFundRegister@resolve")
+    InitiateTransferFundTransaction(otp:String!): RequestRegister @field(resolver: "CreateTransferFundRegister@initiate_transfer_fund")
+    InitiateWithdrawFundTransaction(otp:String!): RequestRegister @field(resolver: "CreateWithdrawFundRegister@initiate_transfer_fund")
+}

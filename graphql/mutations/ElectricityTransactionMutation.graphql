@@ -1,4 +1,7 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
+extend type Mutation {
     CreateElectricityTransaction(input: CreateElectricityTransactionInput! @spread): ElectricityTransaction @field(resolver: "ElectricityTransaction@resolve")
+    MarkElectricityTransactionSuccessful(transaction_id:ID!): ElectricityTransaction @field(resolver: "ElectricityTransaction@mark_transaction_successful")
+    MarkElectricityTransactionFailed(transaction_id:ID!): ElectricityTransaction @field(resolver: "ElectricityTransaction@mark_transaction_failed")
 
 }
+

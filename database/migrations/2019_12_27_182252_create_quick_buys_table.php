@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ElectricityType;
 use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
@@ -25,10 +26,20 @@ class CreateQuickBuysTable extends Migration
                 NetworkType::MTN,
                 NetworkType::NINE_MOBILE,
             ])->nullable();
-            $table->string('plan')->nullable();
-            $table->float('amount');
-            $table->string('beneficiary');
-            $table->string('email');
+            $table->string('meter_number')->nullable();
+            $table->float('decoder')->nullable();;
+            $table->string('phone')->nullable();;
+            $table->string('decoder_number')->nullable();;
+            $table->string('beneficiary_name')->nullable();;
+            $table->string('data')->nullable();;
+            $table->string('amount');
+            $table->string('beneficiary')->nullable();;
+            $table->string('plan')->nullable();;
+            $table->enum('electricity_type',[
+                ElectricityType::POSTPAID,
+                ElectricityType::PREPAID
+            ])->nullable();;
+            $table->string('email')->nullable();;
             $table->enum('status', [
                 TransactionStatus::SENT,
                 TransactionStatus::COMPLETED,

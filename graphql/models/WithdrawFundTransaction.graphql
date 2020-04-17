@@ -6,6 +6,7 @@ type WithdrawFundTransaction {
     new_balance: Float!
     bank_id: ID!
     user_id: ID!
+    receiving_bank:UserBank @hasOne
     status: TransactionStatus!
     created_at: DateTime
     updated_at: DateTime

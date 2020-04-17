@@ -19,7 +19,7 @@ class WithdrawFundTransaction
      */
     function __construct(WithdrawFundTransactionService $withdraw_fund_transaction_service)
     {
-        $this->withdraw_fund_transaction_service = $withdraw_fund_transaction_service;
+         $this->withdraw_fund_transaction_service = $withdraw_fund_transaction_service;
     }
 
     /**
@@ -33,8 +33,30 @@ class WithdrawFundTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
        return $this->withdraw_fund_transaction_service->create($args);
 
+    }
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\WithdrawFundTransaction
+     */
+    public function approve_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo){
+        return $this->withdraw_fund_transaction_service->approve_transaction($args['transaction_id']);
+    }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\WithdrawFundTransaction
+     */
+    public function decline_transaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo){
+        return $this->withdraw_fund_transaction_service->decline_transaction($args['transaction_id']);
     }
 }

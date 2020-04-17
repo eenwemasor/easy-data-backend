@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ElectricityType;
 use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,10 +18,13 @@ class CreateElectricityTransactionsTable extends Migration
         Schema::create('electricity_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
-            $table->string('decoder');
-            $table->string('decoder_number');
+            $table->string('meter_number');
             $table->string('beneficiary_name');
             $table->string('plan');
+            $table->enum('type',[
+                ElectricityType::PREPAID,
+                ElectricityType::POSTPAID
+            ]);
             $table->float('initial_balance')->nullable();
             $table->float('amount');
             $table->float('new_balance')->nullable();

@@ -1,11 +1,7 @@
 input CreateGiftcardTransactionInput{
-
-    transaction_type: TransactionType!
-    description:String!
-    beneficiary: String!
-
     gift_card_type: String!
     amount_to_sell: Float!
     amount_to_receive: Float!
+    buying_rate:Float!
     user_id: ID!
 }

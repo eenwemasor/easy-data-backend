@@ -1,7 +1,7 @@
 type CableTransaction {
     id: ID!
     reference: String!
-    decoder:decoder!
+    decoder:cableType!
     decoder_number:String!
     beneficiary_name:String!
     plan:String!
@@ -15,7 +15,7 @@ type CableTransaction {
     updated_at: DateTime
 }
 
-enum decoder{
+enum cableType{
     DSTV
     GOTV
     STARTIMES

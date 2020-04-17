@@ -2,4 +2,7 @@ extend type Mutation {
     CreateAdminChannelUtil(input: CreateAdminChannelUtilInput! @spread): AdminChannelUtil @create(model: "App\\AdminChannelUtil")
 
     UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+
+    TalkToUsMessage(input: TalkToUsInput! @spread): TalkToUsMessage @field(resolver: "TalkToUsMessage@forward_mail")
+
 }

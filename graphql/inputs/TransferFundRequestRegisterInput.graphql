@@ -1,0 +1,6 @@
+input CreateTransferFundRegisterInput{
+    sender_id:ID!
+    receiver_id: String!
+    amount: Float!
+    transaction_pin:String!
+}

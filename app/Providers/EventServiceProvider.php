@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use App\Listeners\AccountStatementListener;
 use App\Listeners\AdminListener;
+use App\Listeners\TalkToUsMessageListener;
 use App\Listeners\TransactionListener;
+use App\Listeners\TransactionRequestListener;
+use App\Listeners\UserCreatedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -19,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        'App\Events\UserCreated' => [
+            'App\Listeners\UserCreatedListener',
         ],
         'App\Events\AirtimeTransactionEvent' => [
             'App\Listeners\AdminListener',
@@ -74,11 +81,32 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
         ],
+
+        'App\Events\TransactionPin' => [
+            'App\Listeners\UserCreatedListener',
+        ],
+
+        'App\Events\TransferFundRequest' => [
+            'App\Listeners\TransactionRequestListener',
+        ],
+        'App\Events\TalkToUsMessageEvent' => [
+            'App\Listeners\TalkToUsMessageListener',
+        ],
+
+        'App\Events\AccountStatementEvent' => [
+            'App\Listeners\AccountStatementListener',
+        ],
+
     ];
 
     protected $subscribe = [
         AdminListener::class,
-        TransactionListener::class
+        TransactionListener::class,
+        UserCreatedListener::class,
+        TransactionRequestListener::class,
+        TalkToUsMessageListener::class,
+        AccountStatementListener::class
+
     ];
 
     /**

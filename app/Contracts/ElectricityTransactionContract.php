@@ -14,4 +14,19 @@ interface ElectricityTransactionContract
      * @return ElectricityTransaction
      */
     public function create(array $ElectricityTransaction):ElectricityTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return ElectricityTransaction
+     */
+    public function mark_transaction_successful(string $transaction_id):ElectricityTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return ElectricityTransaction
+     */
+    public function mark_transaction_failed(string $transaction_id):ElectricityTransaction;
+
+
+
 }

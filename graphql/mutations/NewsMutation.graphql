@@ -1,0 +1,9 @@
+extend type Mutation {
+    CreateNewsFeed(input: CreateNewsFeedInput! @spread): NewsFeed @create(model: "App\\NewsFeed")
+    UpdateNewsFeed(input: UpdateNewsFeedInput! @spread): NewsFeed @update(model: "App\\NewsFeed")
+    DeleteNewsFeed(id:ID!): NewsFeed @delete(model: "App\\NewsFeed")
+    CreateNewsUpdate(input: CreateNewsUpdateInput! @spread): NewsUpdate @create(model: "App\\NewsUpdate")
+    UpdateNewsUpdate(input: UpdateNewsUpdateInput! @spread): NewsUpdate @update(model: "App\\NewsUpdate")
+    DeleteNewsUpdate(id:ID!): NewsUpdate @delete(model: "App\\NewsUpdate")
+
+}

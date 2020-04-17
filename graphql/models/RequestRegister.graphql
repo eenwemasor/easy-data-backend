@@ -1,0 +1,9 @@
+type RequestRegister {
+    id: ID!
+    sender_id:ID!
+    receiver_id: ID!
+    amount: Float!
+    expiry_date: DateTime!
+    created_at: DateTime
+    updated_at: DateTime
+}

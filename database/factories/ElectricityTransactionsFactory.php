@@ -2,7 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\ElectricityTransaction;
+use App\Enums\ElectricityType;
 use App\Enums\TransactionStatus;
+use App\Enums\WalletType;
 use Faker\Generator as Faker;
 
 $factory->define(ElectricityTransaction::class, function (Faker $faker) {
@@ -12,17 +14,27 @@ $factory->define(ElectricityTransaction::class, function (Faker $faker) {
         TransactionStatus::PROCESSING,
         TransactionStatus::FAILED,
     ];
+
+    $electricityType = [
+        ElectricityType::PREPAID,
+        ElectricityType::POSTPAID
+    ];
+
+    $walletType = [
+        WalletType::WALLET,
+        WalletType::BONUS_WALLET
+    ];
     return [
         'reference' => $faker->numberBetween(10000000000000, 9999999999999999),
-        'decoder' => $faker->randomElement(["DSTV","GOTV","STARTIMES"]),
-        'decoder_number' => $faker->phoneNumber,
+        'meter_number' => $faker->phoneNumber,
         'beneficiary_name' => $faker->name,
         'plan' => $faker->word,
+        'type' =>$faker->randomElement($electricityType),
         'initial_balance' => $faker->numberBetween(10000, 99999),
         'amount' => $faker->numberBetween(10000, 99999),
         'new_balance' => $faker->numberBetween(10000, 99999),
         'status'=> $faker->randomElement($transactionStatus),
-        'method'=> $faker->randomElement(["WALLET", "BONUS_WALLET"]),
+        'method'=> $faker->randomElement($walletType),
         'user_id' => $faker->numberBetween(1,5),
     ];
 });

@@ -33,7 +33,35 @@ class GiftcardTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
+
        return $this->giftcard_transaction_service->create($args);
     }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\GiftcardTransaction
+     */
+    public function mark_transaction_successful($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return $this->giftcard_transaction_service->mark_transaction_successful($args['transaction_id']);
+
+    }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\GiftcardTransaction
+     */
+    public function mark_transaction_failed($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return $this->giftcard_transaction_service->mark_transaction_failed($args['transaction_id']);
+
+    }
+
+
 }

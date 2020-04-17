@@ -1,0 +1,4 @@
+extend type Query {
+    NewsFeed: [NewsFeed!]! @all
+    NewsUpdate: NewsUpdate @first
+}

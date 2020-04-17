@@ -20,7 +20,6 @@ class AirtimeToCashTransactionRepository implements AirtimeToCashTransactionCont
      */
     public function create(array $airtimeToCashTransaction): AirtimeToCashTransaction
     {
-        // TODO: Implement create() method.
 
         return AirtimeToCashTransaction::create($airtimeToCashTransaction);
     }

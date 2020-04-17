@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'phone', 'wallet','accessibility','email_confirmed','phone_verified','unique_id','active','bonus_wallet','password'
+        'full_name', 'email', 'phone', 'wallet','transaction_pin','accessibility','email_confirmed','phone_verified','unique_id','active','bonus_wallet','password','username','referrer_id'
     ];
 
     /**
@@ -54,6 +54,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function electricity_transactions(){
         return $this->hasMany(ElectricityTransaction::class);
     }
+
+    public function banks(){
+        return $this->hasMany(UserBank::class);
+    }
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referrer_id', 'id');
+    }
+
 
 
     public static function boot() {

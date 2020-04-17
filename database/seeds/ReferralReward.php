@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ReferralReward extends Seeder
 {
@@ -13,10 +14,11 @@ class ReferralReward extends Seeder
     {
         DB::table('referral_rewards')->insert([
             [
-                'referrer_percentage' => '10',
+                'registration_fee' =>'1000',
+                'direct_referrer_percentage' => '10',
                 'indirect_referrer_percentage' => '5',
                 'referee_percentage' => '20',
-                'widget' =>"200"
+                'site_percentage' => '40'
             ],
         ]);
     }

@@ -3,4 +3,6 @@ extend type Query{
     users: [User!]! @paginate(defaultCount: 10)
     userUniqueID(unique_id: ID @eq): User @find
     me: User @middleware(checks: ["auth:api"]) @auth
+
+    UserAccountStatement( user_id: ID!, from_date:Date!, to_date:Date!): AccountStatement!
 }

@@ -1,4 +1,6 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
+extend type Mutation {
     CreateCableTransaction(input: CreateCableTransactionInput! @spread): CableTransaction @field(resolver: "CableTransaction@resolve")
+    MarkCableTransactionSuccessful(transaction_id:ID!): CableTransaction @field(resolver: "CableTransaction@mark_transaction_successful")
+    MarkCableTransactionFailed(transaction_id:ID!): CableTransaction @field(resolver: "CableTransaction@mark_transaction_failed")
 
 }

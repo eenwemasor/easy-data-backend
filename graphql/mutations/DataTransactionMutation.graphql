@@ -1,4 +1,7 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
+extend type Mutation{
     CreateDataTransaction(input: CreateDataTransactionInput! @spread): DataTransaction @field(resolver: "DataTransaction@resolve")
+    MarkDataTransactionSuccessful(transaction_id: ID!): DataTransaction @field(resolver: "DataTransaction@mark_transaction_successful")
+    MarkDataTransactionFailed(transaction_id: ID!): DataTransaction @field(resolver: "DataTransaction@mark_transaction_failed")
 
 }
+

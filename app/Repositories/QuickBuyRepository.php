@@ -16,7 +16,6 @@ class QuickBuyRepository implements QuickBuyContract
      */
     public function create(array $quickBuy): QuickBuy
     {
-        // TODO: Implement create() method.
         return QuickBuy::create($quickBuy);
     }
 }

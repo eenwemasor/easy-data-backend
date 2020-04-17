@@ -1,12 +1,19 @@
 input CreateAdminChannelUtilInput{
     phone: String
     email: String
-    account_activation_amount: Float
-    glo_discount: Int
-    airtel_discount: Int
-    mtn_discount: Int
-    etisalat_discount: Int
+    statement_request_charge: Float
+    glo_discount: Int #discount on airtime purchase for glo networks
+    airtel_discount: Int #discount on airtime purchase for glo airtel
+    mtn_discount: Int #discount on airtime purchase for glo mtn
+    etisalat_discount: Int #discount on airtime purchase for glo 9mobile
     bitcoin_buying_rate:Float
+    giftcard_buying_rate:Float
+    paystack_transaction_fee:Float #in percentage
+    rave_transaction_fee:Float #in percentage
+    trade_airtime_recipient_number_glo:String
+    trade_airtime_recipient_number_airtel:String
+    trade_airtime_recipient_number_etisalat:String
+    trade_airtime_recipient_number_mtn:String
 }
 
 
@@ -19,4 +26,16 @@ input UpdateAdminChannelUtilInput{
     mtn_discount: Int
     etisalat_discount: Int
     bitcoin_buying_rate:Float
+    paystack_transaction_fee:Float
+    rave_transaction_fee:Float
+    trade_airtime_recipient_number_glo:String
+    trade_airtime_recipient_number_airtel:String
+    trade_airtime_recipient_number_etisalat:String
+    trade_airtime_recipient_number_mtn:String
+}
+
+input TalkToUsInput{
+    name:String!
+    email:String!
+    message:String!
 }

@@ -18,4 +18,16 @@ interface TransferFundTransactionContract
      * @return TransferFundTransaction
      */
     public function create(array $transferFundTransaction): TransferFundTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return TransferFundTransaction
+     */
+    public function approve_transaction(string $transaction_id): TransferFundTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return TransferFundTransaction
+     */
+    public function decline_transaction(string $transaction_id): TransferFundTransaction;
 }

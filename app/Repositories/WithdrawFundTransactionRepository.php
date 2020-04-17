@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Contracts\WithdrawFundTransactionContract;
+use App\Enums\TransactionStatus;
 use App\WithdrawFundTransaction;
 
 class WithdrawFundTransactionRepository implements WithdrawFundTransactionContract
@@ -21,7 +22,29 @@ class WithdrawFundTransactionRepository implements WithdrawFundTransactionContra
      */
     public function create(array $withdrawFundTransaction): WithdrawFundTransaction
     {
-        // TODO: Implement create() method.
         return WithdrawFundTransaction::create($withdrawFundTransaction);
+    }
+
+    /**
+     * @param string $transaction_id
+     * @return WithdrawFundTransaction
+     */
+    public function approve_transaction(string $transaction_id): WithdrawFundTransaction
+    {
+        $transaction = WithdrawFundTransaction::findOrFail($transaction_id);
+        $transaction->status = TransactionStatus::COMPLETED;
+        $transaction->save();
+        return $transaction;
+    }
+    /**
+     * @param string $transaction_id
+     * @return WithdrawFundTransaction
+     */
+    public function decline_transaction(string $transaction_id): WithdrawFundTransaction
+    {
+        $transaction = WithdrawFundTransaction::findOrFail($transaction_id);
+        $transaction->status = TransactionStatus::FAILED;
+        $transaction->save();
+        return $transaction;
     }
 }

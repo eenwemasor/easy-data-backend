@@ -1,10 +1,44 @@
-input CreateQuickBuyInput{
+input AirtimeQuickBuyInput{
     reference: String!
-    transaction_type: String
+    transaction_type: String!
     network: NetworkType
-    plan: String
+    phone:String
     amount: Float!
-    beneficiary: String
     email: String!
-    status: TransactionStatus!
 }
+
+
+input DataQuickBuyInput{
+    reference: String!
+    transaction_type: String!
+    beneficiary:String!
+    data: ID!
+    email: String!
+}
+
+
+input CableQuickBuyInput{
+    reference: String!
+    transaction_type: String!
+    phone:String!
+    decoder_number:String!
+    beneficiary_name:String!
+    plan:ID!
+    email: String!
+}
+
+
+
+input ElectricityQuickBuyInput{
+    reference: String!
+    transaction_type: String!
+    meter_number:String!
+    phone:String!
+    beneficiary_name:String!
+    amount: Float!
+    plan:ID!
+    electricity_type:electricityType!
+    email: String!
+}
+
+

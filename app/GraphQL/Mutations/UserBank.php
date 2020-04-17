@@ -33,7 +33,6 @@ class UserBank
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
 
        return  $this->user_bank_service->create($args);
     }

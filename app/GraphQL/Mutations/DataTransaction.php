@@ -36,4 +36,32 @@ class DataTransaction
         return $this->data_transaction->create($args);
 
     }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\DataTransaction
+     */
+    public function mark_transaction_successful($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        // TODO implement the mark_transaction_successful
+        return $this->data_transaction->mark_transaction_successful($args['transaction_id']);
+
+    }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\DataTransaction
+     */
+    public function mark_transaction_failed($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        // TODO implement the mark_transaction_failed
+        return $this->data_transaction->mark_transaction_failed($args['transaction_id']);
+
+    }
 }

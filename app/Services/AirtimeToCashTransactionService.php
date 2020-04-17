@@ -12,8 +12,10 @@ namespace App\Services;
 use App\AirtimeToCashTransaction;
 use App\Enums\TransactionStatus;
 use App\Events\AirtimeToCashTransactionEvent;
+use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\UserController;
 use App\Repositories\AirtimeToCashTransactionRepository;
+use App\User;
 
 class AirtimeToCashTransactionService
 {
@@ -43,9 +45,14 @@ class AirtimeToCashTransactionService
     /**
      * @param array $airtimeToCashTransaction
      * @return AirtimeToCashTransaction
+     * @throws
      */
     public function create(array  $airtimeToCashTransaction )
     {
+        $user = User::find($airtimeToCashTransaction["user_id"]);
+        if(!$user->active){
+            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
+        }
 
         $data = collect($airtimeToCashTransaction);
 

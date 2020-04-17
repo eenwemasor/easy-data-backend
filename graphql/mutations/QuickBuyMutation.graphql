@@ -1,4 +1,8 @@
 extend type Mutation {
-    CreateQuickBuy(input: CreateQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@resolve")
+    CreateAirtimeQuickBuy(input: AirtimeQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@process_airtime_quick_buy")
+    CreateDataQuickBuy(input: DataQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@process_data_quick_buy")
+    CreateCableQuickBuy(input: CableQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@process_bill_quick_buy")
+    CreatePowerQuickBuy(input: ElectricityQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@process_power_quick_buy")
+    VerifyQuickBuyTransaction(phone:String!, network:NetworkType!): QuickBuy @field(resolver: "QuickBuy@verify_phone_number")
 
 }

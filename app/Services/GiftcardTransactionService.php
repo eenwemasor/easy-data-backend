@@ -11,8 +11,11 @@ namespace App\Services;
 
 use App\Enums\TransactionStatus;
 use App\Events\GiftcardTransactionEvent;
+use App\GiftcardTransaction;
+use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\UserController;
 use App\Repositories\GiftcardTransactionRepository;
+use App\User;
 
 class GiftcardTransactionService
 {
@@ -40,38 +43,20 @@ class GiftcardTransactionService
     /**
      * @param array $giftcardTransaction
      * @return \App\GiftcardTransaction
+     * @throws
      */
     public function create(array  $giftcardTransaction )
     {
+        $user = User::find($giftcardTransaction["user_id"]);
+        if (!$user->active) {
+            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
+        }
 
-        $data = collect($giftcardTransaction);
-
-        $walletTransactionData = $data->only([
-            'transaction_type',
-            'description',
-            'beneficiary',
-            'user_id',
-        ])->toArray();
-        $walletTransactionData['amount'] = $giftcardTransaction['amount_to_receive'];
-
-        $walletTransactionResult =  $this->walletTransactionService->create($walletTransactionData);
-        $giftcardnData = $data->only([
-            'amount_to_sell',
-            'amount_to_receive',
-            'gift_card_type',
-        ])->toArray();
-
-        $wallet_result = collect($walletTransactionResult);
-        $wallet_result['status'] =TransactionStatus::SENT;
-        $giftcardTransactionData = array_merge(
-            $wallet_result->except([
-                'transaction_type',
-                'description',
-                'amount'
-            ])->toArray(), $giftcardnData);
+        $giftcardTransaction['status'] =TransactionStatus::PROCESSING;
+        $giftcardTransaction['reference'] =uniqid();
 
 
-        $gift_card_transaction = $this->giftcard_transaction_repository->create($giftcardTransactionData);
+        $gift_card_transaction = $this->giftcard_transaction_repository->create($giftcardTransaction);
         $user_cont = New UserController();
         $user = $user_cont->getUserById($giftcardTransaction["user_id"]);
         $admin = $user_cont->getAdmin();
@@ -82,4 +67,25 @@ class GiftcardTransactionService
 
         return $gift_card_transaction;
     }
+
+
+
+    /**
+     * @param string $transaction_id
+     * @return GiftcardTransaction
+     */
+    public function mark_transaction_successful(string $transaction_id){
+        return $this->giftcard_transaction_repository->mark_transaction_successful($transaction_id);
+    }
+
+    /**
+     * @param string $transaction_id
+     * @return GiftcardTransaction
+     */
+    public function mark_transaction_failed(string $transaction_id){
+
+        return $this->giftcard_transaction_repository->mark_transaction_failed($transaction_id);
+    }
+
+
 }

@@ -1,13 +1,13 @@
 type DataTransaction {
     id: ID!
     reference: String!
-    network: NetworkType!
+    network: NetworkType
     data: String!
     initial_balance: Float
     amount: Float!
     beneficiary: String!
     new_balance: Float
-    status: TransactionStatus!
+    status: TransactionStatus
     method: WalletType!
     user_id: ID!
     created_at: DateTime

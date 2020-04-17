@@ -1,12 +1,7 @@
 input CreateDataTransactionInput{
-
     transaction_type: TransactionType!
     description:String!
-    amount: Float!
     beneficiary: String!
-
-
-    network: NetworkType!
-    data: String!
+    data: ID!
     user_id: ID!
 }

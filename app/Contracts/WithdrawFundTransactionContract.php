@@ -18,4 +18,16 @@ interface WithdrawFundTransactionContract
      * @return WithdrawFundTransaction
      */
     public function create(array $withdrawFundTransaction): WithdrawFundTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return WithdrawFundTransaction
+     */
+    public function approve_transaction(string $transaction_id): WithdrawFundTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return WithdrawFundTransaction
+     */
+    public function decline_transaction(string $transaction_id): WithdrawFundTransaction;
 }

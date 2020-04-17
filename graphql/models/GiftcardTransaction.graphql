@@ -4,9 +4,8 @@ type GiftcardTransaction {
     gift_card_type: String!
     amount_to_sell: Float!
     amount_to_receive: Float!
-    initial_balance: Float!
-    new_balance: Float!
     user_id: ID!
+    buying_rate:Float!
     status:TransactionStatus!
     created_at: DateTime
     updated_at: DateTime

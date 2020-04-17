@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +18,13 @@ class CreateAirtimeTransactionsTable extends Migration
         Schema::create('airtime_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
+            $table->enum('network',[
+                NetworkType::NINE_MOBILE,
+                NetworkType::MTN,
+                NetworkType::AIRTEL,
+                NetworkType::GLO
+
+            ]);
             $table->string('phone');
             $table->float('initial_balance')->nullable();
             $table->float('amount');

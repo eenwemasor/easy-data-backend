@@ -1,10 +1,8 @@
 input CreateCableTransactionInput{
     transaction_type: TransactionType!
     description:String!
-    amount: Float!
-    decoder:decoder!
     decoder_number:String!
     beneficiary_name:String!
-    plan:String!
+    plan:ID!
     user_id: ID!
 }

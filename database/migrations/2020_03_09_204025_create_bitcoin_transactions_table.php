@@ -17,10 +17,8 @@ class CreateBitcoinTransactionsTable extends Migration
         Schema::create('bitcoin_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
-            $table->string('amount_to_sell');
-            $table->string('amount_to_receive');
-            $table->float('initial_balance');
-            $table->float('new_balance');
+            $table->float('amount_to_sell');
+            $table->float('amount_to_receive');
             $table->float('buying_rate');
             $table->bigInteger('user_id');
             $table->enum('status', [

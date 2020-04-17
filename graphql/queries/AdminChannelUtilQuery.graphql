@@ -12,4 +12,11 @@ extend type Query{
     getAllDataPlanList: [DataPlanList!]! @all
     getAllCablePlanList: [CablePlanList!]! @all
     getAllPowerPlanList: [PowerPlanList!]! @all
+
+    getRegistrationFee(id: ID @eq): ReferralReward @find
+
+    getContestStats: ContestStats
+
+    getStatistics(from_date:String, to_date:String): AdminStatistics!
+
 }

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ReferralReward extends Model
 {
     protected $fillable = [
-        'referrer_percentage','indirect_referrer_percentage','referee_percentage','widget'
+        'registration_fee','direct_referrer_percentage','indirect_referrer_percentage','referee_percentage','site_percentage'
     ];
 }

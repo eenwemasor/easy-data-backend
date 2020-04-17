@@ -18,4 +18,16 @@ interface AirtimeToWalletTransactionContract
      * @return AirtimeToWalletTransaction
      */
     public function create(array $airtimeToWalletTransaction): AirtimeToWalletTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return AirtimeToWalletTransaction
+     */
+    public function approve_transaction(string $transaction_id): AirtimeToWalletTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return AirtimeToWalletTransaction
+     */
+    public function decline_transaction(string $transaction_id): AirtimeToWalletTransaction;
 }

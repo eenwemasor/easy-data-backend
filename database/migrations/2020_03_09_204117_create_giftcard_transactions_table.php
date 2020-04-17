@@ -20,8 +20,7 @@ class CreateGiftcardTransactionsTable extends Migration
             $table->string('gift_card_type');
             $table->float('amount_to_sell');
             $table->float('amount_to_receive');
-            $table->float('initial_balance');
-            $table->float('new_balance');
+            $table->float('buying_rate');
             $table->float('user_id');
             $table->enum('status', [
                 TransactionStatus::SENT,

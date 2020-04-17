@@ -22,11 +22,12 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'phone' => $faker->phoneNumber,
         'wallet' => $faker->numberBetween(1000, 2000), // password
-        'accessibility' => "user",
+        'accessibility' => \App\Enums\AccountAccessibility::USER,
         'email_confirmed' => $faker->boolean,
         'phone_verified' => $faker->boolean,
         'unique_id' => $faker->unique()->word,
         'active' => $faker->boolean,
+        'username' => $faker->unique()->name(),
         'bonus_wallet' => $faker->numberBetween(1000, 2000),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
     ];

@@ -8,42 +8,64 @@
         <div>
             <div>
                 <h5 style="font-size: 30px;font-weight:bolder; text-transform:uppercase;margin-top: 0px;margin-bottom: 0px">
-                    EasyData Quick Buy Transaction</h5>
+                    Gtserviz Quick Buy Transaction</h5>
                 <hr style="margin-bottom: 60px"/>
                 <p>Hello, {{$admin->full_name}}</p>
                 <p>Quick Buy Transaction from: {{$user}}</p>
                 <table>
                     <tbody>
+                    @if ($quickBuy->transaction_type)
                     <tr>
                         <td>Transaction Type:</td>
                         <td>{{$quickBuy->transaction_type}}</td>
                     </tr>
+                    @endif
+                    @if ($quickBuy->network)
                     <tr>
                         <td>Network:</td>
                         <td>{{$quickBuy->network}}</td>
                     </tr>
+                    @endif
+
+                    @if ($quickBuy->amount)
                     <tr>
                         <td>Amount:</td>
                         <td>{{$quickBuy->amount}}</td>
                     </tr>
-
+                    @endif
+                    @if ($quickBuy->plan)
                     <tr>
                         <td>Plan:</td>
                         <td>{{$quickBuy->plan}}</td>
                     </tr>
-
+                    @endif
+                    @if ($quickBuy->beneficiary)
                     <tr>
                         <td>Beneficiary:</td>
                         <td>{{$quickBuy->beneficiary}}</td>
                     </tr>
+                    @endif
+                    @if ($quickBuy->meter_number)
+                        <tr>
+                            <td>Meter Number:</td>
+                            <td>{{$quickBuy->meter_number}}</td>
+                        </tr>
+                    @endif
+
+                    @if ($quickBuy->meter_number)
+                        <tr>
+                            <td>Meter Number:</td>
+                            <td>{{$quickBuy->meter_number}}</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
                 <div style="padding: 10px;background-color:darkgray;color: white;margin-top: 60px;">
                     <p>
-                        <small>This is an email from easy-data communication, thank you for your patronage.....if you
+                        <small>This is an email from gtserviz communication, thank you for your patronage.....if you
                             have any request, complain feel free to leave us a message
                             <a
-                                    href="https:/easy-data.com/contact/"
+                                    href="https:/gtserviz.com/contact/"
                                     target="_blank"
                                     style="text-decoration: underline; color: #828999; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;"
                             >using this link</a
