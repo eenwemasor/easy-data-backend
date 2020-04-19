@@ -63,18 +63,14 @@ class ElectricityTransactionService
         $plan = PowerPlanList::find($electricityTransaction['plan']);
 
         $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet->balance < $electricityTransaction['amount']){
+        if($api_wallet < $electricityTransaction['amount']){
             throw new GraphqlError("Service is not available currently, please try again later");
         }
-
         $user = User::find($electricityTransaction["user_id"]);
 
         if (!$user->active) {
             throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
         }
-
-        $available_services = $this->validateTransactions->get_available_services('ELECT');
-        $this->checkAvailableService($available_services, $plan->disco);
 
         $data = collect($electricityTransaction);
 
@@ -94,11 +90,15 @@ class ElectricityTransactionService
         ])->toArray(), $electricityData);
         $electricityTransactionData['plan'] = $plan->id;
 
-        $initiate_electricity_transaction = $this->electricityAPIRequests->initiate_electricity_transaction(["disco" => $plan->disco, "meterNo" => $electricityTransaction['meter_number'], "type" => $electricityTransaction['type'], "amount" => $electricityTransaction['amount'], "phonenumber" => $user->phone, "request_id" => $walletTransactionResult['reference']
+        $initiate_electricity_transaction = $this->electricityAPIRequests->initiate_electricity_transaction(
+            [
+                "company" => $plan->disco,
+                "meter_number" => $electricityTransaction['meter_number'],
+                "type" => $electricityTransaction['type'],
+                "amount" => $electricityTransaction['amount']
+        ]);
 
-        ], $electricityTransaction['beneficiary_name']);
-
-        if ($initiate_electricity_transaction->message === "SUCCESSFUL" && $initiate_electricity_transaction->status === "200") {
+        if ($initiate_electricity_transaction == "successful") {
             $electricity_transaction = $this->electricity_transaction_repository->create($electricityTransactionData);
             $user_cont = New UserController();
             $user = $user_cont->getUserById($electricityTransaction["user_id"]);
@@ -121,48 +121,7 @@ class ElectricityTransactionService
             $wallet_transaction->status = TransactionStatus::FAILED;
             $wallet_transaction->save();
 
-            throw new GraphqlError($initiate_electricity_transaction->message);
-
-
-        }
-
-    }
-
-
-    public function checkAvailableService($services, $service)
-    {
-        if ((!isset($services->Abuja) || $services->Abuja != "Available") && $service === "AEDC") {
-            throw new GraphqlError("Abuja electricity service is currently not available");
-        }
-        if ((!isset($services->Eko) || $services->Eko != "Available") && $service === "EKEDC") {
-            throw new GraphqlError("Eko electricity service is currently not available");
-        }
-        if ((!isset($services->Kaduna) || $services->Kaduna != "Available") && $service ==="KAEDC") {
-            throw new GraphqlError("Kaduna electricity service is currently not available");
-        }
-        if ((!isset($services->Ibadan) || $services->Ibadan != "Available") && $service === "IBEDC") {
-            throw new GraphqlError("Ibadan electricity service is currently not available");
-        }
-        if ((!isset($services->Kano) || $services->Kano != "Available") && $service === "KEDC") {
-            throw new GraphqlError("Kano electricity service is currently not available");
-        }
-        if ((!isset($services->Ikeja) || $services->Ikeja != "Available") && $service === "IKEDC") {
-            throw new GraphqlError("Ikeja electricity service is currently not available");
-        }
-        if ((!isset($services->portharcourt) || $services->portharcourt != "Available") && $service === "PHEDC") {
-            throw new GraphqlError("Portharcourt electricity service is currently not available");
-        }
-        if ((!isset($services->Enugu) || $services->Enugu != "Available") && $service === "EEDC") {
-            throw new GraphqlError("Enugu electricity service is currently not available");
-        }
-        if ((!isset($services->Jos) || $services->Jos != "Available") && $service === "JEDC") {
-            throw new GraphqlError("Jos electricity service is currently not available");
-        }
-        if ((!isset($services->Benin) || $services->Benin != "Available") && $service === "BEDC") {
-            throw new GraphqlError("Benin electricity service is currently not available");
-        }
-        if ((!isset($services->Yola) || $services->Yola != "Available") && $service === "YEDC") {
-            throw new GraphqlError("Yola electricity service is currently not available");
+            throw new GraphqlError($initiate_electricity_transaction);
         }
     }
 

@@ -19,6 +19,7 @@ class CreateCablePlanListsTable extends Migration
             $table->string('plan');
             $table->string('amount');
             $table->string('product_code');
+            $table->string('vendor_identifier')->unique();
             $table->timestamps();
         });
     }

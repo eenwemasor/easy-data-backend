@@ -10,13 +10,16 @@ use App\DataTransaction;
 use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
+use App\Enums\WalletType;
 use App\Events\DataTransactionEvent;
 use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\SendSMSController;
 use App\Http\Controllers\UserController;
+use App\Repositories\APIRequests\DataAPIRequests;
 use App\Repositories\APIRequests\ValidateTransactions;
 use App\Repositories\DataTransactionRepository;
 use App\User;
+use App\WalletTransaction;
 
 class DataTransactionService
 {
@@ -32,22 +35,29 @@ class DataTransactionService
      * @var ValidateTransactions
      */
     private $validateTransactions;
+    /**
+     * @var DataAPIRequests
+     */
+    private $dataAPIRequests;
 
     /**
      * DataTransactionService constructor.
      * @param DataTransactionRepository $data_transaction_repository
      * @param WalletTransactionService $walletTransactionService
      * @param ValidateTransactions $validateTransactions
+     * @param DataAPIRequests $dataAPIRequests
      */
     public function __construct(
         DataTransactionRepository $data_transaction_repository,
         WalletTransactionService $walletTransactionService,
-        ValidateTransactions $validateTransactions
+        ValidateTransactions $validateTransactions,
+        DataAPIRequests $dataAPIRequests
     )
     {
         $this->data_transaction_repository = $data_transaction_repository;
         $this->walletTransactionService = $walletTransactionService;
         $this->validateTransactions = $validateTransactions;
+        $this->dataAPIRequests = $dataAPIRequests;
     }
 
     /**
@@ -58,21 +68,20 @@ class DataTransactionService
     public function create(array $dataTransaction)
     {
         $data_plan = DataPlanList::find($dataTransaction['data']);
-        $phone_details = $this->validateTransactions->get_phone_vendor_details($dataTransaction['beneficiary'])->opts;
-        if (strtoupper($phone_details->operator) != $data_plan->network) {
-            throw new GraphqlError("Please ensure phone number provided belongs to the network selected");
-        }
-
+        $api_wallet = $this->validateTransactions->get_api_account_info();
 
         $user = User::find($dataTransaction["user_id"]);
         if (!$user->active) {
             throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
         }
 
+        if($api_wallet < $data_plan->amount){
+            throw new GraphqlError("Service is not available currently, please try again later");
+        }
 
-        $sendSMS = new SendSMSController();
+
+
         $data = collect($dataTransaction);
-        $admin_utils = AdminChannelUtil::all()->first();
 
 
         $walletTransactionData = $data->only(['transaction_type', 'description', 'amount', 'beneficiary', 'user_id',])->toArray();
@@ -84,44 +93,50 @@ class DataTransactionService
         $dataData['method'] = $walletTransactionResult['wallet'];
         $dataData['data'] = $data_plan->plan;
         $wallet_result = collect($walletTransactionResult);
-        $dataData['status'] = TransactionStatus::PROCESSING;
-        $dataTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $dataData);
 
-        $data_transaction = $this->data_transaction_repository->create($dataTransactionData);
+        $initiate_data_transaction = $this->dataAPIRequests->InitiateDataTransaction([
+            'network' =>$data_plan->network,
+            'phone' => $dataTransaction['beneficiary'],
+            'plan' => $data_plan->id,
+        ]);
 
-        $message = null;
 
-        switch ($data_plan->network) {
-            case NetworkType::MTN: {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . " " . $data_plan->vendor_amount . " " . $admin_utils->data_pin;
-                break;
+        var_dump($initiate_data_transaction);
+
+        if($initiate_data_transaction === "successful"){
+            $dataData['status'] = TransactionStatus::PROCESSING;
+            $dataTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $dataData);
+
+            $data_transaction = $this->data_transaction_repository->create($dataTransactionData);
+
+            $user_cont = New UserController();
+            $user = $user_cont->getUserById($dataTransaction["user_id"]);
+            $admin = $user_cont->getAdmin();
+
+            event(new DataTransactionEvent($data_transaction, $user, $admin));
+
+            return $data_transaction;
+        }else{
+            $user = User::find($dataTransaction["user_id"]);
+            if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
+                $user->wallet = $user->wallet + $data_plan->amount;
+            } else {
+                $user->bonus_wallet = $user->bonus_wallet + $data_plan->amount;
             }
-            case NetworkType::GLO: {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
-                break;
-            }
-            case NetworkType::NINE_MOBILE: {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
-                break;
-            }
-            case NetworkType::AIRTEL: {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "*" . $admin_utils->data_pin . "#";
-                break;
-            }
-            default: {
-                throw new GraphqlError("Invalid Network Value");
-            }
+            $user->save();
+
+            $wallet_transaction = WalletTransaction::find($walletTransactionResult['id']);
+            $wallet_transaction->status = TransactionStatus::FAILED;
+            $wallet_transaction->save();
+
+            throw new GraphqlError("Transaction failed, please try again");
         }
-        $sendSMS->sendSMS($message);
 
 
-        $user_cont = New UserController();
-        $user = $user_cont->getUserById($dataTransaction["user_id"]);
-        $admin = $user_cont->getAdmin();
 
-        event(new DataTransactionEvent($data_transaction, $user, $admin));
 
-        return $data_transaction;
+
+
 
 
     }

@@ -25,23 +25,13 @@ class PowerPlanListSeeder extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Abuja Electric',
-                'disco'=>'AEDC',
-                'created_at' => Carbon::now()->toDateTimeString()
-            ],
-            [
                 'description' => 'Kano Electric',
-                'disco'=>'KEDC',
-                'created_at' => Carbon::now()->toDateTimeString()
-            ],
-            [
-                'description' => 'Enugu Electric',
-                'disco'=>'EEDC',
+                'disco'=>'KEDCO',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
                 'description' => 'Port Harcourt Electric',
-                'disco'=>'PHEDC',
+                'disco'=>'PHED',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -49,30 +39,10 @@ class PowerPlanListSeeder extends Seeder
                 'disco'=>'IBEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
-            [
-                'description' => 'Kaduna Electric',
-                'disco'=>'KAEDC',
-                'created_at' => Carbon::now()->toDateTimeString()
-            ],
-
-
 
             [
                 'description' => 'Jos Electric',
-                'disco'=>'JEDC',
-                'created_at' => Carbon::now()->toDateTimeString()
-            ],
-
-
-            [
-                'description' => 'Benin Electric',
-                'disco'=>'BEDC',
-                'created_at' => Carbon::now()->toDateTimeString()
-            ],
-
-            [
-                'description' => 'Yola Electric',
-                'disco'=>'YEDC',
+                'disco'=>'JED',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
 

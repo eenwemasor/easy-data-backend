@@ -30,41 +30,18 @@ class CableAPIRequests
      * @return mixed
      * @throws GraphqlError
      */
-    public function initiate_cable_transaction(array $data,$amount)
+    public function initiate_cable_transaction(array $data)
     {
-        $url = config('constant.CABLE_END_POINT');
-        $headers = config('constant.HEADERS');
+        $token = config('constant.TOKEN');
 
-        $response = json_encode([
-            "message"=> "Transaction failed",
-            "status"=> 404,
-            "transref"=> $data['request_id'],
-            "date"=> Carbon::now(),
-            "type"=> $data['type'],
-            "package"=> $data['name'],
-            "amount"=>$amount,
-            "amountCharged"=> $amount
-        ]);
-
-        $client = new Client($headers);
-        $request_param = array_merge([
-            'serviceCode' => "P-TV",
-            'period'=>"1",
-            'hasAddon'=>false
-        ],$data);
-
-        $request_data = $request_param;
-
+        $url = config('constant.API_ENDPOINT')."/tv/".$token."/".str_lower($data['cable'])."/".$data['smart_card_number']."/".$data['plan'];
+        $client = new Client();
         try{
-            $res = $client->request('POST', $url, [['headers' => ['content-type' => 'application/json']],'form_params' => $request_data]);
-            return $response = json_decode($res->getBody()->getContents());
-
+            $res = $client->request('POST', $url);
+            return $res->getBody()->getContents();
         }catch (\Throwable $e){
-            return json_decode($response);
-        }
-
-
-
+            throw new GraphqlError("Transaction failed, please try again: ".$e->getMessage());
+    }
     }
 
 }

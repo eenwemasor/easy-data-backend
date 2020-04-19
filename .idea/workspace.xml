@@ -5,139 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/AirtimeToCashTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/AirtimeToWalletTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/BitcoinTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/AirtimeToCashTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/AirtimeToWalletTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/BitcoinTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/GiftcardTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/QuickBuyContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/TransferFundTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/UserBankContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/WithdrawFundTransactionContract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/AirtimeToCashTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/AirtimeToWalletTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/BitcoinTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/GiftcardTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/QuickBuyEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/TransferFundTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Events/WithdrawFundTransactionEvent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GiftcardTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeToCashTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeToWalletTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateTransferFundRegister.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateWithdrawFundRegister.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/GiftcardTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/QuickBuy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/TransferFundTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/UserBank.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/WithdrawFundTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Listeners/TransactionRequestListener.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/AirtimeToCashTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/AirtimeToWalletTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/BitcoinTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/GiftcardTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/QuickBuyAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/TransferFundTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/AdminTransactionMails/WithdrawFundTransactionAdminMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/AirtimeToCashTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/AirtimeToWalletTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/BitcoinTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/GiftcardTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/QuickBuyUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/TransferFundTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Mail/UserTransactionMails/WithdrawFundTransactionUserMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/QuickBuy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/AirtimeToCashTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/AirtimeToWalletTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/BitcoinTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/GiftcardTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/TransferFundRequestRegisterRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/TransferFundTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/UserBankRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/WithdrawFundRequestRegisterRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/WithdrawFundTransactionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/RequestRegister.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/AirtimeToCashTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/AirtimeToWalletTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/BitcoinTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/GiftcardTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/QuickBuyService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/TransferFundRequestRegisterService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/TransferFundTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/UserBankService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/WithdrawFundRequestRegisterService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Services/WithdrawFundTransactionService.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/TransferFundTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/UserBank.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/WithdrawFundTransaction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2019_12_27_182252_create_quick_buys_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_203744_create_user_banks_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_203816_create_transfer_fund_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_203830_create_withdraw_fund_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_203846_create_airtime_to_cash_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_203911_create_airtime_to_wallet_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_204025_create_bitcoin_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_204117_create_giftcard_transactions_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_03_27_123732_create_request_registers_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/AirtimeToCashTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/AirtimeToWalletTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/BitcoinTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/QuickBuyInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/TransferFundRequestRegisterInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/TransferFundTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/UserBankInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/WithdrawFundTransactionInput.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/AirtimeToCashTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/AirtimeToWalletTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/BitcoinTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/GiftcardTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/QuickBuy.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/RequestRegister.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/TransferFundTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/UserBank.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/WithdrawFundTransaction.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/AirtimeToCashTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/AirtimeToWalletTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/BitcoinTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/GiftcardTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/QuickBuyMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/TransferFundRequestRegisterMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/TransferFundTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/UserBankMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/WithdrawFundTransactionMutation.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/AirtimeToCashTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/AirtimeToWalletTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/BitcoinTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/GiftcardTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/TransferFundTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/WithdrawFundTransactionQuery.graphql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_airtime_to_cash_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_airtime_to_wallet_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_bitcoin_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_gift_card_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_quick_buy.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_transfer_fund_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/admin/admin_withdraw_fund_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/transaction_pin.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_airtime_to_cash_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_airtime_to_wallet_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_bitcoin_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_gift_card_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_quick_buy.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_transfer_fund_transaction.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user/user_withdraw_fund_transaction.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/AdminListener.php" afterPath="$PROJECT_DIR$/app/Listeners/AdminListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/TransactionListener.php" afterPath="$PROJECT_DIR$/app/Listeners/TransactionListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AccountStatementService.php" afterPath="$PROJECT_DIR$/app/Services/AccountStatementService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/NetworkType.php" afterPath="$PROJECT_DIR$/app/Enums/NetworkType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/CableTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/DataTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/DataTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/constant.php" afterPath="$PROJECT_DIR$/config/constant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/auth.graphql" afterPath="$PROJECT_DIR$/graphql/auth.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -174,218 +56,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AirtimeTransaction.graphql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeTransaction.graphql">
+      <file leaf-file-name="CableAPIRequests.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="352">
+              <caret line="40" column="50" lean-forward="false" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminChannelUtilQuery.graphql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql">
+      <file leaf-file-name="DataAPIRequests.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+            <state relative-caret-position="264">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransactionListener.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listeners/TransactionListener.php">
+      <file leaf-file-name="ElectricityTransactionService.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Services/ElectricityTransactionService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="-1847">
+              <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NetworkType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Enums/NetworkType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="599">
               <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountAccessibility.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Enums/AccountAccessibility.php">
+      <file leaf-file-name="ElectricityAPIRequests.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CableType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Enums/CableType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ElectricityType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Enums/ElectricityType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+            <state relative-caret-position="572">
+              <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
               <folding>
-                <element signature="e#24#72#0#PHP" expanded="true" />
+                <element signature="e#130#166#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountStatementService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/AccountStatementService.php">
+      <file leaf-file-name="AirtimeAPIRequests.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-              <folding>
-                <marker date="1587262939602" expanded="true" signature="2487:8064" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="2500:7114" ph="data:" />
-                <marker date="1587262939602" expanded="false" signature="7123:7135" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="7150:7167" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7209:7482" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="7282:7298" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7299:7475" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7495:7556" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7563:7625" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7633:7693" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7687:7693" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7701:7760" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7768:7835" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="7865:7917" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="7918:8057" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="7979:7996" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="8436:8965" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="8451:8506" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="8548:8590" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="8591:8965" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="8614:8678" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="8679:8938" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="8688:8929" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="8700:8738" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="8946:8965" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="9074:9832" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9099:9152" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9256:9309" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9364:9401" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9465:9501" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9555:9592" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9655:9692" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="9751:9788" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10386:10963" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10398:10453" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10504:10546" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10547:10963" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="10571:10635" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10636:10936" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10645:10927" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="10657:10695" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="10944:10963" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="11072:11995" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11084:11137" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11241:11294" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11351:11388" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11442:11479" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11542:11579" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11638:11675" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11730:11767" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11820:11857" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="11911:11948" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12527:13165" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12539:12594" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12647:12689" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12690:13165" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="12715:12779" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12780:13138" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="12789:13129" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="12801:12839" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="13146:13165" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="13274:14396" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13286:13339" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13443:13496" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13553:13590" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13644:13681" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13744:13781" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13840:13877" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="13932:13969" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="14031:14068" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="14132:14169" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="14221:14258" ph="..." />
-                <marker date="1587262939602" expanded="false" signature="14312:14349" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="14921:15530" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="14934:14989" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15040:15082" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15083:15530" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15106:15170" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15171:15503" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15180:15494" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15192:15230" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15511:15530" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15639:16657" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15651:15704" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15808:15861" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="15918:15955" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16009:16046" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16109:16146" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16205:16242" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16297:16334" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16386:16423" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16482:16519" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="16573:16610" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17204:17822" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17216:17271" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17330:17372" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17373:17822" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17398:17462" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17463:17795" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17472:17786" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17484:17522" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17803:17822" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17931:18959" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="17943:17996" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18100:18153" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18210:18247" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18301:18338" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18401:18438" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18497:18534" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18594:18631" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18695:18732" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18784:18821" ph="..." />
-                <marker date="1587262939602" expanded="true" signature="18875:18912" ph="..." />
-              </folding>
+            <state relative-caret-position="242">
+              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountStatementEvent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Events/AccountStatementEvent.php">
+      <file leaf-file-name="AirtimeTransactionService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            <state relative-caret-position="-594">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataTransactionService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/DataTransactionService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="99" column="37" lean-forward="true" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValidateTransactions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+              <folding>
+                <marker date="1587331194592" expanded="true" signature="607:778" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -403,7 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$baseurl</find>
       <find>Logout</find>
       <find>user_w</find>
       <find>text-align: center</find>
@@ -433,6 +202,7 @@
       <find>data</find>
       <find>==</find>
       <find>.com</find>
+      <find>an</find>
     </findStrings>
     <replaceStrings>
       <replace>airtimeTocashTransactionPhone</replace>
@@ -463,14 +233,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_27_182252_create_quick_buys_table.php" />
-        <option value="$PROJECT_DIR$/app/GraphQL/Mutations/QuickBuy.php" />
-        <option value="$PROJECT_DIR$/graphql/inputs/QuickBuyInput.graphql" />
-        <option value="$PROJECT_DIR$/app/Mail/AdminTransactionMails/QuickBuyAdminMail.php" />
-        <option value="$PROJECT_DIR$/app/Events/QuickBuyEvent.php" />
-        <option value="$PROJECT_DIR$/graphql/mutations/QuickBuyMutation.graphql" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin_quick_buy.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SendSMSController.php" />
         <option value="$PROJECT_DIR$/app/AdminChannelUtil.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php" />
         <option value="$PROJECT_DIR$/graphql/inputs/AdminChannelUtilInput.graphql" />
@@ -491,20 +253,14 @@
         <option value="$PROJECT_DIR$/app/Services/CreateUserService.php" />
         <option value="$PROJECT_DIR$/app/Services/AirtimeToWalletTransactionService.php" />
         <option value="$PROJECT_DIR$/app/Services/WalletTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Services/DataTransactionService.php" />
         <option value="$PROJECT_DIR$/graphql/models/AdminStatistics.graphql" />
         <option value="$PROJECT_DIR$/app/Services/StatisticsService.php" />
         <option value="$PROJECT_DIR$/app/Repositories/ElectricityTransactionRepository.php" />
-        <option value="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
         <option value="$PROJECT_DIR$/app/Services/QuickBuyService.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" />
         <option value="$PROJECT_DIR$/graphql/inputs/NewsInput.graphql" />
         <option value="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/config/constant.php" />
         <option value="$PROJECT_DIR$/app/Listeners/AdminListener.php" />
         <option value="$PROJECT_DIR$/app/Listeners/TransactionListener.php" />
         <option value="$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql" />
@@ -513,7 +269,21 @@
         <option value="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Services/AccountStatementService.php" />
+        <option value="$PROJECT_DIR$/config/constant.php" />
+        <option value="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
+        <option value="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
+        <option value="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" />
+        <option value="$PROJECT_DIR$/app/Services/DataTransactionService.php" />
+        <option value="$PROJECT_DIR$/app/Enums/NetworkType.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" />
       </list>
     </option>
   </component>
@@ -721,101 +491,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -847,7 +523,65 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Listeners" />
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repositories" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repositories" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="APIRequests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Enums" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1217,12 +951,14 @@
       <workItem from="1587186798326" duration="296000" />
       <workItem from="1587187465301" duration="601000" />
       <workItem from="1587215986082" duration="2644000" />
-      <workItem from="1587258864463" duration="5007000" />
+      <workItem from="1587258864463" duration="5983000" />
+      <workItem from="1587321622877" duration="8673000" />
+      <workItem from="1587331877229" duration="1638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="623000000" />
+    <option name="totallyTimeSpent" value="634287000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1234,26 +970,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="1" />
+    <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19669509" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20479302" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47494555" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36140725" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2527233" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4074074" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1261,17 +998,17 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6372549" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4074074" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15686275" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18070363" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2527233" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25586355" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1286,99 +1023,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/graphql/mutations/CableTransactionMutation.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/queries/user.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/WithdrawFundRequestRegisterService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Creator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/GraphQL/Queries/GetStatistics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/CableTransaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/CreateUserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/WalletTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="97" column="124" lean-forward="false" selection-start-line="97" selection-start-column="124" selection-end-line="97" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/WithdrawFundTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeToWalletTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="149" column="5" lean-forward="true" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/WithdrawFundTransactionService.php" />
+    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeToWalletTransactionService.php" />
     <entry file="file://$PROJECT_DIR$/app/Services/StatisticsService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-308">
           <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/DataTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="79" column="62" lean-forward="false" selection-start-line="79" selection-start-column="62" selection-end-line="79" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1389,27 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="32" column="54" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/ElectricityTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="67" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AirtimeTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1417,32 +1051,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/CableTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="61" column="8" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="64" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/QuickBuyService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="262" column="53" lean-forward="false" selection-start-line="262" selection-start-column="53" selection-end-line="262" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/QuickBuyService.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1450,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1386">
           <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,25 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <marker date="1587013869597" expanded="true" signature="1724:1907" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-352">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="946">
           <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1500,63 +1091,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/TransactionRequestListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/TransactionRequestListener.php" />
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql" />
     <entry file="file://$PROJECT_DIR$/graphql/inputs/NewsInput.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/inputs/QuickBuyInput.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/inputs/TransferFundRequestRegisterInput.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/inputs/TransferFundTransactionInput.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/QuickBuyInput.graphql" />
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/TransferFundRequestRegisterInput.graphql" />
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/TransferFundTransactionInput.graphql" />
     <entry file="file://$PROJECT_DIR$/graphql/models/AccountStatement.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1564,7 +1117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1572,47 +1124,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1628">
           <caret line="74" column="41" lean-forward="false" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeToCashTransaction.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeToWalletTransaction.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeToCashTransaction.graphql" />
+    <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeToWalletTransaction.graphql" />
     <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeTransaction.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/mutations/TransferFundTransactionMutation.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/mutations/TransferFundTransactionMutation.graphql" />
     <entry file="file://$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,7 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1650,10 +1177,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
+        <state relative-caret-position="1276">
           <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
-            <element signature="e#24#72#0#PHP" expanded="true" />
+            <element signature="e#24#72#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1661,15 +1188,14 @@
     <entry file="file://$PROJECT_DIR$/app/Events/AccountStatementEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding />
+          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/AccountStatementService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
           <folding>
             <marker date="1587262939602" expanded="true" signature="2487:8064" ph="..." />
             <marker date="1587262939602" expanded="false" signature="2500:7114" ph="data:" />
@@ -1788,10 +1314,148 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/CableTransactionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="97" column="56" lean-forward="false" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="181" column="34" lean-forward="false" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+          <folding>
+            <marker date="1587331194592" expanded="true" signature="607:778" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/DataTransactionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="99" column="37" lean-forward="true" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="599">
           <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Enums/NetworkType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="40" column="50" lean-forward="false" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+          <folding>
+            <element signature="e#130#166#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/ElectricityTransactionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1847">
+          <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
           <folding />
         </state>
       </provider>

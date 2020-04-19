@@ -60,15 +60,10 @@ class AirtimeTransactionService
     public function create(array $airtimeTransaction)
     {
         $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet->balance < $airtimeTransaction['amount']){
+        if($api_wallet < $airtimeTransaction['amount']){
             throw new GraphqlError("Service is not available currently, please try again later");
         }
 
-
-        $phone_details = $this->validateTransactions->get_phone_vendor_details($airtimeTransaction['phone'])->opts;
-        if (strtoupper($phone_details->operator) != $airtimeTransaction['network']) {
-            throw new GraphqlError("Please ensure phone number provided belongs to the network selected");
-        }
 
         $user = User::find($airtimeTransaction["user_id"]);
         if (!$user->active) {
@@ -91,9 +86,15 @@ class AirtimeTransactionService
             $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
             $airtimeData = $data->only(['phone',])->toArray();
 
-            $initiateTransaction = $this->airtimeAPIRequests->initiate_airtime_transaction(['amount' => $airtimeTransaction['amount'], 'request_id' =>                      $walletTransactionResult['reference'], 'msisdn' => $airtimeTransaction['phone'],]);
+            $initiateTransaction = $this->airtimeAPIRequests->initiate_airtime_transaction(
+                [
+                    'amount' => $airtimeTransaction['amount'],
+                    'network' =>$airtimeTransaction['network'],
+                    'phone' => $airtimeTransaction['phone']
+                ]
+            );
 
-            if ($initiateTransaction->message == "SUCCESSFUL" && $initiateTransaction->status == "200") {
+            if ($initiateTransaction == "successful") {
                 $wallet_result = collect($walletTransactionResult);
                 $airtimeData['method'] = $walletTransactionResult['wallet'];
                 $airtimeData['status'] = TransactionStatus::COMPLETED;
@@ -128,7 +129,7 @@ class AirtimeTransactionService
                 $wallet_transaction->status = TransactionStatus::FAILED;
                 $wallet_transaction->save();
 
-                throw new GraphqlError($initiateTransaction->message);
+                throw new GraphqlError("Transaction failed, please try again");
             }
         }
 

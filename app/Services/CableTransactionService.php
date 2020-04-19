@@ -65,18 +65,10 @@ class CableTransactionService
         $data = collect($cableTransaction);
         $cable_plan = CablePlanList::find($data['plan']);
 
-
         $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet->balance < $cable_plan->amount){
+        if($api_wallet < $cable_plan->amount){
             throw new GraphqlError("Service is not available currently, please try again later");
         }
-
-
-
-        $available_services = $this->validateTransactions->get_available_services("Tv");
-
-        $this->checkAvailableService($available_services,$cable_plan->cable);
-
         $user = User::find($cableTransaction["user_id"]);
         if (!$user->active) {
             throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
@@ -99,11 +91,14 @@ class CableTransactionService
         $cableTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'beneficiary', 'status'])->toArray(), $cableData);
         $cableTransactionData['plan'] = $cable_plan->id;
 
-        $initiate_cable_transaction = $this->cableAPIRequests->initiate_cable_transaction(['type' => $cable_plan->cable, 'smartCardNo' => $cableTransaction['decoder_number'], 'name' => $cable_plan->plan, 'code' => $cable_plan->product_code, 'request_id' => $walletTransactionResult['reference'],
+        $initiate_cable_transaction = $this->cableAPIRequests->initiate_cable_transaction(
+            [
+                'cable' => $cable_plan->cable,
+                'smart_card_number' => $cableTransaction['decoder_number'],
+                'plan' => $cable_plan->vendor_identifier,
+        ]);
 
-        ], $cable_plan->amount);
-
-        if ($initiate_cable_transaction->message == "SUCCESSFUL" && $initiate_cable_transaction->status == "200") {
+        if ($initiate_cable_transaction === "successful") {
             $cable_transaction = $this->cable_transaction_repository->create($cableTransactionData);
 
             $user = $user_cont->getUserById($cableTransaction["user_id"]);
@@ -133,19 +128,6 @@ class CableTransactionService
 
 
     }
-    static public function checkAvailableService($services,$service)
-    {
-        if ((!isset($services->Gotv) || $services->Gotv != "Available") && $service == CableType::GOTV) {
-            throw new GraphqlError("Gotv subscription is currently not available");
-        }
-        if ((!isset($services->Dstv) || $services->Dstv != "Available") && $service == CableType::DTSV) {
-            throw new GraphqlError("Dstv subscription is currently not available");
-        }
-        if (( !isset($services->Startimes) || $services->Startimes != "Available") && $service == CableType::STARTIMES) {
-            throw new GraphqlError("Startimes is currently not available");
-        }
-    }
-
 
     /**
      * @param string $transaction_id
