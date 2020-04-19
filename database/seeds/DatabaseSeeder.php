@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('users')->insert([
-            'full_name' => "Gtserviz Admin",
-            'email' => "qhodeweb@gmail.com",
+            'full_name' => "Subpay Admin",
+            'email' => "admin@subpay.com.ng.ng",
             'phone' => "09096006817",
             'wallet' => 0, // wallet
             'accessibility' => "ADMIN",
@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('users')->insert([
-            'full_name' => "Gt User1",
-            'email' => "user1@gtserviz.com",
+            'full_name' => "Subpay User1",
+            'email' => "user1@subpay.com.ng",
             'phone' => "09090000000",
             'wallet' => 0, // wallet
             'accessibility' => "USER",
@@ -62,8 +62,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'full_name' => "Gt User2",
-            'email' => "user2@gtserviz.com",
+            'full_name' => "Subpay2 User2",
+            'email' => "user2@subpay.com.ng",
             'phone' => "09090000000",
             'wallet' => 0, // wallet
             'accessibility' => "USER",

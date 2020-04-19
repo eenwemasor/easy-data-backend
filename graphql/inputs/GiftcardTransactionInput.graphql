@@ -1,7 +1,0 @@
-input CreateGiftcardTransactionInput{
-    gift_card_type: String!
-    amount_to_sell: Float!
-    amount_to_receive: Float!
-    buying_rate:Float!
-    user_id: ID!
-}

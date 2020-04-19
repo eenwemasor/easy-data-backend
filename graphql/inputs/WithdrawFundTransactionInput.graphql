@@ -1,7 +1,0 @@
-input CreateWithdrawFundTransactionInput{
-    transaction_type: TransactionType!
-    description:String!
-    amount: Float!
-    bank_id: ID!
-    user_id: ID!
-}

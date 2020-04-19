@@ -1,9 +1,0 @@
-input CreateTransferFundTransactionInput{
-
-    transaction_type: TransactionType!
-    description:String!
-    amount: Float!
-
-    recipient_id:ID!
-    user_id: ID!
-}

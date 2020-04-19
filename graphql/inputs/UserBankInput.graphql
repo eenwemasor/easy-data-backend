@@ -1,6 +1,0 @@
-input CreateUserBankInput{
-    name: String!
-    bank_name: String!
-    bank_number: String!
-    user_id: ID!
-}

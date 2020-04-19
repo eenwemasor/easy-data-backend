@@ -23,7 +23,6 @@ type User {
     referrer_id:ID!
     referrer: User @belongsTo
     referrals: [User !]! @hasMany
-    banks: [UserBank !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany
     cable_transactions: [CableTransaction !]! @hasMany
     airtime_transactions: [AirtimeTransaction !]! @hasMany

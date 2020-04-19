@@ -6,7 +6,6 @@ use App\Listeners\AccountStatementListener;
 use App\Listeners\AdminListener;
 use App\Listeners\TalkToUsMessageListener;
 use App\Listeners\TransactionListener;
-use App\Listeners\TransactionRequestListener;
 use App\Listeners\UserCreatedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -85,10 +84,6 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\TransactionPin' => [
             'App\Listeners\UserCreatedListener',
         ],
-
-        'App\Events\TransferFundRequest' => [
-            'App\Listeners\TransactionRequestListener',
-        ],
         'App\Events\TalkToUsMessageEvent' => [
             'App\Listeners\TalkToUsMessageListener',
         ],
@@ -103,7 +98,6 @@ class EventServiceProvider extends ServiceProvider
         AdminListener::class,
         TransactionListener::class,
         UserCreatedListener::class,
-        TransactionRequestListener::class,
         TalkToUsMessageListener::class,
         AccountStatementListener::class
 

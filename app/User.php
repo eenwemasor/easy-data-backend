@@ -55,9 +55,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(ElectricityTransaction::class);
     }
 
-    public function banks(){
-        return $this->hasMany(UserBank::class);
-    }
 
     public function referrer()
     {

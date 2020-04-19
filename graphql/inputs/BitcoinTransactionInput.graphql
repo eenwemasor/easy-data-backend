@@ -1,6 +1,0 @@
-input CreateBitcoinTransactionInput{
-    amount_to_sell: Float!
-    amount_to_receive: Float!
-    buying_rate: Float!
-    user_id: ID!
-}

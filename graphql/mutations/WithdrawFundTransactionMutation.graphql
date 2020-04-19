@@ -1,5 +1,0 @@
-extend type Mutation {
-    CreateWithdrawFundTransaction(input: CreateWithdrawFundTransactionInput! @spread): WithdrawFundTransaction @field(resolver: "WithdrawFundTransaction@resolve")
-    ApproveWithdrawFundTransaction(transaction_id:ID!): WithdrawFundTransaction @field(resolver: "WithdrawFundTransaction@approve_transaction")
-    DeclineWithdrawFundTransaction(transaction_id:ID!): WithdrawFundTransaction @field(resolver: "WithdrawFundTransaction@decline_transaction")
-}

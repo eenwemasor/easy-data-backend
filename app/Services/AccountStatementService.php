@@ -9,7 +9,6 @@
 namespace App\Services;
 
 use App\AdminChannelUtil;
-use App\AirtimeToWalletTransaction;
 use App\AirtimeTransaction;
 use App\CableTransaction;
 use App\DataTransaction;
@@ -17,11 +16,8 @@ use App\ElectricityTransaction;
 use App\Enums\TransactionType;
 use App\Events\AccountStatementEvent;
 use App\GraphQL\Errors\GraphqlError;
-use App\TransferFundTransaction;
 use App\User;
-use App\UserBank;
 use App\WalletTransaction;
-use App\WithdrawFundTransaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
@@ -106,9 +102,6 @@ class AccountStatementService
   ' . $this->convert_wallet_transaction_to_html() . '
 </div>
  <div>
-  ' . $this->convert_airtime_to_wallet_transaction_to_html() . '
-</div>
- <div>
   ' . $this->convert_airtime_transaction_to_html() . '
 </div>
 
@@ -126,14 +119,7 @@ class AccountStatementService
 </div>
 
 
- <div>
-  ' . $this->convert_transfer_fund_transaction_to_html() . '
-</div>
 
- <div>
-
-  ' . $this->convert_withdraw_fund_transaction_to_html() . '
-</div>
 <br/>
 <hr/>
  <div style="text-align: right;font-size: 12px; margin-top: 150px">
@@ -185,51 +171,6 @@ class AccountStatementService
 
     }
 
-    private function convert_airtime_to_wallet_transaction_to_html()
-    {
-        if (AirtimeToWalletTransaction::where('user_id',$this->user_id)->get()->isNotEmpty()) {
-            $wallet_transactions = AirtimeToWalletTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();
-            $result = ' <div><h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Airtime to wallet transactions</h4><table style="width: 100%;padding: 10px;font-size: 10px;">
- 
-    <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
-    <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
-     <th>Reference</th>
-       <th>Amount</th>
-            <th>Initial Balance</th>
-            <th>New Balance</th>
-
-       <th>Beneficiary</th>
-       <th>Sender Phone</th>
-       <th>Recipient Phone</th>
-       <th>Method</th>
-       <th>status</th>
-       </tr>
-</thead>
-<tbody>
-                  ';
-            foreach ($wallet_transactions as $transaction) {
-                $result .= '
-            <tr><td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . Carbon::parse($transaction->created_at)->format('g:i a l jS F Y') . '</td>
-            <td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . $transaction->reference . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->amount . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->initial_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->new_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->beneficiary . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->sender_phone . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->recipient_phone . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->method . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->status . '</td>
-       </tr>
-       ';
-            }
-            $result .= '</tbody>
-                       </table></div>';
-            return $result;
-        } else {
-            return '<div></div>';
-        }
-
-    }
 
 
     private function convert_airtime_transaction_to_html()
@@ -412,94 +353,4 @@ class AccountStatementService
         }
 
     }
-
-
-    private function convert_transfer_fund_transaction_to_html()
-    {
-        if (TransferFundTransaction::where('user_id',$this->user_id)->get()->isNotEmpty()) {
-            $wallet_transactions = TransferFundTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();
-
-
-            $result = '<div><h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Fund transfer transactions</h4> <table style="width: 100%;padding: 10px;font-size: 10px;">
-  
-    <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
-    <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
-     <th>Reference</th>
-     <th>Description</th>
-       <th>Amount</th>
-            <th>Initial Balance</th>
-            <th>New Balance</th>
-       
-       <th>Beneficiary</th>
-       <th>status</th>
-       </tr>
-</thead>
-<tbody>
-                  ';
-            foreach ($wallet_transactions as $transaction) {
-                $recipient = User::find($transaction->recipient_id);
-                $result .= '
-            <tr><td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . Carbon::parse($transaction->created_at)->format('g:i a l jS F Y') . '</td>
-            <td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . $transaction->reference . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->description . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->amount . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->initial_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->new_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $recipient ? $recipient->full_name : "" . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->status . '</td>
-       </tr>
-       ';
-            }
-            $result .= '</tbody>
-                       </table></div>';
-            return $result;
-        } else {
-            return "<div></div>";
-        }
-
-    }
-
-
-    private function convert_withdraw_fund_transaction_to_html()
-    {
-        if (WithdrawFundTransaction::where('user_id',$this->user_id)->get()->isNotEmpty() ) {
-            $wallet_transactions = WithdrawFundTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();
-            $result = '<div>   <h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Fund withdraw transactions</h4><table style="width: 100%;padding: 10px;font-size: 10px;">
-
-    <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
-    <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
-     <th>Reference</th>
-       <th>Amount</th>
-            <th>Initial Balance</th>
-            <th>New Balance</th>
-       
-       <th>Receiving Bank</th>
-       <th>status</th>
-       </tr>
-</thead>
-<tbody>
-                  ';
-            foreach ($wallet_transactions as $transaction) {
-                $receiving_bank = UserBank::find($transaction->recipient_id);
-                $result .= '
-            <tr><td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . Carbon::parse($transaction->created_at)->format('g:i a l jS F Y') . '</td>
-            <td style="padding-top: 2px;padding-bottom: 2px;text-align: left">' . $transaction->reference . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->amount . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->initial_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->new_balance . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $receiving_bank ? $receiving_bank->name : "" . '</td>
-       <td style="padding-top: 2px;padding-bottom: 2px;">' . $transaction->status . '</td>
-       </tr>
-       ';
-            }
-            $result .= '</tbody>
-                       </table> </div>';
-            return $result;
-        } else {
-            return '<div></div>';
-        }
-
-    }
-
-
 }
