@@ -29,6 +29,7 @@ class AdminChannelUtil extends Seeder
             'trade_airtime_recipient_number_airtel'=>'08172838372',
             'trade_airtime_recipient_number_etisalat'=>'09092838372',
             'trade_airtime_recipient_number_mtn'=>'08063838372',
+            'sms_unit_charge'=>"2.9"
         ],
     ]);
     }

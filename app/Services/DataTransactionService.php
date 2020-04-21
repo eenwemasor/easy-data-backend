@@ -97,7 +97,7 @@ class DataTransactionService
         $initiate_data_transaction = $this->dataAPIRequests->InitiateDataTransaction([
             'network' =>$data_plan->network,
             'phone' => $dataTransaction['beneficiary'],
-            'plan' => $data_plan->id,
+            'plan' => $data_plan->plan,
         ]);
 
 

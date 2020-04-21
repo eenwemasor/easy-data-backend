@@ -48,7 +48,7 @@ enum WalletType{
 }
 
 enum NetworkType{
-    GLO @enum(value: "GLOBACOM")
+    GLO @enum(value: "GLO")
     MTN @enum(value: "MTN")
     AIRTEL @enum(value: "AIRTEL")
     ETISALAT @enum(value: "9MOBILE")
@@ -64,4 +64,9 @@ enum TransactionType{
 enum AccountAccessibility{
     USER
     ADMIN
+}
+
+enum BulkSMSStatus{
+    FAILED,
+    DELIVERED
 }

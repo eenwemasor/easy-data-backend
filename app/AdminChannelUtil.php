@@ -21,6 +21,7 @@ class AdminChannelUtil extends Model
         'trade_airtime_recipient_number_glo',
         'trade_airtime_recipient_number_airtel',
         'trade_airtime_recipient_number_etisalat',
-        'trade_airtime_recipient_number_mtn'
+        'trade_airtime_recipient_number_mtn',
+        'sms_unit_charge'
     ];
 }

@@ -33,7 +33,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '800MB/920MB',
+                'plan' => '800MB',
                 'amount' => '400',
                 'product_code'=>'*127*57*',
                 'vendor_amount'=>'null',
@@ -41,7 +41,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '1.6GB/1.8GB',
+                'plan' => '1.6GB',
                 'amount' => '400',
                 'product_code'=>'*127*53*',
                 'vendor_amount'=>'null',
@@ -49,7 +49,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '3.65GB/4.5GB',
+                'plan' => '3.65GB',
                 'amount' => '400',
                 'product_code'=>'*127*55*',
                 'vendor_amount'=>'null',
@@ -57,7 +57,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '5.75GB/7.2GB',
+                'plan' => '5.75GB',
                 'amount' => '1700',
                 'product_code'=>'*127*58*',
                 'vendor_amount'=>'null',
@@ -65,7 +65,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '7GB/8.75GB',
+                'plan' => '7GB',
                 'amount' => '1700',
                 'product_code'=>'*127*54*',
                 'vendor_amount'=>'null',
@@ -73,7 +73,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '10GB/12.5GB',
+                'plan' => '10GB',
                 'amount' => '3200',
                 'product_code'=>'*127*59*',
                 'vendor_amount'=>'null',
@@ -81,7 +81,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
-                'plan' => '12.5B/15.5GB',
+                'plan' => '12.5B',
                 'amount' => '4000',
                 'product_code'=>'*127*2*',
                 'vendor_amount'=>'null',
@@ -226,7 +226,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
-                'plan' => '750MB (2Weeks)',
+                'plan' => '750MB',
                 'amount' => '470',
                 'product_code'=>'141*6*2*2*3*1*',
                 'vendor_amount'=>'null',

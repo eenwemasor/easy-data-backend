@@ -31,6 +31,7 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->string('trade_airtime_recipient_number_airtel');
             $table->string('trade_airtime_recipient_number_etisalat');
             $table->string('trade_airtime_recipient_number_mtn');
+            $table->float('sms_unit_charge');
             $table->timestamps();
         });
     }
