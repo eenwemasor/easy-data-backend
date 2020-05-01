@@ -96,7 +96,7 @@ class ElectricityTransactionService
                 "meter_number" => $electricityTransaction['meter_number'],
                 "type" => $electricityTransaction['type'],
                 "amount" => $electricityTransaction['amount']
-        ]);
+            ]);
 
         if ($initiate_electricity_transaction == "successful") {
             $electricity_transaction = $this->electricity_transaction_repository->create($electricityTransactionData);
@@ -125,12 +125,14 @@ class ElectricityTransactionService
         }
     }
 
+
     /**
      * @param string $transaction_id
      * @return ElectricityTransaction
      */
     public function mark_transaction_successful(string $transaction_id)
     {
+
         return $this->electricity_transaction_repository->mark_transaction_successful($transaction_id);
     }
 
@@ -142,6 +144,9 @@ class ElectricityTransactionService
     {
         $electricityTransaction = collect(ElectricityTransaction::find($transaction_id));
 
+        if($electricityTransaction->status === TransactionStatus::FAILED){
+            return $electricityTransaction;
+        }
 
         $walletTransactionData = $electricityTransaction->only(['amount', 'user_id',])->toArray();
         $walletTransactionData['beneficiary'] = $electricityTransaction['beneficiary_name'];

@@ -1,3 +1,0 @@
-extend type Mutation {
-    CreateBulkSMS(input: CreateBulkSMSInput! @spread): BulkSMS @field(resolver: "BulkSMS@resolve")
-}

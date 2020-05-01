@@ -1,3 +1,0 @@
-extend type Query @middleware(checks: ["auth:api"]){
-        getBulkSMS(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [BulkSMS!]! @paginate(type: "paginator" model: "App\\BulkSMS")
-}

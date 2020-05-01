@@ -2,7 +2,10 @@
 
 namespace App\GraphQL\Queries;
 
+use App\CablePlanList;
 use App\Repositories\APIRequests\ValidateMobileNgTransactionRepository;
+use App\Repositories\APIRequests\ValidateTransactions;
+use App\Services\CableTransactionService;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -13,14 +16,20 @@ class GetUserCableCredentials
      * @var ValidateMobileNgTransactionRepository
      */
     private $mobileNgTransactionRepository;
+    /**
+     * @var ValidateTransactions
+     */
+    private $validateTransactions;
 
     /**
      * GetUserBillCredentials constructor.
      * @param ValidateMobileNgTransactionRepository $mobileNgTransactionRepository
+     * @param ValidateTransactions $validateTransactions
      */
-    function __construct(ValidateMobileNgTransactionRepository $mobileNgTransactionRepository)
+    function __construct(ValidateMobileNgTransactionRepository $mobileNgTransactionRepository, ValidateTransactions $validateTransactions)
     {
         $this->mobileNgTransactionRepository = $mobileNgTransactionRepository;
+        $this->validateTransactions = $validateTransactions;
     }
 
     /**
@@ -34,6 +43,8 @@ class GetUserCableCredentials
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return   $this->mobileNgTransactionRepository->get_cable_card_details($args);
+        $cable_plan = CablePlanList::find($args['plan']);
+
+        return   $this->mobileNgTransactionRepository->get_cable_card_details($args,$cable_plan->amount);
     }
 }

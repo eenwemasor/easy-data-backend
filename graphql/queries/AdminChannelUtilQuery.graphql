@@ -1,10 +1,17 @@
 extend type Query{
 
-    getAdminChannelUtil(id: ID @eq): AdminChannelUtil @find
+    getAdminChannelUtil: AdminChannelUtil @first
 
     getCablePlanList(
         cable: String! @where(operator: "=")
     ): [CablePlanList!]! @all
+
+
+    allCablePlans: [CablePlanList!]! @all
+    referralRewards: ReferralReward @first
+
+
+
     getDataPlanList(
         network: NetworkType! @where(operator: "=")
     ): [DataPlanList!]! @all

@@ -96,7 +96,7 @@ class CableTransactionService
                 'cable' => $cable_plan->cable,
                 'smart_card_number' => $cableTransaction['decoder_number'],
                 'plan' => $cable_plan->vendor_identifier,
-        ]);
+            ]);
 
         if ($initiate_cable_transaction === "successful") {
             $cable_transaction = $this->cable_transaction_repository->create($cableTransactionData);
@@ -128,7 +128,6 @@ class CableTransactionService
 
 
     }
-
     /**
      * @param string $transaction_id
      * @return  CableTransaction
@@ -145,6 +144,11 @@ class CableTransactionService
     public function mark_transaction_failed(string $transaction_id)
     {
         $cableTransaction = collect(CableTransaction::find($transaction_id));
+
+
+        if($cableTransaction->status === TransactionStatus::FAILED){
+            return $cableTransaction;
+        }
 
         $walletTransactionData = $cableTransaction->only(['amount', 'user_id',])->toArray();
         $walletTransactionData['beneficiary'] = $cableTransaction['beneficiary_name'];

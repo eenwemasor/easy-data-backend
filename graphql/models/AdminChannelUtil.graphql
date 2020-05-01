@@ -7,20 +7,19 @@ type AdminChannelUtil {
     airtel_discount: Int
     mtn_discount: Int
     etisalat_discount: Int
-    bitcoin_buying_rate:Float
-    giftcard_buying_rate:Float
     paystack_transaction_fee:Float
     rave_transaction_fee:Float
-    trade_airtime_recipient_number_glo:String
-    trade_airtime_recipient_number_airtel:String
-    trade_airtime_recipient_number_etisalat:String
-    trade_airtime_recipient_number_mtn:String
+
 }
 
 
 type ReferralReward {
     id: ID!
-    registration_fee: String
+    registration_fee: Float
+    direct_referrer_percentage:Float
+    indirect_referrer_percentage:Float
+    referee_percentage:Float
+    site_percentage:Float
 }
 
 

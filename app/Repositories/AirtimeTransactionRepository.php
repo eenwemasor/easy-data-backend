@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\AirtimeTransaction;
 use App\Contracts\AirtimeTransactionContract;
+use App\Enums\TransactionStatus;
 use App\Http\Controllers\Wallet;
 use App\User;
 
@@ -27,6 +28,15 @@ class AirtimeTransactionRepository implements AirtimeTransactionContract
      */
     public function mark_transaction_successful(string $transaction_id): AirtimeTransaction
     {
+        $transaction = AirtimeTransaction::findOrFail($transaction_id);
+
+        if($transaction->status === TransactionStatus::COMPLETED){
+            return $transaction;
+        }
+
+        $transaction->status = TransactionStatus::COMPLETED;
+        $transaction->save();
+        return $transaction;
     }
 
     /**
@@ -35,5 +45,15 @@ class AirtimeTransactionRepository implements AirtimeTransactionContract
      */
     public function mark_transaction_failed(string $transaction_id): AirtimeTransaction
     {
+        $transaction = AirtimeTransaction::findOrFail($transaction_id);
+
+        if($transaction->status === TransactionStatus::FAILED){
+            return $transaction;
+        }
+
+
+        $transaction->status = TransactionStatus::FAILED;
+        $transaction->save();
+        return $transaction;
     }
 }

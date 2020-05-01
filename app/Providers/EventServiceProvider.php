@@ -6,6 +6,7 @@ use App\Listeners\AccountStatementListener;
 use App\Listeners\AdminListener;
 use App\Listeners\TalkToUsMessageListener;
 use App\Listeners\TransactionListener;
+use App\Listeners\TransactionRequestListener;
 use App\Listeners\UserCreatedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -42,47 +43,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
         ],
-
-        'App\Events\QuickBuyEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
         'App\Events\WalletTransactionEvent' => [
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
-        ],
-        'App\Events\AirtimeToCashTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\AirtimeToWalletTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\BitcoinTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\GiftcardTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\TransferFundTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\WithdrawFundTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\TransactionPin' => [
-            'App\Listeners\UserCreatedListener',
         ],
         'App\Events\TalkToUsMessageEvent' => [
             'App\Listeners\TalkToUsMessageListener',

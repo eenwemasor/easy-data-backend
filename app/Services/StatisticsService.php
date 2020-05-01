@@ -32,13 +32,8 @@ class StatisticsService
         $user_statistics = CreateUserService::total_transaction_statistics($this->from_date, $this->to_date);
         $cable_statistics = CableTransactionService::total_transaction_statistics($this->from_date, $this->to_date);
         $power_statistics = ElectricityTransactionService::total_transaction_statistics($this->from_date, $this->to_date);
-        $airtime_to_wallet_statistics = AirtimeToWalletTransactionService::total_transaction_statistics($this->from_date, $this->to_date);
         $wallet_fund = WalletTransactionService::total_online_wallet_funding($this->from_date, $this->to_date);
-
-        $statistics = [ 'total_withdrawal' => WithdrawFundTransactionService::total_transaction_statistics($this->from_date, $this->to_date), 'total_coupon_funding' => 0,
-
-        ];
-        return array_merge($data_statistics, $airtime_statistics, $statistics, $user_statistics, $cable_statistics, $power_statistics, $airtime_to_wallet_statistics,$wallet_fund);
+        return array_merge($data_statistics, $airtime_statistics, $user_statistics, $cable_statistics, $power_statistics,$wallet_fund);
 
     }
 

@@ -112,7 +112,7 @@ class DataPlanListSeeder extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-               'network' => NetworkType::NINE_MOBILE,
+                'network' => NetworkType::NINE_MOBILE,
                 'plan' => '4.5GB',
                 'amount' => '2700',
                 'product_code'=>'*229*2*8*',

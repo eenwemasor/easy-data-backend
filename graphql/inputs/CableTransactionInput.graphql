@@ -6,3 +6,22 @@ input CreateCableTransactionInput{
     plan:ID!
     user_id: ID!
 }
+
+
+input CreateCablePlanInput{
+    cable: String!
+    plan: String!
+    amount: Float!
+    product_code: String!
+    vendor_identifier:String!
+}
+
+
+input UpdateCablePlanInput{
+    id:ID!
+    cable: String
+    plan: String
+    amount: Float
+    product_code: String
+    vendor_identifier:String
+}

@@ -21,16 +21,9 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->string('airtel_discount');
             $table->string('mtn_discount');
             $table->string('etisalat_discount');
-            $table->float('bitcoin_buying_rate');
-            $table->float('giftcard_buying_rate');
-            $table->string('data_pin');
             $table->float('statement_request_charge');
             $table->float('paystack_transaction_fee');
-            $table->float('rave_transaction_fee');
-            $table->string('trade_airtime_recipient_number_glo');
-            $table->string('trade_airtime_recipient_number_airtel');
-            $table->string('trade_airtime_recipient_number_etisalat');
-            $table->string('trade_airtime_recipient_number_mtn');
+
             $table->float('sms_unit_charge');
             $table->timestamps();
         });

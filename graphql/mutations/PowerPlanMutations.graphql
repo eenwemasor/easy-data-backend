@@ -1,0 +1,17 @@
+extend type Mutation {
+    CreatePowerPlan(input: CreateElectricityPlanInput! @spread): PowerPlanList @create(model: "App\\PowerPlanList")
+    @can(ability: "create", model: "App\\PowerPlanList")
+    @inject(context: "user", name: "user")
+
+    
+    UpdatePowerPlan(input: UpdateElectricityPlanInput! @spread): PowerPlanList @update(model: "App\\PowerPlanList")
+    @can(ability: "update", model: "App\\PowerPlanList")
+    @inject(context: "user", name: "user")
+
+    DeletePowerPlan(id:ID!): PowerPlanList @delete(model: "App\\PowerPlanList")
+    @can(ability: "delete", model: "App\\PowerPlanList" find: "id")
+    @inject(context: "user", name: "user")
+
+
+
+}

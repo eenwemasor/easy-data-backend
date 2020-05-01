@@ -20,7 +20,7 @@ type User {
     active:Boolean!
     bonus_wallet:String!
     username:String!
-    referrer_id:ID!
+    referrer_id:ID
     referrer: User @belongsTo
     referrals: [User !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany

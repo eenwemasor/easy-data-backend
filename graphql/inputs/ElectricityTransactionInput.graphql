@@ -8,3 +8,15 @@ input CreateElectricityTransactionInput{
     plan:ID!
     user_id: ID!
 }
+
+
+input CreateElectricityPlanInput{
+    description: String!
+    disco:String!
+}
+
+input UpdateElectricityPlanInput{
+    id:ID!
+    description: String
+    disco:String
+}

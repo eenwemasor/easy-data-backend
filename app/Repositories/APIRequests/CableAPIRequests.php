@@ -41,7 +41,7 @@ class CableAPIRequests
             return $res->getBody()->getContents();
         }catch (\Throwable $e){
             throw new GraphqlError("Transaction failed, please try again: ".$e->getMessage());
-    }
+        }
     }
 
 }

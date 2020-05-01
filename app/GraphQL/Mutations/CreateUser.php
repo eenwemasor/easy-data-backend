@@ -84,4 +84,37 @@ class CreateUser
     }
 
 
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\User
+     */
+    public function block_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return $this->create_user_service->block_account($args['user_id']);
+
+    }
+
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\User
+     */
+    public function un_block_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return $this->create_user_service->un_block_account($args['user_id']);
+
+    }
+
+
+
+
+
 }

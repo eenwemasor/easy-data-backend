@@ -1,4 +1,7 @@
 extend type Query @middleware(checks: ["auth:api"]){
     getWalletTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [WalletTransaction!]! @paginate(type: "paginator" model: "App\\WalletTransaction")
 
+
+    AllWalletTransactions(from_date:String, to_date:String, status:WalletTransactionStatus orderBy: [OrderByClause!] @orderBy): [WalletTransaction!]! @paginate( model: "App\\WalletTransaction" builder:"App\\GraphQL\\Queries\\GetAllWalletTransactions@get_all_transactions")
+
 }

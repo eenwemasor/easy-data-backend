@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'full_name' => "Subpay Admin",
-            'email' => "admin@subpay.com.ng.ng",
+            'email' => "admin@subpay.com.ng",
             'phone' => "09096006817",
             'wallet' => 0, // wallet
             'accessibility' => "ADMIN",

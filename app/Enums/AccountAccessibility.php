@@ -13,4 +13,5 @@ class AccountAccessibility
 {
     const USER = "USER";
     const ADMIN = "ADMIN";
+    const BLOCKED = "BLOCKED";
 }

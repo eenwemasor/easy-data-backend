@@ -10,16 +10,13 @@ use App\DataTransaction;
 use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
-use App\Enums\WalletType;
 use App\Events\DataTransactionEvent;
 use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\SendSMSController;
 use App\Http\Controllers\UserController;
-use App\Repositories\APIRequests\DataAPIRequests;
 use App\Repositories\APIRequests\ValidateTransactions;
 use App\Repositories\DataTransactionRepository;
 use App\User;
-use App\WalletTransaction;
 
 class DataTransactionService
 {
@@ -35,29 +32,22 @@ class DataTransactionService
      * @var ValidateTransactions
      */
     private $validateTransactions;
-    /**
-     * @var DataAPIRequests
-     */
-    private $dataAPIRequests;
 
     /**
      * DataTransactionService constructor.
      * @param DataTransactionRepository $data_transaction_repository
      * @param WalletTransactionService $walletTransactionService
      * @param ValidateTransactions $validateTransactions
-     * @param DataAPIRequests $dataAPIRequests
      */
     public function __construct(
         DataTransactionRepository $data_transaction_repository,
         WalletTransactionService $walletTransactionService,
-        ValidateTransactions $validateTransactions,
-        DataAPIRequests $dataAPIRequests
+        ValidateTransactions $validateTransactions
     )
     {
         $this->data_transaction_repository = $data_transaction_repository;
         $this->walletTransactionService = $walletTransactionService;
         $this->validateTransactions = $validateTransactions;
-        $this->dataAPIRequests = $dataAPIRequests;
     }
 
     /**
@@ -158,6 +148,10 @@ class DataTransactionService
     {
         $dataTransaction = collect(DataTransaction::find($transaction_id));
 
+
+        if($dataTransaction->status === TransactionStatus::FAILED){
+            return $dataTransaction;
+        }
 
         $walletTransactionData = $dataTransaction->only(['amount', 'user_id',])->toArray();
         $walletTransactionData['beneficiary'] = $dataTransaction['beneficiary'];

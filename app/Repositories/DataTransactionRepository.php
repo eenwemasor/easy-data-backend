@@ -31,6 +31,12 @@ class DataTransactionRepository implements DataTransactionContract
     {
 
         $transaction = DataTransaction::findOrFail($transaction_id);
+
+        if($transaction->status === TransactionStatus::COMPLETED){
+            return $transaction;
+        }
+
+
         $transaction->status = TransactionStatus::COMPLETED;
         $transaction->save();
         return $transaction;

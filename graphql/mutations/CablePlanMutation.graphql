@@ -1,0 +1,15 @@
+extend type Mutation {
+    CreateCablePlan(input: CreateCablePlanInput! @spread): CablePlanList @create(model: "App\\CablePlanList")
+    @can(ability: "create", model: "App\\CablePlanList")
+    @inject(context: "user", name: "user")
+
+    UpdateCablePlan(input: UpdateCablePlanInput! @spread): CablePlanList @update(model: "App\\CablePlanList")
+    @can(ability: "update", model: "App\\CablePlanList")
+    @inject(context: "user", name: "user")
+
+    DeleteCablePlan(id:ID!): CablePlanList @delete(model: "App\\CablePlanList")
+    @can(ability: "delete", model: "App\\CablePlanList" find: "id")
+    @inject(context: "user", name: "user")
+
+
+}

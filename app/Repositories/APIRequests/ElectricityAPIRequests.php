@@ -29,8 +29,8 @@ class ElectricityAPIRequests
 
         try{
 
-        $res = $client->request('POST', $url);
-        return $res->getBody()->getContents();
+            $res = $client->request('POST', $url);
+            return $res->getBody()->getContents();
         }catch (\Throwable $e) {
             throw new GraphqlError("Transaction failed, please try again: " . $e->getMessage());
         }

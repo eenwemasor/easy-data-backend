@@ -1,6 +1,17 @@
 extend type Mutation {
     CreateCableTransaction(input: CreateCableTransactionInput! @spread): CableTransaction @field(resolver: "CableTransaction@resolve")
+
+
+    DeleteCableTransaction(id:ID!): CableTransaction  @delete(model: "App\\CableTransaction")
+    @can(ability: "delete", model: "App\\CableTransaction" find: "id")
+    @inject(context: "user", name: "user")
+    
     MarkCableTransactionSuccessful(transaction_id:ID!): CableTransaction @field(resolver: "CableTransaction@mark_transaction_successful")
+    @can(ability: "update", model: "App\\CableTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
     MarkCableTransactionFailed(transaction_id:ID!): CableTransaction @field(resolver: "CableTransaction@mark_transaction_failed")
+    @can(ability: "update", model: "App\\CableTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
 
 }

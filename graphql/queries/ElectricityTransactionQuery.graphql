@@ -1,3 +1,8 @@
 extend type Query @middleware(checks: ["auth:api"]){
     getElectricityTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [ElectricityTransaction!]! @paginate(type: "paginator" model: "App\\ElectricityTransaction")
+
+
+    AllElectricityTransactions(from_date:String, to_date:String, status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [ElectricityTransaction!]! @paginate( model: "App\\ElectricityTransaction" builder:"App\\GraphQL\\Queries\\GetAllElectricityTransactions@get_all_transactions")
+
+
 }

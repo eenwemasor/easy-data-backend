@@ -2,29 +2,16 @@
 
 namespace App\Listeners;
 
-use App\Events\AirtimeToCashTransactionEvent;
-use App\Events\AirtimeToWalletTransactionEvent;
 use App\Events\AirtimeTransactionEvent;
-use App\Events\BitcoinTransactionEvent;
 use App\Events\CableTransactionEvent;
 use App\Events\DataTransactionEvent;
 use App\Events\ElectricityTransactionEvent;
-use App\Events\GiftcardTransactionEvent;
-use App\Events\QuickBuyEvent;
-use App\Events\TransferFundTransactionEvent;
 use App\Events\WalletTransactionEvent;
-use App\Events\WithdrawFundTransactionEvent;
-use App\Mail\AdminTransactionMails\AirtimeToCashTransactionAdminMail;
-use App\Mail\AdminTransactionMails\AirtimeToWalletTransactionAdminMail;
+
 use App\Mail\AdminTransactionMails\AirtimeTransactionAdminMail;
-use App\Mail\AdminTransactionMails\BitcoinTransactionAdminMail;
 use App\Mail\AdminTransactionMails\CableTransactionAdminMail;
 use App\Mail\AdminTransactionMails\DataTransactionAdminMail;
 use App\Mail\AdminTransactionMails\ElectricityTransactionAdminMail;
-use App\Mail\AdminTransactionMails\GiftcardTransactionAdminMail;
-use App\Mail\AdminTransactionMails\QuickBuyAdminMail;
-use App\Mail\AdminTransactionMails\TransferFundTransactionAdminMail;
-use App\Mail\AdminTransactionMails\WithdrawFundTransactionAdminMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;

@@ -55,7 +55,7 @@ class CreateUserService
         if (isset($user['referrer_id'])) {
             $referrer_id = User::where('unique_id', $user['referrer_id'])->first()->id;
         }
-        $user['unique_id'] = "gtserviz_" . uniqid();
+        $user['unique_id'] =  $user['username']. uniqid();
         $user['accessibility'] = AccountAccessibility::USER;
         $user['wallet'] = 0;
         $user['email_confirmed'] = false;
@@ -132,11 +132,13 @@ class CreateUserService
             }
 
             if ($direct_referrer) {
-                $amount_gained = $indirect_referrer_percentage / 100 * $registration_fee;
-                $indirect_referrer = User::find($direct_referrer->referrer_id);
-                $indirectReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => "Self", 'user_id' => $indirect_referrer->id,];
+                if ($direct_referrer->referrer_id) {
+                    $amount_gained = $indirect_referrer_percentage / 100 * $registration_fee;
+                    $indirect_referrer = User::find($direct_referrer->referrer_id);
+                    $indirectReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => "Self", 'user_id' => $indirect_referrer->id,];
 
-                $this->walletTransactionService->create($indirectReferrerWalletTransactionData, WalletType::BONUS_WALLET);
+                    $this->walletTransactionService->create($indirectReferrerWalletTransactionData, WalletType::BONUS_WALLET);
+                }
             }
 
             $userWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $referee_percentage / 100 * $registration_fee, 'beneficiary' => "Self", 'user_id' => $user->id,];
@@ -153,6 +155,26 @@ class CreateUserService
             throw new GraphqlError("Account already activated");
         }
 
+    }
+
+
+    public function block_account( string $user_id)
+    {
+        $user = User::find($user_id);
+        $user->accessibility = AccountAccessibility::BLOCKED;
+        $user->save();
+
+        return $user;
+    }
+
+
+    public function un_block_account( string $user_id)
+    {
+        $user = User::find($user_id);
+        $user->accessibility = AccountAccessibility::USER;
+        $user->save();
+
+        return $user;
     }
 
 

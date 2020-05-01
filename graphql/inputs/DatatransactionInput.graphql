@@ -5,3 +5,23 @@ input CreateDataTransactionInput{
     data: ID!
     user_id: ID!
 }
+
+
+input CreateDataPlanInput{
+    network: NetworkType!
+    plan: String!
+    amount: Float!
+    vendor_amount:String
+    product_code:String
+}
+
+
+input UpdateDataPlanInput{
+    id:ID!
+    network: NetworkType
+    plan: String
+    amount: Float
+    vendor_amount:Float
+    product_code:String
+
+}

@@ -24,19 +24,6 @@ class CableTransactionRepository implements CableTransactionContract
     {
         $cable_plan = CablePlanList::find($cableTransaction['plan']);
 
-
-        $sms = new SendSMSController();
-        $decoder = $cableTransaction["decoder"];
-        $beneficiary_name = $cableTransaction["beneficiary_name"];
-        $decoder_number = $cableTransaction["decoder_number"];
-        $plan = $cable_plan->plan;
-        $amount = $cableTransaction["amount"];
-
-        $message = "Cable Tv Purchase Request:  Beneficiary Name: Decoder: ".$decoder." "
-            .$beneficiary_name." Decoder Number: "
-            .$decoder_number. "  Plan: ".$plan. " Amount: ".$amount;
-
-//        $sms->sendSMS($message);
         $cableTransaction['plan'] = $cable_plan->plan;
         return CableTransaction::create($cableTransaction);
     }
@@ -49,6 +36,11 @@ class CableTransactionRepository implements CableTransactionContract
     {
 
         $transaction = CableTransaction::findOrFail($transaction_id);
+        if($transaction->status === TransactionStatus::COMPLETED){
+            return $transaction;
+        }
+
+
         $transaction->status = TransactionStatus::COMPLETED;
         $transaction->save();
         return $transaction;
@@ -61,6 +53,7 @@ class CableTransactionRepository implements CableTransactionContract
     public function mark_transaction_failed(string $transaction_id): CableTransaction
     {
         $transaction = CableTransaction::findOrFail($transaction_id);
+
         $transaction->status = TransactionStatus::FAILED;
         $transaction->save();
         return $transaction;

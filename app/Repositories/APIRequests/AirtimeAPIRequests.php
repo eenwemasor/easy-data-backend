@@ -35,9 +35,9 @@ class AirtimeAPIRequests
 
         $client = new Client();
         try{
-        $res = $client->request('POST', $url);
-        $response = json_decode($res->getBody()->getContents());
-        return $response;
+            $res = $client->request('POST', $url);
+            $response = json_decode($res->getBody()->getContents());
+            return $response;
         }catch (\Throwable $e) {
             throw new GraphqlError("Transaction failed, please try again: " . $e->getMessage());
         }

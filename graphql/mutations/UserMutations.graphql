@@ -16,4 +16,11 @@ extend type Mutation {
     ActivateAccount(
         user_id: ID!): User @field(resolver: "CreateUser@activate_account")
 
+    BlockAccount(
+        user_id: ID!): User @field(resolver: "CreateUser@block_account")
+
+    UnBlockAccount(
+        user_id: ID!): User @field(resolver: "CreateUser@un_block_account")
+
+    DeleteAccount(id:ID!):User @delete(model: "App\\User")
 }

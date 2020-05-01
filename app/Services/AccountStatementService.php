@@ -117,13 +117,10 @@ class AccountStatementService
 
   ' . $this->convert_electricity_transaction_to_html() . '
 </div>
-
-
-
 <br/>
 <hr/>
  <div style="text-align: right;font-size: 12px; margin-top: 150px">
-    <p>Signed: Gtserviz Communication</p>
+    <p>Signed: Subpay Communication</p>
        <p style="margin-top: -10px">Date: '.Carbon::now()->format('g:i a l jS F Y').'</p>
 </div>
 </div>';
@@ -170,6 +167,7 @@ class AccountStatementService
         }
 
     }
+
 
 
 
@@ -353,4 +351,6 @@ class AccountStatementService
         }
 
     }
+
+
 }

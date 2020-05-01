@@ -13,12 +13,32 @@ use App\GraphQL\Errors\GraphqlError;
 class ValidateMobileNgTransactionRepository
 {
     /**
-     * @param array $data
-     * @return array
-     * @throws
+     * @var ValidateTransactions
      */
-    public function get_cable_card_details(array $data): array
+    private $validateTransactions;
+
+    /**
+     * ValidateMobileNgTransactionRepository constructor.
+     * @param ValidateTransactions $validateTransactions
+     */
+    function __construct(ValidateTransactions $validateTransactions)
     {
+        $this->validateTransactions = $validateTransactions;
+    }
+
+    /**
+     * @param array $data
+     * @param $amount
+     * @return array
+     * @throws GraphqlError
+     */
+    public function get_cable_card_details(array $data,$amount): array
+    {
+        $api_wallet = $this->validateTransactions->get_api_account_info();
+        if($api_wallet < $amount){
+            throw new GraphqlError("Service is not available currently, please try again later");
+        }
+
         $url = config('constant.MOBILE_NG_DECODER_USER_CHECK');
         $api_key = config('constant.MOBILE_NG_API_KEY');
         $username = config('constant.MOBILE_NG_API_USERNAME');

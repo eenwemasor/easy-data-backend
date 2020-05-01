@@ -3,5 +3,7 @@ type CablePlanList {
     cable: String!
     plan: String!
     amount: String!
+    vendor_identifier:String!
     product_code: String!
+    updated_at:DateTime
 }

@@ -1,7 +1,14 @@
 extend type Mutation {
-    CreateAdminChannelUtil(input: CreateAdminChannelUtilInput! @spread): AdminChannelUtil @create(model: "App\\AdminChannelUtil")
 
     UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+    @can(ability: "update", model: "App\\AdminChannelUtil" find: "id")
+    @inject(context: "user", name: "user")
+
+
+    UpdateReferralRewards(input: UpdateReferralRewardInput! @spread): ReferralReward
+        @update(model: "App\\ReferralReward")
+        @can(ability: "update", model: "App\\ReferralReward" find: "id")
+        @inject(context: "user", name: "user")
 
     TalkToUsMessage(input: TalkToUsInput! @spread): TalkToUsMessage @field(resolver: "TalkToUsMessage@forward_mail")
 

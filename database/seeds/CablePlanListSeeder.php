@@ -223,5 +223,5 @@ class CablePlanListSeeder extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
         ]);
-}
+    }
 }

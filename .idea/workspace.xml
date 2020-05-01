@@ -1,26 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/database/factories/WalletTransactionFactory.php" line="35" />
+    <bookmark url="file://$PROJECT_DIR$/database/factories/WalletTransactionFactory.php" line="25" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Contracts/BulkSMSContract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/BulkSMSRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/BulkSMSService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/graphql/inputs/BulkSMSInput.graphql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/graphql/models/BulkSMS.graphql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/graphql/mutations/BulkSMSMutation.graphql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/graphql/queries/BulkSMSQuery.graphql" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Services/contestStatsService.php" afterPath="$PROJECT_DIR$/app/Services/ContestStatsService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/graphql/mutations/CablePlanMutation.graphql" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/BulkSMS.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/BulkSMSContract.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Contracts/RequestRegisterContract.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Enums/BulkSMSStatus.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/BitcoinTransaction.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/BulkSMS.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/QuickBuyRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/inputs/BulkSMSInput.graphql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/models/BulkSMS.graphql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/mutations/BulkSMSMutation.graphql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/graphql/queries/BulkSMSQuery.graphql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.editorconfig" afterPath="$PROJECT_DIR$/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gtservizBackend.iml" afterPath="$PROJECT_DIR$/.idea/gtservizBackend.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.styleci.yml" afterPath="$PROJECT_DIR$/.styleci.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AdminChannelUtil.php" afterPath="$PROJECT_DIR$/app/AdminChannelUtil.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CablePlanList.php" afterPath="$PROJECT_DIR$/app/CablePlanList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/DeletePhoneToken.php" afterPath="$PROJECT_DIR$/app/Console/Commands/DeletePhoneToken.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/AccountAccessibility.php" afterPath="$PROJECT_DIR$/app/Enums/AccountAccessibility.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/CableType.php" afterPath="$PROJECT_DIR$/app/Enums/CableType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/ElectricityType.php" afterPath="$PROJECT_DIR$/app/Enums/ElectricityType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/NetworkType.php" afterPath="$PROJECT_DIR$/app/Enums/NetworkType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Enums/TransactionStatus.php" afterPath="$PROJECT_DIR$/app/Enums/TransactionStatus.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/AccountStatementEvent.php" afterPath="$PROJECT_DIR$/app/Events/AccountStatementEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/AirtimeTransactionEvent.php" afterPath="$PROJECT_DIR$/app/Events/AirtimeTransactionEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/CableTransactionEvent.php" afterPath="$PROJECT_DIR$/app/Events/CableTransactionEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/DataTransactionEvent.php" afterPath="$PROJECT_DIR$/app/Events/DataTransactionEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/ElectricityTransactionEvent.php" afterPath="$PROJECT_DIR$/app/Events/ElectricityTransactionEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/TalkToUsMessageEvent.php" afterPath="$PROJECT_DIR$/app/Events/TalkToUsMessageEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/WalletTransactionEvent.php" afterPath="$PROJECT_DIR$/app/Events/WalletTransactionEvent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeTransaction.php" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeTransaction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateUser.php" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/TalkToUsMessage.php" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/TalkToUsMessage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetContestStats.php" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetContestStats.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetStatistics.php" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetStatistics.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetUserBillCredentials.php" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetUserBillCredentials.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetUserCableCredentials.php" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetUserCableCredentials.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GraphQL/Queries/UserAccountStatement.php" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/UserAccountStatement.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CableTvPurchase.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CableTvPurchase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SendPhoneVerification.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SendPhoneVerification.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SendSMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SendSMSController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UpdateUserData.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UpdateUserData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/AccountStatementListener.php" afterPath="$PROJECT_DIR$/app/Listeners/AccountStatementListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/AdminListener.php" afterPath="$PROJECT_DIR$/app/Listeners/AdminListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/TalkToUsMessageListener.php" afterPath="$PROJECT_DIR$/app/Listeners/TalkToUsMessageListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Listeners/TransactionListener.php" afterPath="$PROJECT_DIR$/app/Listeners/TransactionListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Mail/AccountStatementMail.php" afterPath="$PROJECT_DIR$/app/Mail/AccountStatementMail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Mail/TalkToUsMessageMail.php" afterPath="$PROJECT_DIR$/app/Mail/TalkToUsMessageMail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/NewsFeed.php" afterPath="$PROJECT_DIR$/app/NewsFeed.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/NewsUpdate.php" afterPath="$PROJECT_DIR$/app/NewsUpdate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Notifications/ResetPasswordNotification.php" afterPath="$PROJECT_DIR$/app/Notifications/ResetPasswordNotification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/PhoneVerification.php" afterPath="$PROJECT_DIR$/app/PhoneVerification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/CableTransactionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/CableTransactionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/DataTransactionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/DataTransactionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/ElectricityTransactionRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/ElectricityTransactionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AccountStatementService.php" afterPath="$PROJECT_DIR$/app/Services/AccountStatementService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/CableTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/DataTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/DataTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" afterPath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/StatisticsService.php" afterPath="$PROJECT_DIR$/app/Services/StatisticsService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/artisan" afterPath="$PROJECT_DIR$/artisan" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/app.php" afterPath="$PROJECT_DIR$/bootstrap/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/auth.php" afterPath="$PROJECT_DIR$/config/auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/broadcasting.php" afterPath="$PROJECT_DIR$/config/broadcasting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/cache.php" afterPath="$PROJECT_DIR$/config/cache.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/filesystems.php" afterPath="$PROJECT_DIR$/config/filesystems.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/hashing.php" afterPath="$PROJECT_DIR$/config/hashing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/lighthouse-graphql-passport.php" afterPath="$PROJECT_DIR$/config/lighthouse-graphql-passport.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/queue.php" afterPath="$PROJECT_DIR$/config/queue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.php" afterPath="$PROJECT_DIR$/config/services.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/session.php" afterPath="$PROJECT_DIR$/config/session.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/view.php" afterPath="$PROJECT_DIR$/config/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/.gitignore" afterPath="$PROJECT_DIR$/database/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/factories/NewsFeedFactory.php" afterPath="$PROJECT_DIR$/database/factories/NewsFeedFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/factories/NewsUpdateFactory.php" afterPath="$PROJECT_DIR$/database/factories/NewsUpdateFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_12_22_041259_create_referral_reward_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_12_22_041259_create_referral_reward_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_12_22_041759_create_referral_stacks_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_12_22_041759_create_referral_stacks_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_12_29_170727_create_phone_verifications_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_12_29_170727_create_phone_verifications_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_083023_create_news_updates_table.php" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_083023_create_news_updates_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/AdminChannelUtil.php" afterPath="$PROJECT_DIR$/database/seeds/AdminChannelUtil.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/ReferralReward.php" afterPath="$PROJECT_DIR$/database/seeds/ReferralReward.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/auth.graphql" afterPath="$PROJECT_DIR$/graphql/auth.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/inputs/AdminChannelUtilInput.graphql" afterPath="$PROJECT_DIR$/graphql/inputs/AdminChannelUtilInput.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/inputs/CableTransactionInput.graphql" afterPath="$PROJECT_DIR$/graphql/inputs/CableTransactionInput.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/inputs/DatatransactionInput.graphql" afterPath="$PROJECT_DIR$/graphql/inputs/DatatransactionInput.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/inputs/ElectricityTransactionInput.graphql" afterPath="$PROJECT_DIR$/graphql/inputs/ElectricityTransactionInput.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/models/AdminChannelUtil.graphql" afterPath="$PROJECT_DIR$/graphql/models/AdminChannelUtil.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/models/CablePlan.graphql" afterPath="$PROJECT_DIR$/graphql/models/CablePlan.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/models/DataPlanList.graphql" afterPath="$PROJECT_DIR$/graphql/models/DataPlanList.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/models/PowerPlanList.graphql" afterPath="$PROJECT_DIR$/graphql/models/PowerPlanList.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/AdminChannelUtilMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/AdminChannelUtilMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/AirtimeTransactionMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/AirtimeTransactionMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/CableTransactionMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/CableTransactionMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/DataTransactionMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/DataTransactionMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/ElectricityTransactionMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/ElectricityTransactionMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/UserMutations.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/UserMutations.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/mutations/WalletTransactionMutation.graphql" afterPath="$PROJECT_DIR$/graphql/mutations/WalletTransactionMutation.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/AirtimeTransactionQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/AirtimeTransactionQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/CableTransactionQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/CableTransactionQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/DataTransactionQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/DataTransactionQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/ElectricityTransactionQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/ElectricityTransactionQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/VerifiyUserBillsCredentials.graphql" afterPath="$PROJECT_DIR$/graphql/queries/VerifiyUserBillsCredentials.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/WalletTransactionQuery.graphql" afterPath="$PROJECT_DIR$/graphql/queries/WalletTransactionQuery.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/user.graphql" afterPath="$PROJECT_DIR$/graphql/queries/user.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/queries/verifyUserCableCredential.graphql" afterPath="$PROJECT_DIR$/graphql/queries/verifyUserCableCredential.graphql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/schema.graphql" afterPath="$PROJECT_DIR$/graphql/schema.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpunit.xml" afterPath="$PROJECT_DIR$/phpunit.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/.htaccess" afterPath="$PROJECT_DIR$/public/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/mix-manifest.json" afterPath="$PROJECT_DIR$/public/mix-manifest.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="$PROJECT_DIR$/public/robots.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/app.js" afterPath="$PROJECT_DIR$/resources/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/sass/app.scss" afterPath="$PROJECT_DIR$/resources/sass/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/channels.php" afterPath="$PROJECT_DIR$/routes/channels.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/console.php" afterPath="$PROJECT_DIR$/routes/console.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.php" afterPath="$PROJECT_DIR$/server.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/app/.gitignore" afterPath="$PROJECT_DIR$/storage/app/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/logs/.gitignore" afterPath="$PROJECT_DIR$/storage/logs/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/TestCase.php" afterPath="$PROJECT_DIR$/tests/TestCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.mix.js" afterPath="$PROJECT_DIR$/webpack.mix.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,18 +216,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BulkSMS.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/BulkSMS.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BitcoinTransaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/BitcoinTransaction.php">
+      <file leaf-file-name="VerifiyUserBillsCredentials.graphql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphql/queries/VerifiyUserBillsCredentials.graphql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -77,8 +226,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AirtimeTransaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeTransaction.php">
+      <file leaf-file-name="verifyUserCableCredential.graphql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphql/queries/verifyUserCableCredential.graphql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -87,14 +236,74 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BulkSMSService.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Services/BulkSMSService.php">
+      <file leaf-file-name="GetUserCableCredentials.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/GraphQL/Queries/GetUserCableCredentials.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="76" column="87" lean-forward="true" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+            <state relative-caret-position="326">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
-                <element signature="e#114#139#0#PHP" expanded="true" />
+                <element signature="e#39#61#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetUserBillCredentials.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/GraphQL/Queries/GetUserBillCredentials.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValidateTransactions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-224">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValidateMobileNgTransactionRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="42" column="56" lean-forward="true" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AirtimeTransactionRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-774">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AirtimeTransactionService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CableTransactionService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/CableTransactionService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-620">
+              <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,6 +321,15 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>$cableTransaction</find>
+      <find>user_id</find>
+      <find>$transferFundRegister</find>
+      <find>receivin</find>
+      <find>receivng</find>
+      <find>$airtime_to_wallet_transaction</find>
+      <find>$transferFundTransaction</find>
+      <find>send_phone_verification</find>
+      <find>$baseurl</find>
       <find>Logout</find>
       <find>user_w</find>
       <find>text-align: center</find>
@@ -120,28 +338,19 @@
       <find>balance</find>
       <find>send</find>
       <find>$plan_dat</find>
-      <find>$validate_c</find>
-      <find>netw</find>
-      <find>plan</find>
-      <find>ValidateMobileNgTransactionRepository</find>
-      <find>:String</find>
-      <find>null</find>
-      <find>decoder</find>
-      <find>product_code</find>
-      <find>var</find>
-      <find>acce</find>
-      <find>phone</find>
-      <find>type</find>
-      <find>data.reference</find>
-      <find>String</find>
-      <find>carb</find>
-      <find>cable</find>
-      <find>power</find>
-      <find>airtime</find>
-      <find>data</find>
-      <find>==</find>
-      <find>.com</find>
-      <find>an</find>
+      <find>Cable</find>
+      <find>statement_request_charge</find>
+      <find>ElectrictyTransaction</find>
+      <find>CableTransaction</find>
+      <find>NewsFeed</find>
+      <find>TransferFundTransaction</find>
+      <find>QuickBuy</find>
+      <find>ElectricityTransaction</find>
+      <find>DataTransaction</find>
+      <find>DataPlanList</find>
+      <find>checkAvailableService</find>
+      <find>data_pin</find>
+      <find>refer</find>
     </findStrings>
     <replaceStrings>
       <replace>airtimeTocashTransactionPhone</replace>
@@ -154,16 +363,16 @@
       <replace>$withdrawFundTransaction</replace>
       <replace>$base_url</replace>
       <replace>$plan_data</replace>
-      <replace>ValidateTransactions</replace>
-      <replace>=&gt; null,</replace>
-      <replace>'null'</replace>
-      <replace>disco</replace>
-      <replace>Float</replace>
-      <replace>data</replace>
-      <replace>power</replace>
-      <replace>airtime_to_wallet</replace>
-      <replace>===</replace>
-      <replace>.com.ng</replace>
+      <replace>Power</replace>
+      <replace>Data</replace>
+      <replace>DataTransaction</replace>
+      <replace>DataPlanList</replace>
+      <replace>PowerPlanList</replace>
+      <replace>WithdrawFundTransaction</replace>
+      <replace>TransferFundTransaction</replace>
+      <replace>GiftcardTransaction</replace>
+      <replace>ElectricityTransaction</replace>
+      <replace>NewsUpdate</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -172,57 +381,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Services/CreateUserService.php" />
-        <option value="$PROJECT_DIR$/app/Services/AirtimeToWalletTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Services/WalletTransactionService.php" />
-        <option value="$PROJECT_DIR$/graphql/models/AdminStatistics.graphql" />
-        <option value="$PROJECT_DIR$/app/Services/StatisticsService.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ElectricityTransactionRepository.php" />
-        <option value="$PROJECT_DIR$/app/Services/QuickBuyService.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" />
-        <option value="$PROJECT_DIR$/graphql/inputs/NewsInput.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/GiftcardTransactionMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/QuickBuyMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/TransferFundTransactionMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/WalletTransactionMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/WithdrawFundTransactionMutation.graphql" />
+        <option value="$PROJECT_DIR$/app/Policies/NewsFeedPolicy.php" />
+        <option value="$PROJECT_DIR$/graphql/mutations/CablePlanMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/DataPlanMutation.graphql" />
+        <option value="$PROJECT_DIR$/graphql/mutations/PowerPlanMutations.graphql" />
         <option value="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/AdminListener.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/TransactionListener.php" />
-        <option value="$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql" />
-        <option value="$PROJECT_DIR$/graphql/inputs/TransferFundRequestRegisterInput.graphql" />
-        <option value="$PROJECT_DIR$/graphql/models/AirtimeToCashTransaction.graphql" />
-        <option value="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Services/AccountStatementService.php" />
         <option value="$PROJECT_DIR$/config/constant.php" />
-        <option value="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
-        <option value="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php" />
         <option value="$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" />
-        <option value="$PROJECT_DIR$/app/Enums/NetworkType.php" />
-        <option value="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
         <option value="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" />
         <option value="$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php" />
         <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/CableTransactionRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ElectricityTransactionRepository.php" />
+        <option value="$PROJECT_DIR$/app/Services/AccountStatementService.php" />
+        <option value="$PROJECT_DIR$/app/Services/AirtimeTransactionService.php" />
         <option value="$PROJECT_DIR$/app/Services/DataTransactionService.php" />
-        <option value="$PROJECT_DIR$/app/Enums/BulkSMSStatus.php" />
-        <option value="$PROJECT_DIR$/app/Contracts/BulkSMSContract.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/BulkSMSRepository.php" />
-        <option value="$PROJECT_DIR$/graphql/mutations/BulkSMSMutation.graphql" />
-        <option value="$PROJECT_DIR$/graphql/inputs/BulkSMSInput.graphql" />
+        <option value="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" />
+        <option value="$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ReferralReward.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/TalkToUsMessageListener.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/TransactionListener.php" />
+        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_24_221817_create_cable_transactions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php" />
+        <option value="$PROJECT_DIR$/app/CablePlanList.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/AdminListener.php" />
+        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Services/StatisticsService.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/graphql/inputs/CableTransactionInput.graphql" />
+        <option value="$PROJECT_DIR$/graphql/models/DataPlanList.graphql" />
+        <option value="$PROJECT_DIR$/graphql/models/CablePlan.graphql" />
+        <option value="$PROJECT_DIR$/graphql/inputs/AdminChannelUtilInput.graphql" />
         <option value="$PROJECT_DIR$/app/AdminChannelUtil.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/AdminChannelUtil.php" />
-        <option value="$PROJECT_DIR$/app/GraphQL/Mutations/BulkSMS.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SendSMSController.php" />
-        <option value="$PROJECT_DIR$/graphql/queries/BulkSMSQuery.graphql" />
-        <option value="$PROJECT_DIR$/app/BulkSMS.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/graphql/models/BulkSMS.graphql" />
-        <option value="$PROJECT_DIR$/graphql/schema.graphql" />
-        <option value="$PROJECT_DIR$/app/Services/BulkSMSService.php" />
+        <option value="$PROJECT_DIR$/graphql/models/AdminChannelUtil.graphql" />
+        <option value="$PROJECT_DIR$/app/Services/CreateUserService.php" />
+        <option value="$PROJECT_DIR$/app/Notifications/ResetPasswordNotification.php" />
+        <option value="$PROJECT_DIR$/app/GraphQL/Queries/GetUserCableCredentials.php" />
+        <option value="$PROJECT_DIR$/app/Services/CableTransactionService.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php" />
+        <option value="$PROJECT_DIR$/app/GraphQL/Queries/GetUserBillCredentials.php" />
       </list>
     </option>
   </component>
@@ -365,6 +574,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -407,7 +618,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -462,61 +673,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mutations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -566,7 +723,47 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
+              <option name="myItemId" value="Repositories" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repositories" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="APIRequests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Notifications" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -590,13 +787,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GTSERVIZ/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend-old" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -613,19 +810,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\EASYDATA\backend\app\Events" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories" />
+      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Mail\UserMails" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\EASYDATA\backend\app\Services" />
+      <recent name="C:\xampp\htdocs\EASYDATA\backend\app\Repositories" />
       <recent name="C:\xampp\htdocs\GTSERVIZ\backend\resources\views\admin" />
       <recent name="C:\xampp\htdocs\GTSERVIZ\backend\resources\views\user" />
       <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Services" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories\ApiRequests" />
-      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories\ValidateTransactions" />
-      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories\APIRequests" />
-      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories\APIRequests\APIRequests" />
-      <recent name="C:\xampp\htdocs\GTSERVIZ\backend\app\Repositories" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -930,40 +1124,30 @@
       <workItem from="1586054406324" duration="3796000" />
       <workItem from="1586058828172" duration="2317000" />
       <workItem from="1586087392980" duration="2019000" />
-      <workItem from="1586111851783" duration="8326000" />
-      <workItem from="1586169881720" duration="23720000" />
-      <workItem from="1586212725767" duration="12610000" />
-      <workItem from="1586260904950" duration="22498000" />
-      <workItem from="1586357441605" duration="13217000" />
-      <workItem from="1586410971527" duration="2368000" />
-      <workItem from="1586454909180" duration="6115000" />
-      <workItem from="1586506585569" duration="632000" />
-      <workItem from="1586553113086" duration="608000" />
-      <workItem from="1586593968183" duration="84000" />
-      <workItem from="1586625985293" duration="49000" />
-      <workItem from="1586631613559" duration="33000" />
-      <workItem from="1586678931024" duration="5866000" />
-      <workItem from="1586796863668" duration="590000" />
-      <workItem from="1586834290209" duration="20188000" />
-      <workItem from="1586888426253" duration="5703000" />
-      <workItem from="1586961051272" duration="4420000" />
-      <workItem from="1587012788500" duration="2198000" />
-      <workItem from="1587018074536" duration="2838000" />
-      <workItem from="1587151121161" duration="37000" />
-      <workItem from="1587151685726" duration="21000" />
-      <workItem from="1587186798326" duration="296000" />
-      <workItem from="1587187465301" duration="601000" />
-      <workItem from="1587215986082" duration="2644000" />
-      <workItem from="1587258864463" duration="5983000" />
-      <workItem from="1587321622877" duration="8673000" />
-      <workItem from="1587331877229" duration="1722000" />
-      <workItem from="1587421703302" duration="1364000" />
-      <workItem from="1587454818718" duration="10595000" />
+      <workItem from="1586111851783" duration="7770000" />
+      <workItem from="1587952049246" duration="5996000" />
+      <workItem from="1587997213988" duration="24000" />
+      <workItem from="1588024942023" duration="15000" />
+      <workItem from="1588092981809" duration="7956000" />
+      <workItem from="1588119233578" duration="251000" />
+      <workItem from="1588120895423" duration="2239000" />
+      <workItem from="1588147472994" duration="1966000" />
+      <workItem from="1588150851870" duration="26000" />
+      <workItem from="1588175277919" duration="2843000" />
+      <workItem from="1588190863155" duration="9345000" />
+      <workItem from="1588233730826" duration="2105000" />
+      <workItem from="1588244916075" duration="355000" />
+      <workItem from="1588245341602" duration="9737000" />
+      <workItem from="1588256458860" duration="200000" />
+      <workItem from="1588258395975" duration="14000" />
+      <workItem from="1588316209720" duration="61000" />
+      <workItem from="1588319287016" duration="6285000" />
+      <workItem from="1588330079096" duration="9026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="646330000" />
+    <option name="totallyTimeSpent" value="548545000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -975,27 +1159,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28997868" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19669509" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44880176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28431374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43572986" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1003,17 +1187,17 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4074074" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28431374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2527233" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25586355" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24400872" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31391585" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1028,118 +1212,12 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <marker date="1587331194592" expanded="true" signature="607:778" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/AirtimeAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Enums/NetworkType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="40" column="50" lean-forward="false" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/ElectricityTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_15_221058_create_data_plan_lists_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/DataAPIRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="991">
-          <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/DataTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Enums/CableType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="10" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Enums/AccountAccessibility.php">
+    <entry file="file://$PROJECT_DIR$/database/factories/NewsUpdateFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1147,67 +1225,198 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Enums/BulkSMSStatus.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/CablePlanListSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="804">
+          <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AirtimeTransaction.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/PowerPlanListSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="804">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Contracts/AirtimeTransactionContract.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/ReferralReward.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="74" />
+        <state relative-caret-position="506">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Contracts/BulkSMSContract.php">
+    <entry file="file://$PROJECT_DIR$/app/Services/DataTransactionService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        <state relative-caret-position="264">
+          <caret line="113" column="67" lean-forward="false" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/CableTransactionRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/DataTransactionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-929">
+        <state relative-caret-position="-263">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/GiftcardTransactionInput.graphql" />
+    <entry file="file://$PROJECT_DIR$/graphql/mutations/AdminChannelUtilMutation.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Mail/AdminTransactionMails/QuickBuyAdminMail.php" />
+    <entry file="file://$PROJECT_DIR$/app/Listeners/TransactionRequestListener.php" />
+    <entry file="file://$PROJECT_DIR$/app/Listeners/AccountStatementListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/CreateUserRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Listeners/UserCreatedListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/BulkSMSRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Listeners/TalkToUsMessageListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="902">
+          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/AirtimeTransactionInput.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/DatatransactionInput.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/ElectricityTransactionInput.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/models/PowerPlanList.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/TransactionListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#118#134#0#PHP" expanded="true" />
+            <element signature="e#33#72#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/CableTransaction.php">
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
+        <state relative-caret-position="491">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_24_221817_create_cable_transactions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_15_221001_create_cable_plan_lists_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5984">
+          <caret line="275" column="8" lean-forward="false" selection-start-line="275" selection-start-column="8" selection-end-line="275" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/TransferFundTransactionEvent.php" />
+    <entry file="file://$PROJECT_DIR$/app/Listeners/AdminListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#33#72#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#33#58#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/StatisticsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/CablePlanList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/mutations/CablePlanMutation.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1215,77 +1424,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/graphql/inputs/CableTransactionInput.graphql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="396">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/inputs/BulkSMSInput.graphql">
+    <entry file="file://$PROJECT_DIR$/graphql/schema.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/models/DataPlanList.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/mutations/AirtimeTransactionMutation.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/CablePlan.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AirtimeTransaction.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="70" column="9" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="70" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AdminChannelUtil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AdminChannelUtil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="33" column="42" lean-forward="false" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/CablePlanList.php">
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1293,7 +1454,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/ContestStatsService.php">
+    <entry file="file://$PROJECT_DIR$/graphql/models/CablePlan.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/inputs/AdminChannelUtilInput.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AdminChannelUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_28_065316_create_admin_channel_utils_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AdminChannelUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/models/AdminChannelUtil.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Notifications/ResetPasswordNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/CreateUserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1210">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/queries/VerifiyUserBillsCredentials.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/queries/verifyUserCableCredential.graphql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1303,149 +1544,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/CableTransactionService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3036">
-          <caret line="159" column="68" lean-forward="true" selection-start-line="159" selection-start-column="68" selection-end-line="159" selection-end-column="68" />
+        <state relative-caret-position="-620">
+          <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SendSMSController.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/AirtimeTransactionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="82" column="28" lean-forward="true" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+        <state relative-caret-position="-774">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/mutations/BulkSMSMutation.graphql">
+    <entry file="file://$PROJECT_DIR$/app/Services/AirtimeTransactionService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="308">
+          <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/BulkSMS.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateMobileNgTransactionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="80" lean-forward="false" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+        <state relative-caret-position="220">
+          <caret line="42" column="56" lean-forward="true" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php">
+    <entry file="file://$PROJECT_DIR$/app/GraphQL/Queries/GetUserCableCredentials.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        <state relative-caret-position="326">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
-            <element signature="e#7#35#0#PHP" expanded="true" />
+            <element signature="e#39#61#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/GraphQL/Queries/GetUserBillCredentials.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+        <state relative-caret-position="444">
+          <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/queries/CableTransactionQuery.graphql">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/APIRequests/ValidateTransactions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/queries/BulkSMSQuery.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AdminStatistics.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1188">
+        <state relative-caret-position="-224">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/CableTransaction.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/schema.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="69" column="11" lean-forward="true" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/BulkSMS.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AccountStatement.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/models/AdminChannelUtil.graphql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/BulkSMS.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/BitcoinTransaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/GraphQL/Mutations/AirtimeTransaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/BulkSMSService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="76" column="87" lean-forward="true" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
-          <folding>
-            <element signature="e#114#139#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
