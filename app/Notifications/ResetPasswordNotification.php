@@ -43,7 +43,7 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $link = "http://subpay.com.ng/reset-password/".$this->token."/".$notifiable->getEmailForPasswordReset();
+        $link = env('APP_URL')."/reset-password/".$this->token."/".$notifiable->getEmailForPasswordReset();
         return (new MailMessage)
             ->subject(Lang::get('Reset Password Notification'))
             ->line(Lang::get('You are receiving this email because we received a password reset request for your account.'))
