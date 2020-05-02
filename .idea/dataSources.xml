@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="gtserviz@localhost" uuid="50a2ac50-c629-4665-854c-838861a0d7b0">
+    <data-source source="LOCAL" name="subpay@localhost" uuid="50a2ac50-c629-4665-854c-838861a0d7b0">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/gtserviz</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/subpay</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

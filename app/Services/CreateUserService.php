@@ -79,7 +79,7 @@ class CreateUserService
     {
         $user = $this->create_user_contract_repository->create_transaction_pin($user_id);
 
-        $message = "You Successfully Created your Gtserviz Transaction Pin";
+        $message = "You Successfully Created your Subpay Transaction Pin";
 
         event(new TransactionPin($user, $message));
 
@@ -95,7 +95,7 @@ class CreateUserService
     public function update_transaction_pin(string $user_id, string $current_transaction_pin, string $new_transaction_pin)
     {
         $user = $this->create_user_contract_repository->update_transaction_pin($user_id, $current_transaction_pin, $new_transaction_pin);
-        $message = "You Successfully Updated your Gtserviz Transaction Pin";
+        $message = "You Successfully Updated your Subpay Transaction Pin";
         event(new TransactionPin($user, $message));
 
         return $user;

@@ -22,7 +22,7 @@ class SendPhoneVerification extends Controller
                 $phoneVerification->phone = $phone;
                 $phoneVerification->token = $token;
                 $phoneVerification->save();
-                $message = "gtserviz phone verification token " . $token;
+                $message = "subpay phone verification token " . $token;
 
                 $sender_id = config('constant.SENDER_ID');
                 $to = $phone;
@@ -81,7 +81,7 @@ class SendPhoneVerification extends Controller
                     }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
                         $phone = "+234".$phone;
                     }
-                    $message = "gtserviz phone verification token " . $token;
+                    $message = "subpay phone verification token " . $token;
                 $sender_id = config('constant.SENDER_ID');
                 $to = $phone;
                 $ApiKey = config('constant.API_KEY');

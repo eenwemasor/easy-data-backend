@@ -8,7 +8,7 @@
         <div>
             <div>
                 <h5 style="font-size: 30px;font-weight:bolder; text-transform:uppercase;margin-top: 0px;margin-bottom: 0px">
-                    Gtserviz Quick Buy Transaction</h5>
+                    Subpay Quick Buy Transaction</h5>
                 <hr style="margin-bottom: 60px"/>
                 <p>Hello, {{$admin->full_name}}</p>
                 <p>Cable Transaction from: {{$user->full_name}}</p>

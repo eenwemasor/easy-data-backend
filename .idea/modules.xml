@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/gtservizBackend.iml" filepath="$PROJECT_DIR$/.idea/gtservizBackend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/backend.iml" filepath="$PROJECT_DIR$/.idea/backend.iml" />
+      <module fileurl="file://C:\xampp\htdocs\EASYDATA\backend\.idea\subpay.iml" filepath="C:\xampp\htdocs\EASYDATA\backend\.idea\subpay.iml" />
     </modules>
   </component>
 </project>

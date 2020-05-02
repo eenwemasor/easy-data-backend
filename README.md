@@ -1,5 +1,5 @@
-# gtserviz-api
-backend code base for gtserviz communication
+# subpay-api
+backend code base for subpay communication
 
 Uses the graphql lighthouse api
 
