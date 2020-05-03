@@ -79,9 +79,27 @@ class BulkSMSService
         return $this->bulkSMSRepository->create($smsData);
 
 
-
-
-
-
     }
+
+
+    /**
+     * @param string $transaction_id
+     * @return mixed
+     */
+    public function mark_transaction_successful(string $transaction_id)
+    {
+        return $this->bulkSMSRepository->mark_transaction_successful($transaction_id);
+    }
+
+
+    /**
+     * @param string $transaction_id
+     * @return mixed
+     */
+    public function mark_transaction_failed(string $transaction_id)
+    {
+
+        return $this->bulkSMSRepository->mark_transaction_failed($transaction_id);
+    }
+
 }

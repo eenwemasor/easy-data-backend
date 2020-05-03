@@ -4,7 +4,7 @@ extend type Mutation {
     @inject(context: "user", name: "user")
     
     UpdateNewsFeed(input: UpdateNewsFeedInput! @spread): NewsFeed @update(model: "App\\NewsFeed")
-    @can(ability: "update", model: "App\\NewsFeed")
+    @can(ability: "update", model: "App\\NewsFeed" find: "id")
     @inject(context: "user", name: "user")
     
     DeleteNewsFeed(id:ID!): NewsFeed @delete(model: "App\\NewsFeed")
@@ -16,7 +16,7 @@ extend type Mutation {
     @inject(context: "user", name: "user")
     
     UpdateNewsUpdate(input: UpdateNewsUpdateInput! @spread): NewsUpdate @update(model: "App\\NewsUpdate")
-    @can(ability: "update", model: "App\\NewsUpdate")
+    @can(ability: "update", model: "App\\NewsUpdate" find: "id")
     @inject(context: "user", name: "user")
     
     DeleteNewsUpdate(id:ID!): NewsUpdate @delete(model: "App\\NewsUpdate")

@@ -14,6 +14,8 @@ class AdminChannelUtil extends Model
         'mtn_discount',
         'etisalat_discount',
         'paystack_transaction_fee',
+        'paystack_fund_wallet_fee',
+        'rave_fund_wallet_fee',
         'sms_unit_charge'
     ];
 }

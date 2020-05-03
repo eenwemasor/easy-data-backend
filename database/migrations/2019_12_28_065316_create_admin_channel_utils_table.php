@@ -23,7 +23,7 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->string('etisalat_discount');
             $table->float('statement_request_charge');
             $table->float('paystack_transaction_fee');
-
+            $table->float('paystack_fund_wallet_fee');
             $table->float('sms_unit_charge');
             $table->timestamps();
         });

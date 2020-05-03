@@ -5,7 +5,7 @@ extend type Mutation {
 
     
     UpdatePowerPlan(input: UpdateElectricityPlanInput! @spread): PowerPlanList @update(model: "App\\PowerPlanList")
-    @can(ability: "update", model: "App\\PowerPlanList")
+    @can(ability: "update", model: "App\\PowerPlanList" find: "id")
     @inject(context: "user", name: "user")
 
     DeletePowerPlan(id:ID!): PowerPlanList @delete(model: "App\\PowerPlanList")

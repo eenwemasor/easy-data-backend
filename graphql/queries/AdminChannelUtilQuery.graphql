@@ -4,10 +4,12 @@ extend type Query{
 
     getCablePlanList(
         cable: String! @where(operator: "=")
+        orderBy: [OrderByClause!] @orderBy
     ): [CablePlanList!]! @all
 
 
-    allCablePlans: [CablePlanList!]! @all
+    allCablePlans(orderBy: [OrderByClause!] @orderBy): [CablePlanList!]! @all
+    allBankAccounts(orderBy: [OrderByClause!] @orderBy): [BankAccount!]! @all
     referralRewards: ReferralReward @first
 
 
@@ -16,9 +18,10 @@ extend type Query{
         network: NetworkType! @where(operator: "=")
     ): [DataPlanList!]! @all
 
-    getAllDataPlanList: [DataPlanList!]! @all
-    getAllCablePlanList: [CablePlanList!]! @all
-    getAllPowerPlanList: [PowerPlanList!]! @all
+    getAllDataPlanList(orderBy: [OrderByClause!] @orderBy): [DataPlanList!]! @all
+    getAllDataPlans(orderBy: [OrderByClause!] @orderBy): [DataPlanList!]! @all
+    getAllCablePlanList(orderBy: [OrderByClause!] @orderBy): [CablePlanList!]! @all
+    getAllPowerPlanList(orderBy: [OrderByClause!] @orderBy): [PowerPlanList!]! @all
 
     getRegistrationFee(id: ID @eq): ReferralReward @find
 

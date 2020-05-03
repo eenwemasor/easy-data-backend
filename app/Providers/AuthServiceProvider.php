@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\AdminChannelUtil;
 use App\AirtimeTransaction;
+use App\BankAccount;
+use App\BulkSMS;
 use App\CablePlanList;
 use App\CableTransaction;
 use App\DataPlanList;
@@ -13,6 +15,8 @@ use App\NewsFeed;
 use App\NewsUpdate;
 use App\Policies\AdminChannelUtilPolicy;
 use App\Policies\AirtimeTransactionPolicy;
+use App\Policies\BankAccountPolicy;
+use App\Policies\BulkSMSPolicy;
 use App\Policies\CablePlanListPolicy;
 use App\Policies\CableTransactionPolicy;
 use App\Policies\DataPlanListPolicy;
@@ -50,6 +54,8 @@ class AuthServiceProvider extends ServiceProvider
         PowerPlanList::class =>PowerPlanListPolicy::class,
         ReferralReward::class =>ReferralRewardPolicy::class,
         WalletTransaction::class =>WalletTransactionPolicy::class,
+        BankAccount::class => BankAccountPolicy::class,
+        BulkSMS::class => BulkSMSPolicy::class
     ];
 
     /**

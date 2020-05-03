@@ -5,10 +5,11 @@ type AdminChannelUtil {
     statement_request_charge: Float
     glo_discount: Int
     airtel_discount: Int
+    sms_unit_charge:Float
     mtn_discount: Int
     etisalat_discount: Int
     paystack_transaction_fee:Float
-    rave_transaction_fee:Float
+    paystack_fund_wallet_fee:Float
 
 }
 
@@ -27,4 +28,13 @@ type ContestStats {
     topWeeklyReferrals:[User !]!
     topMonthlyReferrals: [User !]!
     topReferrals: [User !]!
+}
+
+
+type BankAccount{
+    id:ID!
+    name:String!
+    bank_name:String!
+    bank_number:String!
+    updated_at:DateTime
 }

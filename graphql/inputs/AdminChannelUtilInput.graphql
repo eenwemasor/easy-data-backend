@@ -8,7 +8,9 @@ input UpdateAdminChannelUtilInput{
     mtn_discount: Int
     statement_request_charge:Float
     etisalat_discount: Int
+    sms_unit_charge:Float
     paystack_transaction_fee:Float
+    paystack_fund_wallet_fee:Float
 
 }
 
@@ -30,3 +32,17 @@ input TalkToUsInput{
 }
 
 
+
+input CreateBankAccountInput{
+    name:String!
+    bank_name:String!
+    bank_number:String!
+}
+
+
+input UpdateBankAccountInput{
+    id:ID!
+    name:String
+    bank_name:String
+    bank_number:String
+}

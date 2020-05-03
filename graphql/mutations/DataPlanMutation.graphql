@@ -4,7 +4,7 @@ extend type Mutation {
     @inject(context: "user", name: "user")
 
     UpdateDataPlan(input: UpdateDataPlanInput! @spread): DataPlanList @update(model: "App\\DataPlanList")
-    @can(ability: "update", model: "App\\DataPlanList")
+    @can(ability: "update", model: "App\\DataPlanList" find: "id")
     @inject(context: "user", name: "user")
 
     DeleteDataPlan(id:ID!): DataPlanList @delete(model: "App\\DataPlanList")

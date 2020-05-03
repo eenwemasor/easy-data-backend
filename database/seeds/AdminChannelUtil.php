@@ -21,7 +21,8 @@ class AdminChannelUtil extends Seeder
             'mtn_discount'=> '2',
             'etisalat_discount'=> '2',
             'paystack_transaction_fee'=>0,
-            'sms_unit_charge'=>"2.9"
+            'sms_unit_charge'=>"2.9",
+            'paystack_fund_wallet_fee'=> 9
 
         ],
     ]);

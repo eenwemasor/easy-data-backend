@@ -5,6 +5,21 @@ extend type Mutation {
     @inject(context: "user", name: "user")
 
 
+    CreateBankAccount(input: CreateBankAccountInput! @spread): BankAccount @create(model: "App\\BankAccount")
+    @can(ability: "create", model: "App\\BankAccount")
+    @inject(context: "user", name: "user")
+
+    UpdateBankAccount(input: UpdateBankAccountInput! @spread): BankAccount @update(model: "App\\BankAccount")
+    @can(ability: "update", model: "App\\BankAccount" find:"id")
+    @inject(context: "user", name: "user")
+
+
+    DeleteBankAccount(id:ID!): BankAccount @delete(model: "App\\BankAccount")
+    @can(ability: "delete", model: "App\\BankAccount" find: "id")
+    @inject(context: "user", name: "user")
+
+
+
     UpdateReferralRewards(input: UpdateReferralRewardInput! @spread): ReferralReward
         @update(model: "App\\ReferralReward")
         @can(ability: "update", model: "App\\ReferralReward" find: "id")

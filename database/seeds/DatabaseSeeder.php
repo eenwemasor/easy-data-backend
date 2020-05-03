@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReferralReward::class);
         $this->call(AdminChannelUtil::class);
         $this->call(PowerPlanListSeeder::class);
-
+        $this->call(BankAccountSeeder::class);
 
         factory(\App\AirtimeTransaction::class, 20)->create();
         factory(\App\CableTransaction::class, 20)->create();

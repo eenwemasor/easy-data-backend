@@ -1,0 +1,6 @@
+input CreateBulkSMSInput{
+    sender_id: String!
+    receivers:String!
+    message:String!
+    user_id:ID!
+}
