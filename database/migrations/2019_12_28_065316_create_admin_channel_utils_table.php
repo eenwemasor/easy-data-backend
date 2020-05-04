@@ -25,6 +25,8 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->float('paystack_transaction_fee');
             $table->float('paystack_fund_wallet_fee');
             $table->float('sms_unit_charge');
+            $table->float('cable_tv_service_charge');
+            $table->float('electricity_service_charge');
             $table->timestamps();
         });
     }

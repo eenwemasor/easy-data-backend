@@ -178,4 +178,50 @@ class CreateUserService
     }
 
 
+
+
+
+    /**
+     * @param string $user_id
+     * @throws
+     */
+    public function reward_referrals(string $user_id, $amount)
+    {
+        $referral_rewards = ReferralReward::all()->first();
+        $direct = $referral_rewards->direct_referrer_percentage_wallet_funding;
+        $indirect = $referral_rewards->indirect_referrer_percentage_wallet_funding;
+
+        $direct_referrer = null;
+        $indirect_referrer = null;
+
+        $user = User::find($user_id);
+
+        if ($user->referrer_id) {
+            $amount_gained = $direct / 100 * $amount;
+            $direct_referrer = User::find($user->referrer_id);
+
+            $directReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' =>  $direct_referrer->full_name, 'user_id' => $direct_referrer->id,];
+
+            $this->walletTransactionService->create($directReferrerWalletTransactionData, WalletType::BONUS_WALLET);
+        }
+
+        if ($direct_referrer) {
+            if ($direct_referrer->referrer_id) {
+                $amount_gained = $indirect/ 100 * $amount;
+                $indirect_referrer = User::find($direct_referrer->referrer_id);
+                $indirectReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => $indirect_referrer->full_name, 'user_id' => $indirect_referrer->id,];
+
+                $this->walletTransactionService->create($indirectReferrerWalletTransactionData, WalletType::BONUS_WALLET);
+            }
+        }
+
+        $user->active = true;
+        $user->save();
+        return $user;
+
+
+    }
+
+
+
 }

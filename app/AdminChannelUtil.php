@@ -16,6 +16,8 @@ class AdminChannelUtil extends Model
         'paystack_transaction_fee',
         'paystack_fund_wallet_fee',
         'rave_fund_wallet_fee',
-        'sms_unit_charge'
+        'sms_unit_charge',
+        'cable_tv_service_charge',
+        'electricity_service_charge'
     ];
 }

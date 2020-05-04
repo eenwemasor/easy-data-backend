@@ -11,6 +11,8 @@ input UpdateAdminChannelUtilInput{
     sms_unit_charge:Float
     paystack_transaction_fee:Float
     paystack_fund_wallet_fee:Float
+    cable_tv_service_charge:Float
+    electricity_service_charge:Float
 
 }
 
@@ -22,6 +24,8 @@ input UpdateReferralRewardInput {
     indirect_referrer_percentage:Float
     referee_percentage:Float
     site_percentage:Float
+    direct_referrer_percentage_wallet_funding:Float
+    indirect_referrer_percentage_wallet_funding:Float
 }
 
 

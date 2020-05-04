@@ -61,6 +61,8 @@ class ElectricityTransactionService
     public function create(array $electricityTransaction)
     {
         $plan = PowerPlanList::find($electricityTransaction['plan']);
+        $electricity_service_charge = AdminChannelUtil::first()->electricity_service_charge;
+
 
         $api_wallet = $this->validateTransactions->get_api_account_info();
         if($api_wallet < $electricityTransaction['amount']){
@@ -74,7 +76,8 @@ class ElectricityTransactionService
 
         $data = collect($electricityTransaction);
 
-        $walletTransactionData = $data->only(['transaction_type', 'description', 'amount', 'user_id',])->toArray();
+        $walletTransactionData = $data->only(['transaction_type', 'description', 'user_id',])->toArray();
+        $walletTransactionData['amount'] = $data['amount'] +$electricity_service_charge;
         $walletTransactionData['description'] = $plan->description." electricity bill payment";
         $walletTransactionData['beneficiary'] = $electricityTransaction['beneficiary_name'];
 
@@ -107,13 +110,13 @@ class ElectricityTransactionService
             return $electricity_transaction;
         } else {
             $electricityTransactionData['status'] = TransactionStatus::FAILED;
-            $this->electricity_transaction_repository->create($electricityTransactionData);
+            $transaction =  $this->electricity_transaction_repository->create($electricityTransactionData);
 
             $user = User::find($electricityTransaction["user_id"]);
             if ($walletTransactionResult['wallet'] === WalletType::WALLET) {
                 $user->wallet = $user->wallet + $electricityTransaction['amount'];
             } else {
-                $user->bonus_wallet = $user->bonus_wallet + $electricityTransaction['amount'];
+                $user->bonus_wallet = $user->bonus_wallet + ($electricityTransaction['amount'] + $electricity_service_charge);
             }
             $user->save();
 
@@ -121,7 +124,7 @@ class ElectricityTransactionService
             $wallet_transaction->status = TransactionStatus::FAILED;
             $wallet_transaction->save();
 
-            throw new GraphqlError($initiate_electricity_transaction);
+            return $transaction;
         }
     }
 

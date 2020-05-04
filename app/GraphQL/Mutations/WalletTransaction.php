@@ -46,6 +46,7 @@ class WalletTransaction
         $registration_fee = ReferralReward::all()->first()->registration_fee;
         $wallet_transaction = $this->wallet_transaction->create($args);
         if($user->active){
+            $this->createUserService->reward_referrals($args['user_id'], $args['amount']);
             return $wallet_transaction;
         }else{
             $args['amount']  = $registration_fee;

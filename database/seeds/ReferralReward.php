@@ -14,11 +14,13 @@ class ReferralReward extends Seeder
     {
         DB::table('referral_rewards')->insert([
             [
-                'registration_fee' =>'1000',
-                'direct_referrer_percentage' => '10',
-                'indirect_referrer_percentage' => '5',
-                'referee_percentage' => '20',
-                'site_percentage' => '40'
+                'registration_fee' => 1000,
+                'direct_referrer_percentage' => 10,
+                'indirect_referrer_percentage' => 5,
+                'referee_percentage' => 20,
+                'site_percentage' => 40,
+                'direct_referrer_percentage_wallet_funding'=>10,
+                'indirect_referrer_percentage_wallet_funding'=>10,
             ],
         ]);
     }

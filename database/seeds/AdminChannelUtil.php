@@ -22,7 +22,9 @@ class AdminChannelUtil extends Seeder
             'etisalat_discount'=> '2',
             'paystack_transaction_fee'=>0,
             'sms_unit_charge'=>"2.9",
-            'paystack_fund_wallet_fee'=> 9
+            'paystack_fund_wallet_fee'=> 9,
+            'cable_tv_service_charge'=> 50,
+            'electricity_service_charge'=> 50,
 
         ],
     ]);

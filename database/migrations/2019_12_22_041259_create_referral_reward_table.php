@@ -15,11 +15,13 @@ class CreateReferralRewardTable extends Migration
     {
         Schema::create('referral_rewards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('registration_fee');
-            $table->string('direct_referrer_percentage');
-            $table->string('indirect_referrer_percentage');
-            $table->string('referee_percentage');
-            $table->string('site_percentage');
+            $table->float('registration_fee');
+            $table->float('direct_referrer_percentage');
+            $table->float('indirect_referrer_percentage');
+            $table->float('referee_percentage');
+            $table->float('site_percentage');
+            $table->float('direct_referrer_percentage_wallet_funding');
+            $table->float('indirect_referrer_percentage_wallet_funding');
             $table->timestamps();
         });
     }

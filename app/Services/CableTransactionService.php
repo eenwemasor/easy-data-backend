@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\AdminChannelUtil;
 use App\CablePlanList;
 use App\CableTransaction;
 use App\Enums\CableType;
@@ -65,10 +66,12 @@ class CableTransactionService
         $data = collect($cableTransaction);
         $cable_plan = CablePlanList::find($data['plan']);
 
+        $cable_tv_service_charge = AdminChannelUtil::first()->cable_tv_service_charge;
+
         $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet < $cable_plan->amount){
-            throw new GraphqlError("Service is not available currently, please try again later");
-        }
+//        if($api_wallet < $cable_plan->amount){
+//            throw new GraphqlError("Service is not available currently, please try again later");
+//        }
         $user = User::find($cableTransaction["user_id"]);
         if (!$user->active) {
             throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
@@ -77,7 +80,7 @@ class CableTransactionService
         $walletTransactionData = $data->only(['transaction_type', 'description', 'user_id',])->toArray();
         $walletTransactionData['beneficiary'] = $cableTransaction['beneficiary_name'];
         $walletTransactionData['description'] = $cable_plan->amount." ".$cable_plan->plan." ".$cable_plan->cable." cable tv subscription";
-        $walletTransactionData['amount'] = $cable_plan->amount;
+        $walletTransactionData['amount'] = $cable_plan->amount + $cable_tv_service_charge;
 
 
         $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
@@ -98,7 +101,7 @@ class CableTransactionService
                 'plan' => $cable_plan->vendor_identifier,
             ]);
 
-        if ($initiate_cable_transaction === "successful") {
+        if ($initiate_cable_transaction === "Successful") {
             $cable_transaction = $this->cable_transaction_repository->create($cableTransactionData);
 
             $user = $user_cont->getUserById($cableTransaction["user_id"]);
@@ -107,13 +110,13 @@ class CableTransactionService
             return $cable_transaction;
         } else {
             $cableTransactionData['status'] = TransactionStatus::FAILED;
-            $this->cable_transaction_repository->create($cableTransactionData);
+            $transaction= $this->cable_transaction_repository->create($cableTransactionData);
 
             $user = $user_cont->getUserById($cableTransaction["user_id"]);
             if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
                 $user->wallet = $user->wallet + $cable_plan->amount;
             } else {
-                $user->bonus_wallet = $user->bonus_wallet + $cable_plan->amount;
+                $user->bonus_wallet = $user->bonus_wallet + ($cable_plan->amount + $cable_tv_service_charge);
             }
             $user->save();
 
@@ -121,8 +124,8 @@ class CableTransactionService
             $wallet_transaction->status = TransactionStatus::FAILED;
             $wallet_transaction->save();
 
-            throw new GraphqlError($initiate_cable_transaction->message);
 
+            return $transaction;
 
         }
 
