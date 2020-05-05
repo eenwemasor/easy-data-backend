@@ -4,13 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/database/factories/WalletTransactionFactory.php" line="25" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_221058_create_data_plan_lists_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_221058_create_data_plan_lists_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DataPlanListSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/inputs/DatatransactionInput.graphql" afterPath="$PROJECT_DIR$/graphql/inputs/DatatransactionInput.graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql/models/DataPlanList.graphql" afterPath="$PROJECT_DIR$/graphql/models/DataPlanList.graphql" />
-    </list>
+    <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -859,12 +853,12 @@
       <workItem from="1588569208607" duration="500000" />
       <workItem from="1588604822825" duration="7663000" />
       <workItem from="1588620764110" duration="656000" />
-      <workItem from="1588649540797" duration="2398000" />
+      <workItem from="1588649540797" duration="2695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="577029000" />
+    <option name="totallyTimeSpent" value="577326000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -877,7 +871,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22814499" sideWeight="0.4954008" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -888,7 +881,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18496802" sideWeight="0.5045992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.083877996" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5969499" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
