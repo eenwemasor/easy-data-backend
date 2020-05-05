@@ -20,7 +20,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '25MB (AR)',
                 'amount' => '20',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -28,7 +28,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '242MB',
                 'amount' => '180',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -36,7 +36,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '800MB',
                 'amount' => '400',
                 'product_code'=>'*127*57*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -44,7 +44,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '1.6GB',
                 'amount' => '400',
                 'product_code'=>'*127*53*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -52,7 +52,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '3.65GB',
                 'amount' => '400',
                 'product_code'=>'*127*55*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -60,7 +60,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '5.75GB',
                 'amount' => '1700',
                 'product_code'=>'*127*58*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -68,7 +68,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '7GB',
                 'amount' => '1700',
                 'product_code'=>'*127*54*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -76,7 +76,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '10GB',
                 'amount' => '3200',
                 'product_code'=>'*127*59*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -84,7 +84,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '12.5B',
                 'amount' => '4000',
                 'product_code'=>'*127*2*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -92,7 +92,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '1.5GB',
                 'amount' => '900',
                 'product_code'=>'*229*2*7*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -100,7 +100,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '2GB',
                 'amount' => '1080',
                 'product_code'=>'*229*2*25*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -108,7 +108,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '3GB',
                 'amount' => '1800',
                 'product_code'=>'*229*2*3*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -116,7 +116,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '4.5GB',
                 'amount' => '2700',
                 'product_code'=>'*229*2*8*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -124,7 +124,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '11GB',
                 'amount' => '3600',
                 'product_code'=>'*229*2*36*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -132,7 +132,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '15GB',
                 'amount' => '7200',
                 'product_code'=>'229*2*37*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -140,7 +140,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '40GB',
                 'amount' => '9000',
                 'product_code'=>'229*4*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ]
             ,
@@ -149,7 +149,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '75GB',
                 'amount' => '12000',
                 'product_code'=>'229*2*4*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -197,7 +197,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -205,7 +205,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '10GB',
                 'amount' => '3400',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -213,7 +213,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '15GB',
                 'amount' => '4850',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -221,7 +221,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '40GB',
                 'amount' => '9700',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -229,7 +229,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '750MB',
                 'amount' => '470',
                 'product_code'=>'141*6*2*2*3*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -237,7 +237,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '1.5GB',
                 'amount' => '950',
                 'product_code'=>'141*6*2*1*7*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -245,7 +245,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '2GB',
                 'amount' => '1150',
                 'product_code'=>'141*6*2*1*6*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -253,7 +253,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '3GB',
                 'amount' => '1450',
                 'product_code'=>'141*6*2*1*5*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -261,7 +261,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '4.5GB',
                 'amount' => '1950',
                 'product_code'=>'141*6*2*1*4*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created    _at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -269,7 +269,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>'141*6*2*1*3*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -277,7 +277,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '8GB',
                 'amount' => '2900',
                 'product_code'=>'141*6*2*1*2*1*',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
@@ -285,7 +285,7 @@ class DataPlanListSeeder extends Seeder
                 'plan' => '11GB',
                 'amount' => '3900',
                 'product_code'=>'null',
-                'vendor_amount'=>'null',
+                'vendor_amount'=>null,
                 'created_at' => Carbon::now()->toDateTimeString()
             ]
         ]);

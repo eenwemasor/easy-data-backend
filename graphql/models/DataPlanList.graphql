@@ -3,7 +3,7 @@ type DataPlanList{
     network: NetworkType!
     plan: String!
     amount: String!
-    vendor_amount:String
+    vendor_amount:Float
     product_code:String
     updated_at:DateTime
 }
