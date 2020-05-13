@@ -15,7 +15,7 @@ extend type Query{
 
 
     getDataPlanList(
-        network: NetworkType! @where(operator: "=")
+        network: NetworkType! @where(operator: "=") orderBy: [OrderByClause!] @orderBy
     ): [DataPlanList!]! @all
 
     getAllDataPlanList(orderBy: [OrderByClause!] @orderBy): [DataPlanList!]! @all

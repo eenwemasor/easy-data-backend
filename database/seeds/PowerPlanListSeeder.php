@@ -13,15 +13,18 @@ class PowerPlanListSeeder extends Seeder
      */
     public function run()
     {
+//        this service column is the field used for mobileng meter details request
         DB::table('power_plan_lists')->insert([
             [
                 'description' => 'Ikeja Electricity Bill Payment',
                 'disco'=>'IKEDC',
+                'service' => 'IKEJA',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
                 'description' => 'Eko Electric',
                 'disco'=>'EKEDC',
+                'service' => 'EDO',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [

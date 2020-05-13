@@ -2,29 +2,24 @@
 
 namespace App\GraphQL\Queries;
 
-use App\CablePlanList;
-use App\GraphQL\Errors\GraphqlError;
-use App\PowerPlanList;
-use App\Repositories\APIRequests\ValidateTransactions;
-use App\Services\CableTransactionService;
-use App\Services\QuickBuyService;
+use App\Repositories\APIRequests\ValidateMobileNgTransactionRepository;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class GetUserBillCredentials
 {
     /**
-     * @var ValidateTransactions
+     * @var ValidateMobileNgTransactionRepository
      */
-    private $validateTransactions;
+    private $mobileNgTransactionRepository;
 
     /**
      * GetUserBillCredentials constructor.
-     * @param ValidateTransactions $validateTransactions
+     * @param ValidateMobileNgTransactionRepository $mobileNgTransactionRepository
      */
-    function __construct(ValidateTransactions $validateTransactions)
+    function __construct(ValidateMobileNgTransactionRepository $mobileNgTransactionRepository)
     {
-        $this->validateTransactions = $validateTransactions;
+        $this->mobileNgTransactionRepository = $mobileNgTransactionRepository;
     }
 
     /**
@@ -39,18 +34,7 @@ class GetUserBillCredentials
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        $api_wallet = $this->validateTransactions->get_api_account_info();
-        $plan = PowerPlanList::find($args['plan']);
 
-        if ($api_wallet < $args['amount']) {
-            throw new GraphqlError("Service is not available currently, please try again later");
-        }
-
-        $available_services = $this->validateTransactions->get_available_services('ELECT');
-
-        QuickBuyService::checkAvailableService($available_services, $plan->disco, $args['type'],$plan->description);
-
-
-        return $this->validateTransactions->get_bills_meter_details($args, $args['amount']);
+        return $this->mobileNgTransactionRepository->get_bills_meter_details($args);
     }
 }
