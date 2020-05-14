@@ -18,13 +18,11 @@ class PowerPlanListSeeder extends Seeder
             [
                 'description' => 'Ikeja Electricity Bill Payment',
                 'disco'=>'IKEDC',
-                'service' => 'IKEJA',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
                 'description' => 'Eko Electric',
                 'disco'=>'EKEDC',
-                'service' => 'EDO',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
