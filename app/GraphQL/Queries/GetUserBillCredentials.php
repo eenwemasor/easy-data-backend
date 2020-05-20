@@ -2,24 +2,26 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Repositories\APIRequests\ValidateMobileNgTransactionRepository;
+use App\GraphQL\Errors\GraphqlError;
+use App\PowerPlanList;
+use App\Repositories\APIRequests\ValidateTransactions;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class GetUserBillCredentials
 {
     /**
-     * @var ValidateMobileNgTransactionRepository
+     * @var ValidateTransactions
      */
-    private $mobileNgTransactionRepository;
+    private $validateTransactions;
 
     /**
      * GetUserBillCredentials constructor.
-     * @param ValidateMobileNgTransactionRepository $mobileNgTransactionRepository
+     * @param ValidateTransactions $validateTransactions
      */
-    function __construct(ValidateMobileNgTransactionRepository $mobileNgTransactionRepository)
+    function __construct(ValidateTransactions $validateTransactions)
     {
-        $this->mobileNgTransactionRepository = $mobileNgTransactionRepository;
+        $this->validateTransactions = $validateTransactions;
     }
 
     /**
@@ -34,7 +36,18 @@ class GetUserBillCredentials
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
+        $api_wallet = $this->validateTransactions->get_api_account_info();
+        $plan = PowerPlanList::find($args['plan']);
 
-        return $this->mobileNgTransactionRepository->get_bills_meter_details($args);
+        if ($api_wallet->balance < $args['amount']) {
+            throw new GraphqlError("Service is not available currently, please try again later");
+        }
+
+        $available_services = $this->validateTransactions->get_available_services('ELECT');
+
+        ValidateTransactions::checkAvailableService($available_services, $plan->disco, $args['type'],$plan->description);
+
+
+        return $this->validateTransactions->get_bills_meter_details($args, $args['amount']);
     }
 }

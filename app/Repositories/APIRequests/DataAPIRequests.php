@@ -28,16 +28,7 @@ class DataAPIRequests
      */
     public function InitiateDataTransaction(array $data)
     {
-        $token = config('constant.TOKEN');
-        $url = config('constant.API_ENDPOINT')."/data/".$token."/".str_lower($data['network'])."/".$data['phone']."/".$data['plan'];
 
-        $client = new Client();
-        try{
-            $res = $client->request('POST', $url);
-            return $res->getBody()->getContents();
-        }catch (\Throwable $e) {
-            throw new GraphqlError("Transaction failed, please try again: " . $e->getMessage());
-        }
     }
 
 }

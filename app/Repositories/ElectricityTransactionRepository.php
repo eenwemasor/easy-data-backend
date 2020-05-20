@@ -21,11 +21,19 @@ class ElectricityTransactionRepository implements ElectricityTransactionContract
      */
     public function create(array $electricityTransaction): ElectricityTransaction
     {
-
+        $sms = new SendSMSController();
         $plan_data = PowerPlanList::find($electricityTransaction["plan"]);
 
+        $beneficiary_name = $electricityTransaction["beneficiary_name"];
+        $meter_number = $electricityTransaction["meter_number"];
+        $plan = $plan_data->description;
+        $amount = $electricityTransaction["amount"];
 
+        $message = "Electricity Purchase Request:  Beneficiary Name: "
+            .$beneficiary_name." Meter Number: "
+            .$meter_number. "  Plan: ".$plan. " Amount: ".$amount;
 
+        $sms->sendSMS($message);
         $electricityTransaction['plan'] = $plan_data->description;
         return ElectricityTransaction::create($electricityTransaction);
 

@@ -21,7 +21,7 @@ input UpdateDataPlanInput{
     network: NetworkType
     plan: String
     amount: Float
-    vendor_amount:String
+    vendor_amount:Float
     product_code:String
 
 }

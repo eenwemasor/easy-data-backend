@@ -45,6 +45,8 @@ class GetUserCableCredentials
     {
         $cable_plan = CablePlanList::find($args['plan']);
 
+        $available_services = $this->validateTransactions->get_available_services("Tv");
+        CableTransactionService::checkAvailableService($available_services, $cable_plan->cable);
         return   $this->mobileNgTransactionRepository->get_cable_card_details($args,$cable_plan->amount);
     }
 }
