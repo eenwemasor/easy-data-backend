@@ -57,9 +57,7 @@ class ValidateTransactions
         $res = $client->request('POST', $url, [
             'headers' => ['content-type' => 'application/json'], 'body' => $request_data]);
         $response = json_decode($res->getBody()->getContents());
-        var_dump($response);
         $res = $response->wallet;
-
 
 
         if (str_upper($res->message) == "SUCCESSFUL" && $res->status == "200") {
