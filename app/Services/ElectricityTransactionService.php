@@ -60,6 +60,7 @@ class ElectricityTransactionService
      */
     public function create(array $electricityTransaction)
     {
+
         $plan = PowerPlanList::find($electricityTransaction['plan']);
 
         $api_wallet = $this->validateTransactions->get_api_account_info();
@@ -74,7 +75,7 @@ class ElectricityTransactionService
         }
 
         $available_services = $this->validateTransactions->get_available_services('ELECT');
-        $this->checkAvailableService($available_services, $plan->disco);
+        $this->checkAvailableService($available_services, $plan->disco."_".$electricityTransaction['type']);
 
         $data = collect($electricityTransaction);
 
