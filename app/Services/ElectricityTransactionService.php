@@ -10,6 +10,7 @@ use App\Enums\TransactionType;
 use App\Enums\WalletType;
 use App\Events\ElectricityTransactionEvent;
 use App\GraphQL\Errors\GraphqlError;
+use App\Http\Controllers\SendSMSController;
 use App\Http\Controllers\UserController;
 use App\PowerPlanList;
 use App\Repositories\APIRequests\ElectricityAPIRequests;
@@ -100,11 +101,19 @@ class ElectricityTransactionService
         ], $electricityTransaction['beneficiary_name']);
 
         if (str_lower($initiate_electricity_transaction->message) === "successful" && $initiate_electricity_transaction->status === "200") {
+            $electricityTransactionData['status'] = TransactionStatus::COMPLETED;
             $electricity_transaction = $this->electricity_transaction_repository->create($electricityTransactionData);
-            $user_cont = New UserController();
-            $user = $user_cont->getUserById($electricityTransaction["user_id"]);
-            $admin = $user_cont->getAdmin();
-            event(new ElectricityTransactionEvent($electricity_transaction, $user, $admin));
+//            $user_cont = New UserController();
+//            $user = $user_cont->getUserById($electricityTransaction["user_id"]);
+//            $admin = $user_cont->getAdmin();
+//            event(new ElectricityTransactionEvent($electricity_transaction, $user, $admin));
+
+            $smsController = new SendSMSController();
+
+            $message = "Thank you for patronizing Gtserviz: Here is your Electricity token ". $initiate_electricity_transaction->message;
+
+            $smsController->sendSMS($message, $user->phone);
+
             return $electricity_transaction;
         } else {
             $electricityTransactionData['status'] = TransactionStatus::FAILED;

@@ -74,7 +74,7 @@ class BulkSMSService
         $smsData['reference'] = $walletTransactionResult['reference'];
         $smsData['status'] = BulkSMSStatus::DELIVERED;
 
-        $sms_response =  $sms->sendBulkSMS($smsData["message"], $smsData["receivers"]);
+        $sms->sendBulkSMS($smsData["message"], $smsData["receivers"]);
 
         return $this->bulkSMSRepository->create($smsData);
 

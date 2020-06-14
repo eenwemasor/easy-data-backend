@@ -34,7 +34,8 @@ class SendPhoneVerification extends Controller
                     'from' => $sender_id,
                     'to' => $to,
                     'body' => $message,
-                    'api_token' => $ApiKey
+                    'api_token' => $ApiKey,
+                    'dnd' =>4
                 );
 
                 $params = http_build_query($sms_array);
@@ -68,20 +69,20 @@ class SendPhoneVerification extends Controller
             $phone_token_exists = PhoneVerification::where('phone', $phone)->first();
             if(!$phone_token_exists){
             }else{
-                    $phone_token_exists->delete();
-                    $token = mt_rand(100000, 999999);
-                    $phoneVerification = new PhoneVerification();
-                    $phoneVerification->phone = $phone;
-                    $phoneVerification->token = $token;
-                    $phoneVerification->save();
+                $phone_token_exists->delete();
+                $token = mt_rand(100000, 999999);
+                $phoneVerification = new PhoneVerification();
+                $phoneVerification->phone = $phone;
+                $phoneVerification->token = $token;
+                $phoneVerification->save();
 
-                    if (strpos($phone, '0') === 0 && strlen($phone) === 11) {
-                        $send_phone = substr($phone, 1);
-                        $phone = "+234".$send_phone;
-                    }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
-                        $phone = "+234".$phone;
-                    }
-                    $message = "subpay phone verification token " . $token;
+                if (strpos($phone, '0') === 0 && strlen($phone) === 11) {
+                    $send_phone = substr($phone, 1);
+                    $phone = "+234".$send_phone;
+                }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
+                    $phone = "+234".$phone;
+                }
+                $message = "subpay phone verification token " . $token;
                 $sender_id = config('constant.SENDER_ID');
                 $to = $phone;
                 $ApiKey = config('constant.API_KEY');
@@ -92,7 +93,8 @@ class SendPhoneVerification extends Controller
                     'from' => $sender_id,
                     'to' => $to,
                     'body' => $message,
-                    'api_token' => $ApiKey
+                    'api_token' => $ApiKey,
+                    'dnd' =>4
                 );
 
                 $params = http_build_query($sms_array);
@@ -123,9 +125,10 @@ class SendPhoneVerification extends Controller
             $phone_user = User::where('phone', $phone_token_exists->phone)->first();
             $phone_user->phone_verified = true;
             $phone_user->save();
-            return response()->json(['message' => 'Phone number verified']);
+            return response()->json(
+                ['message' => 'Phone number verified'], 200);
         }else{
-            return response()->json(['message' => 'Wrong token or it has expired']);
+            return response()->json(['error' => 'Wrong token or it has expired'], 404);
         }
     }
 

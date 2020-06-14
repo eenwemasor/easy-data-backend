@@ -115,11 +115,11 @@ class DataTransactionService
         $sendSMS->sendSMS($message);
 
 
-        $user_cont = New UserController();
-        $user = $user_cont->getUserById($dataTransaction["user_id"]);
-        $admin = $user_cont->getAdmin();
+//        $user_cont = New UserController();
+//        $user = $user_cont->getUserById($dataTransaction["user_id"]);
+//        $admin = $user_cont->getAdmin();
 
-        event(new DataTransactionEvent($data_transaction, $user, $admin));
+//        event(new DataTransactionEvent($data_transaction, $user, $admin));
 
         return $data_transaction;
 

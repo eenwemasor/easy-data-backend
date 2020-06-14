@@ -88,7 +88,7 @@ class WalletTransactionService
         }
 
         $wallet_transaction = $this->wallet_transaction_repository->create($this->walletTransactionData);
-        event(new WalletTransactionEvent($wallet_transaction, $user));
+//        event(new WalletTransactionEvent($wallet_transaction, $user));
 
         return $wallet_transaction;
     }

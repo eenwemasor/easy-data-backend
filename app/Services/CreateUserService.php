@@ -66,7 +66,7 @@ class CreateUserService
 
         $user = $this->create_user_contract_repository->create($user);
 
-        event(new UserCreated($user));
+//        event(new UserCreated($user));
 
         return $user;
     }

@@ -104,11 +104,12 @@ class CableTransactionService
         ], $cable_plan->amount);
 
         if (str_lower($initiate_cable_transaction->message )== "successful" && $initiate_cable_transaction->status == "200") {
+            $cableTransactionData['status'] = TransactionStatus::COMPLETED;
             $cable_transaction = $this->cable_transaction_repository->create($cableTransactionData);
 
-            $user = $user_cont->getUserById($cableTransaction["user_id"]);
-            $admin = $user_cont->getAdmin();
-            event(new CableTransactionEvent($cable_transaction, $user, $admin));
+//            $user = $user_cont->getUserById($cableTransaction["user_id"]);
+//            $admin = $user_cont->getAdmin();
+//            event(new CableTransactionEvent($cable_transaction, $user, $admin));
             return $cable_transaction;
         } else {
             $cableTransactionData['status'] = TransactionStatus::FAILED;

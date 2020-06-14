@@ -17,13 +17,11 @@ class CableTransactionRepository implements CableTransactionContract
 
     /**
      * @param array $cableTransaction
-     * @param User $user
      * @return CableTransaction
      */
     public function create(array $cableTransaction): CableTransaction
     {
         $cable_plan = CablePlanList::find($cableTransaction['plan']);
-
         $cableTransaction['plan'] = $cable_plan->plan;
         return CableTransaction::create($cableTransaction);
     }
@@ -34,13 +32,10 @@ class CableTransactionRepository implements CableTransactionContract
      */
     public function mark_transaction_successful(string $transaction_id): CableTransaction
     {
-
         $transaction = CableTransaction::findOrFail($transaction_id);
-        if($transaction->status === TransactionStatus::COMPLETED){
+        if ($transaction->status === TransactionStatus::COMPLETED) {
             return $transaction;
         }
-
-
         $transaction->status = TransactionStatus::COMPLETED;
         $transaction->save();
         return $transaction;
@@ -53,7 +48,6 @@ class CableTransactionRepository implements CableTransactionContract
     public function mark_transaction_failed(string $transaction_id): CableTransaction
     {
         $transaction = CableTransaction::findOrFail($transaction_id);
-
         $transaction->status = TransactionStatus::FAILED;
         $transaction->save();
         return $transaction;

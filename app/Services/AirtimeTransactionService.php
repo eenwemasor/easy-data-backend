@@ -101,11 +101,11 @@ class AirtimeTransactionService
                 $airtimeTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $airtimeData);
 
                 $airtime_transaction = $this->airtime_transaction_repository->create($airtimeTransactionData);
-                $user_cont = New UserController();
-                $user = $user_cont->getUserById($airtimeTransaction["user_id"]);
-                $admin = $user_cont->getAdmin();
+//                $user_cont = New UserController();
+//                $user = $user_cont->getUserById($airtimeTransaction["user_id"]);
+//                $admin = $user_cont->getAdmin();
 
-                event(new AirtimeTransactionEvent($airtime_transaction, $user, $admin));
+//                event(new AirtimeTransactionEvent($airtime_transaction, $user, $admin));
 
                 return $airtime_transaction;
             } else {

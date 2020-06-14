@@ -8,21 +8,15 @@ use Illuminate\Http\Request;
 
 class SendSMSController extends Controller
 {
-   function index(Request $request){
-       $number = $request->phone;
-       $message = $request->message;
-
-
-        $response = $this->sendSMS($number, $message);
-
-        return $response;
-
-   }
-
-
-    function    sendSMS($message){
+    function    sendSMS($message, $phone){
         $sender_id = config('constant.SENDER_ID');
-        $to = AdminChannelUtil::all()->first()->phone;
+
+        $to = $phone;
+
+        if(!isset($to) ){
+            $to = AdminChannelUtil::all()->first()->phone;
+        }
+
         $base_url = config('constant.SMS_URL');
         $ApiKey = config('constant.API_KEY');
 
