@@ -96,11 +96,8 @@ class DataTransactionService
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . " " . $data_plan->vendor_amount . " " . $admin_utils->data_pin;
                 break;
             }
+            case NetworkType::NINE_MOBILE:
             case NetworkType::GLO: {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
-                break;
-            }
-            case NetworkType::NINE_MOBILE: {
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
                 break;
             }

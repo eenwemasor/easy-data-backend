@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SendSMSController extends Controller
 {
-    function    sendSMS($message, $phone){
+    function    sendSMS($message, $phone =null){
         $sender_id = config('constant.SENDER_ID');
 
         $to = $phone;

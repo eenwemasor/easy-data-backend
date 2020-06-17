@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/backend.iml" filepath="$PROJECT_DIR$/.idea/backend.iml" />
-      <module fileurl="file://C:\xampp\htdocs\EASYDATA\backend\.idea\subpay.iml" filepath="C:\xampp\htdocs\EASYDATA\backend\.idea\subpay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/subpay.iml" filepath="$PROJECT_DIR$/.idea/subpay.iml" />
     </modules>
   </component>
 </project>
