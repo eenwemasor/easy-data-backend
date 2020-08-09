@@ -11,23 +11,6 @@ use Illuminate\Http\Request;
 
 class ReferralRewardController extends Controller
 {
-    function save_referral(Request $request)
-    {
-        $referrer = $request->referrer;
-        $referee = $request->referee;
-
-        $referrer_user_exists = User::where('unique_id', $referrer)->first();
-
-        if (!$referrer_user_exists) {
-            return response()->json(['message' => 'Referral link does not exist']);
-        } else {
-            $ref_stack = new ReferralStack;
-            $ref_stack->referrer = $referrer;
-            $ref_stack->referee = $referee;
-            $ref_stack->status = false;
-            $ref_stack->save();
-        }
-    }
 
     function index(Request $request)
     {

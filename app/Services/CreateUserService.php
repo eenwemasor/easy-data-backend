@@ -53,7 +53,13 @@ class CreateUserService
     {
         $referrer_id = null;
         if (isset($user['referrer_id'])) {
-            $referrer_id = User::where('unique_id', $user['referrer_id'])->first()->id;
+            $referrer = User::where('unique_id', $user['referrer_id'])->first();
+
+            if($referrer){
+                $referrer_id = $referrer->id;
+            }else{
+                throw  new GraphqlError("Referrer Does not Exist");
+            }
         }
         $user['unique_id'] =  $user['username']. uniqid();
         $user['accessibility'] = AccountAccessibility::USER;
