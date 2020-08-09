@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReferralRewardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReferralRewardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
@@ -571,7 +571,8 @@
       <workItem from="1592395435100" duration="458000" />
       <workItem from="1592579137910" duration="618000" />
       <workItem from="1596969268001" duration="128000" />
-      <workItem from="1596971942312" duration="44000" />
+      <workItem from="1596971942312" duration="1524000" />
+      <workItem from="1597001889954" duration="146000" />
     </task>
     <servers />
   </component>
@@ -588,10 +589,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1596971969219">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597002034728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596971969219" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597002034728" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1597002029848">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1597002029848" />
   </component>
   <component name="masterDetails">
     <states>

@@ -15,6 +15,7 @@ use App\Enums\WalletType;
 use App\Events\TransactionPin;
 use App\Events\UserCreated;
 use App\GraphQL\Errors\GraphqlError;
+use App\Http\Controllers\SendVerificationUrlController;
 use App\ReferralReward;
 use App\Repositories\CreateUserRepository;
 use App\User;
@@ -71,8 +72,12 @@ class CreateUserService
         $user['referrer_id'] = $referrer_id;
 
         $user = $this->create_user_contract_repository->create($user);
-
-//        event(new UserCreated($user));
+        $verify = new SendVerificationUrlController();
+        $verify->sendVerificationLink([
+            'name'=>$user->full_name,
+            'email'=>$user->email,
+            'user_unique_id' =>$user->unique_id
+        ]);
 
         return $user;
     }
