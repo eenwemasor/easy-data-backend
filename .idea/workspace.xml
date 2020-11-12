@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,68 +60,11 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Logout</find>
-      <find>user_w</find>
-      <find>text-align: center</find>
-      <find>full</find>
-      <find>network</find>
-      <find>balance</find>
-      <find>send</find>
-      <find>$plan_dat</find>
-      <find>Cable</find>
-      <find>statement_request_charge</find>
-      <find>ElectrictyTransaction</find>
-      <find>CableTransaction</find>
-      <find>NewsFeed</find>
-      <find>TransferFundTransaction</find>
-      <find>QuickBuy</find>
-      <find>ElectricityTransaction</find>
-      <find>DataTransaction</find>
-      <find>DataPlanList</find>
-      <find>data_pin</find>
-      <find>refer</find>
-      <find>airtime_transactions</find>
-      <find>sender_id</find>
-      <find>AirtimeTransaction</find>
-      <find>'vendor_amount'=&gt;'null'</find>
-      <find>channel</find>
-      <find>'null'</find>
-      <find>im</find>
-      <find>checkAvailableService</find>
-      <find>event</find>
-      <find>gtserviz</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>airtimeTocashTransactionPhone</replace>
-      <replace>username</replace>
-      <replace>$cableTransaction</replace>
-      <replace>$electricityTransaction</replace>
-      <replace>$dataTransaction</replace>
-      <replace>$withdrawFund</replace>
-      <replace>$transfer_fund_transaction</replace>
-      <replace>$withdrawFundTransaction</replace>
-      <replace>$base_url</replace>
-      <replace>$plan_data</replace>
-      <replace>Power</replace>
-      <replace>Data</replace>
-      <replace>DataTransaction</replace>
-      <replace>DataPlanList</replace>
-      <replace>PowerPlanList</replace>
-      <replace>WithdrawFundTransaction</replace>
-      <replace>TransferFundTransaction</replace>
-      <replace>GiftcardTransaction</replace>
-      <replace>ElectricityTransaction</replace>
-      <replace>NewsUpdate</replace>
-      <replace>bulk_s_m_s_s</replace>
-      <replace>BulkSMS</replace>
-      <replace>'vendor_amount'=&gt;null</replace>
-      <replace>null</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -572,21 +531,25 @@
       <workItem from="1592579137910" duration="618000" />
       <workItem from="1596969268001" duration="128000" />
       <workItem from="1596971942312" duration="1524000" />
-      <workItem from="1597001889954" duration="146000" />
+      <workItem from="1597001889954" duration="778000" />
+      <workItem from="1605172870787" duration="331000" />
+      <workItem from="1605173505831" duration="19000" />
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597002034728">
