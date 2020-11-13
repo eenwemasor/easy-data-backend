@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SendVerificationUrlController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -534,6 +535,9 @@
       <workItem from="1597001889954" duration="778000" />
       <workItem from="1605172870787" duration="331000" />
       <workItem from="1605173505831" duration="19000" />
+      <workItem from="1605173641080" duration="274000" />
+      <workItem from="1605243943430" duration="1182000" />
+      <workItem from="1605245175685" duration="936000" />
     </task>
     <servers />
   </component>
@@ -550,6 +554,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597002034728">
