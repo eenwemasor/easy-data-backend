@@ -27,8 +27,8 @@ class CableAPIRequests
 
     /**
      * @param array $data
+     * @param $amount
      * @return mixed
-     * @throws GraphqlError
      */
     public function initiate_cable_transaction(array $data,$amount)
     {
@@ -50,7 +50,8 @@ class CableAPIRequests
         $request_param = array_merge([
             'serviceCode' => "P-TV",
             'period'=>"1",
-            'hasAddon'=>false
+            'hasAddon'=>false,
+            'price'=>$amount
         ],$data);
 
         $request_data = $request_param;
