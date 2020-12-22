@@ -35,6 +35,7 @@ class CreateElectricityTransactionsTable extends Migration
                 TransactionStatus::FAILED,
             ]);
             $table->string('method');
+            $table->string('token')->nullable();
             $table->bigInteger('user_id');
             $table->timestamps();
         });

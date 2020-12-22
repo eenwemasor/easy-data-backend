@@ -10,6 +10,7 @@ type ElectricityTransaction {
     new_balance: Float
     status: TransactionStatus!
     method: WalletType!
+    token:String
     user_id: ID!
     created_at: DateTime
     updated_at: DateTime

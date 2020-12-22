@@ -21,7 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/CableAPIRequests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/APIRequests/ElectricityAPIRequests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/DataTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/DataTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/models/ElectricityTransaction.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/ElectricityTransaction.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +228,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -537,7 +543,10 @@
       <workItem from="1605173641080" duration="274000" />
       <workItem from="1605243943430" duration="1182000" />
       <workItem from="1605245175685" duration="1573000" />
-      <workItem from="1606577257047" duration="28000" />
+      <workItem from="1606577257047" duration="754000" />
+      <workItem from="1607428158158" duration="958000" />
+      <workItem from="1607664067811" duration="81000" />
+      <workItem from="1608649830135" duration="1256000" />
     </task>
     <servers />
   </component>
@@ -557,14 +566,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597002034728">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="623" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1608650022414">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597002034728" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1597002029848">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1597002029848" />
+    <state x="623" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1600.95.1600.900@0.0.1920.1080" timestamp="1607664103195" />
+    <state x="623" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1608650022414" />
   </component>
   <component name="masterDetails">
     <states>

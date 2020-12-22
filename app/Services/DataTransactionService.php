@@ -95,6 +95,7 @@ class DataTransactionService
             case NetworkType::MTN: {
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . " " . $data_plan->vendor_amount . " " . $admin_utils->data_pin;
                 break;
+
             }
             case NetworkType::NINE_MOBILE:
             case NetworkType::GLO: {
