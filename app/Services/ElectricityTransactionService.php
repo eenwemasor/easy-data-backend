@@ -131,8 +131,6 @@ class ElectricityTransactionService
             $wallet_transaction->save();
 
             throw new GraphqlError($initiate_electricity_transaction->message);
-
-
         }
 
     }
@@ -181,7 +179,6 @@ class ElectricityTransactionService
      */
     public function mark_transaction_successful(string $transaction_id)
     {
-
         return $this->electricity_transaction_repository->mark_transaction_successful($transaction_id);
     }
 
