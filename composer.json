@@ -23,6 +23,7 @@
         "laravel/passport": "^7.5",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.2",
+        "lcobucci/jwt": "3.3.3",
         "nuwave/lighthouse": "^4.4",
         "pusher/pusher-php-server": "^4.1",
         "rexlabs/enum": "^2.0"

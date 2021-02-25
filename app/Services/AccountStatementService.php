@@ -176,7 +176,7 @@ class AccountStatementService
         if (AirtimeTransaction::where('user_id',$this->user_id)->get()->isNotEmpty()) {
             $wallet_transactions = AirtimeTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();;
             $result = '<div><h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Airtime purchase transactions</h4> <table style="width: 100%;padding: 10px;font-size: 10px;">
- 
+
     <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
     <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
      <th>Reference</th>
@@ -221,7 +221,7 @@ class AccountStatementService
         if (CableTransaction::where('user_id',$this->user_id)->get()->isNotEmpty()) {
             $wallet_transactions = CableTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();;
             $result = '<div><h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Cable subscription transactions</h4> <table style="width: 100%;padding: 10px;font-size: 10px;">
-  
+
     <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
     <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
      <th>Reference</th>
@@ -312,7 +312,7 @@ class AccountStatementService
         if (ElectricityTransaction::where('user_id',$this->user_id)->get()->isNotEmpty()) {
             $wallet_transactions = ElectricityTransaction::whereBetween('created_at', [$this->from_date, $this->to_date])->where('user_id',$this->user_id)->get();
             $result = '<div><h4 style="text-align: left;margin-bottom: -10px;margin-left: 10px">Electricity subscription transactions</h4> <table style="width: 100%;padding: 10px;font-size: 10px;">
-  
+
     <thead style = "background-color: #636b6f;color: white;text-transform: uppercase">
     <tr><th style="padding-top: 10px;padding-bottom: 10px">Date</th>
      <th>Reference</th>

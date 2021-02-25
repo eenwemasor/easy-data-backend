@@ -92,4 +92,8 @@ type AdminStatistics {
     total_airtime_to_wallet_failed:Float
     total_airtime_to_wallet_failed_sum:Float
 
+
+    total_user_wallet_balance: Float
+    total_user_bonus_wallet_balance: Float
+
 }

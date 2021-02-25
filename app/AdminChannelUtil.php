@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AdminChannelUtil extends Model
 {
     protected $fillable = [
-        'phone','email',
+        'phone', 'email',
         'statement_request_charge',
         'glo_discount',
         'airtel_discount',
@@ -18,6 +18,9 @@ class AdminChannelUtil extends Model
         'rave_fund_wallet_fee',
         'sms_unit_charge',
         'cable_tv_service_charge',
-        'electricity_service_charge'
+        'electricity_service_charge',
+        'monnify_bank_service_charge',
+        'fund_wallet_max_amount',
+        'fund_wallet_min_amount'
     ];
 }

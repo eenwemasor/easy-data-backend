@@ -20,5 +20,6 @@ Route::post('/sms/send_notification', 'SendSMSController@index');
 Route::post('/sms/send_phone_verification', 'SendPhoneVerification@generateToken');
 Route::post('/sms/resend_phone_verification', 'SendPhoneVerification@resendToken');
 Route::post('/sms/verify_token', 'SendPhoneVerification@verifyToken');
-Route::post('/purchase_cable_tv', 'CableTvPurchase@index');
 Route::post('/update_user_data', 'UpdateUserData@index');
+Route::post('/monnify-transactions', 'MonnifyController@index');
+

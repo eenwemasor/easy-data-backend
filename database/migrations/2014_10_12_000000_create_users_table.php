@@ -30,6 +30,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('username')->unique();
             $table->unsignedBigInteger('referrer_id')->nullable();
+            $table->string('monnify_account_number')->nullable();
+            $table->string('monnify_bank_name')->nullable();
+            $table->string('monnify_bank_code')->nullable();
+            $table->string('monnify_collection_channel')->nullable();
+            $table->string('monnify_reservation_channel')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

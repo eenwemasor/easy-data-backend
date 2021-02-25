@@ -6,10 +6,7 @@ extend type Query{
 
     UserAccountStatement( user_id: ID!, from_date:Date!, to_date:Date!): AccountStatement!
 
-
-
-
-    users(search:String orderBy: [OrderByClause!] @orderBy): [User!]! @paginate( model: "App\\User" builder:"App\\GraphQL\\Queries\\User@get_users")
+    users(status:Boolean search:String orderBy: [OrderByClause!] @orderBy): [User!]! @paginate( model: "App\\User" builder:"App\\GraphQL\\Queries\\User@get_users")
 
 
 

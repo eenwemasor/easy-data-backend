@@ -19,7 +19,25 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'phone', 'wallet','transaction_pin','accessibility','email_confirmed','phone_verified','unique_id','active','bonus_wallet','password','username','referrer_id'
+        'full_name',
+        'email',
+        'phone',
+        'wallet',
+        'transaction_pin',
+        'accessibility',
+        'email_confirmed',
+        'phone_verified',
+        'unique_id',
+        'active',
+        'bonus_wallet',
+        'password',
+        'username',
+        'referrer_id',
+        'monnify_account_number',
+        'monnify_bank_name',
+        'monnify_bank_code',
+        'monnify_collection_channel',
+        'monnify_reservation_channel'
     ];
 
     /**

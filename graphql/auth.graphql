@@ -21,6 +21,11 @@ type User {
     bonus_wallet:String!
     username:String!
     referrer_id:ID
+    monnify_account_number: String!
+    monnify_bank_name: String!
+    monnify_bank_code: String!
+    monnify_collection_channel: String!
+    monnify_reservation_channel: String!
     referrer: User @belongsTo
     referrals: [User !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany

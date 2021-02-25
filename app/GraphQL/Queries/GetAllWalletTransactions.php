@@ -2,9 +2,11 @@
 
 namespace App\GraphQL\Queries;
 
+use App\Http\Controllers\SearchBuilder;
+use App\WalletTransaction;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -15,19 +17,7 @@ class GetAllWalletTransactions
         $from = $args['from_date'];
         $to = $args['to_date'];
         $status = $args['status'];
-        $transactions = null;
-        if (isset($from) && isset($to) && !isset($status)) {
-            $transactions = DB::table('wallet_transactions')
-                ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
-        } elseif (isset($from) && isset($to) && isset($status)) {
-            $transactions = DB::table('wallet_transactions')
-                ->where('status', $status)
-                ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)]);
-        } elseif (isset($status)) {
-            $transactions = DB::table('wallet_transactions')->where('status', $status);
-        } else {
-            $transactions =   DB::table('wallet_transactions');
-        }
-        return $transactions;
+        $search = $args['search'];
+        return SearchBuilder::search_builder(WalletTransaction::query(),'airtime_transactions', $from,$to,$status,$search);
     }
 }

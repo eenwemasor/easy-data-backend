@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\DataTransaction::class, 20)->create();
         factory(\App\ElectricityTransaction::class, 20)->create();
         factory(\App\WalletTransaction::class, 20)->create();
-        factory(\App\User::class, 3)->create();
+        factory(\App\User::class, 300)->create();
         factory(\App\NewsFeed::class, 3)->create();
         factory(\App\NewsUpdate::class, 1)->create();
 
@@ -42,6 +42,11 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'username'=>'admin20',
             'bonus_wallet' => 0,
+            'monnify_account_number'=>"000000000000000",
+            'monnify_bank_name'=>"Providus Bank",
+            'monnify_bank_code'=>"101",
+            'monnify_collection_channel'=>"RESERVED_ACCOUNT",
+            'monnify_reservation_channel'=>"4PKHSNPCYBUAYZ8C9BFM",
             'password' => bcrypt('Admin'),
         ]);
 
@@ -58,6 +63,11 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'username'=>'user1',
             'bonus_wallet' => 0,
+            'monnify_account_number'=>"000000000000000",
+            'monnify_bank_name'=>"Providus Bank",
+            'monnify_bank_code'=>"101",
+            'monnify_collection_channel'=>"RESERVED_ACCOUNT",
+            'monnify_reservation_channel'=>"4PKHSNPCYBUAYZ8C9BFM",
             'password' => bcrypt('password'),
         ]);
 
@@ -73,6 +83,11 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'username'=>'user2',
             'bonus_wallet' => 0,
+            'monnify_account_number'=>"000000000000000",
+            'monnify_bank_name'=>"Providus Bank",
+            'monnify_bank_code'=>"101",
+            'monnify_collection_channel'=>"RESERVED_ACCOUNT",
+            'monnify_reservation_channel'=>"4PKHSNPCYBUAYZ8C9BFM",
             'password' => bcrypt('password'),
         ]);
 

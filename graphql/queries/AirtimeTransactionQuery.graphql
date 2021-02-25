@@ -1,7 +1,11 @@
 extend type Query @middleware(checks: ["auth:api"]){
     getAirtimeTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [AirtimeTransaction!]! @paginate(type: "paginator" model: "App\\AirtimeTransaction")
 
-    AllAirtimeTransactions(from_date:String, to_date:String, status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [AirtimeTransaction!]! @paginate( model: "App\\AirtimeTransaction" builder:"App\\GraphQL\\Queries\\GetAllAirtimeTransactions@get_all_transactions")
+    AllAirtimeTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [AirtimeTransaction!]! @paginate( model: "App\\AirtimeTransaction" builder:"App\\GraphQL\\Queries\\GetAllAirtimeTransactions@get_all_transactions")
 
 
 }

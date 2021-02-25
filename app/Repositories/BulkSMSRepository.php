@@ -53,5 +53,5 @@ class BulkSMSRepository implements BulkSMSContract
         $transaction->save();
         return $transaction;
     }
-    
+
 }

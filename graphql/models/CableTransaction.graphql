@@ -11,6 +11,7 @@ type CableTransaction {
     status: TransactionStatus!
     method: WalletType!
     user_id: ID!
+    user:User
     created_at: DateTime
     updated_at: DateTime
 }

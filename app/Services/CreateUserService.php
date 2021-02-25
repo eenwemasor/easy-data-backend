@@ -47,7 +47,13 @@ class CreateUserService
         $total_users = User::where('accessibility', AccountAccessibility::USER)->count();
         $total_active_users = User::where('accessibility', AccountAccessibility::USER)->where('active', true)->count();
         $total_inactive_users = User::where('accessibility', AccountAccessibility::USER)->where('active', false)->count();
-        return ['total_users' => $total_users, 'total_active_users' => $total_active_users, 'total_inactive_users' => $total_inactive_users];
+        return [
+            'total_users' => $total_users,
+            'total_active_users' => $total_active_users,
+            'total_inactive_users' => $total_inactive_users,
+            'total_user_wallet_balance' => self::totalUserWalletBalance('wallet'),
+            'total_user_bonus_wallet_balance' => self::totalUserWalletBalance('bonus_wallet')
+        ];
     }
 
     public function create(array $user)
@@ -233,6 +239,45 @@ class CreateUserService
 
     }
 
+
+    /**
+     * @param array $user
+     */
+    protected function createMonnifyAccount(array $user)
+    {
+        $monnify_data = null;
+        try {
+            $monnify = new MonnifyService();
+            $monnify_data = $monnify->reserveAnAccount($user);
+        } catch (\Exception $e) {
+
+        }
+
+        return $monnify_data;
+    }
+
+
+
+    /**
+     * @param User $user
+     * @return bool|string|null
+     */
+    protected function deleteMonnifyAccount(User $user)
+    {
+        $monnify_data = null;
+        try {
+            $monnify = new MonnifyService();
+            $monnify_data = $monnify->deleteReservedAccount($user);
+        } catch (\Exception $e) {
+        }
+
+        return $monnify_data;
+    }
+
+    static  public function totalUserWalletBalance($wallet_type)
+    {
+        return User::all()->sum($wallet_type);
+    }
 
 
 }

@@ -12,6 +12,9 @@ type AdminChannelUtil {
     paystack_fund_wallet_fee:Float
     cable_tv_service_charge:Float
     electricity_service_charge:Float
+    monnify_bank_service_charge: Float
+    fund_wallet_max_amount:Float
+    fund_wallet_min_amount:Float
 }
 
 
