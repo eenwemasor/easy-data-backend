@@ -1,14 +1,14 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateElectricityTransaction(input: CreateElectricityTransactionInput! @spread): ElectricityTransaction @field(resolver: "ElectricityTransaction@resolve")
 
     DeleteElectricityTransaction(id:ID!): ElectricityTransaction  @delete(model: "App\\ElectricityTransaction")
     @can(ability: "delete", model: "App\\ElectricityTransaction" find: "id")
     @inject(context: "user", name: "user")
-    
+
     MarkElectricityTransactionSuccessful(transaction_id:ID!): ElectricityTransaction @field(resolver: "ElectricityTransaction@mark_transaction_successful")
     @can(ability: "update", model: "App\\ElectricityTransaction" find: "transaction_id")
     @inject(context: "user", name: "user")
-    
+
     MarkElectricityTransactionFailed(transaction_id:ID!): ElectricityTransaction @field(resolver: "ElectricityTransaction@mark_transaction_failed")
     @can(ability: "update", model: "App\\ElectricityTransaction" find: "transaction_id")
     @inject(context: "user", name: "user")

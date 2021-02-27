@@ -18,6 +18,6 @@ class GetAllCableTransactions
         $to = $args['to_date'];
         $status = $args['status'];
         $search = $args['search'];
-        return SearchBuilder::search_builder(CableTransaction::query(),'airtime_transactions', $from,$to,$status,$search);
+        return SearchBuilder::search_builder(CableTransaction::query(),'cable_transactions', $from,$to,$status,$search);
     }
 }

@@ -1,4 +1,4 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateUser(
     email: String @rules(apply: ["required", "unique:users"])
     full_name: String!

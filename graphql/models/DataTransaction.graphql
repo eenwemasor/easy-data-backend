@@ -9,6 +9,7 @@ type DataTransaction {
     new_balance: Float
     status: TransactionStatus
     method: WalletType!
+    data_plan: DataPlanList
     user_id: ID!
     user:User
     created_at: DateTime

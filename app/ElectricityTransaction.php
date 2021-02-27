@@ -13,4 +13,8 @@ class ElectricityTransaction extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function electricity_plan(){
+        return $this->hasOne(CablePlanList::class, 'id', 'plan');
+    }
 }

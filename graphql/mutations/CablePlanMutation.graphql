@@ -1,4 +1,4 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateCablePlan(input: CreateCablePlanInput! @spread): CablePlanList @create(model: "App\\CablePlanList")
     @can(ability: "create", model: "App\\CablePlanList")
     @inject(context: "user", name: "user")

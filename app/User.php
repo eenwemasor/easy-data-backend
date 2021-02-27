@@ -73,6 +73,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(ElectricityTransaction::class);
     }
 
+    public function wallet_transactions(){
+        return $this->hasMany(WalletTransaction::class);
+    }
+
 
     public function referrer()
     {
@@ -100,6 +104,9 @@ class User extends Authenticatable implements MustVerifyEmail
             });
             $user->electricity_transactions()->each(function($electricity) {
                 $electricity->delete();
+            });
+            $user->wallet_transactions()->each(function($transaction) {
+                $transaction->delete();
             });
         });
     }
