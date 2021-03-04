@@ -15,7 +15,7 @@ class ElectricityTransactionPolicy
 
 
     /**
-     * Determine whether the user can update the electricity transaction.
+     * Determine whether the user can update the ringoElectricity transaction.
      *
      * @param  \App\User  $user
      * @param  \App\ElectricityTransaction  $electricityTransaction
@@ -27,7 +27,7 @@ class ElectricityTransactionPolicy
     }
 
     /**
-     * Determine whether the user can delete the electricity transaction.
+     * Determine whether the user can delete the ringoElectricity transaction.
      *
      * @param  \App\User  $user
      * @param  \App\ElectricityTransaction  $electricityTransaction

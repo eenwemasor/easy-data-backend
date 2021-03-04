@@ -6,14 +6,14 @@
  * Time: 16:44
  */
 
-namespace App\Repositories\APIRequests;
+namespace App\Vendors\Ringo;
 
 
 use App\GraphQL\Errors\GraphqlError;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 
-class ElectricityAPIRequests
+class RingoElectricity
 {
 
     /**

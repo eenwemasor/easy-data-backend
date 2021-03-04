@@ -26,7 +26,8 @@
         "lcobucci/jwt": "3.3.3",
         "nuwave/lighthouse": "^4.4",
         "pusher/pusher-php-server": "^4.1",
-        "rexlabs/enum": "^2.0"
+        "rexlabs/enum": "^2.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

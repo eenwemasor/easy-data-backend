@@ -10,11 +10,8 @@ use App\DataTransaction;
 use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
-use App\Events\DataTransactionEvent;
 use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\SendSMSController;
-use App\Http\Controllers\UserController;
-use App\Repositories\APIRequests\ValidateTransactions;
 use App\Repositories\DataTransactionRepository;
 use App\User;
 
@@ -28,26 +25,19 @@ class DataTransactionService
      * @var WalletTransactionService
      */
     private $walletTransactionService;
-    /**
-     * @var ValidateTransactions
-     */
-    private $validateTransactions;
 
     /**
      * DataTransactionService constructor.
      * @param DataTransactionRepository $data_transaction_repository
      * @param WalletTransactionService $walletTransactionService
-     * @param ValidateTransactions $validateTransactions
      */
     public function __construct(
         DataTransactionRepository $data_transaction_repository,
-        WalletTransactionService $walletTransactionService,
-        ValidateTransactions $validateTransactions
+        WalletTransactionService $walletTransactionService
     )
     {
         $this->data_transaction_repository = $data_transaction_repository;
         $this->walletTransactionService = $walletTransactionService;
-        $this->validateTransactions = $validateTransactions;
     }
 
     /**
@@ -58,16 +48,8 @@ class DataTransactionService
     public function create(array $dataTransaction)
     {
         $data_plan = DataPlanList::find($dataTransaction['data']);
-        $phone_details = $this->validateTransactions->get_phone_vendor_details($dataTransaction['beneficiary'])->opts;
-        if (strtoupper($phone_details->operator) != $data_plan->network) {
-            throw new GraphqlError("Please ensure phone number provided belongs to the network selected");
-        }
-
 
         $user = User::find($dataTransaction["user_id"]);
-        if (!$user->active) {
-            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
-        }
 
 
         $sendSMS = new SendSMSController();
@@ -76,7 +58,7 @@ class DataTransactionService
 
 
         $walletTransactionData = $data->only(['transaction_type', 'description', 'amount', 'beneficiary', 'user_id',])->toArray();
-        $walletTransactionData['description'] = $data_plan->amount ." ". $data_plan->plan ." ".$data_plan->network." data purchase";
+        $walletTransactionData['description'] = $data_plan->amount . " " . $data_plan->plan . " " . $data_plan->network . " data purchase";
         $walletTransactionData['amount'] = $data_plan->amount;
 
         $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
@@ -92,21 +74,25 @@ class DataTransactionService
         $message = null;
 
         switch ($data_plan->network) {
-            case NetworkType::MTN: {
+            case NetworkType::MTN:
+            {
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . " " . $data_plan->vendor_amount . " " . $admin_utils->data_pin;
                 break;
 
             }
             case NetworkType::NINE_MOBILE:
-            case NetworkType::GLO: {
+            case NetworkType::GLO:
+            {
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
                 break;
             }
-            case NetworkType::AIRTEL: {
+            case NetworkType::AIRTEL:
+            {
                 $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "*" . $admin_utils->data_pin . "#";
                 break;
             }
-            default: {
+            default:
+            {
                 throw new GraphqlError("Invalid Network Value");
             }
         }
@@ -142,7 +128,7 @@ class DataTransactionService
         $dataTransaction = collect(DataTransaction::find($transaction_id));
 
 
-        if($dataTransaction->status === TransactionStatus::FAILED){
+        if ($dataTransaction->status === TransactionStatus::FAILED) {
             return $dataTransaction;
         }
 
@@ -156,38 +142,38 @@ class DataTransactionService
     }
 
 
-
-    static public function total_transaction_statistics($from, $to){
-        $total_glo_data = DataTransaction::where('network',NetworkType::GLO)->whereBetween('created_at', [$from, $to]);
-        $total_etisalat_data = DataTransaction::where('network',NetworkType::NINE_MOBILE)->whereBetween('created_at', [$from, $to]);
-        $total_airtel_data = DataTransaction::where('network',NetworkType::AIRTEL)->whereBetween('created_at', [$from, $to]);
-        $total_mtn_data = DataTransaction::where('network',NetworkType::MTN)->whereBetween('created_at', [$from, $to]);
+    static public function total_transaction_statistics($from, $to)
+    {
+        $total_glo_data = DataTransaction::where('network', NetworkType::GLO)->whereBetween('created_at', [$from, $to]);
+        $total_etisalat_data = DataTransaction::where('network', NetworkType::NINE_MOBILE)->whereBetween('created_at', [$from, $to]);
+        $total_airtel_data = DataTransaction::where('network', NetworkType::AIRTEL)->whereBetween('created_at', [$from, $to]);
+        $total_mtn_data = DataTransaction::where('network', NetworkType::MTN)->whereBetween('created_at', [$from, $to]);
         $total_data_order = DataTransaction::whereBetween('created_at', [$from, $to]);
 
 
-        $data_failed_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status',TransactionStatus::FAILED);
-        $data_completed_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status',TransactionStatus::COMPLETED);
-        $data_processing_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status',TransactionStatus::PROCESSING);
+        $data_failed_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status', TransactionStatus::FAILED);
+        $data_completed_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status', TransactionStatus::COMPLETED);
+        $data_processing_order = DataTransaction::whereBetween('created_at', [$from, $to])->where('status', TransactionStatus::PROCESSING);
 
 
         return [
-            'total_mtn_data_order'=>$total_mtn_data->count(),
-            'total_etisalat_data_order'=>$total_etisalat_data->count(),
-            'total_airtel_data_order'=>$total_airtel_data->count(),
-            'total_glo_data_order'=>$total_glo_data->count(),
-            'total_data_order'=>$total_data_order->count(),
-            'data_failed_order'=>$data_failed_order->count(),
-            'data_completed_order'=>$data_completed_order->count(),
-            'data_processing_order'=>$data_processing_order->count(),
+            'total_mtn_data_order' => $total_mtn_data->count(),
+            'total_etisalat_data_order' => $total_etisalat_data->count(),
+            'total_airtel_data_order' => $total_airtel_data->count(),
+            'total_glo_data_order' => $total_glo_data->count(),
+            'total_data_order' => $total_data_order->count(),
+            'data_failed_order' => $data_failed_order->count(),
+            'data_completed_order' => $data_completed_order->count(),
+            'data_processing_order' => $data_processing_order->count(),
 
-            'total_mtn_data_order_sum'=>StatisticsService::sum_transaction($total_mtn_data->get()),
-            'total_etisalat_data_order_sum'=>StatisticsService::sum_transaction($total_etisalat_data->get()),
-            'total_airtel_data_order_sum'=>StatisticsService::sum_transaction($total_airtel_data->get()),
-            'total_glo_data_order_sum'=>StatisticsService::sum_transaction($total_glo_data->get()),
-            'total_data_order_sum'=>StatisticsService::sum_transaction($total_data_order->get()),
-            'data_failed_order_sum'=>StatisticsService::sum_transaction($data_failed_order->get()),
-            'data_completed_order_sum'=>StatisticsService::sum_transaction($data_completed_order->get()),
-            'data_processing_order_sum'=>StatisticsService::sum_transaction($data_processing_order->get())
+            'total_mtn_data_order_sum' => StatisticsService::sum_transaction($total_mtn_data->get()),
+            'total_etisalat_data_order_sum' => StatisticsService::sum_transaction($total_etisalat_data->get()),
+            'total_airtel_data_order_sum' => StatisticsService::sum_transaction($total_airtel_data->get()),
+            'total_glo_data_order_sum' => StatisticsService::sum_transaction($total_glo_data->get()),
+            'total_data_order_sum' => StatisticsService::sum_transaction($total_data_order->get()),
+            'data_failed_order_sum' => StatisticsService::sum_transaction($data_failed_order->get()),
+            'data_completed_order_sum' => StatisticsService::sum_transaction($data_completed_order->get()),
+            'data_processing_order_sum' => StatisticsService::sum_transaction($data_processing_order->get())
         ];
     }
 

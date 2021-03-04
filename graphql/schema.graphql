@@ -47,6 +47,34 @@ enum WalletType{
     WALLET
     BONUS_WALLET
 }
+enum DataType{
+    SME
+    DIRECT
+}
+
+enum ApplicationMethodType{
+    DISCOUNT
+    SERVICE_CHARGE
+    NONE
+}
+
+enum CalculationMethodType{
+    PERCENTAGE
+    AMOUNT
+}
+
+enum ServiceType{
+    DATA_DIRECT
+    DATA_SME
+    AIRTIME
+    CABLE
+    ELECTRICITY
+    SMILE
+    SPECTRANET
+    RESULT_CHECKER
+}
+
+
 
 enum NetworkType{
     GLO @enum(value: "GLOBACOM")

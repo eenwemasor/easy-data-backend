@@ -4,7 +4,7 @@ namespace App\GraphQL\Queries;
 
 use App\GraphQL\Errors\GraphqlError;
 use App\PowerPlanList;
-use App\Repositories\APIRequests\ValidateTransactions;
+use App\Vendors\MobileNg\MobileNgElectricity;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -13,15 +13,11 @@ class GetUserBillCredentials
     /**
      * @var ValidateTransactions
      */
-    private $validateTransactions;
+    private $mobileNgElectricity;
 
-    /**
-     * GetUserBillCredentials constructor.
-     * @param ValidateTransactions $validateTransactions
-     */
-    function __construct(ValidateTransactions $validateTransactions)
+    function __construct(MobileNgElectricity $mobileNgElectricity)
     {
-        $this->validateTransactions = $validateTransactions;
+        $this->mobileNgElectricity = $mobileNgElectricity;
     }
 
     /**
@@ -36,18 +32,18 @@ class GetUserBillCredentials
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        $api_wallet = $this->validateTransactions->get_api_account_info();
-        $plan = PowerPlanList::find($args['plan']);
+//        $api_wallet = $this->mobileNgElectricity->get_api_account_info();
+//        $plan = PowerPlanList::find($args['plan']);
+//
+//        if ($api_wallet->balance < $args['amount']) {
+//            throw new GraphqlError("Service is not available currently, please try again later");
+//        }
+//
+//        $available_services = $this->mobileNgElectricity->get_available_services('ELECT');
+//
+//        ValidateTransactions::checkAvailableService($available_services, $plan->disco, $args['type'],$plan->description);
 
-        if ($api_wallet->balance < $args['amount']) {
-            throw new GraphqlError("Service is not available currently, please try again later");
-        }
 
-        $available_services = $this->validateTransactions->get_available_services('ELECT');
-
-        ValidateTransactions::checkAvailableService($available_services, $plan->disco, $args['type'],$plan->description);
-
-
-        return $this->validateTransactions->get_bills_meter_details($args, $args['amount']);
+        return $this->mobileNgElectricity->get_bills_meter_details($args);
     }
 }

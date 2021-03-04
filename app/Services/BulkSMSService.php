@@ -49,9 +49,6 @@ class BulkSMSService
     {
         $user = User::find($smsData["user_id"]);
         $charge_per_sms = AdminChannelUtil::all()->first()->sms_unit_charge;
-        if (!$user->active) {
-            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
-        }
 
         $receivers_list = explode(",",$smsData['receivers']);
         $amount = count($receivers_list) * $charge_per_sms;

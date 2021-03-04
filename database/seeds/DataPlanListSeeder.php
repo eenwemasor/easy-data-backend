@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\DataType;
 use App\Enums\NetworkType;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,8 @@ class DataPlanListSeeder extends Seeder
         DB::table('data_plan_lists')->insert([
             [
                 'network' =>NetworkType::GLO,
+                'type'=> DataType::SME,
+
                 'plan' => '25MB (AR)',
                 'amount' => '20',
                 'product_code'=>null,
@@ -25,6 +28,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '242MB',
                 'amount' => '180',
                 'product_code'=>null,
@@ -33,6 +37,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '800MB/920MB',
                 'amount' => '400',
                 'product_code'=>'*127*57*',
@@ -41,6 +46,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '1.6GB/1.8GB',
                 'amount' => '400',
                 'product_code'=>'*127*53*',
@@ -49,6 +55,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '3.65GB/4.5GB',
                 'amount' => '400',
                 'product_code'=>'*127*55*',
@@ -57,6 +64,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '5.75GB/7.2GB',
                 'amount' => '1700',
                 'product_code'=>'*127*58*',
@@ -65,6 +73,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '7GB/8.75GB',
                 'amount' => '1700',
                 'product_code'=>'*127*54*',
@@ -73,6 +82,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '10GB/12.5GB',
                 'amount' => '3200',
                 'product_code'=>'*127*59*',
@@ -81,6 +91,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '12.5B/15.5GB',
                 'amount' => '4000',
                 'product_code'=>'*127*2*',
@@ -89,6 +100,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '1.5GB',
                 'amount' => '900',
                 'product_code'=>'*229*2*7*',
@@ -97,6 +109,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '1080',
                 'product_code'=>'*229*2*25*',
@@ -105,6 +118,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1800',
                 'product_code'=>'*229*2*3*',
@@ -113,6 +127,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '4.5GB',
                 'amount' => '2700',
                 'product_code'=>'*229*2*8*',
@@ -121,6 +136,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '11GB',
                 'amount' => '3600',
                 'product_code'=>'*229*2*36*',
@@ -129,6 +145,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '15GB',
                 'amount' => '7200',
                 'product_code'=>'229*2*37*',
@@ -137,6 +154,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '40GB',
                 'amount' => '9000',
                 'product_code'=>'229*4*1*',
@@ -146,6 +164,7 @@ class DataPlanListSeeder extends Seeder
             ,
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '75GB',
                 'amount' => '12000',
                 'product_code'=>'229*2*4*',
@@ -154,6 +173,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '500MB',
                 'amount' => '250',
                 'product_code'=>'SMEB',
@@ -162,6 +182,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '1GB',
                 'amount' => '450',
                 'product_code'=>'SMEC',
@@ -170,6 +191,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '900',
                 'product_code'=>'SMED',
@@ -178,6 +200,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1300',
                 'product_code'=>'SMEF',
@@ -186,6 +209,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '5GB',
                 'amount' => '2150',
                 'product_code'=>'SMEE',
@@ -194,6 +218,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>null,
@@ -202,6 +227,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '10GB',
                 'amount' => '3400',
                 'product_code'=>null,
@@ -210,6 +236,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '15GB',
                 'amount' => '4850',
                 'product_code'=>null,
@@ -218,6 +245,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '40GB',
                 'amount' => '9700',
                 'product_code'=>null,
@@ -226,6 +254,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '750MB (2Weeks)',
                 'amount' => '470',
                 'product_code'=>'141*6*2*2*3*1*',
@@ -234,6 +263,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '1.5GB',
                 'amount' => '950',
                 'product_code'=>'141*6*2*1*7*1*',
@@ -242,6 +272,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '1150',
                 'product_code'=>'141*6*2*1*6*1*',
@@ -250,6 +281,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1450',
                 'product_code'=>'141*6*2*1*5*1*',
@@ -258,6 +290,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '4.5GB',
                 'amount' => '1950',
                 'product_code'=>'141*6*2*1*4*1*',
@@ -266,6 +299,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>'141*6*2*1*3*1*',
@@ -274,6 +308,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '8GB',
                 'amount' => '2900',
                 'product_code'=>'141*6*2*1*2*1*',
@@ -282,6 +317,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '11GB',
                 'amount' => '3900',
                 'product_code'=>null,
@@ -296,6 +332,7 @@ class DataPlanListSeeder extends Seeder
 
             [
                 'network' =>NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '25MB (AR)',
                 'amount' => '20',
                 'product_code'=>null,
@@ -304,6 +341,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '242MB',
                 'amount' => '180',
                 'product_code'=>null,
@@ -312,6 +350,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '800MB/920MB',
                 'amount' => '400',
                 'product_code'=>'*127*57*',
@@ -320,6 +359,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '1.6GB/1.8GB',
                 'amount' => '400',
                 'product_code'=>'*127*53*',
@@ -328,6 +368,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '3.65GB/4.5GB',
                 'amount' => '400',
                 'product_code'=>'*127*55*',
@@ -336,6 +377,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '5.75GB/7.2GB',
                 'amount' => '1700',
                 'product_code'=>'*127*58*',
@@ -344,6 +386,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '7GB/8.75GB',
                 'amount' => '1700',
                 'product_code'=>'*127*54*',
@@ -352,6 +395,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '10GB/12.5GB',
                 'amount' => '3200',
                 'product_code'=>'*127*59*',
@@ -360,6 +404,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::GLO,
+                'type'=> DataType::SME,
                 'plan' => '12.5B/15.5GB',
                 'amount' => '4000',
                 'product_code'=>'*127*2*',
@@ -368,6 +413,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '1.5GB',
                 'amount' => '900',
                 'product_code'=>'*229*2*7*',
@@ -376,6 +422,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '1080',
                 'product_code'=>'*229*2*25*',
@@ -384,6 +431,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1800',
                 'product_code'=>'*229*2*3*',
@@ -392,6 +440,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '4.5GB',
                 'amount' => '2700',
                 'product_code'=>'*229*2*8*',
@@ -400,6 +449,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '11GB',
                 'amount' => '3600',
                 'product_code'=>'*229*2*36*',
@@ -408,6 +458,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '15GB',
                 'amount' => '7200',
                 'product_code'=>'229*2*37*',
@@ -416,6 +467,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '40GB',
                 'amount' => '9000',
                 'product_code'=>'229*4*1*',
@@ -425,6 +477,7 @@ class DataPlanListSeeder extends Seeder
             ,
             [
                 'network' => NetworkType::NINE_MOBILE,
+                'type'=> DataType::SME,
                 'plan' => '75GB',
                 'amount' => '12000',
                 'product_code'=>'229*2*4*',
@@ -433,6 +486,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '500MB',
                 'amount' => '250',
                 'product_code'=>'SMEB',
@@ -441,6 +495,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '1GB',
                 'amount' => '450',
                 'product_code'=>'SMEC',
@@ -449,6 +504,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '900',
                 'product_code'=>'SMED',
@@ -457,6 +513,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1300',
                 'product_code'=>'SMEF',
@@ -465,6 +522,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '5GB',
                 'amount' => '2150',
                 'product_code'=>'SMEE',
@@ -473,6 +531,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>null,
@@ -481,6 +540,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '10GB',
                 'amount' => '3400',
                 'product_code'=>null,
@@ -489,6 +549,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '15GB',
                 'amount' => '4850',
                 'product_code'=>null,
@@ -497,6 +558,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::MTN,
+                'type'=> DataType::SME,
                 'plan' => '40GB',
                 'amount' => '9700',
                 'product_code'=>null,
@@ -505,6 +567,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '750MB (2Weeks)',
                 'amount' => '470',
                 'product_code'=>'141*6*2*2*3*1*',
@@ -513,6 +576,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '1.5GB',
                 'amount' => '950',
                 'product_code'=>'141*6*2*1*7*1*',
@@ -521,6 +585,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '2GB',
                 'amount' => '1150',
                 'product_code'=>'141*6*2*1*6*1*',
@@ -529,6 +594,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '3GB',
                 'amount' => '1450',
                 'product_code'=>'141*6*2*1*5*1*',
@@ -537,6 +603,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '4.5GB',
                 'amount' => '1950',
                 'product_code'=>'141*6*2*1*4*1*',
@@ -545,6 +612,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '6GB',
                 'amount' => '2400',
                 'product_code'=>'141*6*2*1*3*1*',
@@ -553,6 +621,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '8GB',
                 'amount' => '2900',
                 'product_code'=>'141*6*2*1*2*1*',
@@ -561,6 +630,7 @@ class DataPlanListSeeder extends Seeder
             ],
             [
                 'network' => NetworkType::AIRTEL,
+                'type'=> DataType::SME,
                 'plan' => '11GB',
                 'amount' => '3900',
                 'product_code'=>null,

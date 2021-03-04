@@ -13,7 +13,7 @@ class AirtimeTransactionPolicy
 
 
     /**
-     * Determine whether the user can update the airtime transaction.
+     * Determine whether the user can update the ringoAirtime transaction.
      *
      * @param  \App\User  $user
      * @param  \App\AirtimeTransaction  $airtimeTransaction
@@ -25,7 +25,7 @@ class AirtimeTransactionPolicy
     }
 
     /**
-     * Determine whether the user can delete the airtime transaction.
+     * Determine whether the user can delete the ringoAirtime transaction.
      *
      * @param  \App\User  $user
      * @param  \App\AirtimeTransaction  $airtimeTransaction

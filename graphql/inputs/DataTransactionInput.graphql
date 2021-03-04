@@ -9,6 +9,7 @@ input CreateDataTransactionInput{
 
 input CreateDataPlanInput{
     network: NetworkType!
+    type: DataType!
     plan: String!
     amount: Float!
     vendor_amount:Float

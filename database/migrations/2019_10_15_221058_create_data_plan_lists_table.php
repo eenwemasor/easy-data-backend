@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\DataType;
 use App\Enums\NetworkType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,6 +22,10 @@ class CreateDataPlanListsTable extends Migration
                 NetworkType::GLO,
                 NetworkType::MTN,
                 NetworkType::NINE_MOBILE,
+            ]);
+            $table->enum('type', [
+                DataType::SME,
+                DataType::DIRECT
             ]);
             $table->float('vendor_amount')->nullable();
             $table->string('product_code')->nullable();

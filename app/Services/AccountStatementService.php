@@ -50,10 +50,6 @@ class AccountStatementService
 
         $user = User::find($this->user_id);
 
-        if(!$user->active){
-            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
-        }
-
 
         if(!$user){
             throw new GraphqlError("Account does not Exist");

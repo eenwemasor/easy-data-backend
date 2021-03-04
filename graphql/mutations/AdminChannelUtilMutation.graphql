@@ -1,7 +1,7 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
 
-    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
-    @can(ability: "update", model: "App\\AdminChannelUtil" find: "id")
+    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtilSeeder")
+    @can(ability: "update", model: "App\\AdminChannelUtilSeeder" find: "id")
     @inject(context: "user", name: "user")
 
 
@@ -21,8 +21,8 @@ extend type Mutation {
 
 
     UpdateReferralRewards(input: UpdateReferralRewardInput! @spread): ReferralReward
-        @update(model: "App\\ReferralReward")
-        @can(ability: "update", model: "App\\ReferralReward" find: "id")
+        @update(model: "App\\ReferralRewardSeeder")
+        @can(ability: "update", model: "App\\ReferralRewardSeeder" find: "id")
         @inject(context: "user", name: "user")
 
     TalkToUsMessage(input: TalkToUsInput! @spread): TalkToUsMessage @field(resolver: "TalkToUsMessage@forward_mail")

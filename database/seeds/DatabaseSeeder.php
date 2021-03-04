@@ -13,12 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        $this->call(AccountLevelSeeder::class);
         $this->call(DataPlanListSeeder::class);
         $this->call(CablePlanListSeeder::class);
-        $this->call(ReferralReward::class);
-        $this->call(AdminChannelUtil::class);
+        $this->call(ReferralRewardSeeder::class);
+        $this->call(AdminChannelUtilSeeder::class);
         $this->call(PowerPlanListSeeder::class);
-        $this->call(BankAccountSeeder::class);
+
+        $this->call(AccountLevelApplicablesSeeder::class);
 
         factory(\App\AirtimeTransaction::class, 20)->create();
         factory(\App\CableTransaction::class, 20)->create();
@@ -38,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'accessibility' => "ADMIN",
             'email_confirmed' => true,
             'phone_verified' => true,
+            'account_level_id' => '1',
             'unique_id' => 'sjdfsdkjfdslksdfodsfoisd',
             'active' => true,
             'username'=>'admin20',
@@ -61,6 +64,7 @@ class DatabaseSeeder extends Seeder
             'phone_verified' => true,
             'unique_id' => '093248438439843239',
             'active' => true,
+            'account_level_id' => '1',
             'username'=>'user1',
             'bonus_wallet' => 0,
             'monnify_account_number'=>"000000000000000",
@@ -79,6 +83,7 @@ class DatabaseSeeder extends Seeder
             'accessibility' => "USER",
             'email_confirmed' => true,
             'phone_verified' => true,
+            'account_level_id' => '1',
             'unique_id' => '093248438439843239',
             'active' => true,
             'username'=>'user2',

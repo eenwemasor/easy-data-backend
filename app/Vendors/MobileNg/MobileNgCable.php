@@ -1,43 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 19/03/2020
- * Time: 10:08
- */
 
-namespace App\Repositories\APIRequests;
+namespace App\Vendors\MobileNg;
 
 use App\GraphQL\Errors\GraphqlError;
 
-class ValidateMobileNgTransactionRepository
+class MobileNgCable
 {
-    /**
-     * @var ValidateTransactions
-     */
-    private $validateTransactions;
-
-    /**
-     * ValidateMobileNgTransactionRepository constructor.
-     * @param ValidateTransactions $validateTransactions
-     */
-    function __construct(ValidateTransactions $validateTransactions)
-    {
-        $this->validateTransactions = $validateTransactions;
-    }
-
     /**
      * @param array $data
      * @param $amount
      * @return array
      * @throws GraphqlError
      */
-    public function get_cable_card_details(array $data,$amount): array
+    public function get_cable_card_details(array $data): array
     {
-        $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet->balance < $amount){
-            throw new GraphqlError("Service is not available currently, please try again later");
-        }
+//        $api_wallet = $this->validateTransactions->get_api_account_info();
+//        if($api_wallet->balance < $amount){
+//            throw new GraphqlError("Service is not available currently, please try again later");
+//        }
 
         $url = config('constant.MOBILE_NG_DECODER_USER_CHECK');
         $api_key = config('constant.MOBILE_NG_API_KEY');

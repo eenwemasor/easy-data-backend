@@ -1,0 +1,28 @@
+input  CreateAccountLevelInput{
+    name: String!
+    cost_to_upgrade:Float!
+}
+
+input  UpdateAccountLevelInput{
+    id:ID!
+    name: String
+    cost_to_upgrade:Float
+}
+
+
+input  CreateAccountLevelApplicableInput{
+    account_level_id:ID!
+    service_type:ServiceType!
+    application_method:ApplicationMethodType!
+    calculation_method:CalculationMethodType!
+    value:Float!
+}
+
+input  UpdateAccountLevelApplicableInput{
+    id:ID!
+    account_level_id:ID
+    service_type:ServiceType
+    application_method:ApplicationMethodType
+    calculation_method:CalculationMethodType
+    value:Float
+}

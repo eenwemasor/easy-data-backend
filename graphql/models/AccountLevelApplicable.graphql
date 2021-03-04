@@ -1,0 +1,8 @@
+type AccountLevelApplicable {
+    id:ID!
+    account_level_id: Int
+    service_type:ServiceType
+    application_method:ApplicationMethodType
+    calculation_method:CalculationMethodType
+    value:Float
+}

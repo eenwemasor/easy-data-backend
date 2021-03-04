@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\AccountLevel;
+use App\AccountLevelApplicable;
 use App\AdminChannelUtil;
 use App\AirtimeTransaction;
 use App\BankAccount;
@@ -13,6 +15,8 @@ use App\DataTransaction;
 use App\ElectricityTransaction;
 use App\NewsFeed;
 use App\NewsUpdate;
+use App\Policies\AccountLevelApplicablePolicy;
+use App\Policies\AccountLevelPolicy;
 use App\Policies\AdminChannelUtilPolicy;
 use App\Policies\AirtimeTransactionPolicy;
 use App\Policies\BankAccountPolicy;
@@ -55,7 +59,9 @@ class AuthServiceProvider extends ServiceProvider
         ReferralReward::class =>ReferralRewardPolicy::class,
         WalletTransaction::class =>WalletTransactionPolicy::class,
         BankAccount::class => BankAccountPolicy::class,
-        BulkSMS::class => BulkSMSPolicy::class
+        BulkSMS::class => BulkSMSPolicy::class,
+        AccountLevel::class => AccountLevelPolicy::class,
+        AccountLevelApplicable::class => AccountLevelApplicablePolicy::class
     ];
 
     /**

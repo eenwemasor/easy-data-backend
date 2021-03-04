@@ -6,7 +6,7 @@
  * Time: 10:08
  */
 
-namespace App\Repositories\APIRequests;
+namespace App\Vendors\Ringo;
 
 
 use App\Contracts\TransactionValidationContract;
@@ -15,7 +15,7 @@ use App\GraphQL\Errors\GraphqlError;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 
-class CableAPIRequests
+class RingoCable
 {
     public function check_api_wallet_balance()
     {

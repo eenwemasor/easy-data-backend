@@ -25,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'wallet',
         'transaction_pin',
         'accessibility',
+        'account_level_id',
         'email_confirmed',
         'phone_verified',
         'unique_id',
@@ -88,7 +89,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(User::class, 'referrer_id', 'id');
     }
 
-
+    public function account_level()
+    {
+       return $this->belongsTo(AccountLevel::class, 'account_level_id','id');
+    }
 
     public static function boot() {
         parent::boot();

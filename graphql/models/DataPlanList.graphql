@@ -1,6 +1,7 @@
 type DataPlanList{
     id: ID!
     network: NetworkType
+    type:DataType!
     plan: String!
     amount: String!
     vendor_amount:Float

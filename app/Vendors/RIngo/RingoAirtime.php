@@ -6,22 +6,14 @@
  * Time: 23:20
  */
 
-namespace App\Repositories\APIRequests;
+namespace App\Vendors\Ringo;
 
 
 use App\GraphQL\Errors\GraphqlError;
 use GuzzleHttp\Client;
 
-class AirtimeAPIRequests
+class RingoAirtime
 {
-
-    public function check_api_wallet_balance()
-    {
-    }
-
-    public function check_service_status()
-    {
-    }
 
     /**
      * @param array $data

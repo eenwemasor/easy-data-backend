@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active');
             $table->float('bonus_wallet');
             $table->string('password');
+            $table->string('account_level_id');
             $table->string('username')->unique();
             $table->unsignedBigInteger('referrer_id')->nullable();
             $table->string('monnify_account_number')->nullable();

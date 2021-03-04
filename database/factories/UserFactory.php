@@ -27,6 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'phone_verified' => $faker->boolean,
         'unique_id' => $faker->word,
         'active' => $faker->boolean,
+        'account_level_id' => $faker->numberBetween(1,2),
         'username' => $faker->unique()->name(),
         'bonus_wallet' => $faker->numberBetween(1000, 2000),
         'monnify_account_number'=>$faker->numberBetween(100000000000, 900000000000),

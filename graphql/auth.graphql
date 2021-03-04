@@ -21,6 +21,7 @@ type User {
     bonus_wallet:String!
     username:String!
     referrer_id:ID
+    account_level: AccountLevel! @belongsTo
     monnify_account_number: String!
     monnify_bank_name: String!
     monnify_bank_code: String!

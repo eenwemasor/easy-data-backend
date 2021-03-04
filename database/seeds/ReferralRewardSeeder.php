@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ReferralReward extends Seeder
+class ReferralRewardSeeder extends Seeder
 {
     /**
      * Run the database seeds.

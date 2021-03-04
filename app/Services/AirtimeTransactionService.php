@@ -13,9 +13,8 @@ use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Wallet;
 use App\Repositories\AirtimeTransactionRepository;
-use App\Repositories\APIRequests\AirtimeAPIRequests;
-use App\Repositories\APIRequests\ValidateTransactions;
 use App\User;
+use App\Vendors\Ringo\RingoAirtime;
 use App\WalletTransaction;
 
 class AirtimeTransactionService
@@ -29,58 +28,45 @@ class AirtimeTransactionService
      */
     private $walletTransactionService;
     /**
-     * @var ValidateTransactions
+     * @var ringoAirtime
      */
-    private $validateTransactions;
-    /**
-     * @var airtimeAPIRequests
-     */
-    private $airtimeAPIRequests;
+    private $ringoAirtime;
 
     /**
      * AirtimeTransactionService constructor.
      * @param AirtimeTransactionRepository $airtime_transaction_repository
      * @param WalletTransactionService $walletTransactionService
-     * @param ValidateTransactions $validateTransactions
-     * @param airtimeAPIRequests $airtimeAPIRequests
+     * @param RingoAirtime $ringoAirtime
      */
-    public function __construct(AirtimeTransactionRepository $airtime_transaction_repository, WalletTransactionService $walletTransactionService, ValidateTransactions $validateTransactions, AirtimeAPIRequests $airtimeAPIRequests)
-    {
+    public function __construct(
+        AirtimeTransactionRepository $airtime_transaction_repository,
+        WalletTransactionService $walletTransactionService ,
+        RingoAirtime $ringoAirtime
+    ){
         $this->airtime_transaction_repository = $airtime_transaction_repository;
         $this->walletTransactionService = $walletTransactionService;
-        $this->validateTransactions = $validateTransactions;
-        $this->airtimeAPIRequests = $airtimeAPIRequests;
+        $this->ringoAirtime = $ringoAirtime;
     }
 
     /**
      * @param array $airtimeTransaction
-     * @return \App\AirtimeTransaction
+     * @return AirtimeTransaction
      * @throws
      */
     public function create(array $airtimeTransaction)
     {
-        $api_wallet = $this->validateTransactions->get_api_account_info();
-        if($api_wallet->balance < $airtimeTransaction['amount']){
-            throw new GraphqlError("Service is not available currently, please try again later");
-        }
-
-
-        $phone_details = $this->validateTransactions->get_phone_vendor_details($airtimeTransaction['phone'])->opts;
-        if (strtoupper($phone_details->operator) != $airtimeTransaction['network']) {
-            throw new GraphqlError("Please ensure phone number provided belongs to the network selected");
-        }
-
+//        $api_wallet = $this->validateTransactions->get_api_account_info();
+//        if($api_wallet->balance < $airtimeTransaction['amount']){
+//            throw new GraphqlError("Service is not available currently, please try again later");
+//        }
         $user = User::find($airtimeTransaction["user_id"]);
-        if (!$user->active) {
-            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
-        }
 
         $data = collect($airtimeTransaction);
         $wallet = new Wallet();
         $discounted_amounted = $wallet->apply_discount($airtimeTransaction['amount'], $airtimeTransaction['network']);
 
         $walletTransactionData = $data->only(['transaction_type', 'description', 'beneficiary', 'user_id'])->toArray();
-        $walletTransactionData['description'] = $airtimeTransaction['amount']." ".$airtimeTransaction['network']." airtime purchase";
+        $walletTransactionData['description'] = $airtimeTransaction['amount']." ".$airtimeTransaction['network']." ringoAirtime purchase";
         $walletTransactionData['amount'] = $discounted_amounted;
 
 
@@ -91,7 +77,7 @@ class AirtimeTransactionService
             $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
             $airtimeData = $data->only(['phone',])->toArray();
 
-            $initiateTransaction = $this->airtimeAPIRequests->initiate_airtime_transaction(['amount' => $airtimeTransaction['amount'], 'request_id' =>                      $walletTransactionResult['reference'], 'msisdn' => $airtimeTransaction['phone'],]);
+            $initiateTransaction = $this->ringoAirtime->initiate_airtime_transaction(['amount' => $airtimeTransaction['amount'], 'request_id' =>                      $walletTransactionResult['reference'], 'msisdn' => $airtimeTransaction['phone'],]);
 
             if ($initiateTransaction->message == "SUCCESSFUL" && $initiateTransaction->status == "200") {
                 $wallet_result = collect($walletTransactionResult);
@@ -104,7 +90,7 @@ class AirtimeTransactionService
 //                $user_cont = New UserController();
 //                $user = $user_cont->getUserById($airtimeTransaction["user_id"]);
 //                $admin = $user_cont->getAdmin();
-
+//
 //                event(new AirtimeTransactionEvent($airtime_transaction, $user, $admin));
 
                 return $airtime_transaction;

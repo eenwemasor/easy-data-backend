@@ -1,0 +1,6 @@
+type AccountLevel {
+    id:ID!
+    name: String
+    cost_to_upgrade:Float
+    applicables: [AccountLevelApplicable !]!
+}
