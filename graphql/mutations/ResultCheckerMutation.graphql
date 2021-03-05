@@ -1,0 +1,19 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateResultChecker(input: CreateResultCheckerInput! @spread): ResultChecker @create(model: "App\\ResultChecker")
+    @can(ability: "create", model: "App\\ResultChecker")
+    @inject(context: "user", name: "user")
+
+    UpdateResultChecker(input: UpdateResultCheckerInput! @spread): ResultChecker @update(model: "App\\ResultChecker")
+    @can(ability: "update", model: "App\\ResultChecker" find: "id")
+    @inject(context: "user", name: "user")
+
+    CreateResultCheckTransaction(input: CreateResultCheckTransactionInput! @spread): ResultCheckTransaction @field(resolver: "ResultChecker@create_result_check_transaction")
+
+    DeleteResultChecker(id:ID!): ResultChecker  @delete(model: "App\\ResultChecker")
+    @can(ability: "delete", model: "App\\ResultChecker" find: "id")
+    @inject(context: "user", name: "user")
+
+    DeleteResultCheckTransaction(id:ID!): ResultCheckTransaction  @delete(model: "App\\ResultCheckTransaction")
+    @can(ability: "delete", model: "App\\ResultCheckTransaction" find: "id")
+    @inject(context: "user", name: "user")
+}

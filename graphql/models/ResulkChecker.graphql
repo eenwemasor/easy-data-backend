@@ -1,0 +1,37 @@
+type ResultChecker {
+    id:ID!
+    examination_body: ResultCheckerExamBody
+    price: Float
+    vendor_price:Float
+    product_code: String
+    description:String
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+type  ResultCheckTransaction{
+    id:ID!
+    reference: String!
+    amount: Float!
+    initial_balance: Float!
+    new_balance: Float!
+    user_id: ID!
+    user: User
+    wallet:WalletType
+    pins:[ResultCheckerPin!]
+    result_checker_id: ID!
+    result_checker: ResultChecker
+    status: TransactionStatus!
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+
+type ResultCheckerPin {
+    id:ID!
+    pin: String!
+    serial_number:String!
+    result_check_transaction_id:ID!
+    created_at: DateTime
+    updated_at: DateTime
+}

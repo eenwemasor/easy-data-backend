@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReferralRewardSeeder::class);
         $this->call(AdminChannelUtilSeeder::class);
         $this->call(PowerPlanListSeeder::class);
-
+        $this->call(ResultCheckerSeeder::class);
         $this->call(AccountLevelApplicablesSeeder::class);
 
         factory(\App\AirtimeTransaction::class, 20)->create();
@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         factory(\App\ElectricityTransaction::class, 20)->create();
         factory(\App\WalletTransaction::class, 20)->create();
         factory(\App\User::class, 300)->create();
+        factory(\App\ResultCheckTransaction::class, 20)->create();
+        factory(\App\ResultCheckerPin::class, 1000)->create();
         factory(\App\NewsFeed::class, 3)->create();
         factory(\App\NewsUpdate::class, 1)->create();
 

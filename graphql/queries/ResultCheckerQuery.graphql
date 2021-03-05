@@ -1,0 +1,12 @@
+extend type Query {
+    allResultCheckers(orderBy: [OrderByClause!] @orderBy): [ResultChecker!]! @all
+    getResultCheckTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [ResultCheckTransaction!]! @paginate(type: "paginator" model: "App\\ResultCheckTransaction")
+
+    allResultCheckTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [ResultCheckTransaction!]! @paginate( model: "App\\ResultCheckTransaction" builder:"App\\GraphQL\\Queries\\ResultChecker@get_all_result_check_transactions")
+
+
+}

@@ -30,9 +30,13 @@ use App\Policies\NewsFeedPolicy;
 use App\Policies\NewsUpdatePolicy;
 use App\Policies\PowerPlanListPolicy;
 use App\Policies\ReferralRewardPolicy;
+use App\Policies\ResultCheckerPolicy;
+use App\Policies\ResultCheckTransactionPolicy;
 use App\Policies\WalletTransactionPolicy;
 use App\PowerPlanList;
 use App\ReferralReward;
+use App\ResultChecker;
+use App\ResultCheckTransaction;
 use App\WalletTransaction;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -61,7 +65,9 @@ class AuthServiceProvider extends ServiceProvider
         BankAccount::class => BankAccountPolicy::class,
         BulkSMS::class => BulkSMSPolicy::class,
         AccountLevel::class => AccountLevelPolicy::class,
-        AccountLevelApplicable::class => AccountLevelApplicablePolicy::class
+        AccountLevelApplicable::class => AccountLevelApplicablePolicy::class,
+        ResultCheckerPolicy::class => ResultChecker::class,
+        ResultCheckTransactionPolicy::class => ResultCheckTransaction::class
     ];
 
     /**
