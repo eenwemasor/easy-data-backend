@@ -24,10 +24,7 @@ class CreateWalletTransactionsTable extends Migration
             $table->float('new_balance');
             $table->string('wallet');
             $table->string('beneficiary')->nullable();
-            $table->enum('status', [
-                WalletTransactionStatus::SUCCESSFUL,
-                WalletTransactionStatus::FAILED,
-            ]);
+            $table->enum('status', WalletTransactionStatus::toArray());
             $table->bigInteger('user_id');
             $table->timestamps();
         });

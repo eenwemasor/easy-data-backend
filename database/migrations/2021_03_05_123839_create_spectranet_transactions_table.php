@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCableTransactionsTable extends Migration
+class CreateSpectranetTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,20 +14,20 @@ class CreateCableTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cable_transactions', function (Blueprint $table) {
+        Schema::create('spectranet_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
-            $table->string('decoder');
-            $table->string('decoder_number');
-            $table->string('beneficiary_name');
-            $table->string('plan');
-            $table->float('initial_balance')->nullable();
             $table->float('amount');
-            $table->float('new_balance')->nullable();
+            $table->float('initial_balance');
+            $table->float('new_balance');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('plan_id');
             $table->enum('status',  TransactionStatus::toArray());
             $table->string('method');
-            $table->bigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('plan_id')->references('id')->on('spectranet_price_lists')->onDelete('cascade');
         });
     }
 
@@ -38,6 +38,6 @@ class CreateCableTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cable_transactions');
+        Schema::dropIfExists('spectranet_transactions');
     }
 }

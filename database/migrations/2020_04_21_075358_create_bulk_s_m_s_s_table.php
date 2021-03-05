@@ -21,10 +21,7 @@ class CreateBulkSMSSTable extends Migration
             $table->text('receivers');
             $table->text('message');
             $table->float('amount');
-            $table->enum('status',[
-                BulkSMSStatus::FAILED,
-                BulkSMSStatus::DELIVERED
-            ]);
+            $table->enum('status',BulkSMSStatus::toArray());
             $table->bigInteger('user_id');
             $table->timestamps();
         });

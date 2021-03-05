@@ -18,23 +18,13 @@ class CreateDataTransactionsTable extends Migration
         Schema::create('data_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
-            $table->enum('network', [
-                NetworkType::AIRTEL,
-                NetworkType::GLO,
-                NetworkType::MTN,
-                NetworkType::NINE_MOBILE,
-            ]);
+            $table->enum('network', NetworkType::toArray());
             $table->string('data');
             $table->float('initial_balance')->nullable();
             $table->float('amount');
             $table->string('beneficiary');
             $table->float('new_balance')->nullable();
-            $table->enum('status', [
-                TransactionStatus::SENT,
-                TransactionStatus::COMPLETED,
-                TransactionStatus::PROCESSING,
-                TransactionStatus::FAILED,
-            ]);
+            $table->enum('status', TransactionStatus::toArray());
             $table->string('method');
             $table->bigInteger('user_id');
             $table->timestamps();

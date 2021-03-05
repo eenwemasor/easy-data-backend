@@ -21,19 +21,11 @@ class CreateElectricityTransactionsTable extends Migration
             $table->string('meter_number');
             $table->string('beneficiary_name');
             $table->string('plan');
-            $table->enum('type',[
-                ElectricityType::PREPAID,
-                ElectricityType::POSTPAID
-            ]);
+            $table->enum('type',ElectricityType::toArray());
             $table->float('initial_balance')->nullable();
             $table->float('amount');
             $table->float('new_balance')->nullable();
-            $table->enum('status', [
-                TransactionStatus::SENT,
-                TransactionStatus::COMPLETED,
-                TransactionStatus::PROCESSING,
-                TransactionStatus::FAILED,
-            ]);
+            $table->enum('status', TransactionStatus::toArray());
             $table->string('method');
             $table->string('token')->nullable();
             $table->bigInteger('user_id');

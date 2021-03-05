@@ -2,22 +2,21 @@
 
 //api urls for transaction
 return [
-    'MOBILE_NG_DECODER_USER_CHECK' => 'https://mobilenig.com/API/bills/user_check?',
-    'MOBILE_NG_API_KEY' => "440cc830d7aa8dd40ecc005c845e6917",
-    'MOBILE_NG_API_USERNAME' => 'OMGLOADED',
+    'MOBILE_NG_DECODER_USER_CHECK' => env('MOBILE_NG_DECODER_USER_CHECK'),
+    'MOBILE_NG_API_KEY' => env('MOBILE_NG_API_KEY'),
+    'MOBILE_NG_API_USERNAME' => env('MOBILE_NG_API_USERNAME'),
 
-
-    'AIRTIME_DATA_END_POINT'=>'https://www.api.ringo.ng/api/agent/p2',
-    'BILLS_END_POINT'=>'https://www.api.ringo.ng/api/agent/p2',
-    'SERVICE_END_POINT' =>'http://34.74.220.10/ringo/public/ringoPayments/public/api/products',
-    'CABLE_END_POINT' =>'https://www.api.ringo.ng/api/agent/p2',
-    'ELECTRICITY_END_POINT' =>'https://www.api.ringo.ng/api/agent/p2',
+    'AIRTIME_DATA_END_POINT'=>env('AIRTIME_DATA_END_POINT'),
+    'BILLS_END_POINT'=>env('BILLS_END_POINT'),
+    'SERVICE_END_POINT' =>env('SERVICE_END_POINT'),
+    'CABLE_END_POINT' =>env('CABLE_END_POINT'),
+    'ELECTRICITY_END_POINT' =>env('ELECTRICITY_END_POINT'),
 
     //smart sms api constant
-    'SMS_URL'=>'https://www.bulksmsnigeria.com/api/v1/sms/create',
-    'SENDER_ID'=>'Subpay',
-    'API_KEY'=>'tl2KIMkO9PpgLfqUha6eo1He3udd249pYRnmw1nQHPm2cs1qXPqYf5fvQMAU',
+    'SMS_URL'=>env('SMS_URL'),
+    'SENDER_ID'=>env('SENDER_ID'),
+    'API_KEY'=>env('API_KEY'),
 
 
-    'HEADERS' =>['headers' => ['email' => 'subpaycommunications@gmail.com', 'password' => ',.123Osas$']]
+    'HEADERS' =>['headers' => ['email' => env('RINGO_EMAIL'), 'password' => env('RINGO_PASSWORD')]]
 ];

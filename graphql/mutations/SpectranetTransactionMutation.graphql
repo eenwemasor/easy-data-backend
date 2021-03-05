@@ -1,0 +1,8 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateSpectranetTransaction(input: CreateSpectranetTransactionInput! @spread): SpectranetTransaction @field(resolver: "SpectranetTransaction@resolve")
+
+    DeleteSpectranetTransaction(id:ID!): SpectranetTransaction  @delete(model: "App\\SpectranetTransaction")
+    @can(ability: "delete", model: "App\\SpectranetTransaction" find: "id")
+    @inject(context: "user", name: "user")
+
+}

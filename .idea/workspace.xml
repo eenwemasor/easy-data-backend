@@ -20,30 +20,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Enums/ResultCheckerExamBody.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/ResultChecker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/GraphQL/Queries/ResultChecker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Policies/ResultCheckTransactionPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Policies/ResultCheckerPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/ResultCheckerRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/ResultCheckerService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgResultChecker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ResultCheckTransactionFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ResultCheckerPinFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/inputs/ResultCheckerInput.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/models/ResulkChecker.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/mutations/ResultCheckerMutation.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/queries/ResultCheckerQuery.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Enums/SmileTransactionType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/SmileTransaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/SpectranetTransaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSmileTransactions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSpectranetTransactions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/SmileTransactionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/SpectranetTransactionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SmileTransactionService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SpectranetTransactionService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgRoot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgSmile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgSpectranet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/inputs/SmileTransactionInput.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/inputs/SpectranetTransactionInput.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/models/SmilePriceList.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/models/SmileTransaction.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/models/SpectranetPriceList.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/models/SpectranetTransaction.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/mutations/SmilePlanMutation.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/mutations/SmileTransactionMutation.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/mutations/SpectranetPlanMutation.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/mutations/SpectranetTransactionMutation.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/queries/SmileTransactionQuery.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/queries/SpectranetTransactionQuery.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/DataPlanList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataPlanList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ResultCheckerService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ResultCheckerService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgElectricity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgElectricity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgResultChecker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgResultChecker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/constant.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/constant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_221058_create_data_plan_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_221058_create_data_plan_lists_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221708_create_airtime_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221708_create_airtime_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221801_create_data_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221801_create_data_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221817_create_cable_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221817_create_cable_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_06_210224_create_wallet_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_06_210224_create_wallet_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_113843_create_result_checkers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_113843_create_result_checkers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_113901_create_result_check_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_113901_create_result_check_transactions_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/mutations/CablePlanMutation.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/mutations/CablePlanMutation.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/queries/AdminChannelUtilQuery.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,19 +291,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Services" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Mutations" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Queries" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\graphql\queries" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\MobileNg" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\RIngo" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Checkers" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Mail\UserMails" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Services" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Mutations" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\graphql\mutations" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Queries" />
     </key>
   </component>
   <component name="RunManager">
@@ -591,7 +610,10 @@
       <workItem from="1614769005691" duration="309000" />
       <workItem from="1614789594227" duration="11572000" />
       <workItem from="1614857778394" duration="3839000" />
-      <workItem from="1614893645669" duration="2861000" />
+      <workItem from="1614893645669" duration="3459000" />
+      <workItem from="1614946205301" duration="6384000" />
+      <workItem from="1614954533297" duration="2427000" />
+      <workItem from="1614979508538" duration="5601000" />
     </task>
     <servers />
   </component>
@@ -615,24 +637,28 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="847" y="376" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1613369730844" />
-    <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614859155294">
+    <state x="708" y="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614954626085">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614859155294" />
+    <state x="708" y="308" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1036@0.0.1920.1036" timestamp="1614954626085" />
+    <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614956406118">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614956406118" />
     <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1614813284644" />
-    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614861869478">
+    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614980593701">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614861869478" />
+    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614980593701" />
     <state x="690" y="295" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1614822527501" />
     <state x="740" y="299" key="FileChooserDialogImpl" timestamp="1608675778560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="299" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1608675778560" />
-    <state x="719" y="237" key="NewPhpClassDialog" timestamp="1614861834130">
+    <state x="719" y="237" key="NewPhpClassDialog" timestamp="1614980350992">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="719" y="237" key="NewPhpClassDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614861834130" />
+    <state x="719" y="237" key="NewPhpClassDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1614980350992" />
     <state x="719" y="247" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1614604175895" />
     <state x="794" y="459" key="NewPhpFileDialog" timestamp="1614601359002">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -646,6 +672,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="686" y="305" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1613370167441" />
+    <state x="616" y="239" key="run.anything.popup" timestamp="1614981027695">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="616" y="239" key="run.anything.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1614981027695" />
     <state x="623" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1614755830708">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

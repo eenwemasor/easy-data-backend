@@ -23,16 +23,8 @@ class CreateResultCheckTransactionsTable extends Migration
             $table->float('new_balance');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('result_checker_id');
-            $table->enum('status', [
-                TransactionStatus::SENT,
-                TransactionStatus::COMPLETED,
-                TransactionStatus::PROCESSING,
-                TransactionStatus::FAILED,
-            ]);
-            $table->enum('wallet',[
-                WalletType::BONUS_WALLET,
-                WalletType::WALLET,
-            ]);
+            $table->enum('status', TransactionStatus::toArray());
+            $table->enum('wallet',WalletType::toArray());
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->foreign('result_checker_id')->references('id')->on('result_checkers')->onDelete('cascade');;

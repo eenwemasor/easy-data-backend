@@ -103,3 +103,8 @@ enum ResultCheckerExamBody {
     WAEC
     NECO
 }
+
+enum SmileTransactionType {
+    BUNDLE
+    RECHARGE
+}

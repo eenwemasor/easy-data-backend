@@ -1,0 +1,7 @@
+type SpectranetPriceList{
+    id: ID!
+    description: String!
+    product_code:String!
+    vendor_price:Float!
+    price:Float!
+}

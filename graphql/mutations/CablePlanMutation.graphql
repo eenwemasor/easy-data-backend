@@ -11,5 +11,4 @@ extend type Mutation @middleware(checks: ["auth:api"]){
     @can(ability: "delete", model: "App\\CablePlanList" find: "id")
     @inject(context: "user", name: "user")
 
-
 }

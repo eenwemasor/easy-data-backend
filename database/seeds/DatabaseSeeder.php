@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PowerPlanListSeeder::class);
         $this->call(ResultCheckerSeeder::class);
         $this->call(AccountLevelApplicablesSeeder::class);
+        $this->call(SmilePriceListSeeder::class);
+        $this->call(SpectranetPriceListSeeder::class);
 
         factory(\App\AirtimeTransaction::class, 20)->create();
         factory(\App\CableTransaction::class, 20)->create();

@@ -17,15 +17,14 @@ use App\Vendors\MobileNg\MobileNgResultChecker;
 use App\WalletTransaction;
 use Illuminate\Support\Str;
 
-class ResultCheckerService
+class SpectranetTransactionService
 {
     /**
      * @var ResultCheckerRepository
      */
     private $resultCheckerRepository;
-
     /**
-     * @var MobileNgResultChecker
+     * @var MobileNgTransaction
      */
     private $mobileNgResultChecker;
     /**

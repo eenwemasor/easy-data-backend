@@ -18,23 +18,12 @@ class CreateAirtimeTransactionsTable extends Migration
         Schema::create('airtime_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
-            $table->enum('network',[
-                NetworkType::NINE_MOBILE,
-                NetworkType::MTN,
-                NetworkType::AIRTEL,
-                NetworkType::GLO
-
-            ]);
+            $table->enum('network',NetworkType::toArray());
             $table->string('phone');
             $table->float('initial_balance')->nullable();
             $table->float('amount');
             $table->float('new_balance')->nullable();
-            $table->enum('status', [
-                TransactionStatus::SENT,
-                TransactionStatus::COMPLETED,
-                TransactionStatus::PROCESSING,
-                TransactionStatus::FAILED,
-            ]);
+            $table->enum('status', TransactionStatus::toArray());
             $table->string('method');
             $table->bigInteger('user_id');
             $table->timestamps();

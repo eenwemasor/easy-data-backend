@@ -17,16 +17,8 @@ class CreateDataPlanListsTable extends Migration
     {
         Schema::create('data_plan_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('network', [
-                NetworkType::AIRTEL,
-                NetworkType::GLO,
-                NetworkType::MTN,
-                NetworkType::NINE_MOBILE,
-            ]);
-            $table->enum('type', [
-                DataType::SME,
-                DataType::DIRECT
-            ]);
+            $table->enum('network', NetworkType::toArray());
+            $table->enum('type', DataType::toArray());
             $table->float('vendor_amount')->nullable();
             $table->string('product_code')->nullable();
             $table->string('plan');

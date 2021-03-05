@@ -8,7 +8,7 @@ use App\GraphQL\Errors\GraphqlError;
 use GuzzleHttp\Client;
 use Throwable;
 
-class MobileNgElectricity
+class MobileNgElectricity extends MobileNgRoot
 {
 
     public function get_bills_meter_details(array $data)

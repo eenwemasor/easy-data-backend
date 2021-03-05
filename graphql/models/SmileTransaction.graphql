@@ -1,0 +1,16 @@
+type SmileTransaction{
+    id:ID!
+    reference:String
+    amount:Float
+    smart_card_number:String!
+    beneficiary_name:String
+    transaction_type:SmileTransactionType
+    initial_balance:Float
+    new_balance:Float
+    user_id:ID!
+    plan_id:ID!
+    user:User
+    plan:SmilePriceList
+    status:TransactionStatus
+    wallet:WalletType
+}

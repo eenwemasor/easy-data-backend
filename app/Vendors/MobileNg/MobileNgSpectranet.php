@@ -7,7 +7,7 @@ namespace App\Vendors\MobileNg;
 use App\Enums\ResultCheckerExamBody;
 use App\GraphQL\Errors\GraphqlError;
 
-class MobileNgResultChecker extends MobileNgRoot
+class MobileNgSpectranet extends MobileNgRoot
 {
     /**
      * @param $result_checker_packer
@@ -15,7 +15,7 @@ class MobileNgResultChecker extends MobileNgRoot
      * @return mixed
      * @throws GraphqlError
      */
-    public function purchase_result_checker($result_checker_packer, $reference)
+    public function purchase_spectranet($result_checker_packer, $reference)
     {
         $this->get_account_info($result_checker_packer->vendor_price);
         $url = $this->get_url($result_checker_packer->examination_body);
