@@ -1,6 +1,4 @@
 input CreateSpectranetTransactionInput{
-    transaction_type: TransactionType!
-    description:String!
     plan:ID!
     user_id: ID!
 }

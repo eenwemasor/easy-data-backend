@@ -12,5 +12,7 @@ type SmileTransaction{
     user:User
     plan:SmilePriceList
     status:TransactionStatus
-    wallet:WalletType
+    method: WalletType!
+    created_at: DateTime
+    updated_at: DateTime
 }

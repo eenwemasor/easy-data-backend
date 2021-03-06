@@ -4,27 +4,20 @@
 namespace App\Services;
 
 
-use App\Enums\ResultCheckerExamBody;
 use App\Enums\SmileTransactionType;
-use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
-use App\Enums\WalletType;
-use App\GraphQL\Errors\GraphqlError;
-use App\Repositories\ResultCheckerRepository;
-use App\ResultChecker;
-use App\ResultCheckerPin;
+use App\Repositories\SmileTransactionRepository;
 use App\SmilePriceList;
 use App\User;
 use App\Vendors\MobileNg\MobileNgSmile;
-use App\WalletTransaction;
-use Illuminate\Support\Str;
 
 class SmileTransactionService
 {
+
     /**
-     * @var ResultCheckerRepository
+     * @var SmileTransactionRepository
      */
-    private $resultCheckerRepository;
+    private $smileTransactionRepository;
 
     /**
      * @var MobileNgSmile
@@ -36,18 +29,18 @@ class SmileTransactionService
     private $walletTransactionService;
 
     /**
-     * ResultCheckerService constructor.
-     * @param ResultCheckerRepository $resultCheckerRepository
+     * SmileTransactionService constructor.
+     * @param SmileTransactionRepository $smileTransactionRepository
      * @param MobileNgSmile $mobileNgSmile
      * @param WalletTransactionService $walletTransactionService
      */
     public function __construct(
-        ResultCheckerRepository $resultCheckerRepository,
+        SmileTransactionRepository $smileTransactionRepository,
         MobileNgSmile $mobileNgSmile,
         WalletTransactionService $walletTransactionService
     )
     {
-        $this->resultCheckerRepository = $resultCheckerRepository;
+        $this->smileTransactionRepository = $smileTransactionRepository;
         $this->mobileNgSmile = $mobileNgSmile;
         $this->walletTransactionService = $walletTransactionService;
     }
@@ -62,7 +55,7 @@ class SmileTransactionService
         $smilePackage = null;
         $walletTransactionData = [
             'transaction_type' => TransactionType::DEBIT,
-            'beneficiary' => $user->full_name,
+            'beneficiary' =>$args['beneficiary_name'],
             'user_id' => $user->id,
         ];
         if($args['transaction_type'] === SmileTransactionType::BUNDLE){

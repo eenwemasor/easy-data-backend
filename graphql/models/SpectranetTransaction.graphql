@@ -10,7 +10,9 @@ type SpectranetTransaction{
     pins:[SpectranetTransactionPin]
     plan:SpectranetPriceList
     status:TransactionStatus
-    wallet:WalletType
+    method: WalletType!
+    created_at: DateTime
+    updated_at: DateTime
 }
 
     type SpectranetTransactionPin{

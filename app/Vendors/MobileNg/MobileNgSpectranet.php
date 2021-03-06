@@ -10,18 +10,18 @@ use App\GraphQL\Errors\GraphqlError;
 class MobileNgSpectranet extends MobileNgRoot
 {
     /**
-     * @param $result_checker_packer
+     * @param $spectranetPackage
      * @param $reference
      * @return mixed
      * @throws GraphqlError
      */
-    public function purchase_spectranet($result_checker_packer, $reference)
+    public function purchase_spectranet($spectranetPackage, $reference, $args)
     {
-        $this->get_account_info($result_checker_packer->vendor_price);
-        $url = $this->get_url($result_checker_packer->examination_body);
+        $this->get_account_info($spectranetPackage->vendor_price);
+        $url ="https://mobilenig.com/API/bills/spectranet";
         $param = [
-            "product_code" => $result_checker_packer->product_code,
-            "price" => $result_checker_packer->vendor_price,
+            "product_code" => $spectranetPackage->product_code,
+            "price" => $spectranetPackage->vendor_price,
             "trans_id" => $reference,
         ];
         $request = $this->compose_request($param);
@@ -33,17 +33,8 @@ class MobileNgSpectranet extends MobileNgRoot
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //return as a variable
 
         $response = curl_exec($ch);
-
+        error_log($response);
         curl_close($ch);
         return json_decode($response);
-    }
-
-    private function get_url($examination_body)
-    {
-        if ($examination_body == ResultCheckerExamBody::WAEC) {
-            return "https://mobilenig.com/API/bills/waec?";
-        } else {
-            return 'https://mobilenig.com/API/bills/neco?';
-        }
     }
 }

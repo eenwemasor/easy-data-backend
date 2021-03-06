@@ -4,4 +4,6 @@ type SpectranetPriceList{
     product_code:String!
     vendor_price:Float!
     price:Float!
+    created_at: DateTime
+    updated_at: DateTime
 }
