@@ -12,7 +12,7 @@ input CreateSmileTransactionInput{
 input CreateSmilePlanInput{
     description: String!
     product_code: String!
-    vendor_amount: Float!
+    vendor_price: Float!
     price: Float!
 }
 
@@ -21,6 +21,6 @@ input UpdateSmilelanInput{
     id:ID!
     description: String
     product_code: String
-    vendor_amount: Float
+    vendor_price: Float
     price: Float
 }

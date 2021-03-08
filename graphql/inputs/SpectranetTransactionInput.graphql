@@ -7,7 +7,7 @@ input CreateSpectranetTransactionInput{
 input CreateSpectranetPlanInput{
     description: String!
     product_code: String!
-    vendor_amount: Float!
+    vendor_price: Float!
     price: Float!
 }
 
@@ -16,6 +16,6 @@ input UpdateSpectranetPlanInput{
     id:ID!
     description: String
     product_code: String
-    vendor_amount: Float
+    vendor_price: Float
     price: Float
 }
