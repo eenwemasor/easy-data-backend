@@ -6,4 +6,6 @@ type CardMeterDetails {
     type: String
     date: String
     message:String
+    address: String
+
 }

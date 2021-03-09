@@ -32,6 +32,7 @@ $factory->define(ElectricityTransaction::class, function (Faker $faker) {
         'type' =>$faker->randomElement($electricityType),
         'initial_balance' => $faker->numberBetween(10000, 99999),
         'amount' => $faker->numberBetween(10000, 99999),
+        'phone'=> $faker->phoneNumber,
         'new_balance' => $faker->numberBetween(10000, 99999),
         'status'=> $faker->randomElement($transactionStatus),
         'method'=> $faker->randomElement($walletType),

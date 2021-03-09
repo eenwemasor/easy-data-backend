@@ -74,13 +74,17 @@ class RingoCable extends RingoRoot
         $response = json_decode($res->getBody()->getContents());
 
         if ($response->status == 200) {
-            $requestResponse['name'] = $response->customerName;
-            $requestResponse['status'] = "Success";
-            $requestResponse['type'] = $response->type;
-            $requestResponse['message'] = $response->message;
+            $requestResponse=[
+                'name' => $response->customerName,
+                'status' =>"Success",
+                'type' => $response->type,
+                'message' => $response->message
+            ];
         } else {
-            $requestResponse['status'] = "Failed";
-            $requestResponse['message'] = $response->message;
+            $requestResponse = [
+                'status' => "Failed",
+                'message' => $response->message
+            ];
         }
 
         return $requestResponse;

@@ -21,8 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ElectricityTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ElectricityTransaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetMeterNumberDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetMeterNumberDetails.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/CableTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CableTransactionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/DataTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/DataTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ElectricityTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Vendors/RIngo/RingoCable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/RIngo/RingoCable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Vendors/RIngo/RingoElectricity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/RIngo/RingoElectricity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ElectricityTransactionsFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ElectricityTransactionsFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_24_221839_create_electricity_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/inputs/ElectricityTransactionInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/ElectricityTransactionInput.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/models/CardMeterDetails.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/CardMeterDetails.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/models/ElectricityTransaction.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/ElectricityTransaction.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -576,7 +585,8 @@
       <workItem from="1615029167049" duration="7078000" />
       <workItem from="1615193673395" duration="3401000" />
       <workItem from="1615241845418" duration="13380000" />
-      <workItem from="1615284301269" duration="20405000" />
+      <workItem from="1615284301269" duration="21005000" />
+      <workItem from="1615322218006" duration="6220000" />
     </task>
     <servers />
   </component>
@@ -609,15 +619,19 @@
     </state>
     <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1615297776124" />
     <state x="172" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1614813284644" />
-    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615304855422">
+    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615326823779">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1615304855422" />
+    <state x="690" y="283" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1615326823779" />
     <state x="690" y="295" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1614822527501" />
-    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1615289580404">
+    <state x="755" y="283" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1615327363773">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1036@0.0.1920.1036" timestamp="1615289580404" />
+    <state x="755" y="283" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1920.1036@0.0.1920.1036" timestamp="1615327363773" />
+    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1615327011061">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1036@0.0.1920.1036" timestamp="1615327011061" />
     <state x="740" y="299" key="FileChooserDialogImpl" timestamp="1608675778560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

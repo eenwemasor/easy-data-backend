@@ -1,9 +1,9 @@
 input CreateElectricityTransactionInput{
-    transaction_type: TransactionType!
     description:String!
     type:electricityType!
     amount: Float!
     meter_number:String!
+    phone:String!
     beneficiary_name:String!
     plan:ID!
     user_id: ID!

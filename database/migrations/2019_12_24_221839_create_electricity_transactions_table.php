@@ -24,6 +24,7 @@ class CreateElectricityTransactionsTable extends Migration
             $table->enum('type',ElectricityType::toArray());
             $table->float('initial_balance')->nullable();
             $table->float('amount');
+            $table->string('phone');
             $table->float('new_balance')->nullable();
             $table->enum('status', TransactionStatus::toArray());
             $table->string('method');

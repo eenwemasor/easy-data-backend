@@ -60,11 +60,9 @@ class CableTransactionService
         $cablePlan = CablePlanList::find($data['plan']);
 
         $amount = $this->ringoCable->apply_discount($cableTransaction, $cablePlan->amount);
-        $walletTransactionData = $data->only(['description', 'user_id',])->toArray();
-        $walletTransactionData['transaction_type'] = TransactionType::DEBIT;
-        $walletTransactionData['beneficiary'] = $cableTransaction['beneficiary_name'];
-        $walletTransactionData['amount'] = $amount;
-        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
+        $this->ringoCable->check_api_wallet($amount);
+
+        $walletTransactionResult = $this->chargeUser($data, $cableTransaction['beneficiary_name'], $amount);
 
         $cableTransactionResult = $this->ringoCable->purchase_cable_tv($cableTransaction, $cablePlan, $walletTransactionResult['reference']);
 
@@ -156,6 +154,23 @@ class CableTransactionService
             'total_cable_failed_order_sum' => StatisticsService::sum_transaction($failed_order->get())
 
         ];
+    }
+
+    /**
+     * @param \Illuminate\Support\Collection $data
+     * @param $beneficiary_name
+     * @param $amount
+     * @return mixed
+     * @throws GraphqlError
+     */
+    private function chargeUser(\Illuminate\Support\Collection $data, $beneficiary_name, $amount): mixed
+    {
+        $walletTransactionData = $data->only(['description', 'user_id',])->toArray();
+        $walletTransactionData['transaction_type'] = TransactionType::DEBIT;
+        $walletTransactionData['beneficiary'] = $beneficiary_name;
+        $walletTransactionData['amount'] = $amount;
+        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
+        return $walletTransactionResult;
     }
 
 

@@ -37,7 +37,10 @@ class ElectricityTransactionService
      * @param WalletTransactionService $walletTransactionService
      * @param RingoElectricity $ringoElectricity
      */
-    public function __construct(ElectricityTransactionRepository $electricityTransactionRepository, WalletTransactionService $walletTransactionService, RingoElectricity $ringoElectricity)
+    public function __construct(
+        ElectricityTransactionRepository $electricityTransactionRepository,
+        WalletTransactionService $walletTransactionService,
+        RingoElectricity $ringoElectricity)
     {
         $this->electricityTransactionRepository = $electricityTransactionRepository;
         $this->walletTransactionService = $walletTransactionService;
@@ -52,112 +55,46 @@ class ElectricityTransactionService
      */
     public function create(array $electricityTransaction)
     {
-
-        $plan = PowerPlanList::find($electricityTransaction['plan']);
-
-//        $api_wallet = $this->validateTransactions->get_api_account_info();
-//        if($api_wallet->balance < $electricityTransaction['amount']){
-//            throw new GraphqlError("Service is not available currently, please try again later");
-//        }
-
-        $user = User::find($electricityTransaction["user_id"]);
-
-//        $availableServices = $this->validateTransactions->get_available_services('ELECT');
-//        $this->check_available_service($availableServices, $plan->disco."_".$electricityTransaction['type']);
-
+        $powerPlan = PowerPlanList::find($electricityTransaction['plan']);
         $data = collect($electricityTransaction);
+        $amount = $this->ringoElectricity->apply_discount($electricityTransaction, $electricityTransaction['amount']);
+        $this->ringoElectricity->check_api_wallet($amount);
 
-        $walletTransactionData = $data->only(['transaction_type', 'description', 'amount', 'user_id',])->toArray();
-        $walletTransactionData['description'] = $plan->description." ringoElectricity bill payment";
-        $walletTransactionData['beneficiary'] = $electricityTransaction['beneficiary_name'];
+        $walletTransactionResult = $this->chargeUser($data, $electricityTransaction['beneficiary_name'], $amount);
 
-
-        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
         $electricityData = $data->only(['meter_number', 'beneficiary_name',])->toArray();
-        $electricityData['plan'] = $plan->description;
+        $electricityData['plan'] = $powerPlan->description;
 
-        $wallet_result = collect($walletTransactionResult);
+        $walletResult = collect($walletTransactionResult);
         $electricityData['method'] = $walletTransactionResult['wallet'];
-        $electricityTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'beneficiary', 'status',
+        $electricityData['phone'] = $electricityTransaction['phone'];
+        $electricityTransactionData = array_merge($walletResult->except(['transaction_type', 'description', 'beneficiary', 'status',
 
         ])->toArray(), $electricityData);
-        $electricityTransactionData['plan'] = $plan->id;
+        $electricityTransactionData['plan'] = $powerPlan->id;
 
-        $initiateElectricityTransaction = $this->ringoElectricity->initiate_electricity_transaction(["disco" => $plan->disco, "meterNo" => $electricityTransaction['meter_number'], "type" => $electricityTransaction['type'], "amount" => $electricityTransaction['amount'], "phonenumber" => $user->phone, "request_id" => $walletTransactionResult['reference']
+        $electricityTransactionResult = $this->ringoElectricity->purchase_electricity($electricityTransaction, $powerPlan, $walletTransactionResult['reference'], $amount);
 
-        ], $electricityTransaction['beneficiary_name']);
-
-        $initiateElectricityTransaction = json_decode($initiateElectricityTransaction);
-        if (str_lower($initiateElectricityTransaction->message) === "successful" && $initiateElectricityTransaction->status === "200") {
+        if ($electricityTransactionResult['success']) {
             $electricityTransactionData['status'] = TransactionStatus::COMPLETED;
-            $electricityTransactionData['token'] = $initiateElectricityTransaction->token;
+            $electricityTransactionData['token'] = $electricityTransactionResult->token;
             $electricityTransactionResult = $this->electricityTransactionRepository->create($electricityTransactionData);
-//            $user_cont = New UserController();
-//            $user = $user_cont->getUserById($electricityTransaction["user_id"]);
-//            $admin = $user_cont->getAdmin();
-//            event(new ElectricityTransactionEvent($electricityTransactionResult, $user, $admin));
 
-            $smsController = new SendSMSController();
-            $message = "Thank you for patronizing Gtserviz: Here is your Electricity token ". $initiateElectricityTransaction->token;
-            $smsController->sendSMS($message, $user->phone);
+            $this->sendElectricityToken($electricityTransactionResult['token'], $electricityTransaction['phone']);
+
             return $electricityTransactionResult;
         } else {
             $electricityTransactionData['status'] = TransactionStatus::FAILED;
             $this->electricityTransactionRepository->create($electricityTransactionData);
 
-            $user = User::find($electricityTransaction["user_id"]);
-            if ($walletTransactionResult['wallet'] === WalletType::WALLET) {
-                $user->wallet = $user->wallet + $electricityTransaction['amount'];
-            } else {
-                $user->bonus_wallet = $user->bonus_wallet + $electricityTransaction['amount'];
-            }
-            $user->save();
+            $this->refundUser($amount, $walletTransactionResult, $electricityTransaction['user_id']);
 
             $wallet_transaction = WalletTransaction::find($walletTransactionResult['id']);
             $wallet_transaction->status = TransactionStatus::FAILED;
             $wallet_transaction->save();
-
-            throw new GraphqlError($initiateElectricityTransaction->message);
+            throw new GraphqlError($electricityTransactionResult['message']);
         }
 
-    }
-
-
-    public function check_available_service($services, $service)
-    {
-        if ((!isset($services->Abuja) || $services->Abuja != "Available") && $service === "AEDC") {
-            throw new GraphqlError("Abuja ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Eko) || $services->Eko != "Available") && $service === "EKEDC") {
-            throw new GraphqlError("Eko ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Kaduna) || $services->Kaduna != "Available") && $service ==="KAEDC") {
-            throw new GraphqlError("Kaduna ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Ibadan) || $services->Ibadan != "Available") && $service === "IBEDC") {
-            throw new GraphqlError("Ibadan ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Kano) || $services->Kano != "Available") && $service === "KEDC") {
-            throw new GraphqlError("Kano ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Ikeja) || $services->Ikeja != "Available") && $service === "IKEDC") {
-            throw new GraphqlError("Ikeja ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->portharcourt) || $services->portharcourt != "Available") && $service === "PHEDC") {
-            throw new GraphqlError("Portharcourt ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Enugu) || $services->Enugu != "Available") && $service === "EEDC") {
-            throw new GraphqlError("Enugu ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Jos) || $services->Jos != "Available") && $service === "JEDC") {
-            throw new GraphqlError("Jos ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Benin) || $services->Benin != "Available") && $service === "BEDC") {
-            throw new GraphqlError("Benin ringoElectricity service is currently not available");
-        }
-        if ((!isset($services->Yola) || $services->Yola != "Available") && $service === "YEDC") {
-            throw new GraphqlError("Yola ringoElectricity service is currently not available");
-        }
     }
 
     /**
@@ -171,13 +108,13 @@ class ElectricityTransactionService
 
     /**
      * @param string $transaction_id
-     * @return ElectricityTransaction
+     * @return \Illuminate\Support\Collection
      */
     public function mark_transaction_failed(string $transaction_id)
     {
         $electricityTransaction = collect(ElectricityTransaction::find($transaction_id));
 
-        if($electricityTransaction->status === TransactionStatus::FAILED){
+        if ($electricityTransaction->status === TransactionStatus::FAILED) {
             return $electricityTransaction;
         }
 
@@ -214,6 +151,47 @@ class ElectricityTransactionService
         ];
     }
 
+    /**
+     * @param $data
+     * @param $beneficiary_name
+     * @param $amount
+     * @return WalletTransaction
+     * @throws GraphqlError
+     */
+    private function chargeUser($data, $beneficiary_name, $amount)
+    {
+        $walletTransactionData = $data->only(['description', 'user_id',])->toArray();
+        $walletTransactionData['amount'] = $amount;
+        $walletTransactionData['transaction_type'] = TransactionType::DEBIT;
+        $walletTransactionData['beneficiary'] = $beneficiary_name;
+        return $this->walletTransactionService->create($walletTransactionData);
+    }
+
+    /**
+     * @param $token
+     * @param $phone
+     */
+    private function sendElectricityToken( $token, $phone)
+    {
+        $smsController = new SendSMSController();
+        $message = "Thank you for patronizing Gtserviz: Here is your Electricity token " . $token;
+        $smsController->sendSMS($message, $phone);
+    }
+
+    /**
+     * @param $amount1
+     * @param $walletTransactionResult
+     */
+    private function refundUser($amount1, $walletTransactionResult, $user_id)
+    {
+        $user = User::find($user_id);
+        if ($walletTransactionResult['wallet'] === WalletType::WALLET) {
+            $user->wallet = $user->wallet + $amount1;
+        } else {
+            $user->bonus_wallet = $user->bonus_wallet + $amount1;
+        }
+        $user->save();
+    }
 
 
 }
