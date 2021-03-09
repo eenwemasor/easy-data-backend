@@ -69,12 +69,13 @@ class CableTransactionService
         $cableTransactionResult = $this->ringoCable->purchase_cable_tv($cableTransaction, $cablePlan, $walletTransactionResult['reference']);
 
         $walletTransactionResultCollection = collect($walletTransactionResult);
-        $cableTransactionData['decoder'] = $cablePlan->cable;
-        $cableTransactionData['decoder_number'] = $cableTransaction['decoder_number'];
-        $cableTransactionData['beneficiary_name'] = $cableTransaction['beneficiary_name'];
-        $cableTransactionData['method'] = $walletTransactionResult['wallet'];
-        $cableTransactionData['reference'] = $walletTransactionResult['reference'];
-        $cableTransactionData['plan'] = $cablePlan->plan;
+        $cableTransactionData = [
+            'decoder' => $cablePlan->cable,
+            'decoder_number' => $cableTransaction['decoder_number'],
+            'beneficiary_name' => $cableTransaction['beneficiary_name'],
+            'method' => $walletTransactionResult['wallet'],
+            'plan' => $cablePlan->plan
+        ];
 
         $cableTransactionData = array_merge($walletTransactionResultCollection->except(['transaction_type', 'description', 'status'])->toArray(), $cableTransactionData);
         if ($cableTransactionResult['success']) {
@@ -98,10 +99,7 @@ class CableTransactionService
             $wallet_transaction->save();
 
             throw new GraphqlError($cableTransactionResult['message']);
-
         }
-
-
     }
 
 

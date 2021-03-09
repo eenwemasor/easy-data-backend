@@ -81,9 +81,11 @@ class DataTransactionService
         $dataPurchaseResponse = $vendor->purchase_data($dataTransaction, $walletTransactionResult['reference'], $dataPlan, 'transaction_successful', 'transaction_failed');
 
         $walletTransactionCollection = collect($walletTransactionResult);
-        $dataData['network'] = $dataPlan->network;
-        $dataData['method'] = $walletTransactionResult['wallet'];
-        $dataData['data'] = $dataPlan->plan;
+        $dataData = [
+            'network' => $dataPlan->network,
+            'method' => $walletTransactionResult['wallet'],
+            'data' => $dataPlan->plan
+        ];
 
         if ($dataPurchaseResponse['success']) {
             $dataData['status'] = TransactionStatus::COMPLETED;
