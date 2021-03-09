@@ -11,10 +11,13 @@ use GuzzleHttp\Client;
 class RingoRoot extends ApplyAccountLevelApplicables
 {
     private $headers;
+    public $client;
+    public $url;
     public function __construct()
     {
         $this->headers = config('constant.HEADERS');
-
+        $this->client = new Client($this->headers);
+        $this->url = config('constant.RINGO_ENDPOINT');
     }
 
     /**
@@ -26,15 +29,14 @@ class RingoRoot extends ApplyAccountLevelApplicables
     {
         $url = config('constant.RINGO_ENDPOINT');;
 
-        $client = new Client($this->headers);
         $request_param = ['serviceCode' => "INFO"];
         $request_data = json_encode($request_param);
-        $res = $client->request('POST', $url, [
+        $res = $this->client->request('POST', $url, [
             'headers' => ['content-type' => 'application/json'], 'body' => $request_data]);
         $response = json_decode($res->getBody()->getContents());
         $res = $response->wallet;
         if (str_upper($res->message) == "SUCCESSFUL" && $res->status == "200") {
-            if ($res->wallet->balance < $transactionAmount) throw new GraphqlError("Service is not available currently, please try again later");
+//            if ($res->wallet->balance < $transactionAmount) throw new GraphqlError("Service is not available currently, please try again later");
         } else {
             throw new GraphqlError($res->message);
         }

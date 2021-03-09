@@ -18,7 +18,7 @@ class MobileNgSmile extends MobileNgRoot
     public function purchase_smile($smilePlan, $reference, $args)
     {
 
-        $this->get_account_info(isset($smilePlan->vendor_price) ?$smilePlan->vendor_price: $args['amount']);
+        $this->check_wallet_api(isset($smilePlan->vendor_price) ?$smilePlan->vendor_price: $args['amount']);
         $url = $this->get_url($args['transaction_type']);
         $param = [
             "smartno" => $args['smart_card_number'],
@@ -39,7 +39,6 @@ class MobileNgSmile extends MobileNgRoot
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //return as a variable
 
         $response = curl_exec($ch);
-        error_log($response);
         curl_close($ch);
         return json_decode($response);
     }

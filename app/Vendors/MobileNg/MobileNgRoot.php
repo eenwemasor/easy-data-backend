@@ -30,7 +30,7 @@ class MobileNgRoot
      * @param $amount
      * @throws GraphqlError
      */
-    protected function get_account_info($amount)
+    protected function check_wallet_api($amount)
     {
         $url = 'https://mobilenig.com/API/balance?';
         $request = $this->compose_request([]);

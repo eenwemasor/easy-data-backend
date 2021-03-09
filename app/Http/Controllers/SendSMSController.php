@@ -14,7 +14,7 @@ class SendSMSController extends Controller
         $to = $phone;
 
         if(!isset($to) ){
-            $to = AdminChannelUtil::all()->first()->phone;
+            $to = AdminChannelUtil::first()->phone;
         }
 
         $base_url = config('constant.SMS_URL');

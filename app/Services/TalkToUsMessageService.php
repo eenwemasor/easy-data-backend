@@ -19,7 +19,7 @@ class TalkToUsMessageService
      * @return bool
      */
     public function forward_mail( array $data){
-        $admin = AdminChannelUtil::all()->first();
+        $admin = AdminChannelUtil::first();
 
         $name = $data['name'];
         $email= $data['email'];

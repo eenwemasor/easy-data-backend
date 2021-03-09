@@ -8,7 +8,7 @@ use App\Vendors\MobileNg\MobileNgElectricity;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class GetUserBillCredentials
+class GetMeterNumberDetails
 {
     /**
      * @var ValidateTransactions
@@ -44,6 +44,7 @@ class GetUserBillCredentials
 //        ValidateTransactions::checkAvailableService($available_services, $plan->disco, $args['type'],$plan->description);
 
 
-        return $this->mobileNgElectricity->get_bills_meter_details($args);
+//        return $this->mobileNgElectricity->get_bills_meter_details($args);
+        return null;
     }
 }

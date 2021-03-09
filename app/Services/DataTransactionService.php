@@ -4,16 +4,20 @@
 namespace App\Services;
 
 
-use App\AdminChannelUtil;
 use App\DataPlanList;
 use App\DataTransaction;
+use App\Enums\DataType;
 use App\Enums\NetworkType;
 use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
+use App\Enums\WalletType;
 use App\GraphQL\Errors\GraphqlError;
-use App\Http\Controllers\SendSMSController;
 use App\Repositories\DataTransactionRepository;
 use App\User;
+use App\Vendors\DailyEarnPro\DailyEarnProData;
+use App\Vendors\Ringo\RingoData;
+use App\WalletTransaction;
+
 
 class DataTransactionService
 {
@@ -25,19 +29,33 @@ class DataTransactionService
      * @var WalletTransactionService
      */
     private $walletTransactionService;
+    /**
+     * @var DailyEarnProData
+     */
+    private $dailyEarnProData;
+    /**
+     * @var RingoData
+     */
+    private $ringoData;
 
     /**
      * DataTransactionService constructor.
      * @param DataTransactionRepository $data_transaction_repository
+     * @param DailyEarnProData $dailyEarnProData
+     * @param RingoData $ringoData
      * @param WalletTransactionService $walletTransactionService
      */
     public function __construct(
         DataTransactionRepository $data_transaction_repository,
+        DailyEarnProData $dailyEarnProData,
+        RingoData $ringoData,
         WalletTransactionService $walletTransactionService
     )
     {
         $this->data_transaction_repository = $data_transaction_repository;
         $this->walletTransactionService = $walletTransactionService;
+        $this->dailyEarnProData = $dailyEarnProData;
+        $this->ringoData = $ringoData;
     }
 
     /**
@@ -47,68 +65,50 @@ class DataTransactionService
      */
     public function create(array $dataTransaction)
     {
-        $data_plan = DataPlanList::find($dataTransaction['data']);
+        $dataPlan = DataPlanList::find($dataTransaction['data']);
+        $vendor = null;
 
-        $user = User::find($dataTransaction["user_id"]);
-
-
-        $sendSMS = new SendSMSController();
-        $data = collect($dataTransaction);
-        $admin_utils = AdminChannelUtil::all()->first();
-
-
-        $walletTransactionData = $data->only(['transaction_type', 'description', 'amount', 'beneficiary', 'user_id',])->toArray();
-        $walletTransactionData['description'] = $data_plan->amount . " " . $data_plan->plan . " " . $data_plan->network . " data purchase";
-        $walletTransactionData['amount'] = $data_plan->amount;
-
-        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
-        $dataData['network'] = $data_plan->network;
-        $dataData['method'] = $walletTransactionResult['wallet'];
-        $dataData['data'] = $data_plan->plan;
-        $wallet_result = collect($walletTransactionResult);
-        $dataData['status'] = TransactionStatus::PROCESSING;
-        $dataTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $dataData);
-
-        $data_transaction = $this->data_transaction_repository->create($dataTransactionData);
-
-        $message = null;
-
-        switch ($data_plan->network) {
-            case NetworkType::MTN:
-            {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . " " . $data_plan->vendor_amount . " " . $admin_utils->data_pin;
-                break;
-
-            }
-            case NetworkType::NINE_MOBILE:
-            case NetworkType::GLO:
-            {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "#";
-                break;
-            }
-            case NetworkType::AIRTEL:
-            {
-                $message = $data_plan->product_code . " " . $walletTransactionData['beneficiary'] . "*" . $admin_utils->data_pin . "#";
-                break;
-            }
-            default:
-            {
-                throw new GraphqlError("Invalid Network Value");
-            }
+        if ($dataPlan->type === DataType::SME) {
+            $vendor = $this->dailyEarnProData;
+        } else {
+            $vendor = $this->ringoData;
         }
-        $sendSMS->sendSMS($message);
 
+        $vendor->check_api_wallet($dataPlan->amount);
+        $amount = $vendor->apply_discount($dataTransaction, $dataPlan->amount);
+        $walletTransactionResult = $this->chargeUser($dataTransaction, $dataPlan, $amount);
 
-//        $user_cont = New UserController();
-//        $user = $user_cont->getUserById($dataTransaction["user_id"]);
-//        $admin = $user_cont->getAdmin();
+        $dataPurchaseResponse = $vendor->purchase_data($dataTransaction, $walletTransactionResult['reference'], $dataPlan, 'transaction_successful', 'transaction_failed');
 
-//        event(new DataTransactionEvent($data_transaction, $user, $admin));
+        $walletTransactionCollection = collect($walletTransactionResult);
+        $dataData['network'] = $dataPlan->network;
+        $dataData['method'] = $walletTransactionResult['wallet'];
+        $dataData['data'] = $dataPlan->plan;
 
-        return $data_transaction;
+        if ($dataPurchaseResponse['success']) {
+            $dataData['status'] = TransactionStatus::COMPLETED;
+        } else {
+            $dataData['status'] = TransactionStatus::FAILED;
+            $airtimeTransactionData = array_merge($walletTransactionCollection->except(['transaction_type', 'description', 'status'])->toArray(), $dataData);
+            $this->data_transaction_repository->create($airtimeTransactionData);
 
+            $user = User::find($dataTransaction["user_id"]);
+            if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
+                $user->wallet = $user->wallet + $amount;
+            } else {
+                $user->bonus_wallet = $user->bonus_wallet + $amount;
+            }
+            $user->save();
+            $wallet_transaction = WalletTransaction::find($walletTransactionResult['id']);
+            $wallet_transaction->status = TransactionStatus::FAILED;
+            $wallet_transaction->save();
+            throw new GraphqlError($dataPurchaseResponse['message']);
+        }
 
+        $airtimeTransactionData = array_merge($walletTransactionCollection->except(['transaction_type', 'description', 'status'])->toArray(), $dataData);
+        return $this->data_transaction_repository->create($airtimeTransactionData);
     }
+
 
     /**
      * @param string $transaction_id
@@ -175,6 +175,23 @@ class DataTransactionService
             'data_completed_order_sum' => StatisticsService::sum_transaction($data_completed_order->get()),
             'data_processing_order_sum' => StatisticsService::sum_transaction($data_processing_order->get())
         ];
+    }
+
+    /**
+     * @param array $dataTransaction
+     * @param $dataPlan
+     * @param $amount
+     * @return WalletTransaction
+     * @throws GraphqlError
+     */
+    private function chargeUser(array $dataTransaction, $dataPlan, $amount)
+    {
+        $data = collect($dataTransaction);
+        $walletTransactionData = $data->only(['transaction_type', 'description', 'beneficiary', 'user_id',])->toArray();
+        $walletTransactionData['description'] = $amount . " " . $dataPlan->plan . " " . $dataPlan->network . " data purchase";
+        $walletTransactionData['amount'] = $amount;
+
+        return $this->walletTransactionService->create($walletTransactionData);
     }
 
 

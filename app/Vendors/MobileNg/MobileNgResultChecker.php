@@ -17,7 +17,7 @@ class MobileNgResultChecker extends MobileNgRoot
      */
     public function purchase_result_checker($result_checker_packer, $reference)
     {
-        $this->get_account_info($result_checker_packer->vendor_price);
+        $this->check_wallet_api($result_checker_packer->vendor_price);
         $url = $this->get_url($result_checker_packer->examination_body);
         $param = [
             "product_code" => $result_checker_packer->product_code,

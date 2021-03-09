@@ -8,5 +8,6 @@ extend type Query @middleware(checks: ["auth:api"]){
         search:String,
         status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [ElectricityTransaction!]! @paginate( model: "App\\ElectricityTransaction" builder:"App\\GraphQL\\Queries\\GetAllElectricityTransactions@get_all_transactions")
 
+    GetMeterNumberDetails( disco: String!, number:String!,type:electricityType!, plan:ID!, amount:Float!): CardMeterDetails!
 
 }

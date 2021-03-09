@@ -124,7 +124,7 @@ class CreateUserService
      */
     public function activate_account(string $user_id)
     {
-        $referral_rewards = ReferralReward::all()->first();
+        $referral_rewards = ReferralReward::first();
         $registration_fee = $referral_rewards->registration_fee;
         $direct_referrer_percentage = $referral_rewards->direct_referrer_percentage;
         $indirect_referrer_percentage = $referral_rewards->indirect_referrer_percentage;
@@ -204,7 +204,7 @@ class CreateUserService
      */
     public function reward_referrals(string $user_id, $amount)
     {
-        $referral_rewards = ReferralReward::all()->first();
+        $referral_rewards = ReferralReward::first();
         $direct = $referral_rewards->direct_referrer_percentage_wallet_funding;
         $indirect = $referral_rewards->indirect_referrer_percentage_wallet_funding;
 

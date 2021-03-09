@@ -17,7 +17,7 @@ class MobileNgSpectranet extends MobileNgRoot
      */
     public function purchase_spectranet($spectranetPackage, $reference, $args)
     {
-        $this->get_account_info($spectranetPackage->vendor_price);
+        $this->check_wallet_api($spectranetPackage->vendor_price);
         $url ="https://mobilenig.com/API/bills/spectranet";
         $param = [
             "product_code" => $spectranetPackage->product_code,

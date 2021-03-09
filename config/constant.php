@@ -14,5 +14,7 @@ return [
     'SENDER_ID'=>env('SENDER_ID'),
     'API_KEY'=>env('API_KEY'),
 
+    'DAILY_EARN_PRO_TOKEN' => env('DAILY_EARN_API_TOKEN'),
+
     'HEADERS' =>['headers' => ['email' => env('RINGO_EMAIL'), 'password' => env('RINGO_PASSWORD')]]
 ];

@@ -74,19 +74,16 @@ class AirtimeTransactionService
             ]
         );
 
+        $walletResult = collect($walletTransactionResult);
+        $airtimeData['method'] = $walletTransactionResult['wallet'];
+        $airtimeData['network'] = $airtimeTransaction['network'];
         if ($initiateTransaction->message == "SUCCESSFUL" && $initiateTransaction->status == "200") {
-            $wallet_result = collect($walletTransactionResult);
-            $airtimeData['method'] = $walletTransactionResult['wallet'];
             $airtimeData['status'] = TransactionStatus::COMPLETED;
-            $airtimeData['network'] = $airtimeTransaction['network'];
-            $airtimeTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $airtimeData);
+            $airtimeTransactionData = array_merge($walletResult->except(['transaction_type', 'description', 'status'])->toArray(), $airtimeData);
             return $this->airtime_transaction_repository->create($airtimeTransactionData);
         } else {
-            $wallet_result = collect($walletTransactionResult);
-            $airtimeData['method'] = $walletTransactionResult['wallet'];
             $airtimeData['status'] = TransactionStatus::FAILED;
-            $airtimeData['network'] = $airtimeTransaction['network'];
-            $airtimeTransactionData = array_merge($wallet_result->except(['transaction_type', 'description', 'status'])->toArray(), $airtimeData);
+            $airtimeTransactionData = array_merge($walletResult->except(['transaction_type', 'description', 'status'])->toArray(), $airtimeData);
             $this->airtime_transaction_repository->create($airtimeTransactionData);
 
             $user = User::find($airtimeTransaction["user_id"]);

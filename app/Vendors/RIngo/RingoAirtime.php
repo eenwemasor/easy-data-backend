@@ -24,14 +24,12 @@ class RingoAirtime extends RingoRoot
     public function initiate_airtime_transaction(array $data)
     {
         $url = config('constant.RINGO_ENDPOINT');
-        $headers = config('constant.HEADERS');
-        $client = new Client($headers);
         $request_param = array_merge([
             'serviceCode' => "VAR",
         ], $data);
 
         $request_data = $request_param;
-        $res = $client->request('POST', $url, [['headers' => ['content-type' => 'application/x-www-form-urlencoded']], 'form_params' => $request_data]);
+        $res = $this->client->request('POST', $url, [['headers' => ['content-type' => 'application/x-www-form-urlencoded']], 'form_params' => $request_data]);
         $response = json_decode($res->getBody()->getContents());
 
         return $response;

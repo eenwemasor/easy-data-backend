@@ -1,5 +1,4 @@
 input CreateCableTransactionInput{
-    transaction_type: TransactionType!
     description:String!
     decoder_number:String!
     beneficiary_name:String!

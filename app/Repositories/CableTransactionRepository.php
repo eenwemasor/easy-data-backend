@@ -21,8 +21,6 @@ class CableTransactionRepository implements CableTransactionContract
      */
     public function create(array $cableTransaction): CableTransaction
     {
-        $cable_plan = CablePlanList::find($cableTransaction['plan']);
-        $cableTransaction['plan'] = $cable_plan->plan;
         return CableTransaction::create($cableTransaction);
     }
 

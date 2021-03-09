@@ -43,7 +43,7 @@ class WalletTransaction
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         $user = User::find($args['user_id']);
-        $registration_fee = ReferralReward::all()->first()->registration_fee;
+        $registration_fee = ReferralReward::first()->registration_fee;
         $wallet_transaction = $this->wallet_transaction->create($args);
         if($user->active){
             $this->createUserService->reward_referrals($args['user_id'], $args['amount']);

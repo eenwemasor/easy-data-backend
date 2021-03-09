@@ -48,7 +48,7 @@ class BulkSMSService
     public function create(array $smsData)
     {
         $user = User::find($smsData["user_id"]);
-        $charge_per_sms = AdminChannelUtil::all()->first()->sms_unit_charge;
+        $charge_per_sms = AdminChannelUtil::first()->sms_unit_charge;
 
         $receivers_list = explode(",",$smsData['receivers']);
         $amount = count($receivers_list) * $charge_per_sms;

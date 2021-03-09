@@ -1,0 +1,9 @@
+
+type CardMeterDetails {
+    status: String
+    name: String
+    description: String
+    type: String
+    date: String
+    message:String
+}

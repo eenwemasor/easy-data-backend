@@ -97,7 +97,7 @@ class Wallet extends Controller
 
 //    public function apply_discount( float $amount, string $network)
 //    {
-//        $discounts = AdminChannelUtil::all()->first();
+//        $discounts = AdminChannelUtil::first();
 //        switch ($network){
 //            case NetworkType::MTN:{
 //                return $amount - $discounts->mtn_discount/100*$amount;

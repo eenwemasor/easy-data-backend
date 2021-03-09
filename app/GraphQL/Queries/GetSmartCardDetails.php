@@ -2,30 +2,24 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Vendors\MobileNg\MobileNgCable;
+use App\Vendors\Ringo\RingoCable;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class GetUserCableCredentials
+class GetSmartCardDetails
 {
+    /**
+     * @var RingoCable
+     */
+    private $ringoCable;
 
     /**
-     * @var MobileNgCable
+     * GetSmartCardDetails constructor.
+     * @param RingoCable $ringoCable
      */
-    private $mobileNgTransactionRepository;
-    /**
-     * @var ValidateTransactions
-     */
-    private $mobileNgCable;
-
-    /**
-     * GetUserBillCredentials constructor.
-     * @param MobileNgCable $mobileNgTransactionRepository
-     * @param ValidateTransactions $mobileNgCable
-     */
-    function __construct(MobileNgCable $mobileNgCable)
+    public function __construct(RingoCable $ringoCable)
     {
-        $this->mobileNgCable = $mobileNgCable;
+        $this->ringoCable = $ringoCable;
     }
 
     /**
@@ -40,6 +34,6 @@ class GetUserCableCredentials
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return   $this->mobileNgTransactionRepository->get_cable_card_details($args);
+        return $this->ringoCable->validate_smart_card($args);
     }
 }

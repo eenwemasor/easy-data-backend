@@ -6,4 +6,6 @@ extend type Query @middleware(checks: ["auth:api"]){
         to_date:String,
         search:String,
         status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [CableTransaction!]! @paginate( model: "App\\CableTransaction" builder:"App\\GraphQL\\Queries\\GetAllCableTransactions@get_all_transactions")
+
+    GetSmartCardDetails( service: cableType!, number:String!,plan:ID!): CardMeterDetails
 }

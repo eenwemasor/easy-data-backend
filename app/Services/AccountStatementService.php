@@ -69,7 +69,7 @@ class AccountStatementService
         $this->walletTransaction->create([
             'transaction_type' => TransactionType::DEBIT,
             'description' =>"Account Statement Request Charge",
-            'amount' => AdminChannelUtil::all()->first()->statement_request_charge,
+            'amount' => AdminChannelUtil::first()->statement_request_charge,
             'beneficiary' => "Subpay Communication",
             'user_id' =>$user->id,
         ]);
