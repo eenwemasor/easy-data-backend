@@ -95,28 +95,28 @@ class Wallet extends Controller
     }
 
 
-    public function apply_discount( float $amount, string $network)
-    {
-        $discounts = AdminChannelUtil::all()->first();
-        switch ($network){
-            case NetworkType::MTN:{
-                return $amount - $discounts->mtn_discount/100*$amount;
-            }
-            case NetworkType::NINE_MOBILE:{
-                return $amount - $discounts->etisalat_discount/100*$amount;
-            }
-            case NetworkType::AIRTEL:{
-                return $amount - $discounts->airtel_discount/100*$amount;
-            }
-            case NetworkType::GLO:{
-                return $amount - $discounts->glo_discount/100*$amount;
-            }
-            default:{
-                return $amount;
-            }
-        }
-
-    }
+//    public function apply_discount( float $amount, string $network)
+//    {
+//        $discounts = AdminChannelUtil::all()->first();
+//        switch ($network){
+//            case NetworkType::MTN:{
+//                return $amount - $discounts->mtn_discount/100*$amount;
+//            }
+//            case NetworkType::NINE_MOBILE:{
+//                return $amount - $discounts->etisalat_discount/100*$amount;
+//            }
+//            case NetworkType::AIRTEL:{
+//                return $amount - $discounts->airtel_discount/100*$amount;
+//            }
+//            case NetworkType::GLO:{
+//                return $amount - $discounts->glo_discount/100*$amount;
+//            }
+//            default:{
+//                return $amount;
+//            }
+//        }
+//
+//    }
 
 
 }

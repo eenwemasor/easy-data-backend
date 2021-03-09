@@ -32,7 +32,7 @@ class RingoCable
      */
     public function initiate_cable_transaction(array $data,$amount)
     {
-        $url = config('constant.CABLE_END_POINT');
+        $url = config('constant.RINGO_ENDPOINT');
         $headers = config('constant.HEADERS');
 
         $response = json_encode([

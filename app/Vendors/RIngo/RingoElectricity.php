@@ -23,7 +23,7 @@ class RingoElectricity
      */
     public function initiate_electricity_transaction(array $data, $customer_name)
     {
-        $url = config('constant.ELECTRICITY_END_POINT');
+        $url = config('constant.RINGO_ENDPOINT');
         $headers = config('constant.HEADERS');
         $response = json_encode([
             "message" => "Transaction failed",

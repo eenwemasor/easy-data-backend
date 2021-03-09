@@ -19,7 +19,7 @@ class MobileNgElectricity extends MobileNgRoot
 //        }
 
         try {
-            $url = config('constant.CABLE_END_POINT');
+            $url = config('constant.RINGO_ENDPOINT');
             $headers = config('constant.HEADERS');
 
             $client = new Client($headers);
