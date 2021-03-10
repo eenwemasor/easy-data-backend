@@ -1,26 +1,26 @@
-extend type Mutation {
+extend type Mutation @middleware(checks: ["auth:api"]){
     CreateNewsFeed(input: CreateNewsFeedInput! @spread): NewsFeed @create(model: "App\\NewsFeed")
     @can(ability: "create", model: "App\\NewsFeed" )
     @inject(context: "user", name: "user")
-    
+
     UpdateNewsFeed(input: UpdateNewsFeedInput! @spread): NewsFeed @update(model: "App\\NewsFeed")
     @can(ability: "update", model: "App\\NewsFeed" find: "id")
     @inject(context: "user", name: "user")
-    
+
     DeleteNewsFeed(id:ID!): NewsFeed @delete(model: "App\\NewsFeed")
     @can(ability: "delete", model: "App\\NewsFeed" find: "id")
     @inject(context: "user", name: "user")
-    
+
     CreateNewsUpdate(input: CreateNewsUpdateInput! @spread): NewsUpdate @create(model: "App\\NewsUpdate")
     @can(ability: "create", model: "App\\NewsUpdate")
     @inject(context: "user", name: "user")
-    
+
     UpdateNewsUpdate(input: UpdateNewsUpdateInput! @spread): NewsUpdate @update(model: "App\\NewsUpdate")
     @can(ability: "update", model: "App\\NewsUpdate" find: "id")
     @inject(context: "user", name: "user")
-    
+
     DeleteNewsUpdate(id:ID!): NewsUpdate @delete(model: "App\\NewsUpdate")
     @can(ability: "delete", model: "App\\NewsUpdate" find: "id")
     @inject(context: "user", name: "user")
-    
+
 }

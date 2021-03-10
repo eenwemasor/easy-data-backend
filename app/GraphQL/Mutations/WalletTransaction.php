@@ -15,7 +15,7 @@ class WalletTransaction
     /**
      * @var WalletTransactionService
      */
-    private $wallet_transaction;
+    private $walletTransactionService;
     /**
      * @var CreateUserService
      */
@@ -23,12 +23,12 @@ class WalletTransaction
 
     /**
      * WalletTransaction constructor.
-     * @param WalletTransactionService $wallet_transaction_service
+     * @param WalletTransactionService $walletTransactionService_service
      * @param CreateUserService $createUserService
      */
-    public function __construct(WalletTransactionService $wallet_transaction_service, CreateUserService $createUserService)
+    public function __construct(WalletTransactionService $walletTransactionService_service, CreateUserService $createUserService)
     {
-        $this->wallet_transaction = $wallet_transaction_service;
+        $this->walletTransactionService = $walletTransactionService_service;
         $this->createUserService = $createUserService;
     }
     /**
@@ -42,26 +42,13 @@ class WalletTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        $user = User::find($args['user_id']);
-        $registration_fee = ReferralReward::first()->registration_fee;
-        $wallet_transaction = $this->wallet_transaction->create($args);
-        if($user->active){
-            $this->createUserService->reward_referrals($args['user_id'], $args['amount']);
-            return $wallet_transaction;
-        }else{
-            $args['amount']  = $registration_fee;
-            $args['transaction_type']  = TransactionType::DEBIT;
-            $args['description'] = "Account activation charge";
-            $account_activation_charge = $this->wallet_transaction->create($args);
-            $this->createUserService->activate_account($args['user_id']);
-            return $account_activation_charge;
-        }
-
+        $walletTransactionResult = $this->walletTransactionService->create($args);
+        $this->createUserService->reward_referrals($args['user_id'], $args['amount']);
     }
 
 
     public function withdraw_bonus_to_wallet($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->wallet_transaction->withdraw_bonus_to_wallet($args['user_id']);
+        return $this->walletTransactionService->withdraw_bonus_to_wallet($args['user_id']);
     }
 }

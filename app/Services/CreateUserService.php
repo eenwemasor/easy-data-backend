@@ -9,11 +9,11 @@
 namespace App\Services;
 
 
+use App\AccountLevel;
 use App\Enums\AccountAccessibility;
 use App\Enums\TransactionType;
 use App\Enums\WalletType;
 use App\Events\TransactionPin;
-use App\Events\UserCreated;
 use App\GraphQL\Errors\GraphqlError;
 use App\Http\Controllers\SendVerificationUrlController;
 use App\ReferralReward;
@@ -68,14 +68,21 @@ class CreateUserService
                 throw  new GraphqlError("Referrer Does not Exist");
             }
         }
+        $monnifyData = json_decode($this->createMonnifyAccount($user))->responseBody;
         $user['unique_id'] =  $user['username']. uniqid();
         $user['accessibility'] = AccountAccessibility::USER;
         $user['wallet'] = 0;
         $user['email_confirmed'] = false;
         $user['phone_verified'] = false;
         $user['active'] = false;
+        $user['account_level_id'] = AccountLevel::where('name', 'Free')->first()->id;
         $user['bonus_wallet'] = 0;
         $user['referrer_id'] = $referrer_id;
+        $user['monnify_account_number'] = $monnifyData->accountNumber;
+        $user['monnify_bank_name'] = $monnifyData->bankName;
+        $user['monnify_bank_code'] = $monnifyData->bankCode;
+        $user['monnify_collection_channel'] = $monnifyData->collectionChannel;
+        $user['monnify_reservation_channel'] = $monnifyData->reservationReference;
 
         $user = $this->create_user_contract_repository->create($user);
         $verify = new SendVerificationUrlController();
@@ -280,4 +287,16 @@ class CreateUserService
     }
 
 
+
+    /**
+     * @param string $user_id
+     * @return mixed
+     */
+    public function delete_account(string $id)
+    {
+        $user = User::find($id);
+        $this->deleteMonnifyAccount($user);
+        $user->delete();
+        return $user;
+    }
 }

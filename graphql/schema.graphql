@@ -75,6 +75,7 @@ enum ServiceType{
     SMILE
     SPECTRANET
     RESULT_CHECKER
+    WALLET_DEPOSIT
 }
 
 

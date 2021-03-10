@@ -16,8 +16,8 @@ class CreateNewsFeedsTable extends Migration
         Schema::create('news_feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('image_url');
-            $table->text('body');
+            $table->longText('image_url');
+            $table->longText('body');
             $table->timestamps();
         });
     }

@@ -13,6 +13,12 @@ input UpdateUserInput{
     monnify_reservation_channel:String
     password: String @bcrypt
 }
+
+input UpdateEmailStatusUserInput{
+    id:ID!
+    email_confirmed:Boolean
+
+}
 input SyncTransactionInput{
     id:ID!
     wallet: Float!

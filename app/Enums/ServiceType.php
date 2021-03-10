@@ -20,5 +20,6 @@ final class ServiceType extends Enum
     const SMILE =   "SMILE";
     const SPECTRANET =   "SPECTRANET";
     const RESULT_CHECKER =   "RESULT_CHECKER";
+    const WALLET_DEPOSIT = "WALLET_DEPOSIT";
 
 }

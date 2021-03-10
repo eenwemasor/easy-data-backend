@@ -18,8 +18,8 @@ class CreateBulkSMSSTable extends Migration
             $table->bigIncrements('id');
             $table->string('reference');
             $table->string('sender_id');
-            $table->text('receivers');
-            $table->text('message');
+            $table->longText('receivers');
+            $table->longText('message');
             $table->float('amount');
             $table->enum('status',BulkSMSStatus::toArray());
             $table->bigInteger('user_id');

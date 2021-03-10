@@ -1,12 +1,16 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
+extend type Mutation{
     CreateUser(
-    email: String @rules(apply: ["required", "unique:users"])
-    full_name: String!
-    phone: String @rules(apply: ["required", "unique:users"])
-    password: String @bcrypt(apply: ["required"])
-    username:String @rules(apply: ["required", "unique:users"])
-    referrer_id:ID): User @field(resolver: "CreateUser@resolve")
+        email: String @rules(apply: ["required", "unique:users"])
+        full_name: String!
+        phone: String @rules(apply: ["required", "unique:users"])
+        password: String @bcrypt(apply: ["required"])
+        username:String @rules(apply: ["required", "unique:users"])
+        referrer_id:ID): User @field(resolver: "CreateUser@resolve")
 
+    UpdateEmailStatusUser(input: UpdateEmailStatusUserInput! @spread):User @update(model: "App\\User")
+}
+
+extend type Mutation @middleware(checks: ["auth:api"]){
     UpdateUser(input: UpdateUserInput! @spread):User @update(model: "App\\User")
     UpdateUserPassword(id: ID!, password: String! @bcrypt): User @update(model: "App\\User")
     CreateTransactionPin(
@@ -22,5 +26,5 @@ extend type Mutation @middleware(checks: ["auth:api"]){
     UnBlockAccount(
         user_id: ID!): User @field(resolver: "CreateUser@un_block_account")
 
-    DeleteAccount(id:ID!):User @delete(model: "App\\User")
+    DeleteAccount(id: ID!): User @field(resolver: "CreateUser@delete_account")
 }
