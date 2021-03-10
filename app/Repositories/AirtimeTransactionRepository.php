@@ -7,8 +7,6 @@ namespace App\Repositories;
 use App\AirtimeTransaction;
 use App\Contracts\AirtimeTransactionContract;
 use App\Enums\TransactionStatus;
-use App\Http\Controllers\Wallet;
-use App\User;
 
 class AirtimeTransactionRepository implements AirtimeTransactionContract
 {

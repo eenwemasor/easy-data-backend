@@ -2,12 +2,17 @@
 
 namespace App\Services;
 
+use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
+use App\Enums\WalletType;
+use App\GraphQL\Errors\GraphqlError;
 use App\Repositories\SpectranetTransactionRepository;
 use App\SpectranetPriceList;
+use App\SpectranetTransactionPin;
 use App\User;
 use App\Vendors\MobileNg\MobileNgSmile;
 use App\Vendors\MobileNg\MobileNgSpectranet;
+use App\WalletTransaction;
 
 class SpectranetTransactionService
 {
@@ -51,59 +56,71 @@ class SpectranetTransactionService
     public function create(array $args)
     {
         $user = User::find($args['user_id']);
-        $smilePackage = SpectranetPriceList::find($args['plan']);
+        $spectranetPackage = SpectranetPriceList::find($args['plan']);
+        $amount = $this->mobileNgSpectranet->apply_discount($args, $spectranetPackage->price);
+        $walletTransactionResult = $this->chargeUser($user, $spectranetPackage,$amount);
+
+        $spectranetResponse = $this->mobileNgSpectranet->purchase_spectranet($spectranetPackage, $walletTransactionResult->reference, $args);
+
+        $walletResult = collect($walletTransactionResult);
+        $spectranetTransactionData = [
+            'method' => $walletTransactionResult->wallet,
+            'plan_id' => isset($spectranetPackage->id) ? $spectranetPackage->id: null
+        ];
+        $spectranetTransaction = array_merge($walletResult->except(['transaction_type', 'description', 'status','wallet'])->toArray(), $spectranetTransactionData);
+
+        if ($spectranetResponse['success']) {
+            $spectranetTransactionData['status'] = TransactionStatus::COMPLETED;
+            $spectranetTransaction = $this->spectranetTransactionRepository->create($spectranetTransaction);
+
+            SpectranetTransactionPin::create([
+                'serial_number'=>$spectranetResponse['pin']->serial_number,
+                'pin'=> $spectranetResponse['pin']->pin,
+                'value'=>$spectranetResponse['pin']->value,
+                'spectranet_transaction_id'=>$spectranetTransaction->id
+            ]);
+
+            return $spectranetTransaction;
+        } else {
+            $spectranetTransaction['status'] = TransactionStatus::FAILED;
+            $this->spectranetTransactionRepository->create($spectranetTransaction);
+
+            $user = User::find($args["user_id"]);
+            if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
+                $user->wallet = $user->wallet + $amount;
+            } else {
+                $user->bonus_wallet = $user->bonus_wallet + $amount;
+            }
+            $user->save();
+
+            $walletTransaction = WalletTransaction::find($walletTransactionResult['id']);
+            $walletTransaction->status = TransactionStatus::FAILED;
+            $walletTransaction->save();
+
+            throw new GraphqlError($spectranetResponse['message']);
+        }
+
+    }
+
+    /**
+     * @param $user
+     * @param $smilePackage
+     * @param $amount
+     * @return mixed
+     * @throws \App\GraphQL\Errors\GraphqlError
+     */
+    private function chargeUser($user, $smilePackage, $amount)
+    {
         $walletTransactionData = [
             'transaction_type' => TransactionType::DEBIT,
             'beneficiary' => $user->full_name,
             'description' => $smilePackage->description,
-            'amount' => $smilePackage->price,
+            'amount' => $amount,
             'user_id' => $user->id,
         ];
 
-        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
-        $smileResponse = $this->mobileNgSpectranet->purchase_spectranet($smilePackage, $walletTransactionResult->reference, $args);
-//        if (isset($smileResponse->description) && isset($smileResponse->code)) {
-//            $user = User::find($args['user_id']);
-//            if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
-//                $user->wallet = $user->wallet + $smilePackage->price;
-//            } else {
-//                $user->bonus_wallet = $user->bonus_wallet + $smilePackage->price;
-//            }
-//            $user->save();
-//            $walletTransaction = WalletTransaction::find($walletTransactionResult->id);
-//            $walletTransaction->status = TransactionStatus::FAILED;
-//            $walletTransaction->save();
-//
-//            throw new GraphqlError("failed to process " . str_lower($smilePackage->description) . " at the moment, please try again later.");
-//        } else {
-//            $walletResult = collect($walletTransactionResult);
-//            $airtimePrint['status'] = TransactionStatus::COMPLETED;
-//            $airtimePrint['result_checker_id'] = $args['result_checker_id'];
-//            $resultCheckTransaction = array_merge($walletResult->except(['transaction_type', 'description', 'status'])->toArray(), $airtimePrint);
-//            $resultCheckTransaction = $this->resultCheckerRepository->create($resultCheckTransaction);
-//
-//            if ($smilePackage->examination_body === ResultCheckerExamBody::WAEC) {
-//                $pins = $smileResponse->details->pins;
-//                foreach ($pins as $pin) {
-//                    ResultCheckerPin::create([
-//                        'serial_number' => $pin->serial_number,
-//                        'pin' => $pin->pin,
-//                        'result_check_transaction_id' => $resultCheckTransaction->id
-//                    ]);
-//                }
-//            } else {
-//                $tokens = $smileResponse->details->tokens;
-//                foreach ($tokens as $token) {
-//                    ResultCheckerPin::create([
-//                        'serial_number' => $resultCheckTransaction->id . "-" . strtoupper(Str::random(10)),
-//                        'pin' => $token->token,
-//                        'result_check_transaction_id' => $resultCheckTransaction->id
-//                    ]);
-//                }
-//            }
-//            return $resultCheckTransaction;
-//        }
-
+       return  $this->walletTransactionService->create($walletTransactionData);
+      ;
     }
 
 

@@ -58,20 +58,11 @@ class ResultCheckerService
     {
         $resultCheckerPackage = ResultChecker::find($args['result_checker_id']);
         $user = User::find($args['user_id']);
+        $amount = $this->mobileNgResultChecker->apply_discount($args, $resultCheckerPackage->price);
+        $this->mobileNgResultChecker->check_wallet_api($amount);
 
-        if (!$user->active) {
-            throw new GraphqlError("Account not activated, please fund your wallet or pay our one time activation fee to continue.");
-        }
-
-        $walletTransactionData = [
-            'transaction_type' => TransactionType::DEBIT,
-            'description' => $resultCheckerPackage->description,
-            'amount' => $resultCheckerPackage->price,
-            'beneficiary' => $user->full_name,
-            'user_id' => $user->id
-        ];
-        $walletTransactionResult = $this->walletTransactionService->create($walletTransactionData);
-       $resultCheckerResponse =  $this->mobileNgResultChecker->purchase_result_checker($resultCheckerPackage, $walletTransactionResult->reference);
+        $walletTransactionResult = $this->chargeUser($resultCheckerPackage, $amount, $user);
+        $resultCheckerResponse =  $this->mobileNgResultChecker->purchase_result_checker($resultCheckerPackage, $walletTransactionResult->reference);
         if (isset($resultCheckerResponse->description) && isset($resultCheckerResponse->code)) {
             $user = User::find($args['user_id']);
             if ($walletTransactionResult['wallet'] == WalletType::WALLET) {
@@ -113,6 +104,26 @@ class ResultCheckerService
             }
             return $resultCheckTransaction;
         }
+
+    }
+
+    /**
+     * @param $resultCheckerPackage
+     * @param $amount
+     * @param $user
+     * @return WalletTransaction
+     * @throws GraphqlError
+     */
+    private function chargeUser($resultCheckerPackage, $amount, $user)
+    {
+        $walletTransactionData = [
+            'transaction_type' => TransactionType::DEBIT,
+            'description' => $resultCheckerPackage->description,
+            'amount' => $amount,
+            'beneficiary' => $user->full_name,
+            'user_id' => $user->id
+        ];
+        return $this->walletTransactionService->create($walletTransactionData);
 
     }
 

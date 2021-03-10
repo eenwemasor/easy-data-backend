@@ -4,13 +4,9 @@
 namespace App\Repositories;
 
 
-use App\CablePlanList;
 use App\CableTransaction;
 use App\Contracts\CableTransactionContract;
 use App\Enums\TransactionStatus;
-use App\Http\Controllers\SendSMSController;
-use App\Http\Controllers\Wallet;
-use App\User;
 
 class CableTransactionRepository implements CableTransactionContract
 {

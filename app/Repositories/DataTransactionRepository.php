@@ -5,11 +5,8 @@ namespace App\Repositories;
 
 
 use App\Contracts\DataTransactionContract;
-use App\DataPlanList;
 use App\DataTransaction;
 use App\Enums\TransactionStatus;
-use App\Http\Controllers\Wallet;
-use App\User;
 
 class DataTransactionRepository implements DataTransactionContract
 {

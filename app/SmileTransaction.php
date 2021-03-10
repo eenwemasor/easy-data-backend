@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SmileTransaction extends Model
 {
     protected $fillable = [
-        'id', 'reference', 'amount', 'smart_card_number','beneficiary_name','transaction_type','initial_balance','new_balance','user_id','plan_id','status','wallet'
+        'id', 'reference', 'amount', 'smart_card_number','beneficiary_name','transaction_type','initial_balance','new_balance','user_id','plan_id','status','method'
     ];
 
     public function user()

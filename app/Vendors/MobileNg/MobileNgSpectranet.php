@@ -5,7 +5,9 @@ namespace App\Vendors\MobileNg;
 
 
 use App\Enums\ResultCheckerExamBody;
+use App\Enums\ServiceType;
 use App\GraphQL\Errors\GraphqlError;
+use App\User;
 
 class MobileNgSpectranet extends MobileNgRoot
 {
@@ -13,12 +15,10 @@ class MobileNgSpectranet extends MobileNgRoot
      * @param $spectranetPackage
      * @param $reference
      * @return mixed
-     * @throws GraphqlError
      */
     public function purchase_spectranet($spectranetPackage, $reference, $args)
     {
-        $this->check_wallet_api($spectranetPackage->vendor_price);
-        $url ="https://mobilenig.com/API/bills/spectranet";
+        $url ="https://mobilenig.com/API/bills/spectranet?";
         $param = [
             "product_code" => $spectranetPackage->product_code,
             "price" => $spectranetPackage->vendor_price,
@@ -31,10 +31,45 @@ class MobileNgSpectranet extends MobileNgRoot
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //return as a variable
-
+        $requestResponse = [];
         $response = curl_exec($ch);
-        error_log($response);
+        $res = json_decode($response);
+        if (curl_errno($ch)) {
+            $requestResponse = [
+                'success' => false,
+                'message' =>curl_error($ch)
+            ];
+        } else {
+            if(isset($res->code)){
+                $requestResponse=[
+                    'success' => false,
+                    'message' => $res->description
+                ];
+            }else{
+                $details = $res->details;
+                $requestResponse = [
+                    'success' => true,
+                    'message' =>$details->status,
+                    'pin' => $details->pins
+                ];
+            }
+
+        }
         curl_close($ch);
-        return json_decode($response);
+        return $requestResponse;
+    }
+
+    /**
+     * @param $data
+     * @param $amount
+     * @return float|int
+     */
+    public function apply_discount($data, $amount)
+    {
+        $user = User::find($data['user_id']);
+        $applicables = $user->account_level->applicables()->where('service_type',
+            ServiceType::SPECTRANET
+        )->get();
+        return $this->apply_applicable($amount, $applicables);
     }
 }

@@ -4,9 +4,12 @@
 namespace App\Vendors\MobileNg;
 
 
+use App\Enums\ServiceType;
 use App\GraphQL\Errors\GraphqlError;
+use App\User;
+use App\Vendors\ApplyAccountLevelApplicables;
 
-class MobileNgRoot
+class MobileNgRoot extends ApplyAccountLevelApplicables
 {
     /**
      * @var \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
@@ -30,7 +33,7 @@ class MobileNgRoot
      * @param $amount
      * @throws GraphqlError
      */
-    protected function check_wallet_api($amount)
+    public function check_wallet_api($amount)
     {
         $url = 'https://mobilenig.com/API/balance?';
         $request = $this->compose_request([]);
@@ -41,7 +44,7 @@ class MobileNgRoot
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //return as a variable
         $response = curl_exec($ch);
         curl_close($ch);
-        if (json_decode($response)->balance < $amount) throw new GraphqlError("Service is not available currently, please try again later");
+//        if (json_decode($response)->balance < $amount) throw new GraphqlError("Service is not available currently, please try again later");
     }
 
     protected function compose_request($param)
@@ -54,5 +57,18 @@ class MobileNgRoot
         }
         $len = strlen($request) - 1;
         return substr($request, 0, $len); //remove the final ampersand sign from the request
+    }
+    /**
+     * @param $data
+     * @param $amount
+     * @return float|int
+     */
+    public function apply_discount($data, $amount)
+    {
+        $user = User::find($data['user_id']);
+        $applicables = $user->account_level->applicables()->where('service_type',
+            ServiceType::RESULT_CHECKER
+        )->get();
+        return $this->apply_applicable($amount, $applicables);
     }
 }

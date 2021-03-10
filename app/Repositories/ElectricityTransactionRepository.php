@@ -7,9 +7,7 @@ namespace App\Repositories;
 use App\Contracts\ElectricityTransactionContract;
 use App\ElectricityTransaction;
 use App\Enums\TransactionStatus;
-use App\Http\Controllers\SendSMSController;
 use App\PowerPlanList;
-use App\User;
 
 class ElectricityTransactionRepository implements ElectricityTransactionContract
 {
