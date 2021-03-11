@@ -11,15 +11,15 @@ class CreateUser
     /**
      * @var CreateUserService
      */
-    private $create_user_service;
+    private $createUserService;
 
     /**
      * CreateUser constructor.
-     * @param CreateUserService $create_user_service
+     * @param CreateUserService $createUserService
      */
-    function __construct(CreateUserService $create_user_service)
+    function __construct(CreateUserService $createUserService)
     {
-        $this->create_user_service = $create_user_service;
+        $this->createUserService = $createUserService;
     }
 
     /**
@@ -33,7 +33,7 @@ class CreateUser
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->create($args);
+        return $this->createUserService->create($args);
 
     }
 
@@ -45,9 +45,9 @@ class CreateUser
      * @param ResolveInfo $resolveInfo
      * @return \App\User
      */
-    public function activate_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    public function upgrade_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->activate_account($args['user_id']);
+        return $this->createUserService->upgrade_account($args);
 
     }
 
@@ -61,7 +61,7 @@ class CreateUser
      */
     public function create_transaction_pin($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->create_transaction_pin($args['user_id']);
+        return $this->createUserService->create_transaction_pin($args['user_id']);
 
     }
 
@@ -75,7 +75,7 @@ class CreateUser
      */
     public function update_transaction_pin($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->update_transaction_pin($args['user_id'], $args['current_transaction_pin'], $args['new_transaction_pin']);
+        return $this->createUserService->update_transaction_pin($args['user_id'], $args['current_transaction_pin'], $args['new_transaction_pin']);
 
     }
 
@@ -89,7 +89,7 @@ class CreateUser
      */
     public function block_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->block_account($args['user_id']);
+        return $this->createUserService->block_account($args['user_id']);
 
     }
 
@@ -103,7 +103,7 @@ class CreateUser
      */
     public function un_block_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->un_block_account($args['user_id']);
+        return $this->createUserService->un_block_account($args['user_id']);
 
     }
 
@@ -117,7 +117,7 @@ class CreateUser
      */
     public function delete_account($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        return $this->create_user_service->delete_account($args['id']);
+        return $this->createUserService->delete_account($args['id']);
 
     }
 

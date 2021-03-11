@@ -2,5 +2,9 @@ type AccountLevel {
     id:ID!
     name: String
     cost_to_upgrade:Float
+    direct_referrer_percentage_bonus:Float
+    indirect_referrer_percentage_bonus:Float
+    wallet_deposit_direct_referrer_percentage_bonus:Float
+    wallet_deposit_indirect_referrer_percentage_bonus:Float
     applicables: [AccountLevelApplicable !]!
 }

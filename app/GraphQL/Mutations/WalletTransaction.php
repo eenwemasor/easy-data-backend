@@ -44,6 +44,7 @@ class WalletTransaction
     {
         $walletTransactionResult = $this->walletTransactionService->create($args);
         $this->createUserService->reward_referrals($args['user_id'], $args['amount']);
+        return $walletTransactionResult;
     }
 
 

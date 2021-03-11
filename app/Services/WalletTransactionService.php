@@ -87,16 +87,13 @@ class WalletTransactionService
             $this->walletTransactionData['reference'] = $walletTransaction['reference'];
         }
 
-        $wallet_transaction = $this->wallet_transaction_repository->create($this->walletTransactionData);
-//        event(new WalletTransactionEvent($wallet_transaction, $user));
+        return  $this->wallet_transaction_repository->create($this->walletTransactionData);
 
-        return $wallet_transaction;
     }
 
 
     static public function total_online_wallet_funding($from, $to){
         $wallet_funding = WalletTransaction::where('description','Wallet Deposit')->whereBetween('created_at', [$from, $to]);
-
         return [
             'total_online_wallet_funding'=>$wallet_funding->count(),
             'total_online_wallet_funding_sum'=>StatisticsService::sum_transaction($wallet_funding->get())

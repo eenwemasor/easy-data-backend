@@ -15,11 +15,19 @@ class AccountLevelSeeder extends Seeder
         DB::table('account_levels')->insert([
             [
                 'name' => "Free",
-                'cost_to_upgrade' => 0
+                'cost_to_upgrade' => 0,
+                'direct_referrer_percentage_bonus' => 30,
+                'indirect_referrer_percentage_bonus' => 5,
+                'wallet_deposit_direct_referrer_percentage_bonus' => 10,
+                'wallet_deposit_indirect_referrer_percentage_bonus' => 10
             ],
             [
                 'name' => "Paid",
-                'cost_to_upgrade' => 1000
+                'cost_to_upgrade' => 1000,
+                'direct_referrer_percentage_bonus' => 50,
+                'indirect_referrer_percentage_bonus' => 10,
+                'wallet_deposit_direct_referrer_percentage_bonus' => 10,
+                'wallet_deposit_indirect_referrer_percentage_bonus' => 10
             ],
         ]);
     }

@@ -54,17 +54,6 @@ class MonnifyController
                 ];
                 $transaction_service->bonus_above_funding_qualification_limit($user, $wallet_transaction_settings);
             }
-
-            if (!$user->active) {
-                if ($amount >= $registration_fee) {
-                    $wallet_transaction_settings['amount'] = $registration_fee;
-                    $wallet_transaction_settings['transaction_type'] = TransactionType::DEBIT;
-                    $wallet_transaction_settings['description'] = "Account activation charge";
-                    $account_activation_charge = $transaction_service->create($wallet_transaction_settings);
-                    $create_user_service->activate_account($user->id);
-                    return $account_activation_charge;
-                }
-            }
         } else {
             throw new \Exception($request);
         }

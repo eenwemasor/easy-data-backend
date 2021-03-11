@@ -25,7 +25,7 @@ class CreateUserService
     /**
      * @var CreateUserRepository
      */
-    private $create_user_contract_repository;
+    private $createUserRepository;
     /**
      * @var WalletTransactionService
      */
@@ -33,12 +33,12 @@ class CreateUserService
 
     /**
      * CreateUserService constructor.
-     * @param CreateUserRepository $create_user_contract_repository
+     * @param CreateUserRepository $createUserRepository
      * @param WalletTransactionService $walletTransactionService
      */
-    function __construct(CreateUserRepository $create_user_contract_repository, WalletTransactionService $walletTransactionService)
+    function __construct(CreateUserRepository $createUserRepository, WalletTransactionService $walletTransactionService)
     {
-        $this->create_user_contract_repository = $create_user_contract_repository;
+        $this->createUserRepository = $createUserRepository;
         $this->walletTransactionService = $walletTransactionService;
     }
 
@@ -62,14 +62,14 @@ class CreateUserService
         if (isset($user['referrer_id'])) {
             $referrer = User::where('unique_id', $user['referrer_id'])->first();
 
-            if($referrer){
+            if ($referrer) {
                 $referrer_id = $referrer->id;
-            }else{
+            } else {
                 throw  new GraphqlError("Referrer Does not Exist");
             }
         }
         $monnifyData = json_decode($this->createMonnifyAccount($user))->responseBody;
-        $user['unique_id'] =  $user['username']. uniqid();
+        $user['unique_id'] = $user['username'] . uniqid();
         $user['accessibility'] = AccountAccessibility::USER;
         $user['wallet'] = 0;
         $user['email_confirmed'] = false;
@@ -84,12 +84,12 @@ class CreateUserService
         $user['monnify_collection_channel'] = $monnifyData->collectionChannel;
         $user['monnify_reservation_channel'] = $monnifyData->reservationReference;
 
-        $user = $this->create_user_contract_repository->create($user);
+        $user = $this->createUserRepository->create($user);
         $verify = new SendVerificationUrlController();
         $verify->sendVerificationLink([
-            'name'=>$user->full_name,
-            'email'=>$user->email,
-            'user_unique_id' =>$user->unique_id
+            'name' => $user->full_name,
+            'email' => $user->email,
+            'user_unique_id' => $user->unique_id
         ]);
 
         return $user;
@@ -101,7 +101,7 @@ class CreateUserService
      */
     public function create_transaction_pin(string $user_id)
     {
-        $user = $this->create_user_contract_repository->create_transaction_pin($user_id);
+        $user = $this->createUserRepository->create_transaction_pin($user_id);
 
         $message = "You Successfully Created your Subpay Transaction Pin";
 
@@ -118,7 +118,7 @@ class CreateUserService
      */
     public function update_transaction_pin(string $user_id, string $current_transaction_pin, string $new_transaction_pin)
     {
-        $user = $this->create_user_contract_repository->update_transaction_pin($user_id, $current_transaction_pin, $new_transaction_pin);
+        $user = $this->createUserRepository->update_transaction_pin($user_id, $current_transaction_pin, $new_transaction_pin);
         $message = "You Successfully Updated your Subpay Transaction Pin";
         event(new TransactionPin($user, $message));
 
@@ -126,63 +126,36 @@ class CreateUserService
     }
 
     /**
-     * @param string $user_id
-     * @throws
+     * @param array $args
+     * @throws GraphqlError
      */
-    public function activate_account(string $user_id)
+    public function upgrade_account(array $args)
     {
-        $referral_rewards = ReferralReward::first();
-        $registration_fee = $referral_rewards->registration_fee;
-        $direct_referrer_percentage = $referral_rewards->direct_referrer_percentage;
-        $indirect_referrer_percentage = $referral_rewards->indirect_referrer_percentage;
-        $referee_percentage = $referral_rewards->referee_percentage;
-        $site_percentage = $referral_rewards->site_percentage;
+        $user = User::find($args['user_id']);
+        $accountLevel = AccountLevel::find($args['account_level_id']);
 
-        $direct_referrer = null;
-        $indirect_referrer = null;
+        $directReferrer = null;
+        $indirectReferrer = null;
 
-        $user = User::find($user_id);
-        if (!$user->active) {
-            $admin = User::where('accessibility', AccountAccessibility::ADMIN)->first();
-
-
-            if ($user->referrer_id) {
-                $amount_gained = $direct_referrer_percentage / 100 * $registration_fee;
-                $direct_referrer = User::find($user->referrer_id);
-
-                $directReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => "Self", 'user_id' => $direct_referrer->id,];
-
-                $this->walletTransactionService->create($directReferrerWalletTransactionData, WalletType::BONUS_WALLET);
-            }
-
-            if ($direct_referrer) {
-                if ($direct_referrer->referrer_id) {
-                    $amount_gained = $indirect_referrer_percentage / 100 * $registration_fee;
-                    $indirect_referrer = User::find($direct_referrer->referrer_id);
-                    $indirectReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => "Self", 'user_id' => $indirect_referrer->id,];
-
-                    $this->walletTransactionService->create($indirectReferrerWalletTransactionData, WalletType::BONUS_WALLET);
-                }
-            }
-
-            $userWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $referee_percentage / 100 * $registration_fee, 'beneficiary' => "Self", 'user_id' => $user->id,];
-
-            $this->walletTransactionService->create($userWalletTransactionData, WalletType::BONUS_WALLET);
-
-            $adminWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $site_percentage / 100 * $registration_fee, 'beneficiary' => "Self", 'user_id' => $admin->id,];
-
-            $this->walletTransactionService->create($adminWalletTransactionData, WalletType::BONUS_WALLET);
-            $user->active = true;
-            $user->save();
-            return $user;
-        } else {
-            throw new GraphqlError("Account already activated");
+        if (isset($user->referrer_id)) {
+            $directReferrer = User::find(($user->referrer_id));
+            $amount = ($accountLevel->cost_to_upgrade / 100) * $directReferrer->account_level->direct_referrer_percentage_bonus;
+            $this->creditUserBonus($user->full_name . "'s account upgrade bonus", $directReferrer, $amount);
         }
 
+        if (isset($directReferrer) && isset($directReferrer->referrer_id)) {
+            $indirectReferrer = User::find(($directReferrer->referrer_id));
+            $amount = ($accountLevel->cost_to_upgrade / 100) * $indirectReferrer->account_level->indirect_referrer_percentage_bonus;
+            $this->creditUserBonus($directReferrer->full_name . " referral's Account upgrade bonus [Down line]", $indirectReferrer, $amount);
+        }
+
+        $user->account_level_id = $accountLevel->id;
+        $user->save();
+        return $user;
     }
 
 
-    public function block_account( string $user_id)
+    public function block_account(string $user_id)
     {
         $user = User::find($user_id);
         $user->accessibility = AccountAccessibility::BLOCKED;
@@ -192,7 +165,7 @@ class CreateUserService
     }
 
 
-    public function un_block_account( string $user_id)
+    public function un_block_account(string $user_id)
     {
         $user = User::find($user_id);
         $user->accessibility = AccountAccessibility::USER;
@@ -202,48 +175,31 @@ class CreateUserService
     }
 
 
-
-
-
     /**
      * @param string $user_id
-     * @throws
+     * @param $amount
+     * @return
+     * @throws GraphqlError
      */
     public function reward_referrals(string $user_id, $amount)
     {
-        $referral_rewards = ReferralReward::first();
-        $direct = $referral_rewards->direct_referrer_percentage_wallet_funding;
-        $indirect = $referral_rewards->indirect_referrer_percentage_wallet_funding;
-
-        $direct_referrer = null;
-        $indirect_referrer = null;
-
         $user = User::find($user_id);
 
-        if ($user->referrer_id) {
-            $amount_gained = $direct / 100 * $amount;
-            $direct_referrer = User::find($user->referrer_id);
+        $directReferrer = null;
+        $indirectReferrer = null;
 
-            $directReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' =>  $direct_referrer->full_name, 'user_id' => $direct_referrer->id,];
-
-            $this->walletTransactionService->create($directReferrerWalletTransactionData, WalletType::BONUS_WALLET);
+        if (isset($user->referrer_id)) {
+            $directReferrer = User::find(($user->referrer_id));
+            $amount = ($amount / 100) * $directReferrer->account_level->wallet_deposit_direct_referrer_percentage_bonus;
+            $this->creditUserBonus($user->full_name . "'s wallet deposit bonus", $directReferrer, $amount);
         }
 
-        if ($direct_referrer) {
-            if ($direct_referrer->referrer_id) {
-                $amount_gained = $indirect/ 100 * $amount;
-                $indirect_referrer = User::find($direct_referrer->referrer_id);
-                $indirectReferrerWalletTransactionData = ['transaction_type' => TransactionType::CREDIT, 'description' => "Referral Reward", 'amount' => $amount_gained, 'beneficiary' => $indirect_referrer->full_name, 'user_id' => $indirect_referrer->id,];
-
-                $this->walletTransactionService->create($indirectReferrerWalletTransactionData, WalletType::BONUS_WALLET);
-            }
-        }
-
-        $user->active = true;
-        $user->save();
+        if (isset($directReferrer) && isset($directReferrer->referrer_id)) {
+            $indirectReferrer = User::find(($directReferrer->referrer_id));
+            $amount = ($amount / 100) * $indirectReferrer->account_level->wallet_deposit_indirect_referrer_percentage_bonus;
+            $this->creditUserBonus($directReferrer->full_name . " referral's wallet deposit bonus [Down line]", $indirectReferrer, $amount);
+        };
         return $user;
-
-
     }
 
 
@@ -264,7 +220,6 @@ class CreateUserService
     }
 
 
-
     /**
      * @param User $user
      * @return bool|string|null
@@ -281,11 +236,10 @@ class CreateUserService
         return $monnify_data;
     }
 
-    static  public function totalUserWalletBalance($wallet_type)
+    static public function totalUserWalletBalance($wallet_type)
     {
         return User::all()->sum($wallet_type);
     }
-
 
 
     /**
@@ -298,5 +252,25 @@ class CreateUserService
         $this->deleteMonnifyAccount($user);
         $user->delete();
         return $user;
+    }
+
+    /**
+     * @param $description
+     * @param $user
+     * @param $amount
+     * @return array
+     * @throws GraphqlError
+     */
+    private function creditUserBonus($description, $user, $amount): array
+    {
+        $walletTransactionData = [
+            'transaction_type' => TransactionType::CREDIT,
+            'description' => $description,
+            'beneficiary' => $user->full_name,
+            'user_id' => $user->id,
+            'amount' => $amount
+        ];
+        $this->walletTransactionService->create($walletTransactionData, WalletType::BONUS_WALLET);
+        return $walletTransactionData;
     }
 }

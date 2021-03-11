@@ -21,17 +21,18 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/ServiceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/ServiceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AccountLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountLevel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/CreateUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/WalletTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/WalletTransaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MonnifyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MonnifyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ReferralReward.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReferralReward.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_082959_create_news_feeds_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_083023_create_news_updates_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_083023_create_news_updates_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_075358_create_bulk_s_m_s_s_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/inputs/UserInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/UserInput.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/mutations/NewsMutation.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/AccountLevelSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AccountLevelSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql/mutations/UserMutations.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/mutations/UserMutations.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,19 +260,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\MobileNg" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\RIngo" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Checkers" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Mail\UserMails" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Queries" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Services" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Mutations" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\graphql\mutations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\MobileNg" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\RIngo" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Checkers" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
+      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Mail\UserMails" />
     </key>
   </component>
   <component name="RunManager">
@@ -589,7 +590,8 @@
       <workItem from="1615322218006" duration="6788000" />
       <workItem from="1615368412431" duration="774000" />
       <workItem from="1615371074193" duration="13365000" />
-      <workItem from="1615410430122" duration="3163000" />
+      <workItem from="1615410430122" duration="3971000" />
+      <workItem from="1615449667212" duration="11427000" />
     </task>
     <servers />
   </component>
@@ -631,10 +633,10 @@
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
     <state x="755" y="283" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1920.1036@0.0.1920.1036" timestamp="1615327363773" />
-    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1615391371068">
+    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1615462112318">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1036@0.0.1920.1036" timestamp="1615391371068" />
+    <state x="769" y="200" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1036@0.0.1920.1036" timestamp="1615462112318" />
     <state x="740" y="299" key="FileChooserDialogImpl" timestamp="1608675778560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -660,10 +662,10 @@
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
     <state x="616" y="239" key="run.anything.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1615386370090" />
-    <state x="623" y="222" width="672" height="651" key="search.everywhere.popup" timestamp="1615386227775">
+    <state x="623" y="222" width="672" height="651" key="search.everywhere.popup" timestamp="1615450358884">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
-    <state x="623" y="222" width="672" height="651" key="search.everywhere.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1615386227775" />
+    <state x="623" y="222" width="672" height="651" key="search.everywhere.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1615450358884" />
     <state x="623" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/-1600.95.1600.900@0.0.1920.1080" timestamp="1607664103195" />
     <state x="623" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1614755830708" />
   </component>

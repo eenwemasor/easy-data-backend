@@ -18,6 +18,10 @@ class CreateAccountLevelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->float('cost_to_upgrade');
+            $table->float('direct_referrer_percentage_bonus');
+            $table->float('indirect_referrer_percentage_bonus');
+            $table->float('wallet_deposit_direct_referrer_percentage_bonus');
+            $table->float('wallet_deposit_indirect_referrer_percentage_bonus');
             $table->timestamps();
         });
     }
