@@ -93,7 +93,6 @@ class RingoElectricity extends RingoRoot
                 'message' => $response->message,
             ];
         }
-        error_log(json_encode($response));
         return $requestResponse;
 
     }

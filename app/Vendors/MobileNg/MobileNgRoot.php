@@ -44,7 +44,7 @@ class MobileNgRoot extends ApplyAccountLevelApplicables
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //return as a variable
         $response = curl_exec($ch);
         curl_close($ch);
-//        if (json_decode($response)->balance < $amount) throw new GraphqlError("Service is not available currently, please try again later");
+        if (json_decode($response)->balance < $amount) throw new GraphqlError("Service is not available currently, please try again later");
     }
 
     protected function compose_request($param)
