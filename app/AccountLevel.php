@@ -12,7 +12,7 @@ class AccountLevel extends Model
         'direct_referrer_percentage_bonus',
         'indirect_referrer_percentage_bonus',
         'wallet_deposit_direct_referrer_percentage_bonus',
-        'wallet_deposit_direct_referrer_percentage_bonus'
+        'wallet_deposit_indirect_referrer_percentage_bonus'
     ];
 
     public function users()

@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgRoot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgRoot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/RIngo/RingoElectricity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/RIngo/RingoElectricity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/RIngo/RingoRoot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/RIngo/RingoRoot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AccountLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountLevel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -607,7 +605,8 @@
       <workItem from="1615410430122" duration="3971000" />
       <workItem from="1615449667212" duration="11427000" />
       <workItem from="1615505609046" duration="2519000" />
-      <workItem from="1615559942476" duration="666000" />
+      <workItem from="1615559942476" duration="2329000" />
+      <workItem from="1615678885522" duration="88000" />
     </task>
     <servers />
   </component>
