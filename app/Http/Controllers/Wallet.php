@@ -60,9 +60,10 @@ class Wallet extends Controller
      * @param User $user
      * @param $amount
      * @param null $from
+     * @param null $reference
      * @return array
      */
-    public function fund_wallet(User $user, $amount, $from = null)
+    public function fund_wallet(User $user, $amount, $from = null, $reference = null)
     {
 
         if(isset($from)){
@@ -72,7 +73,7 @@ class Wallet extends Controller
             $user->save();
 
             return [
-                'reference'=>uniqid(),
+                'reference'=>isset($reference) ?: uniqid(),
                 'initial_balance' => $user_bonus_wallet,
                 'new_balance' =>$new_balance,
                 'wallet' =>WalletType::WALLET,
