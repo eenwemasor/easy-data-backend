@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\AccountLevel;
+use App\AdminChannelUtil;
 use App\Enums\AccountAccessibility;
 use App\Enums\TransactionType;
 use App\Enums\WalletType;
@@ -272,5 +273,39 @@ class CreateUserService
         ];
         $this->walletTransactionService->create($walletTransactionData, WalletType::BONUS_WALLET);
         return $walletTransactionData;
+    }
+
+
+    /**
+     * @param $requestData
+     * @throws GraphqlError
+     * @throws \Exception
+     */
+    public function handle_monnify_deposit($requestData)
+    {
+        $data = $requestData;
+        $admin_util = AdminChannelUtil::first();
+        $hash_string = env("MONNIFY_SECRET_KEY") . "|" . $data->paymentReference . "|" . $data->amountPaid . "|" . $data->paidOn . "|" . $data->transactionReference;
+        $hash = hash("sha512", $hash_string);
+        $amount =  $data->amountPaid - $admin_util->monnify_bank_service_charge;
+
+        if ($hash === $data->transactionHash) {
+            $reference = $data->product['reference'];
+            $user = User::where('username', $reference)->first();
+
+            $wallet_transaction_settings = [
+                "transaction_type" => TransactionType::CREDIT,
+                "description" => "Monnify bank deposit",
+                "amount" => $amount,
+                "beneficiary" => $user->full_name,
+                "user_id" => $user->id
+            ];
+            $this->walletTransactionService->create($wallet_transaction_settings);
+            $this->reward_referrals($user->id, $data->amountPaid);
+
+        } else {
+            error_log($hash);
+            error_log($data->transactionHash);
+        }
     }
 }
