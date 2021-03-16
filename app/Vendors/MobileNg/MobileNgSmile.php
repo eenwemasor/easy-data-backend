@@ -112,9 +112,9 @@ class MobileNgSmile extends MobileNgRoot
     private function get_url($transactionType)
     {
         if ($transactionType == SmileTransactionType::BUNDLE) {
-            return "https://mobilenig.com/API/bills/smile_data_test?";
+            return "https://mobilenig.com/API/bills/smile_data?";
         } else {
-            return 'https://mobilenig.com/API/bills/smile_recharge_test?';
+            return 'https://mobilenig.com/API/bills/smile_recharge?';
         }
     }
 

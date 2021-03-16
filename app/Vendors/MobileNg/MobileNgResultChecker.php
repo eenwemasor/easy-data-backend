@@ -41,9 +41,9 @@ class MobileNgResultChecker extends MobileNgRoot
     private function get_url($examination_body)
     {
         if ($examination_body == ResultCheckerExamBody::WAEC) {
-            return "https://mobilenig.com/API/bills/waec_test?";
+            return "https://mobilenig.com/API/bills/waec?";
         } else {
-            return 'https://mobilenig.com/API/bills/neco_test?';
+            return 'https://mobilenig.com/API/bills/neco?';
         }
     }
 }
