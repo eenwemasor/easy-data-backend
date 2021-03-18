@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: user
@@ -10,6 +11,7 @@ namespace App\Vendors\Ringo;
 
 
 use App\DataPlanList;
+use App\Enums\NetworkType;
 use App\Enums\ServiceType;
 use App\GraphQL\Errors\GraphqlError;
 use App\User;
@@ -34,7 +36,7 @@ class RingoData extends RingoRoot
         $request_param = array_merge([
             'serviceCode' => "ADA",
             'msisdn' => $args['beneficiary'],
-            'product_id'=> $dataPlanList->product_code,
+            'product_id' => $dataPlanList->product_code,
             'request_id' => $reference
         ]);
 
@@ -44,7 +46,7 @@ class RingoData extends RingoRoot
         if (str_upper($response->message) == "SUCCESSFUL" && $response->status == "200") {
             return [
                 'success' => true,
-                'message' =>"successful"
+                'message' => "successful"
             ];
         } else {
             return [
@@ -52,21 +54,51 @@ class RingoData extends RingoRoot
                 'message' => $response->message
             ];
         }
-
     }
 
     /**
      * @param $data
-     * @param $amount
+     * @param $dataPlan
      * @return float|int
      */
-    public function apply_discount($data, $amount)
+    public function apply_discount($data, $dataPlan)
     {
         $user = User::find($data['user_id']);
-        $applicables = $user->account_level->applicables()->where('service_type',
-            ServiceType::DATA_DIRECT
-        )->get();
-        return $this->apply_applicable($amount, $applicables);
-    }
+        $applicables = null;
+        switch ($dataPlan->network) {
+            case NetworkType::GLO: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_GLO
+                    )->get();
+                    break;
+                }
+            case NetworkType::MTN: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_MTN
+                    )->get();
+                    break;
+                }
+            case NetworkType::AIRTEL: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_AIRTEL
+                    )->get();
+                    break;
+                }
+            case NetworkType::NINE_MOBILE: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_9MOBILE
+                    )->get();
+                    break;
+                }
+            default: {
+                    throw new GraphqlError('Invalid network provided');
+                }
+        }
 
+        return $this->apply_applicable($dataPlan->amount, $applicables);
+    }
 }

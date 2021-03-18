@@ -4,6 +4,7 @@ use App\Enums\ApplicationMethodType;
 use App\Enums\CalculationMethodType;
 use App\Enums\ServiceType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AccountLevelApplicablesSeeder extends Seeder
 {
@@ -71,30 +72,121 @@ class AccountLevelApplicablesSeeder extends Seeder
                 'calculation_method'=>CalculationMethodType::PERCENTAGE,
                 'value' => 2,
             ],
+
+            // free account level direct data applicables
             [
                 'account_level_id' => 1,
-                'service_type' => ServiceType::DATA_DIRECT,
+                'service_type' => ServiceType::DATA_DIRECT_9MOBILE,
                 'application_method'=>ApplicationMethodType::DISCOUNT,
                 'calculation_method'=>CalculationMethodType::PERCENTAGE,
                 'value' => 1,
             ],
             [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_DIRECT_AIRTEL,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 1,
+            ],
+            [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_DIRECT_GLO,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 1,
+            ],
+            [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_DIRECT_MTN,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 1,
+            ],
+
+            //  paid account direct data applicables
+            [
                 'account_level_id' => 2,
-                'service_type' => ServiceType::DATA_DIRECT,
+                'service_type' => ServiceType::DATA_DIRECT_9MOBILE,
                 'application_method'=>ApplicationMethodType::DISCOUNT,
                 'calculation_method'=>CalculationMethodType::PERCENTAGE,
                 'value' => 2,
             ],
             [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_DIRECT_AIRTEL,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 2,
+            ],
+            [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_DIRECT_GLO,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 2,
+            ],
+            [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_DIRECT_MTN,
+                'application_method'=>ApplicationMethodType::DISCOUNT,
+                'calculation_method'=>CalculationMethodType::PERCENTAGE,
+                'value' => 2,
+            ],
+            //  free account sme data applicables
+            [
                 'account_level_id' => 1,
-                'service_type' => ServiceType::DATA_SME,
+                'service_type' => ServiceType::DATA_SME_9MOBILE,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+            [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_SME_AIRTEL,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+            [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_SME_GLO,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+            [
+                'account_level_id' => 1,
+                'service_type' => ServiceType::DATA_SME_MTN,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+
+            //  free account sme data applicables
+            [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_SME_9MOBILE,
                 'application_method'=>ApplicationMethodType::NONE,
                 'calculation_method'=>CalculationMethodType::AMOUNT,
                 'value' => 0,
             ],
             [
                 'account_level_id' => 2,
-                'service_type' => ServiceType::DATA_SME,
+                'service_type' => ServiceType::DATA_SME_AIRTEL,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+            [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_SME_GLO,
+                'application_method'=>ApplicationMethodType::NONE,
+                'calculation_method'=>CalculationMethodType::AMOUNT,
+                'value' => 0,
+            ],
+            [
+                'account_level_id' => 2,
+                'service_type' => ServiceType::DATA_SME_MTN,
                 'application_method'=>ApplicationMethodType::NONE,
                 'calculation_method'=>CalculationMethodType::AMOUNT,
                 'value' => 0,

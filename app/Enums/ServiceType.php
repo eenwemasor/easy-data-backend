@@ -9,8 +9,14 @@ use BenSampo\Enum\Enum;
  */
 final class ServiceType extends Enum
 {
-    const DATA_DIRECT =   "DATA_DIRECT";
-    const DATA_SME =   "DATA_SME";
+    const DATA_DIRECT_MTN =   "DATA_DIRECT_MTN";
+    const DATA_DIRECT_AIRTEL =   "DATA_DIRECT_AIRTEL";
+    const DATA_DIRECT_9MOBILE =   "DATA_DIRECT_9MOBILE";
+    const DATA_DIRECT_GLO =   "DATA_DIRECT_GLO";
+    const DATA_SME_MTN =   "DATA_SME_MTN";
+    const DATA_SME_AIRTEL =   "DATA_SME_AIRTEL";
+    const DATA_SME_9MOBILE =   "DATA_SME_9MOBILE";
+    const DATA_SME_GLO =   "DATA_SME_GLO";
     const GLO_AIRTIME =   "GLO_AIRTIME";
     const MTN_AIRTIME =   "MTN_AIRTIME";
     const AIRTEL_AIRTIME =   "AIRTEL_AIRTIME";

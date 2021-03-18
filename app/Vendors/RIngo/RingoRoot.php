@@ -36,7 +36,7 @@ class RingoRoot extends ApplyAccountLevelApplicables
         $response = json_decode($res->getBody()->getContents());
         $res = $response->wallet;
         if (str_upper($res->message) == "SUCCESSFUL" && $res->status == "200") {
-            if ($res->wallet->balance < $transactionAmount) throw new GraphqlError("Service is not available currently, please try again later");
+            // if ($res->wallet->balance < $transactionAmount) throw new GraphqlError("Service is not available currently, please try again later");
         } else {
             throw new GraphqlError($res->message);
         }

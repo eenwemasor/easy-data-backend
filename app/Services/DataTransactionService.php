@@ -75,7 +75,7 @@ class DataTransactionService
         }
 
         $vendor->check_api_wallet($dataPlan->amount);
-        $amount = $vendor->apply_discount($dataTransaction, $dataPlan->amount);
+        $amount = $vendor->apply_discount($dataTransaction, $dataPlan);
         $walletTransactionResult = $this->chargeUser($dataTransaction, $dataPlan, $amount);
 
         $dataPurchaseResponse = $vendor->purchase_data($dataTransaction, $walletTransactionResult['reference'], $dataPlan, 'transaction_successful', 'transaction_failed');

@@ -74,21 +74,51 @@ class DailyEarnProData extends DailyEarnProRoot
             default:
                 throw new GraphqlError("Invalid network type");
         }
-
     }
 
     /**
      * @param $data
-     * @param $amount
+     * @param $dataPlan
      * @return float|int
      */
-    public function apply_discount($data, $amount)
+    public function apply_discount($data, $dataPlan)
     {
         $user = User::find($data['user_id']);
-        $applicables = $user->account_level->applicables()->where('service_type',
-            ServiceType::DATA_SME
-        )->get();
-        return $this->apply_applicable($amount, $applicables);
+        $applicables = null;
+        switch ($dataPlan->network) {
+            case NetworkType::GLO: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_GLO
+                    )->get();
+                    break;
+                }
+            case NetworkType::MTN: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_MTN
+                    )->get();
+                    break;
+                }
+            case NetworkType::AIRTEL: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_AIRTEL
+                    )->get();
+                    break;
+                }
+            case NetworkType::NINE_MOBILE: {
+                    $applicables = $user->account_level->applicables()->where(
+                        'service_type',
+                        ServiceType::DATA_DIRECT_9MOBILE
+                    )->get();
+                    break;
+                }
+            default: {
+                    throw new GraphqlError('Invalid network provided');
+                }
+        }
+        return $this->apply_applicable($dataPlan->amount, $applicables);
     }
 
 }
