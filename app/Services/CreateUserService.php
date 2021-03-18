@@ -10,8 +10,11 @@ namespace App\Services;
 
 
 use App\AccountLevel;
+use App\AdminChannelUtil;
 use App\Enums\AccountAccessibility;
+use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
+use App\Enums\WalletTransactionStatus;
 use App\Enums\WalletType;
 use App\Events\TransactionPin;
 use App\GraphQL\Errors\GraphqlError;
@@ -19,6 +22,7 @@ use App\Http\Controllers\SendVerificationUrlController;
 use App\ReferralReward;
 use App\Repositories\CreateUserRepository;
 use App\User;
+use App\WalletTransaction;
 
 class CreateUserService
 {
@@ -272,5 +276,45 @@ class CreateUserService
         ];
         $this->walletTransactionService->create($walletTransactionData, WalletType::BONUS_WALLET);
         return $walletTransactionData;
+    }
+
+
+    /**
+     * @param $requestData
+     * @throws GraphqlError
+     * @throws \Exception
+     */
+    public function handle_monnify_deposit($requestData)
+    {
+        $data = $requestData;
+        $admin_util = AdminChannelUtil::first();
+        $hash_string = env("MONNIFY_SECRET_KEY") . "|" . $data->paymentReference . "|" . $data->amountPaid . "|" . $data->paidOn . "|" . $data->transactionReference;
+        $hash = hash("sha512", $hash_string);
+        $amount =  $data->amountPaid - $admin_util->monnify_bank_service_charge;
+
+        $transactionExists = WalletTransaction::where('reference', $data->transactionReference)->first();
+        if(isset($transactionExists) && $transactionExists->status === WalletTransactionStatus::SUCCESSFUL){
+            throw new \Exception("Duplicate transaction");
+        }else {
+            if ($hash === $data->transactionHash) {
+                $reference = $data->product['reference'];
+                $user = User::where('username', $reference)->first();
+
+                $wallet_transaction_settings = [
+                    "reference" => $data->transactionReference,
+                    "transaction_type" => TransactionType::CREDIT,
+                    "description" => "Monnify bank deposit",
+                    "amount" => $amount,
+                    "beneficiary" => $user->full_name,
+                    "user_id" => $user->id
+
+                ];
+                $this->walletTransactionService->create($wallet_transaction_settings);
+                $this->reward_referrals($user->id, $data->amountPaid);
+
+            } else {
+                throw new \Exception($requestData);
+            }
+        }
     }
 }

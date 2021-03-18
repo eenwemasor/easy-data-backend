@@ -65,6 +65,7 @@ class WalletTransactionService
     public function create(array $walletTransaction, $from = null)
     {
         // TODO: Implement create() method.
+        error_log(json_encode($walletTransaction));
         $user_cont = New UserController();
         $user = $user_cont->getUserById($walletTransaction["user_id"]);
 
@@ -72,7 +73,13 @@ class WalletTransactionService
         $amount = $walletTransaction["amount"];
 
         if ($transaction_type == TransactionType::CREDIT) {
-            $this->walletTransactionData = array_merge($walletTransaction, $this->wallet_controller->fund_wallet($user, $amount, $from));
+            $this->walletTransactionData = array_merge(
+                $walletTransaction,
+                $this->wallet_controller->fund_wallet(
+                    $user,
+                    $amount,
+                    $from,
+                    isset($walletTransaction['reference']) ?: null));
         } else if ($transaction_type == TransactionType::DEBIT) {
             if ($user->wallet >= $amount) {
                 $this->walletTransactionData = array_merge($walletTransaction, $this->wallet_controller->deduct_from_wallet($user, $amount, WalletType::WALLET));
