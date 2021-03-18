@@ -1,7 +1,7 @@
 extend type Mutation @middleware(checks: ["auth:api"]){
 
-    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtilSeeder")
-    @can(ability: "update", model: "App\\AdminChannelUtilSeeder" find: "id")
+    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+    @can(ability: "update", model: "App\\AdminChannelUtil" find: "id")
     @inject(context: "user", name: "user")
 
 
