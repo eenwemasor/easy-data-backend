@@ -77,7 +77,7 @@ class ElectricityTransactionService
 
         if ($electricityTransactionResult['success']) {
             $electricityTransactionData['status'] = TransactionStatus::COMPLETED;
-            $electricityTransactionData['token'] = $electricityTransactionResult->token;
+            $electricityTransactionData['token'] = $electricityTransactionResult['token'];
             $electricityTransactionResult = $this->electricityTransactionRepository->create($electricityTransactionData);
 
             $this->sendElectricityToken($electricityTransactionResult['token'], $electricityTransaction['phone']);
