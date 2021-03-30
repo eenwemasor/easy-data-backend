@@ -22,7 +22,7 @@ class DailyEarnProData extends DailyEarnProRoot
         $url = $this->get_url($dataPlanList->network);
         $request = $this->compose_request([
             "network" => $dataPlanList->network === NetworkType::GLO ? "GLO" : $dataPlanList->network,
-            "mobile" => $dataPlanList->network,
+            "mobile" => $args['beneficiary'],
             "network_code" => $dataPlanList->product_code,
             'ref' => $reference
         ]);

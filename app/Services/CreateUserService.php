@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: user
@@ -217,7 +218,6 @@ class CreateUserService
             $monnify = new MonnifyService();
             $monnify_data = $monnify->reserveAnAccount($user);
         } catch (\Exception $e) {
-
         }
 
         return $monnify_data;
@@ -293,9 +293,9 @@ class CreateUserService
         $amount =  $data->amountPaid - $admin_util->monnify_bank_service_charge;
 
         $transactionExists = WalletTransaction::where('reference', $data->transactionReference)->first();
-        if(isset($transactionExists) && $transactionExists->status === WalletTransactionStatus::SUCCESSFUL){
+        if (isset($transactionExists) && $transactionExists->status === WalletTransactionStatus::SUCCESSFUL) {
             throw new \Exception("Duplicate transaction");
-        }else {
+        } else {
             if ($hash === $data->transactionHash) {
                 $reference = $data->product['reference'];
                 $user = User::where('username', $reference)->first();
@@ -311,7 +311,6 @@ class CreateUserService
                 ];
                 $this->walletTransactionService->create($wallet_transaction_settings);
                 $this->reward_referrals($user->id, $data->amountPaid);
-
             } else {
                 throw new \Exception($requestData);
             }
