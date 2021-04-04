@@ -94,6 +94,11 @@ class User extends Authenticatable implements MustVerifyEmail
        return $this->belongsTo(AccountLevel::class, 'account_level_id','id');
     }
 
+    public function banks()
+    {
+        return $this->hasMany(BankAccount::class);
+    }
+
     public static function boot() {
         parent::boot();
         self::deleting(function($user) {
@@ -111,6 +116,9 @@ class User extends Authenticatable implements MustVerifyEmail
             });
             $user->wallet_transactions()->each(function($transaction) {
                 $transaction->delete();
+            });
+            $user->bans()->each(function($bank) {
+                $bank->delete();
             });
         });
     }

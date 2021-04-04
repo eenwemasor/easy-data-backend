@@ -29,6 +29,7 @@ type User {
     monnify_reservation_channel: String!
     referrer: User @belongsTo
     referrals: [User !]! @hasMany
+    banks: [BankAccount !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany
     cable_transactions: [CableTransaction !]! @hasMany
     airtime_transactions: [AirtimeTransaction !]! @hasMany
