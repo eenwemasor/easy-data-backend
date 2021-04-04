@@ -7,7 +7,6 @@ extend type Query{
     allCablePlans(orderBy: [OrderByClause!] @orderBy): [CablePlanList!]! @all
     allSmilePlans(orderBy: [OrderByClause!] @orderBy): [SmilePriceList!]! @all
     allSpectranetPlans(orderBy: [OrderByClause!] @orderBy): [SpectranetPriceList!]! @all
-    allBankAccounts(orderBy: [OrderByClause!] @orderBy): [BankAccount!]! @all
     referralRewards: ReferralReward @first
     getDataPlanList(
         network: NetworkType! @where(operator: "=") orderBy: [OrderByClause!] @orderBy

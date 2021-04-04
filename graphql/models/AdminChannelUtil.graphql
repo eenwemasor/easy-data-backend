@@ -37,10 +37,4 @@ type ContestStats {
 }
 
 
-type BankAccount{
-    id:ID!
-    name:String!
-    bank_name:String!
-    bank_number:String!
-    updated_at:DateTime
-}
+

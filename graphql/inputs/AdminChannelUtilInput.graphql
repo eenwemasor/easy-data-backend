@@ -38,19 +38,3 @@ input TalkToUsInput{
 }
 
 
-
-input CreateBankAccountInput{
-    name:String!
-    bank_name:String!
-    bank_number:String!
-}
-
-
-input UpdateBankAccountInput{
-    id:ID!
-    name:String
-    bank_name:String
-    bank_number:String
-}
-
-

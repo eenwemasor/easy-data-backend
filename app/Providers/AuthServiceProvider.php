@@ -35,6 +35,7 @@ use App\Policies\ResultCheckTransactionPolicy;
 use App\Policies\SmilePriceListPolicy;
 use App\Policies\SpectranetPriceListPolicy;
 use App\Policies\WalletTransactionPolicy;
+use App\Policies\WithdrawalTransactionPolicy;
 use App\PowerPlanList;
 use App\ReferralReward;
 use App\ResultChecker;
@@ -42,6 +43,7 @@ use App\ResultCheckTransaction;
 use App\SmilePriceList;
 use App\SpectranetPriceList;
 use App\WalletTransaction;
+use App\WithdrawalTransaction;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -73,7 +75,8 @@ class AuthServiceProvider extends ServiceProvider
         ResultCheckerPolicy::class => ResultChecker::class,
         ResultCheckTransactionPolicy::class => ResultCheckTransaction::class,
         SmilePriceListPolicy::class => SmilePriceList::class,
-        SpectranetPriceListPolicy::class => SpectranetPriceList::class
+        SpectranetPriceListPolicy::class => SpectranetPriceList::class,
+        WithdrawalTransactionPolicy::class => WithdrawalTransaction::class
     ];
 
     /**
