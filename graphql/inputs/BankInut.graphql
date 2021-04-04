@@ -1,0 +1,14 @@
+input CreateBankAccountInput{
+    name:String!
+    bank_id:String!
+    user_id:ID!
+    bank_number:String!
+}
+
+
+input UpdateBankAccountInput{
+    id:ID!
+    name:String
+    bank_id:String
+    bank_number:String
+}

@@ -1,0 +1,20 @@
+type BankAccount{
+    id:ID!
+    name:String!
+    bank_number:String!
+    bank_id:String!
+    user_id: ID!
+    bank: Bank!
+    updated_at:DateTime
+    created_at: DateTime
+}
+
+
+type Bank{
+    id:ID!
+    name:String!
+    country:String!
+    currency:String!
+    type:String
+}
+

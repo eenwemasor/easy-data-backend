@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class BankList extends Model
+class Bank extends Model
 {
     protected $fillable = [
         'name',

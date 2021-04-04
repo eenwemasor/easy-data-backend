@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class BankAccount extends Model
 {
     protected $fillable = [
-        'id','name','bank_name','bank_number', 'user_id', "bank_list_id"
+        'id','name','bank_id','bank_number', 'user_id'
     ];
 
 
@@ -24,10 +24,15 @@ class BankAccount extends Model
     /**
      * @return HasOne
      */
-    public function bank_list(): HasOne
+    public function bank(): HasOne
     {
-        return $this->hasOne(BankList::class, 'bank_list_id','id');
+        return $this->hasOne(Bank::class, 'id','bank_id');
 
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

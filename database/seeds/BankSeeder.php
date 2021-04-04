@@ -4,7 +4,7 @@ use App\Gateways\Paystack;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BankListSeeder extends Seeder
+class BankSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class BankListSeeder extends Seeder
     {
         $paystack = new Paystack();
         foreach ($paystack->get_bank_list() as $bank){
-            DB::table('bank_lists')->insert([
+            DB::table('banks')->insert([
                 [
                     'name' => $bank->name,
                     'slug' => $bank->slug,
