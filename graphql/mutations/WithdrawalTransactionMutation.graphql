@@ -1,0 +1,10 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateWithdrawalTransaction(input: CreateWithdrawalTransactionInput! @spread): WithdrawalTransaction @field(resolver: "WithdrawalTransaction@resolve")
+
+    DeleteWithdrawalTransaction(id:ID!): WithdrawalTransaction  @delete(model: "App\\WithdrawalTransaction")
+    @can(ability: "delete", model: "App\\WithdrawalTransaction" find: "id")
+    @inject(context: "user", name: "user")
+
+}
+
+

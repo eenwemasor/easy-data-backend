@@ -1,0 +1,13 @@
+type WithdrawalTransaction{
+    id: ID!
+    reference:String!
+    initial_balance: Float!
+    amount:Float!
+    new_balance: Float!
+    status: TransactionStatus!
+    method: String!
+    bank_id: ID!
+    bank: BankAccount
+    user_id: ID!
+    user: User
+}

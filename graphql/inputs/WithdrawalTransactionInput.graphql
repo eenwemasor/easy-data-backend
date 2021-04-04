@@ -1,0 +1,6 @@
+input  CreateWithdrawalTransactionInput{
+    id: ID!
+    amount: Float
+    bank_id: ID!
+    user_id: ID!
+}
