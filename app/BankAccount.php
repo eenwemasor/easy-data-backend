@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class BankAccount extends Model
 {
     protected $fillable = [
-        'id','name','bank_id','bank_number', 'user_id'
+        'id','name','bank_id','bank_number','recipient_code','user_id'
     ];
 
 

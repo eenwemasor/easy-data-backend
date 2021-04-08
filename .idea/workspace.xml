@@ -20,38 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/WithdrawalTransactionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/BankService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/WithdrawalTransactionService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/queries/WithdrawalTransactionQuery.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/BankAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BankAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/ServiceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/ServiceType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Gateways/Paystack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gateways/Paystack.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Mutations/WithdrawalTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Mutations/WithdrawalTransaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllAirtimeTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllAirtimeTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllCableTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllCableTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllDataTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllDataTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllElectricityTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllElectricityTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSmileTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSmileTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSpectranetTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllSpectranetTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllWalletTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/GetAllWalletTransactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GraphQL/Queries/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GraphQL/Queries/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgRoot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgRoot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgSmile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/MobileNg/MobileNgSmile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vendors/RIngo/RingoData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendors/RIngo/RingoData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/WithdrawalTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/WithdrawalTransaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_02_215410_create_bank_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_02_215410_create_bank_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/models/Bank.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/Bank.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/models/WithdrawalTransaction.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/WithdrawalTransaction.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/mutations/BankMutation.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/mutations/BankMutation.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/queries/BankQueries.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/queries/BankQueries.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -661,7 +631,7 @@
       <workItem from="1617709677838" duration="8063000" />
       <workItem from="1617796928322" duration="6901000" />
       <workItem from="1617812012888" duration="11502000" />
-      <workItem from="1617839215733" duration="896000" />
+      <workItem from="1617839215733" duration="2889000" />
     </task>
     <servers />
   </component>
