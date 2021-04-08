@@ -52,6 +52,10 @@ class WithdrawalTransactionService
         $user = User::find($args['user_id']);
         $bank = $this->getBankAccount($args['bank_id']);
 
+        if($args['transaction_pin']  !== $user->transaction_pin){
+            throw new GraphqlError("Incorrect transaction pin");
+        }
+
         if(!isset($bank->recipient_code)){
             $bank = $this->paystack->create_transfer_recipient($bank);
         }
