@@ -28,9 +28,9 @@ interface CreateUserContract
 
     /**
      * @param string $user_id
-     * @return User
+     * @return array
      */
-    public function create_transaction_pin(string $user_id):User;
+    public function create_transaction_pin(string $user_id):array;
 
     /**
      * @param string $user_id

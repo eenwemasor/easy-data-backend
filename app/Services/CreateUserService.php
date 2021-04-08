@@ -102,17 +102,14 @@ class CreateUserService
 
     /**
      * @param string $user_id
-     * @return \App\User
+     * @throws GraphqlError
      */
     public function create_transaction_pin(string $user_id)
     {
-        $user = $this->createUserRepository->create_transaction_pin($user_id);
+        $transactionPin = $this->createUserRepository->create_transaction_pin($user_id);
+        event(new TransactionPin($transactionPin['user'], $transactionPin['message']));
 
-        $message = "You Successfully Created your Subpay Transaction Pin";
-
-        event(new TransactionPin($user, $message));
-
-        return $user;
+        return $transactionPin['user'];
     }
 
     /**

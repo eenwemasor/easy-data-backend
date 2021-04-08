@@ -45,29 +45,34 @@ class CreateUserRepository implements CreateUserContract
 
     /**
      * @param string $user_id
-     * @return User
-     * @throws
+     * @return array
+     * @throws GraphqlError
      */
-    public function create_transaction_pin(string $user_id): User
+    public function create_transaction_pin(string $user_id):array
     {
        $user = User::find($user_id);
        if(isset($user->transaction_pin)){
-            throw new GraphqlError("You already have transaction pin Associated with your account");
+            return [
+                'user' => $user,
+                'message' => "Your account already has a transaction pin, this mail contains your transaction
+                            pin, if you wish to change your transaction pin, please use the change transaction pin option."
+            ];
        }else{
            $random_transaction_pin = rand(1000,9999);
            $random_transaction_pin_exists = User::where('transaction_pin', $random_transaction_pin);
 
            if(!$random_transaction_pin_exists){
-               throw new GraphqlError("Error");
+               throw new GraphqlError("Error generating transaction pin");
            }else{
                $user->transaction_pin = $random_transaction_pin;
               $user->save();
 
-               return $user;
+               return [
+                   'user' => $user,
+                   'message' => "You successfully created your subpay transaction pin"
+               ];
            }
-
        }
-
 }
 
     /**
