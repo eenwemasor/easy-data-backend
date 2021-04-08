@@ -7,7 +7,9 @@ type WithdrawalTransaction{
     status: TransactionStatus!
     method: String!
     bank_id: ID!
-    bank: BankAccount
+    bankAccount: BankAccount
     user_id: ID!
     user: User
+    created_at: DateTime
+    updated_at: DateTime
 }

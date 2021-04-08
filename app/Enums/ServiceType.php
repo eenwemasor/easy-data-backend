@@ -27,5 +27,6 @@ final class ServiceType extends Enum
     const SPECTRANET =   "SPECTRANET";
     const RESULT_CHECKER =   "RESULT_CHECKER";
     const WALLET_DEPOSIT = "WALLET_DEPOSIT";
+    const WITHDRAWAL = "WITHDRAWAL";
 
 }

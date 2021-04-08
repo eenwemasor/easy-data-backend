@@ -1,6 +1,6 @@
 input  CreateWithdrawalTransactionInput{
-    id: ID!
-    amount: Float
+    amount: Float!
+    transaction_pin: String!
     bank_id: ID!
     user_id: ID!
 }

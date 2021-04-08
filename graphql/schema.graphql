@@ -82,6 +82,7 @@ enum ServiceType{
     SPECTRANET
     RESULT_CHECKER
     WALLET_DEPOSIT
+    WITHDRAWAL
 }
 
 

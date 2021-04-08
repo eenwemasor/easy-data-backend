@@ -1,5 +1,5 @@
 extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateBankAccount(input: CreateBankAccountInput! @spread): BankAccount @create(model: "App\\BankAccount")
+    CreateBankAccount(input: CreateBankAccountInput! @spread): BankAccount @field(resolver: "BankMutation@resolve")
     UpdateBankAccount(input: UpdateBankAccountInput! @spread): BankAccount @update(model: "App\\BankAccount")
     DeleteBankAccount(id:ID!): BankAccount @delete(model: "App\\BankAccount")
 }

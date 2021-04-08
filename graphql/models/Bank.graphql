@@ -9,6 +9,12 @@ type BankAccount{
     created_at: DateTime
 }
 
+type AccountNumberDetails{
+    account_number: String,
+    account_name:String,
+    bank_id: String
+}
+
 
 type Bank{
     id:ID!
@@ -16,5 +22,6 @@ type Bank{
     country:String!
     currency:String!
     type:String
+    code:String
 }
 

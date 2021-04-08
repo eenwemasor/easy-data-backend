@@ -25,10 +25,10 @@ class RingoData extends RingoRoot
      * @param array $args
      * @param string $reference
      * @param DataPlanList $dataPlanList
-     * @return mixed
+     * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function purchase_data(array $args, string $reference, DataPlanList $dataPlanList)
+    public function purchase_data(array $args, string $reference, DataPlanList $dataPlanList): array
     {
         $url = config('constant.RINGO_ENDPOINT');
         $headers = config('constant.HEADERS');
@@ -59,7 +59,7 @@ class RingoData extends RingoRoot
     /**
      * @param $data
      * @param $dataPlan
-     * @return float|int
+     * @return mixed
      */
     public function apply_discount($data, $dataPlan)
     {

@@ -9,7 +9,16 @@ use Illuminate\Database\Eloquent\Builder;
 
 class SearchBuilder
 {
-    static public function search_builder(Builder $query, $table, $from_date, $to_date, $status, $search)
+    /**
+     * @param Builder $query
+     * @param $table
+     * @param $from_date
+     * @param $to_date
+     * @param $status
+     * @param $search
+     * @return Builder
+     */
+    static public function search_builder(Builder $query, $table, $from_date, $to_date, $status, $search): Builder
     {
         $from = $from_date ?: Carbon::createFromTimestamp(0)->toDateString();
         $to = $to_date ?: Carbon::now();
@@ -75,6 +84,7 @@ class SearchBuilder
                 $columns = ['amount', 'quantity', ];
                 break;
             }
+            case 'withdrawal_transactions':
             case 'result_check_transactions':
             {
                 $columns = ['amount'];

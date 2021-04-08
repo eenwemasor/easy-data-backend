@@ -121,7 +121,6 @@ class MobileNgSmile extends MobileNgRoot
     /**
      * @param $data
      * @param $amount
-     * @return float|int
      */
     public function apply_discount($data, $amount)
     {

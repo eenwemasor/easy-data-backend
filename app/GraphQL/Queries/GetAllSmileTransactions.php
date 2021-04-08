@@ -4,8 +4,6 @@ namespace App\GraphQL\Queries;
 
 use App\Http\Controllers\SearchBuilder;
 use App\SmileTransaction;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;

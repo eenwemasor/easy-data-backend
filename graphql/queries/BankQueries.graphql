@@ -1,3 +1,5 @@
 extend type Query{
     bankList: [Bank!]! @all
+    GetAccountNumberDetails( bank_number: String!, bank_code:String!): AccountNumberDetails!
+
 }

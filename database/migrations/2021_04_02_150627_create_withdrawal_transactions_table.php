@@ -19,6 +19,10 @@ class CreateWithdrawalTransactionsTable extends Migration
             $table->string('reference');
             $table->float('initial_balance');
             $table->float('amount');
+            $table->string('transfer_code');
+            $table->string('description');
+            $table->string('transfer_reference');
+            $table->string('transfer_id');
             $table->float('new_balance');
             $table->enum('status', TransactionStatus::toArray());
             $table->string('method');

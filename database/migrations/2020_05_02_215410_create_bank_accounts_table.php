@@ -18,6 +18,7 @@ class CreateBankAccountsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('bank_id');
             $table->string('bank_number');
+            $table->string('recipient_code')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

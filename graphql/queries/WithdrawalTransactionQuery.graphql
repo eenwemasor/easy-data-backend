@@ -1,0 +1,11 @@
+extend type Query {
+    getWithdrawalTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [WithdrawalTransaction!]! @paginate(type: "paginator" model: "App\\WithdrawalTransaction")
+
+
+    AllWithdrawalTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [WithdrawalTransaction!]! @paginate( model: "App\\WithdrawalTransaction" builder:"App\\GraphQL\\Queries\\GetAllWithdrawalTransactions@get_all_transactions")
+
+}

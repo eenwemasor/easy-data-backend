@@ -4,6 +4,8 @@ namespace App;
 
 
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -59,42 +61,83 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function data_transactions(){
+    /**
+     * @return HasMany
+     */
+    public function data_transactions(): HasMany
+    {
         return $this->hasMany(DataTransaction::class);
     }
 
-    public function cable_transactions(){
+    /**
+     * @return HasMany
+     */
+    public function cable_transactions(): HasMany
+    {
         return $this->hasMany(CableTransaction::class);
     }
 
-    public function airtime_transactions(){
+    /**
+     * @return HasMany
+     */
+    public function airtime_transactions(): HasMany
+    {
         return $this->hasMany(AirtimeTransaction::class);
     }
-    public function electricity_transactions(){
+
+    /**
+     * @return HasMany
+     */
+    public function electricity_transactions(): HasMany
+    {
         return $this->hasMany(ElectricityTransaction::class);
     }
 
-    public function wallet_transactions(){
+    /**
+     * @return HasMany
+     */
+    public function wallet_transactions(): HasMany
+    {
         return $this->hasMany(WalletTransaction::class);
     }
 
+    /**
+     * @return HasMany
+     */
+    public function withdrawal_transactions(): HasMany
+    {
+        return $this->hasMany(WithdrawalTransaction::class);
+    }
 
-    public function referrer()
+
+    /**
+     * @return BelongsTo
+     */
+    public function referrer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'referrer_id', 'id');
     }
 
-    public function referrals()
+    /**
+     * @return HasMany
+     */
+    public function referrals(): HasMany
     {
         return $this->hasMany(User::class, 'referrer_id', 'id');
     }
 
-    public function account_level()
+    /**
+     * @return BelongsTo
+     */
+    public function account_level(): BelongsTo
     {
        return $this->belongsTo(AccountLevel::class, 'account_level_id','id');
     }
 
-    public function banks()
+    /**
+     * @return HasMany
+     */
+    public function banks(): HasMany
     {
         return $this->hasMany(BankAccount::class);
     }
@@ -117,9 +160,13 @@ class User extends Authenticatable implements MustVerifyEmail
             $user->wallet_transactions()->each(function($transaction) {
                 $transaction->delete();
             });
-            $user->bans()->each(function($bank) {
+            $user->banks()->each(function($bank) {
                 $bank->delete();
             });
+            $user->withdrawal_transactions()->each(function($withdrawal) {
+                $withdrawal->delete();
+            });
+
         });
     }
 

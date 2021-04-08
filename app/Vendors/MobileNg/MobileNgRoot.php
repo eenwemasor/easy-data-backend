@@ -8,15 +8,17 @@ use App\Enums\ServiceType;
 use App\GraphQL\Errors\GraphqlError;
 use App\User;
 use App\Vendors\ApplyAccountLevelApplicables;
+use Illuminate\Config\Repository;
+use Illuminate\Contracts\Foundation\Application;
 
 class MobileNgRoot extends ApplyAccountLevelApplicables
 {
     /**
-     * @var \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     * @var Repository|Application|mixed
      */
     private $api_key;
     /**
-     * @var \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     * @var Repository|Application|mixed
      */
     private $username;
 
@@ -47,6 +49,10 @@ class MobileNgRoot extends ApplyAccountLevelApplicables
         if (json_decode($response)->balance < $amount) throw new GraphqlError("Service is not available currently, please try again later");
     }
 
+    /**
+     * @param $param
+     * @return mixed
+     */
     protected function compose_request($param)
     {
         $request = "";
@@ -58,10 +64,11 @@ class MobileNgRoot extends ApplyAccountLevelApplicables
         $len = strlen($request) - 1;
         return substr($request, 0, $len); //remove the final ampersand sign from the request
     }
+
     /**
      * @param $data
      * @param $amount
-     * @return float|int
+     * @return mixed
      */
     public function apply_discount($data, $amount)
     {

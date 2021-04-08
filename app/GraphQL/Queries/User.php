@@ -3,7 +3,6 @@
 namespace App\GraphQL\Queries;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Illuminate\Support\Facades\DB;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class User
