@@ -6,5 +6,6 @@ type AccountLevel {
     indirect_referrer_percentage_bonus:Float
     wallet_deposit_direct_referrer_percentage_bonus:Float
     wallet_deposit_indirect_referrer_percentage_bonus:Float
+    bonus_wallet_withdrawal_minimum_balance: Float
     applicables: [AccountLevelApplicable !]!
 }

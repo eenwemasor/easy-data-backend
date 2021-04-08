@@ -7,6 +7,7 @@ namespace App\Services;
 use App\BankAccount;
 use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
+use App\Enums\WithdrawalDestination;
 use App\Gateways\Paystack;
 use App\GraphQL\Errors\GraphqlError;
 use App\Repositories\WithdrawalTransactionRepository;
@@ -49,74 +50,133 @@ class WithdrawalTransactionService
      */
     public function create(array $args): WithdrawalTransaction
     {
-        $user = User::find($args['user_id']);
-        $bank = $this->getBankAccount($args['bank_id']);
-
-        if($args['transaction_pin']  !== $user->transaction_pin){
+        $user = User::with('account_level')->find($args['user_id']);
+        $amount = $this->paystack->apply_discount($args, $args['amount']);
+        if ($args['transaction_pin'] !== $user->transaction_pin) {
             throw new GraphqlError("Incorrect transaction pin");
         }
-
-        if(!isset($bank->recipient_code)){
-            $bank = $this->paystack->create_transfer_recipient($bank);
+        if (!$user->canWithdrawBonusWallet()) {
+            throw new GraphqlError(
+                "Error: can not withdraw bonus at the moment, to be eligible bonus wallet must exceed " .
+                $user->account_level->bonus_wallet_withdrawal_minimum_balance);
         }
-        $amount = $this->paystack->apply_discount($args, $args['amount']);
-        $walletTransactionResult = $this->chargeUser($user, $amount, $bank);
+
+        $walletTransactionResult = $this->charge_user($args, $amount);
         $walletTransactionCollection = collect($walletTransactionResult);
 
-        $transferRequest = $this->paystack->initiate_transfer($bank, $amount);
-        $withdrawalTransactionData = $this->composeWithdrawalTransactionData($walletTransactionCollection, $transferRequest, $bank);
+        $withdrawalOption = null;
+        if ($args['destination'] === WithdrawalDestination::BANK_ACCOUNT) {
+            $withdrawalOption = $this->create_bank_account_withdrawal($args['bank_id'], $args['amount']);
+        } else {
+            $withdrawalOption = $this->credit_user_wallet($user, $args['amount']);
+        }
+
+
+        $withdrawalTransactionData = $this->compose_withdrawal_transaction_data($walletTransactionCollection, $withdrawalOption);
         return $this->withdrawalTransactionRepository->create($withdrawalTransactionData);
+    }
+
+
+    /**
+     * @param array $args
+     * @param $amount
+     * @return WalletTransaction
+     * @throws GraphqlError
+     */
+    private function charge_user(array $args, $amount): WalletTransaction
+    {
+        $user = User::find($args['user_id']);
+        $beneficiary = "";
+        $description = "";
+
+        if ($args['destination'] === WithdrawalDestination::BANK_ACCOUNT) {
+            $bankAccount = $this->get_bank_account($args['bank_id']);
+            $beneficiary = sprintf("%s (%s)", $bankAccount->name, $bankAccount->bank_number);
+            $description = "Transfer of " . $amount . " to " . $bankAccount->name;
+        } else {
+            $bankAccount = "Self";
+            $description = "Transfer of " . $amount . " from bonus wallet to wallet";
+        }
+        $walletTransactionData = [
+            'transaction_type' => TransactionType::DEBIT,
+            'user_id' => $user->id,
+            'description' => $description,
+            'amount' => $amount,
+            'beneficiary' => $beneficiary
+        ];
+
+        return $this->walletTransactionService->create($walletTransactionData, true);
     }
 
     /**
      * @param $bank_id
      * @return BankAccount
      */
-    private function getBankAccount($bank_id): BankAccount
+    private function get_bank_account($bank_id): BankAccount
     {
-      return BankAccount::with('bank')->find($bank_id)->first();
+        return BankAccount::with('bank')->find($bank_id)->first();
 
     }
 
-
     /**
-     * @param $amount
-     * @param BankAccount $bankAccount
-     * @return WalletTransaction
+     * @param $bank_id
+     * @param float $amount
+     * @return array
      * @throws GraphqlError
      */
-    private function chargeUser(User $user,  $amount, BankAccount $bankAccount)
+    private function create_bank_account_withdrawal($bank_id, float $amount): array
     {
-        $walletTransactionData = [
-            'transaction_type' => TransactionType::DEBIT,
-            'user_id' => $user->id,
-            'description' => "Transfer of ".$amount . " to ". $bankAccount->name,
-            'amount' => $amount,
-            'beneficiary' => sprintf("%s (%s)", $bankAccount->name, $bankAccount->bank_number)
+        $bank = $this->get_bank_account($bank_id);
+        if (!isset($bank->recipient_code)) {
+            $bank = $this->paystack->create_transfer_recipient($bank);
+        }
+        $transferRequest = $this->paystack->initiate_transfer($bank, $amount);
+        $withdrawalOption = [
+            'transfer_code' => $transferRequest->transfer_code,
+            'transfer_reference' => $transferRequest->reference,
+            'transfer_id' => $transferRequest->id,
+            'bank_id' => $bank->id,
+            'status' => $transferRequest->status
         ];
+        return $withdrawalOption;
+    }
 
-        return $this->walletTransactionService->create($walletTransactionData);
+    /**
+     * @param $user
+     * @param float $amount
+     * @return string[]
+     * @throws GraphqlError
+     */
+    private function credit_user_wallet( $user, float $amount): array
+    {
+
+        $this->walletTransactionService->create([
+            'transaction_type' => TransactionType::CREDIT,
+            'user_id' => $user->id,
+            'description' => "bonus wallet withdrawal",
+            'amount' => $amount,
+            'beneficiary' => 'Self'
+        ]);
+        return ['status' => 'success'];
     }
 
     /**
      * @param Collection $walletTransactionCollection
-     * @param $transferRequest
-     * @param BankAccount $bank
+     * @param array $withdrawalOption
      * @return array
      */
-    private function composeWithdrawalTransactionData(Collection $walletTransactionCollection,  $transferRequest, BankAccount $bank): array
+    private function compose_withdrawal_transaction_data(Collection $walletTransactionCollection, array $withdrawalOption): array
     {
         $withdrawalTransactionData = array_merge(
             $walletTransactionCollection->except(['transaction_type', 'wallet', 'status'])->toArray(),
             [
-                'transfer_code' => $transferRequest->transfer_code,
-                'transfer_reference' => $transferRequest->reference,
-                'transfer_id' => $transferRequest->id,
                 'method' => $walletTransactionCollection['wallet'],
-                'bank_id' => $bank->id,
-            ]
+                collect($withdrawalOption)->except(['status'])->toArray()
+
+            ],
+
         );
-        if (($transferRequest->status === "success")) {
+        if (($withdrawalOption['status'] === "success")) {
             ($withdrawalTransactionData['status'] = TransactionStatus::COMPLETED);
         } else {
             ($withdrawalTransactionData['status'] = TransactionStatus::PROCESSING);
@@ -131,15 +191,26 @@ class WithdrawalTransactionService
      */
     public function handle_transfer_success($transferData)
     {
-        $withdrawalTransaction = $this->getWithdrawalTransaction($transferData);
+        $withdrawalTransaction = $this->get_withdrawal_transaction($transferData);
 
-        if(isset($withdrawalTransaction)){
-            return $withdrawalTransaction->update(['status'=>TransactionStatus::COMPLETED]);
-        }else{
+        if (isset($withdrawalTransaction)) {
+            return $withdrawalTransaction->update(['status' => TransactionStatus::COMPLETED]);
+        } else {
             throw new GraphqlError('transaction does not exist');
         }
     }
 
+    /**
+     * @param $transferDatavoid
+     * @return mixed
+     */
+    private function get_withdrawal_transaction($transferData)
+    {
+        return WithdrawalTransaction::with('user')
+            ->where('transfer_reference', $transferData['reference'])
+            ->where('transfer_code', $transferData['transfer_code'])->first();
+
+    }
 
     /**
      * @param $transferData
@@ -148,35 +219,15 @@ class WithdrawalTransactionService
      */
     public function handle_transfer_failed($transferData)
     {
-        $withdrawalTransaction = $this->getWithdrawalTransaction($transferData);
+        $withdrawalTransaction = $this->get_withdrawal_transaction($transferData);
 
-        if(isset($withdrawalTransaction)){
-            $withdrawalTransaction->update(['status'=>TransactionStatus::FAILED]);
+        if (isset($withdrawalTransaction)) {
+            $withdrawalTransaction->update(['status' => TransactionStatus::FAILED]);
 
-            $this->refundUser($withdrawalTransaction);
+            $this->refund_user($withdrawalTransaction);
             return $withdrawalTransaction;
-        }else{
+        } else {
             throw new GraphqlError('transaction does not exist');
-        }
-    }
-
-
-    /**
-     * @param $transferData
-     * @return string
-     * @throws GraphqlError
-     */
-    public function handle_transfer_reversed($transferData)
-    {
-        $withdrawalTransaction = $this->getWithdrawalTransaction($transferData);
-
-        if(isset($withdrawalTransaction) && $withdrawalTransaction->status !== TransactionStatus::FAILED){
-            $withdrawalTransaction->update(['status'=>TransactionStatus::FAILED]);
-
-            $this->refundUser($withdrawalTransaction);
-            return $withdrawalTransaction;
-        }else{
-            throw new GraphqlError('Status updated previous!');
         }
     }
 
@@ -185,9 +236,9 @@ class WithdrawalTransactionService
      * @return WalletTransaction
      * @throws GraphqlError
      */
-    private function refundUser( WithdrawalTransaction $withdrawalTransaction):WalletTransaction
+    private function refund_user(WithdrawalTransaction $withdrawalTransaction): WalletTransaction
     {
-       $walletTransactionData = [
+        $walletTransactionData = [
             'amount' => $withdrawalTransaction->amount,
             'transaction_type' => TransactionType::CREDIT,
             'description' => 'Refund for failed transfer transaction with the following reference ' . $withdrawalTransaction->reference,
@@ -195,18 +246,25 @@ class WithdrawalTransactionService
             'beneficiary' => $withdrawalTransaction->user->username
 
         ];
-       return $this->walletTransactionService->create($walletTransactionData);
+        return $this->walletTransactionService->create($walletTransactionData);
     }
 
     /**
-     * @param $transferDatavoid
-     * @return mixed
+     * @param $transferData
+     * @return string
+     * @throws GraphqlError
      */
-    private function getWithdrawalTransaction($transferData)
+    public function handle_transfer_reversed($transferData)
     {
-        return WithdrawalTransaction::with('user')
-                                    ->where('transfer_reference', $transferData['reference'])
-                                    ->where('transfer_code', $transferData['transfer_code'])->first();
+        $withdrawalTransaction = $this->get_withdrawal_transaction($transferData);
 
+        if (isset($withdrawalTransaction) && $withdrawalTransaction->status !== TransactionStatus::FAILED) {
+            $withdrawalTransaction->update(['status' => TransactionStatus::FAILED]);
+
+            $this->refund_user($withdrawalTransaction);
+            return $withdrawalTransaction;
+        } else {
+            throw new GraphqlError('Status updated previous!');
+        }
     }
 }

@@ -271,7 +271,7 @@ class CreateUserService
             'user_id' => $user->id,
             'amount' => $amount
         ];
-        $this->walletTransactionService->create($walletTransactionData, WalletType::BONUS_WALLET);
+        $this->walletTransactionService->create($walletTransactionData, true);
         return $walletTransactionData;
     }
 

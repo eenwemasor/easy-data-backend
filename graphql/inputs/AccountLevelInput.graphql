@@ -5,6 +5,7 @@ input  CreateAccountLevelInput{
     indirect_referrer_percentage_bonus:Float!
     wallet_deposit_direct_referrer_percentage_bonus:Float!
     wallet_deposit_indirect_referrer_percentage_bonus:Float!
+    bonus_wallet_withdrawal_minimum_balance:Float!
 }
 
 input  UpdateAccountLevelInput{
@@ -15,6 +16,7 @@ input  UpdateAccountLevelInput{
     indirect_referrer_percentage_bonus:Float
     wallet_deposit_direct_referrer_percentage_bonus:Float
     wallet_deposit_indirect_referrer_percentage_bonus:Float
+    bonus_wallet_withdrawal_minimum_balance:Float
 }
 
 

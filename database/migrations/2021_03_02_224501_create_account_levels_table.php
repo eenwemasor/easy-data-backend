@@ -22,6 +22,7 @@ class CreateAccountLevelsTable extends Migration
             $table->float('indirect_referrer_percentage_bonus');
             $table->float('wallet_deposit_direct_referrer_percentage_bonus');
             $table->float('wallet_deposit_indirect_referrer_percentage_bonus');
+            $table->float('bonus_wallet_withdrawal_minimum_balance')->default(0);
             $table->timestamps();
         });
     }

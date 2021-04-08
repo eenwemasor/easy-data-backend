@@ -119,3 +119,9 @@ enum SmileTransactionType {
     BUNDLE
     RECHARGE
 }
+
+
+enum WithdrawalDestination {
+    WALLET
+    BANK_ACCOUNT
+}

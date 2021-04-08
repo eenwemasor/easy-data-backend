@@ -20,10 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Enums/WithdrawalDestination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contracts/CreateUserContract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/CreateUserContract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/CreateUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CreateUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AccountLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountLevel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Gateways/Paystack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gateways/Paystack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wallet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/AccountStatementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AccountStatementService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/WithdrawalTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/WithdrawalTransactionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +283,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="jsgraphql-schema-editor-notification" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/graphql/queries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Enums" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -287,11 +300,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Enums" />
       <recent name="$PROJECT_DIR$/graphql/queries" />
       <recent name="$PROJECT_DIR$/resources/views/user" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\GraphQL\Queries" />
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Repositories" />
-      <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\SUBPAY\backend\app\Vendors\MobileNg" />
@@ -635,7 +648,9 @@
       <workItem from="1617812012888" duration="11502000" />
       <workItem from="1617839215733" duration="3341000" />
       <workItem from="1617846581074" duration="952000" />
-      <workItem from="1617872228576" duration="1208000" />
+      <workItem from="1617872228576" duration="2152000" />
+      <workItem from="1617885043979" duration="7418000" />
+      <workItem from="1617899361047" duration="4714000" />
     </task>
     <servers />
   </component>

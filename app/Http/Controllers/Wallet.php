@@ -59,14 +59,13 @@ class Wallet extends Controller
     /**
      * @param User $user
      * @param $amount
-     * @param null $from
+     * @param null $target_bonus_wallet
      * @param null $reference
      * @return array
      */
-    public function fund_wallet(User $user, $amount, $from = null, $reference = null)
+    public function fund_wallet(User $user, $amount, $target_bonus_wallet = false, $reference = null)
     {
-
-        if(isset($from)){
+        if($target_bonus_wallet){
             $user_bonus_wallet = $user->bonus_wallet;
             $new_balance = $user_bonus_wallet + $amount;
             $user->bonus_wallet = $new_balance;
@@ -85,6 +84,8 @@ class Wallet extends Controller
             $user->wallet = $new_balance;
             $user->save();
 
+            error_log('wallet amount');
+
             return [
                 'reference'=>uniqid(),
                 'initial_balance' => $user_wallet,
@@ -94,30 +95,6 @@ class Wallet extends Controller
             ];
         }
     }
-
-
-//    public function apply_discount( float $amount, string $network)
-//    {
-//        $discounts = AdminChannelUtil::first();
-//        switch ($network){
-//            case NetworkType::MTN:{
-//                return $amount - $discounts->mtn_discount/100*$amount;
-//            }
-//            case NetworkType::NINE_MOBILE:{
-//                return $amount - $discounts->etisalat_discount/100*$amount;
-//            }
-//            case NetworkType::AIRTEL:{
-//                return $amount - $discounts->airtel_discount/100*$amount;
-//            }
-//            case NetworkType::GLO:{
-//                return $amount - $discounts->glo_discount/100*$amount;
-//            }
-//            default:{
-//                return $amount;
-//            }
-//        }
-//
-//    }
 
 
 }

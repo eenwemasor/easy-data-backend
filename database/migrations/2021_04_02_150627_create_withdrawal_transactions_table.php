@@ -19,14 +19,14 @@ class CreateWithdrawalTransactionsTable extends Migration
             $table->string('reference');
             $table->float('initial_balance');
             $table->float('amount');
-            $table->string('transfer_code');
+            $table->string('transfer_code')->nullable();
             $table->string('description');
-            $table->string('transfer_reference');
-            $table->string('transfer_id');
+            $table->string('transfer_reference')->nullable();
+            $table->string('transfer_id')->nullable();
             $table->float('new_balance');
             $table->enum('status', TransactionStatus::toArray());
             $table->string('method');
-            $table->unsignedBigInteger('bank_id');
+            $table->unsignedBigInteger('bank_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

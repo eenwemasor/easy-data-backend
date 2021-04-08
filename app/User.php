@@ -174,4 +174,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+
+    /**
+     * @return bool
+     */
+    public function canWithdrawBonusWallet(): bool
+    {
+        return $this->account_level->bonus_wallet_withdrawal_minimum_balance < $this->bonus_wallet;
+
+    }
 }

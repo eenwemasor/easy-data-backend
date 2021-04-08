@@ -123,7 +123,10 @@ class Paystack extends ApplyAccountLevelApplicables
             $res = json_decode($response);
             if($res->status === true){
                 $data = $res->data;
-                return $bankAccount::updateOrCreate(['recipient_code'=>$data->recipient_code]);
+                $bankAccount->recipient_code = $data->recipient_code;
+                $bankAccount->save();
+
+                return BankAccount::find($bankAccount->id);
             }else{
                 throw new GraphqlError($res->message);
             }
