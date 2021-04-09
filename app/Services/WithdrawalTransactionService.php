@@ -131,14 +131,13 @@ class WithdrawalTransactionService
             $bank = $this->paystack->create_transfer_recipient($bank);
         }
         $transferRequest = $this->paystack->initiate_transfer($bank, $amount);
-        $withdrawalOption = [
+        return [
             'transfer_code' => $transferRequest->transfer_code,
             'transfer_reference' => $transferRequest->reference,
             'transfer_id' => $transferRequest->id,
             'bank_id' => $bank->id,
             'status' => $transferRequest->status
         ];
-        return $withdrawalOption;
     }
 
     /**
@@ -171,10 +170,9 @@ class WithdrawalTransactionService
             $walletTransactionCollection->except(['transaction_type', 'wallet', 'status'])->toArray(),
             [
                 'method' => $walletTransactionCollection['wallet'],
-                collect($withdrawalOption)->except(['status'])->toArray()
 
             ],
-
+            collect($withdrawalOption)->except(['status'])->toArray()
         );
         if (($withdrawalOption['status'] === "success")) {
             ($withdrawalTransactionData['status'] = TransactionStatus::COMPLETED);

@@ -20,23 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82434d4d-6382-4e8a-bc7f-dafda5c42e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Enums/WithdrawalDestination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AccountLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountLevel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Gateways/Paystack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gateways/Paystack.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wallet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AccountStatementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AccountStatementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/CreateUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CreateUserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/WalletTransactionService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/WithdrawalTransactionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/WithdrawalTransactionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_224501_create_account_levels_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_150627_create_withdrawal_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/AccountLevelInput.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/inputs/WithdrawalTransactionInput.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/models/AccountLevel.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/schema.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -650,7 +636,8 @@
       <workItem from="1617846581074" duration="952000" />
       <workItem from="1617872228576" duration="2152000" />
       <workItem from="1617885043979" duration="7418000" />
-      <workItem from="1617899361047" duration="4714000" />
+      <workItem from="1617899361047" duration="5337000" />
+      <workItem from="1617951869655" duration="371000" />
     </task>
     <servers />
   </component>

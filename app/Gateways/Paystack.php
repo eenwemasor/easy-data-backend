@@ -148,7 +148,7 @@ class Paystack extends ApplyAccountLevelApplicables
 
         $fields = [
             'source' => "balance",
-            'amount' => $amount,
+            'amount' => $amount * 100,
             'recipient' => $bankAccount->recipient_code,
             'reason' => "Subpay withdrawal service"
         ];
