@@ -163,7 +163,7 @@ class CableTransactionService
      * @return mixed
      * @throws GraphqlError
      */
-    private function chargeUser(\Illuminate\Support\Collection $data, $beneficiary_name, $amount): mixed
+    private function chargeUser(\Illuminate\Support\Collection $data, $beneficiary_name, $amount)
     {
         $walletTransactionData = $data->only(['description', 'user_id',])->toArray();
         $walletTransactionData['transaction_type'] = TransactionType::DEBIT;
