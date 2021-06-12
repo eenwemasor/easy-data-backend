@@ -1,4 +1,0 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateAirtimeToWalletTransaction(input: CreateAirtimeToWalletTransactionInput! @spread): AirtimeToWalletTransaction @field(resolver: "AirtimeToWalletTransaction@resolve")
-
-}

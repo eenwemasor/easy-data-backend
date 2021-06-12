@@ -17,12 +17,19 @@ class CreateAdminChannelUtilsTable extends Migration
             $table->bigIncrements('id');
             $table->string('phone');
             $table->string('email');
-            $table->string('account_activation_amount');
             $table->string('glo_discount');
             $table->string('airtel_discount');
             $table->string('mtn_discount');
             $table->string('etisalat_discount');
-            $table->float('bitcoin_buying_rate');
+            $table->float('statement_request_charge');
+            $table->float('paystack_transaction_fee');
+            $table->float('paystack_fund_wallet_fee');
+            $table->float('sms_unit_charge');
+            $table->float('cable_tv_service_charge');
+            $table->float('fund_wallet_max_amount');
+            $table->float('fund_wallet_min_amount');
+            $table->float('monnify_bank_service_charge');
+            $table->float('electricity_service_charge');
             $table->timestamps();
         });
     }

@@ -1,4 +1,0 @@
-extend type Query @middleware(checks: ["auth:api"]){
-    getWithdrawFundTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [WithdrawFundTransaction!]! @paginate(type: "paginator" model: "App\\WithdrawFundTransaction")
-
-}

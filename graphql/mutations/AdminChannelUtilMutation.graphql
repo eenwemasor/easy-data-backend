@@ -1,5 +1,30 @@
-extend type Mutation {
-    CreateAdminChannelUtil(input: CreateAdminChannelUtilInput! @spread): AdminChannelUtil @create(model: "App\\AdminChannelUtil")
+extend type Mutation @middleware(checks: ["auth:api"]){
 
-    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtil")
+    UpdateAdminChannelUtil(input: UpdateAdminChannelUtilInput! @spread): AdminChannelUtil @update(model: "App\\AdminChannelUtilSeeder")
+    @can(ability: "update", model: "App\\AdminChannelUtilSeeder" find: "id")
+    @inject(context: "user", name: "user")
+
+
+    CreateBankAccount(input: CreateBankAccountInput! @spread): BankAccount @create(model: "App\\BankAccount")
+    @can(ability: "create", model: "App\\BankAccount")
+    @inject(context: "user", name: "user")
+
+    UpdateBankAccount(input: UpdateBankAccountInput! @spread): BankAccount @update(model: "App\\BankAccount")
+    @can(ability: "update", model: "App\\BankAccount" find:"id")
+    @inject(context: "user", name: "user")
+
+
+    DeleteBankAccount(id:ID!): BankAccount @delete(model: "App\\BankAccount")
+    @can(ability: "delete", model: "App\\BankAccount" find: "id")
+    @inject(context: "user", name: "user")
+
+
+
+    UpdateReferralRewards(input: UpdateReferralRewardInput! @spread): ReferralReward
+        @update(model: "App\\ReferralRewardSeeder")
+        @can(ability: "update", model: "App\\ReferralRewardSeeder" find: "id")
+        @inject(context: "user", name: "user")
+
+    TalkToUsMessage(input: TalkToUsInput! @spread): TalkToUsMessage @field(resolver: "TalkToUsMessage@forward_mail")
+
 }

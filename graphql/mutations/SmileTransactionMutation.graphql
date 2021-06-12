@@ -1,0 +1,8 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateSmileTransaction(input: CreateSmileTransactionInput! @spread): SmileTransaction @field(resolver: "SmileTransaction@resolve")
+
+    DeleteSmileTransaction(id:ID!): SmileTransaction  @delete(model: "App\\SmileTransaction")
+    @can(ability: "delete", model: "App\\SmileTransaction" find: "id")
+    @inject(context: "user", name: "user")
+
+}

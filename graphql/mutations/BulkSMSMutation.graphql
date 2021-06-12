@@ -1,0 +1,18 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateBulkSMS(input: CreateBulkSMSInput! @spread): BulkSMS @field(resolver: "BulkSMS@resolve")
+
+    DeleteBulkSMS(id:ID!): BulkSMS  @delete(model: "App\\BulkSMS")
+    @can(ability: "delete", model: "App\\BulkSMS" find: "id")
+    @inject(context: "user", name: "user")
+
+
+    MarkBulkSMSSuccessful(transaction_id:ID!): BulkSMS @field(resolver: "BulkSMS@mark_transaction_successful")
+    @can(ability: "update", model: "App\\BulkSMS" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
+    MarkBulkSMSFailed(transaction_id:ID!): BulkSMS @field(resolver: "BulkSMS@mark_transaction_failed")
+    @can(ability: "update", model: "App\\BulkSMS" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
+
+}

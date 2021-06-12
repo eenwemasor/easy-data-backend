@@ -1,0 +1,28 @@
+input CreateDataTransactionInput{
+    transaction_type: TransactionType!
+    description:String!
+    beneficiary: String!
+    data: ID!
+    user_id: ID!
+}
+
+
+input CreateDataPlanInput{
+    network: NetworkType!
+    type: DataType!
+    plan: String!
+    amount: Float!
+    vendor_amount:Float
+    product_code:String
+}
+
+
+input UpdateDataPlanInput{
+    id:ID!
+    network: NetworkType
+    plan: String
+    amount: Float
+    vendor_amount:Float
+    product_code:String
+
+}

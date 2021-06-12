@@ -1,4 +1,17 @@
 extend type Mutation @middleware(checks: ["auth:api"]){
     CreateAirtimeTransaction(input: CreateAirtimeTransactionInput! @spread): AirtimeTransaction @field(resolver: "AirtimeTransaction@resolve")
 
+    DeleteAirtimeTransaction(id:ID!): AirtimeTransaction  @delete(model: "App\\AirtimeTransaction")
+    @can(ability: "delete", model: "App\\AirtimeTransaction" find: "id")
+    @inject(context: "user", name: "user")
+
+
+    MarkAirtimeTransactionSuccessful(transaction_id:ID!): AirtimeTransaction @field(resolver: "AirtimeTransaction@mark_transaction_successful")
+    @can(ability: "update", model: "App\\AirtimeTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
+    MarkAirtimeTransactionFailed(transaction_id:ID!): AirtimeTransaction @field(resolver: "AirtimeTransaction@mark_transaction_failed")
+    @can(ability: "update", model: "App\\AirtimeTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
 }

@@ -1,11 +1,22 @@
 input CreateElectricityTransactionInput{
-    transaction_type: TransactionType!
     description:String!
+    type:electricityType!
     amount: Float!
-
-    decoder:decoder!
-    decoder_number:String!
+    meter_number:String!
+    phone:String!
     beneficiary_name:String!
-    plan:String!
+    plan:ID!
     user_id: ID!
+}
+
+
+input CreateElectricityPlanInput{
+    description: String!
+    disco:String!
+}
+
+input UpdateElectricityPlanInput{
+    id:ID!
+    description: String
+    disco:String
 }

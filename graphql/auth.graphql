@@ -13,13 +13,22 @@ type User {
     email: String!
     phone: String!
     wallet: String!
-    accessibility:String!
+    accessibility:AccountAccessibility!
     email_confirmed:Boolean!
     phone_verified:Boolean!
     unique_id:String!
     active:Boolean!
     bonus_wallet:String!
-    password: String!
+    username:String!
+    referrer_id:ID
+    account_level: AccountLevel! @belongsTo
+    monnify_account_number: String!
+    monnify_bank_name: String!
+    monnify_bank_code: String!
+    monnify_collection_channel: String!
+    monnify_reservation_channel: String!
+    referrer: User @belongsTo
+    referrals: [User !]! @hasMany
     data_transactions: [DataTransaction !]! @hasMany
     cable_transactions: [CableTransaction !]! @hasMany
     airtime_transactions: [AirtimeTransaction !]! @hasMany

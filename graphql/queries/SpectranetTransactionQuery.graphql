@@ -1,0 +1,9 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getSpectranetTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [SpectranetTransaction!]! @paginate(type: "paginator" model: "App\\SpectranetTransaction")
+
+    AllSpectranetTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [SpectranetTransaction!]! @paginate( model: "App\\SpectranetTransaction" builder:"App\\GraphQL\\Queries\\GetAllSpectranetTransactions@get_all_transactions")
+}

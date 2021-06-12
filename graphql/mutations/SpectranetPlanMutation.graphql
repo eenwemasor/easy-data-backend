@@ -1,0 +1,14 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateSpectranetPlan(input: CreateSpectranetPlanInput! @spread): SpectranetPriceList @create(model: "App\\SpectranetPriceList")
+    @can(ability: "create", model: "App\\SpectranetPriceList")
+    @inject(context: "user", name: "user")
+
+    UpdateSpectranetPlan(input: UpdateSpectranetPlanInput! @spread): SpectranetPriceList @update(model: "App\\SpectranetPriceList")
+    @can(ability: "update", model: "App\\SpectranetPriceList" find: "id")
+    @inject(context: "user", name: "user")
+
+    DeleteSpectranetPlan(id:ID!): SpectranetPriceList @delete(model: "App\\SpectranetPriceList")
+    @can(ability: "delete", model: "App\\SpectranetPriceList" find: "id")
+    @inject(context: "user", name: "user")
+
+}

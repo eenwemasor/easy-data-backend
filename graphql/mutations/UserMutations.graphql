@@ -1,18 +1,30 @@
-extend type Mutation {
-#    CreateUser(input: CreateUserInput! @spread): User @create(model: "App\\User")
+extend type Mutation{
     CreateUser(
         email: String @rules(apply: ["required", "unique:users"])
         full_name: String!
         phone: String @rules(apply: ["required", "unique:users"])
-        wallet: Float!
         password: String @bcrypt(apply: ["required"])
-        accessibility: String!
-        email_confirmed: Boolean!
-        phone_verified: Boolean!
-        unique_id: String!
-        active: Boolean!
-        bonus_wallet: Float!): User @create(model: "User")
-    UpdateUser(input: UpdateUserInput! @spread): User @update(model: "App\\User")
+        username:String @rules(apply: ["required", "unique:users"])
+        referrer_id:ID): User @field(resolver: "CreateUser@resolve")
 
+    UpdateEmailStatusUser(input: UpdateEmailStatusUserInput! @spread):User @update(model: "App\\User")
+}
+
+extend type Mutation @middleware(checks: ["auth:api"]){
+    UpdateUser(input: UpdateUserInput! @spread):User @update(model: "App\\User")
     UpdateUserPassword(id: ID!, password: String! @bcrypt): User @update(model: "App\\User")
+    CreateTransactionPin(
+        user_id: ID!): User @field(resolver: "CreateUser@create_transaction_pin")
+    UpdateTransactionPin(
+        user_id: ID!, current_transaction_pin:String!, new_transaction_pin: String!): User @field(resolver: "CreateUser@update_transaction_pin")
+    UpgradeAccount(
+        user_id: ID!,account_level_id:ID!): User @field(resolver: "CreateUser@upgrade_account")
+
+    BlockAccount(
+        user_id: ID!): User @field(resolver: "CreateUser@block_account")
+
+    UnBlockAccount(
+        user_id: ID!): User @field(resolver: "CreateUser@un_block_account")
+
+    DeleteAccount(id: ID!): User @field(resolver: "CreateUser@delete_account")
 }

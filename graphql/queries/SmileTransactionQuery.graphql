@@ -1,0 +1,11 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    getSmileTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [SmileTransaction!]! @paginate(type: "paginator" model: "App\\SmileTransaction")
+
+    AllSmileTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [SmileTransaction!]! @paginate( model: "App\\SmileTransaction" builder:"App\\GraphQL\\Queries\\GetAllSmileTransactions@get_all_transactions")
+
+    GetSmileSmartCardDetails(service: SmileTransactionType! number:String!): CardMeterDetails
+}

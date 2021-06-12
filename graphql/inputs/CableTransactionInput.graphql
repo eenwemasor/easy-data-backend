@@ -1,10 +1,26 @@
 input CreateCableTransactionInput{
-    transaction_type: TransactionType!
     description:String!
-    amount: Float!
-    decoder:decoder!
     decoder_number:String!
     beneficiary_name:String!
-    plan:String!
+    plan:ID!
     user_id: ID!
+}
+
+
+input CreateCablePlanInput{
+    cable: String!
+    plan: String!
+    amount: Float!
+    product_code: String!
+    vendor_identifier:String!
+}
+
+
+input UpdateCablePlanInput{
+    id:ID!
+    cable: String
+    plan: String
+    amount: Float
+    product_code: String
+    vendor_identifier:String
 }

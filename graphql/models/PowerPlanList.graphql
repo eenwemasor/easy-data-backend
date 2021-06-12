@@ -1,4 +1,6 @@
 type PowerPlanList{
     id: ID!
-    description: String!
+    description: String!,
+    disco:String!
+    updated_at:DateTime
 }

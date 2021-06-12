@@ -1,3 +1,0 @@
-extend type Query @middleware(checks: ["auth:api"]){
-    getGiftcardTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [GiftcardTransaction!]! @paginate(type: "paginator" model: "App\\GiftcardTransaction")
-}

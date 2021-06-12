@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use App\Listeners\AccountStatementListener;
 use App\Listeners\AdminListener;
+use App\Listeners\TalkToUsMessageListener;
 use App\Listeners\TransactionListener;
+use App\Listeners\TransactionRequestListener;
+use App\Listeners\UserCreatedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -19,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        'App\Events\UserCreated' => [
+            'App\Listeners\UserCreatedListener',
         ],
         'App\Events\AirtimeTransactionEvent' => [
             'App\Listeners\AdminListener',
@@ -36,49 +43,27 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
         ],
-
-        'App\Events\QuickBuyEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
         'App\Events\WalletTransactionEvent' => [
             'App\Listeners\AdminListener',
             'App\Listeners\TransactionListener',
         ],
-        'App\Events\AirtimeToCashTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
+        'App\Events\TalkToUsMessageEvent' => [
+            'App\Listeners\TalkToUsMessageListener',
         ],
 
-        'App\Events\AirtimeToWalletTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
+        'App\Events\AccountStatementEvent' => [
+            'App\Listeners\AccountStatementListener',
         ],
 
-        'App\Events\BitcoinTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\GiftcardTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\TransferFundTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
-
-        'App\Events\WithdrawFundTransactionEvent' => [
-            'App\Listeners\AdminListener',
-            'App\Listeners\TransactionListener',
-        ],
     ];
 
     protected $subscribe = [
         AdminListener::class,
-        TransactionListener::class
+        TransactionListener::class,
+        UserCreatedListener::class,
+        TalkToUsMessageListener::class,
+        AccountStatementListener::class
+
     ];
 
     /**

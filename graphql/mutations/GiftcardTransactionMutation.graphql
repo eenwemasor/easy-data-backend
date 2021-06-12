@@ -1,3 +1,0 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateGiftcardTransaction(input: CreateGiftcardTransactionInput! @spread): GiftcardTransaction @field(resolver: "GiftcardTransaction@resolve")
-}

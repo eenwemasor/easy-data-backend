@@ -1,0 +1,14 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateSmilePlan(input: CreateSmilePlanInput! @spread): SmilePriceList @create(model: "App\\SmilePriceList")
+    @can(ability: "create", model: "App\\SmilePriceList")
+    @inject(context: "user", name: "user")
+
+    UpdateSmilePlan(input: UpdateSmilelanInput! @spread): SmilePriceList @update(model: "App\\SmilePriceList")
+    @can(ability: "update", model: "App\\SmilePriceList" find: "id")
+    @inject(context: "user", name: "user")
+
+    DeleteSmilePlan(id:ID!): SmilePriceList @delete(model: "App\\SmilePriceList")
+    @can(ability: "delete", model: "App\\SmilePriceList" find: "id")
+    @inject(context: "user", name: "user")
+
+}

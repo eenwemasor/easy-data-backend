@@ -2,15 +2,19 @@
 
 //api urls for transaction
 return [
-    'CLUBKONNECT_API_URL_AIRTIME' => 'https://www.nellobytesystems.com/APIAirtimeV1.asp',
-    'CLUBKONNECT_API_URL_DATA' => 'https://www.nellobytesystems.com/APIDatabundleV1.asp',
-    'CLUBKONNECT_API_URL_CHECK_WALLET_BALANCE' => 'https://www.nellobytesystems.com/APIWalletBalanceV1.asp',
-    'MOBILE_NG_API_URL_CHECK_WALLET_BALANCE' => 'https://mobilenig.com/API/new_balance',
-    'MOBILE_NG_DECODER_USER_CHECK' => 'https://mobilenig.com/API/bills/user_check',
-    'MOBILE_NG_BILLS' => 'https://mobilenig.com/API/bills',  //append with /ikeja /gotv /dstv /startimes or any service related to bills in mobileng
+    'MOBILE_NG_DECODER_USER_CHECK' => env('MOBILE_NG_DECODER_USER_CHECK'),
+    'MOBILE_NG_API_KEY' => env('MOBILE_NG_API_KEY'),
+    'MOBILE_NG_API_USERNAME' => env('MOBILE_NG_API_USERNAME'),
+
+    'RINGO_ENDPOINT'=>env('RINGO_ENDPOINT'),
+    'SERVICE_END_POINT' =>env('SERVICE_END_POINT'),
+
+    //smart sms api constant
+    'SMS_URL'=>env('SMS_URL'),
+    'SENDER_ID'=>env('SENDER_ID'),
+    'API_KEY'=>env('API_KEY'),
+
+    'DAILY_EARN_PRO_TOKEN' => env('DAILY_EARN_API_TOKEN'),
+
+    'HEADERS' =>['headers' => ['email' => env('RINGO_EMAIL'), 'password' => env('RINGO_PASSWORD')]]
 ];
-
-
-
-
-

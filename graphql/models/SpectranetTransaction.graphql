@@ -1,0 +1,24 @@
+type SpectranetTransaction{
+    id:ID!
+    reference:String
+    amount:Float
+    initial_balance:Float
+    new_balance:Float
+    user_id:ID!
+    plan_id:ID
+    user:User
+    pins:[SpectranetTransactionPin]
+    plan:SpectranetPriceList
+    status:TransactionStatus
+    method: WalletType!
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+    type SpectranetTransactionPin{
+        id:ID!
+        serial_number:String!
+        pin:String!
+        value:Float!
+        spectranet_transaction_id:ID!
+    }

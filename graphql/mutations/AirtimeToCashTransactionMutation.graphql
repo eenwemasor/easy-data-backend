@@ -1,3 +1,0 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateAirtimeToCashTransaction(input: CreateAirtimeToCashTransactionInput! @spread): AirtimeToCashTransaction @field(resolver: "AirtimeToCashTransaction@resolve")
-}

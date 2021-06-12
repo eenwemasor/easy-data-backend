@@ -1,0 +1,26 @@
+input CreateNewsFeedInput{
+    title: String
+    image_url: String
+    body: String
+}
+
+input CreateNewsUpdateInput{
+    title: String
+    body: String
+}
+
+
+input UpdateNewsFeedInput{
+    id:ID!
+    title: String
+    image_url: String
+    body: String
+}
+
+input UpdateNewsUpdateInput{
+    id:ID!
+    title: String
+    body: String
+}
+
+

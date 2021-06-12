@@ -2,7 +2,11 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Enums\TransactionType;
+use App\ReferralReward;
+use App\Services\CreateUserService;
 use App\Services\WalletTransactionService;
+use App\User;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -11,11 +15,21 @@ class WalletTransaction
     /**
      * @var WalletTransactionService
      */
-    private $wallet_transaction;
+    private $walletTransactionService;
+    /**
+     * @var CreateUserService
+     */
+    private $createUserService;
 
-    public function __construct(WalletTransactionService $wallet_transaction_service)
+    /**
+     * WalletTransaction constructor.
+     * @param WalletTransactionService $walletTransactionService_service
+     * @param CreateUserService $createUserService
+     */
+    public function __construct(WalletTransactionService $walletTransactionService_service, CreateUserService $createUserService)
     {
-        $this->wallet_transaction = $wallet_transaction_service;
+        $this->walletTransactionService = $walletTransactionService_service;
+        $this->createUserService = $createUserService;
     }
     /**
      * Return a value for the field.
@@ -28,8 +42,14 @@ class WalletTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
+        $walletTransactionResult = $this->walletTransactionService->create($args);
+        $this->createUserService->reward_referrals($args['user_id'], $args['amount']);
+        return $walletTransactionResult;
+    }
 
-        return $this->wallet_transaction->create($args);
+
+    public function withdraw_bonus_to_wallet($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return $this->walletTransactionService->withdraw_bonus_to_wallet($args['user_id']);
     }
 }

@@ -1,4 +1,0 @@
-extend type Mutation {
-    CreateQuickBuy(input: CreateQuickBuyInput! @spread): QuickBuy @field(resolver: "QuickBuy@resolve")
-
-}

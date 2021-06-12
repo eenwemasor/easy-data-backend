@@ -14,10 +14,10 @@ class CreateCablePlanListsTable extends Migration
     public function up()
     {
         Schema::create('cable_plan_lists', function (Blueprint $table) {
-           $table->increments('id');
+            $table->increments('id');
             $table->string('cable');
             $table->string('plan');
-            $table->string('amount');
+            $table->float('amount');
             $table->string('product_code');
             $table->timestamps();
         });

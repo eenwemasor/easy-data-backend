@@ -4,6 +4,7 @@
 
 use App\CableTransaction;
 use App\Enums\TransactionStatus;
+use App\Enums\WalletType;
 use Faker\Generator as Faker;
 
 $factory->define(CableTransaction::class, function (Faker $faker) {
@@ -12,6 +13,10 @@ $factory->define(CableTransaction::class, function (Faker $faker) {
         TransactionStatus::COMPLETED,
         TransactionStatus::PROCESSING,
         TransactionStatus::FAILED,
+    ];
+    $walletType = [
+        WalletType::WALLET,
+        WalletType::BONUS_WALLET
     ];
     return [
         'reference' => $faker->numberBetween(10000000000000, 9999999999999999),
@@ -23,7 +28,7 @@ $factory->define(CableTransaction::class, function (Faker $faker) {
         'amount' => $faker->numberBetween(10000, 99999),
         'new_balance' => $faker->numberBetween(10000, 99999),
         'status'=> $faker->randomElement($transactionStatus),
-        'method'=> $faker->randomElement(["WALLET", "BONUS_WALLET"]),
+        'method'=> $faker->randomElement($walletType),
         'user_id' => $faker->numberBetween(1,5),
     ];
 });

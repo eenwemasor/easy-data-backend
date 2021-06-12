@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/easydataapizBackend.iml" filepath="$PROJECT_DIR$/.idea/easydataapizBackend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/backend.iml" filepath="$PROJECT_DIR$/.idea/backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/subpay.iml" filepath="$PROJECT_DIR$/.idea/subpay.iml" />
     </modules>
   </component>
 </project>

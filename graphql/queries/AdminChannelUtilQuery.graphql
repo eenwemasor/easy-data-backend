@@ -1,15 +1,23 @@
 extend type Query{
-
-    getAdminChannelUtil(id: ID @eq): AdminChannelUtil @find
-
+    getAdminChannelUtil: AdminChannelUtil @first
     getCablePlanList(
         cable: String! @where(operator: "=")
+        orderBy: [OrderByClause!] @orderBy
     ): [CablePlanList!]! @all
+    allCablePlans(orderBy: [OrderByClause!] @orderBy): [CablePlanList!]! @all
+    allSmilePlans(orderBy: [OrderByClause!] @orderBy): [SmilePriceList!]! @all
+    allSpectranetPlans(orderBy: [OrderByClause!] @orderBy): [SpectranetPriceList!]! @all
+    allBankAccounts(orderBy: [OrderByClause!] @orderBy): [BankAccount!]! @all
+    referralRewards: ReferralReward @first
     getDataPlanList(
-        network: NetworkType! @where(operator: "=")
+        network: NetworkType! @where(operator: "=") orderBy: [OrderByClause!] @orderBy
     ): [DataPlanList!]! @all
+    getAllDataPlanList(orderBy: [OrderByClause!] @orderBy): [DataPlanList!]! @all
+    getAllDataPlans(orderBy: [OrderByClause!] @orderBy): [DataPlanList!]! @all
+    getAllCablePlanList(orderBy: [OrderByClause!] @orderBy): [CablePlanList!]! @all
+    getAllPowerPlanList(orderBy: [OrderByClause!] @orderBy): [PowerPlanList!]! @all
+    getRegistrationFee(id: ID @eq): ReferralReward @find
+    getContestStats: ContestStats
+    getStatistics(from_date:String, to_date:String): AdminStatistics!
 
-    getAllDataPlanList: [DataPlanList!]! @all
-    getAllCablePlanList: [CablePlanList!]! @all
-    getAllPowerPlanList: [PowerPlanList!]! @all
 }

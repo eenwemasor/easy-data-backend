@@ -29,7 +29,33 @@ class AirtimeTransaction
      */
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
         return $this->airtime_transaction->create($args);
     }
+
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return mixed
+     */
+    public function mark_transaction_successful($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return  $this->airtime_transaction->mark_transaction_successful($args['transaction_id']);
+    }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return mixed
+     */
+    public function mark_transaction_failed($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        return  $this->airtime_transaction->mark_transaction_failed($args['transaction_id']);
+    }
+
+
 }

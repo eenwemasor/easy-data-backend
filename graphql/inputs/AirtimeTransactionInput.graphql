@@ -3,7 +3,7 @@ input CreateAirtimeTransactionInput{
     description:String!
     amount: Float!
     beneficiary: String!
-
+    network: NetworkType!
     phone: String!
     user_id: ID!
 }

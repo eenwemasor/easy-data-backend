@@ -14,4 +14,16 @@ interface DataTransactionContract
      * @return DataTransaction
      */
     public function create(array $DataTransaction):DataTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return DataTransaction
+     */
+    public function mark_transaction_successful(string $transaction_id):DataTransaction;
+
+    /**
+     * @param string $transaction_id
+     * @return DataTransaction
+     */
+    public function mark_transaction_failed(string $transaction_id):DataTransaction;
 }

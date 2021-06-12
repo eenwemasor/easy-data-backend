@@ -4,4 +4,5 @@ type CablePlanList {
     plan: String!
     amount: String!
     product_code: String!
+    updated_at:DateTime
 }

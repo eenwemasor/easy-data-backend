@@ -1,4 +1,17 @@
 extend type Mutation @middleware(checks: ["auth:api"]){
     CreateDataTransaction(input: CreateDataTransactionInput! @spread): DataTransaction @field(resolver: "DataTransaction@resolve")
 
+    DeleteDataTransaction(id:ID!): DataTransaction  @delete(model: "App\\DataTransaction")
+    @can(ability: "delete", model: "App\\DataTransaction" find: "id")
+    @inject(context: "user", name: "user")
+
+    MarkDataTransactionSuccessful(transaction_id: ID!): DataTransaction @field(resolver: "DataTransaction@mark_transaction_successful")
+    @can(ability: "update", model: "App\\DataTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
+    MarkDataTransactionFailed(transaction_id: ID!): DataTransaction @field(resolver: "DataTransaction@mark_transaction_failed")
+    @can(ability: "update", model: "App\\DataTransaction" find: "transaction_id")
+    @inject(context: "user", name: "user")
+
 }
+

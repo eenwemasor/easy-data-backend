@@ -13,6 +13,10 @@ class DataTransaction extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function data_plan(){
+        return $this->hasOne(CablePlanList::class, 'id', 'data');
+    }
 }
 
 

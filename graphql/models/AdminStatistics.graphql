@@ -1,0 +1,99 @@
+type AdminStatistics {
+    total_online_wallet_funding:Float
+
+
+    total_mtn_data_order:Float
+    total_mtn_data_order_sum:Float
+
+    total_etisalat_data_order:Float
+    total_etisalat_data_order_sum:Float
+
+    total_glo_data_order:Float
+    total_glo_data_order_sum:Float
+
+    total_airtel_data_order:Float
+    total_airtel_data_order_sum:Float
+
+
+    data_failed_order:Float
+    data_failed_order_sum:Float
+
+    data_completed_order:Float
+    data_completed_order_sum:Float
+
+    data_processing_order:Float
+    data_processing_order_sum:Float
+
+    total_mtn_airtime_order:Float
+    total_mtn_airtime_order_sum:Float
+
+    total_etisalat_airtime_order:Float
+    total_etisalat_airtime_order_sum:Float
+
+    total_glo_airtime_order:Float
+    total_glo_airtime_order_sum:Float
+
+    total_airtel_airtime_order:Float
+    total_airtel_airtime_order_sum:Float
+
+    airtime_failed_order:Float
+    airtime_failed_order_sum:Float
+
+    airtime_completed_order:Float
+    airtime_completed_order_sum:Float
+
+    airtime_processing_order:Float
+    airtime_processing_order_sum:Float
+
+    total_withdrawal:Float
+    total_users:Float
+    total_active_users:Float
+    total_inactive_users:Float
+    total_coupon_funding:Float
+
+    total_airtime_order:Float
+    total_airtime_order_sum:Float
+    total_data_order:Float
+    total_data_order_sum:Float
+
+    total_cable_order:Float
+    total_cable_order_sum:Float
+
+    total_cable_completed_order:Float
+    total_cable_completed_order_sum:Float
+
+    total_cable_processing_order:Float
+    total_cable_processing_order_sum:Float
+
+    total_cable_failed_order:Float
+    total_cable_failed_order_sum:Float
+
+    total_power_order:Float
+    total_power_order_sum:Float
+
+    total_power_completed_order:Float
+    total_power_completed_order_sum:Float
+
+    total_power_processing_order:Float
+    total_power_processing_order_sum:Float
+
+    total_power_failed_order:Float
+    total_power_failed_order_sum:Float
+
+    total_airtime_to_wallet:Float
+    total_airtime_to_wallet_sum:Float
+
+    total_airtime_to_wallet_completed:Float
+    total_airtime_to_wallet_completed_sum:Float
+
+    total_airtime_to_wallet_processing:Float
+    total_airtime_to_wallet_processing_sum:Float
+
+    total_airtime_to_wallet_failed:Float
+    total_airtime_to_wallet_failed_sum:Float
+
+
+    total_user_wallet_balance: Float
+    total_user_bonus_wallet_balance: Float
+
+}

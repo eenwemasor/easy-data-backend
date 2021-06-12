@@ -1,3 +1,0 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateWithdrawFundTransaction(input: CreateWithdrawFundTransactionInput! @spread): WithdrawFundTransaction @field(resolver: "WithdrawFundTransaction@resolve")
-}

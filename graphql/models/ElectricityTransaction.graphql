@@ -1,16 +1,25 @@
 type ElectricityTransaction {
     id: ID!
     reference: String!
-    decoder:decoder!
-    decoder_number:String!
+    meter_number:String!
     beneficiary_name:String!
-    plan:String!
+    plan:ID!
+    type:electricityType!
     initial_balance: Float
     amount: Float!
     new_balance: Float
     status: TransactionStatus!
     method: WalletType!
+    phone: String!
+    electricity_plan: PowerPlanList
+    token:String
     user_id: ID!
+    user:User
     created_at: DateTime
     updated_at: DateTime
+}
+
+enum electricityType{
+    PREPAID
+    POSTPAID
 }

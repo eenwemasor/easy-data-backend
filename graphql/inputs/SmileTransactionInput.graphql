@@ -1,0 +1,26 @@
+input CreateSmileTransactionInput{
+    transaction_type: SmileTransactionType!
+    description:String!
+    smart_card_number:String!
+    beneficiary_name:String!
+    amount:Float
+    plan:ID
+    user_id: ID!
+}
+
+
+input CreateSmilePlanInput{
+    description: String!
+    product_code: String!
+    vendor_price: Float!
+    price: Float!
+}
+
+
+input UpdateSmilelanInput{
+    id:ID!
+    description: String
+    product_code: String
+    vendor_price: Float
+    price: Float
+}

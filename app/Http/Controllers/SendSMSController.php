@@ -8,48 +8,79 @@ use Illuminate\Http\Request;
 
 class SendSMSController extends Controller
 {
-   function index(Request $request){
-       $number = $request->phone;
-       $message = $request->message;
+    function    sendSMS($message, $phone =null){
+        $sender_id = config('constant.SENDER_ID');
 
+        $to = $phone;
 
-        $response = $this->sendSMS($number, $message);
+        if(!isset($to) ){
+            $to = AdminChannelUtil::first()->phone;
+        }
 
-        return $response;
-
-   }
-
-
-    function sendSMS($message){
-       $body = strval($message);
-        $channel = AdminChannelUtil::findOrFail(1);
-        $senderid = 'EasyData';
-        $to = '08155400780';
-        $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
-        $baseurl = 'https://smartsmssolutions.com/api/json.php?';
+        $base_url = config('constant.SMS_URL');
+        $ApiKey = config('constant.API_KEY');
 
         $sms_array = array
         (
-            'sender' => $senderid,
+            'from' => $sender_id,
             'to' => $to,
-            'message' => $body,
-            'type' => '2',
-            'routing' => 3,
-            'token' => $token
+            'body' => $message,
+            'api_token' => $ApiKey
         );
 
         $params = http_build_query($sms_array);
-        $ch = curl_init();
+        try{
+            $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL,$baseurl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($ch, CURLOPT_URL,$base_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 
-        $response = curl_exec($ch);
+            $response = curl_exec($ch);
 
-        curl_close($ch);
-        error_log($response);
-        return $response;
+            curl_close($ch);
+
+            return $response;
+        }catch (\Throwable $e){
+            return true;
+        }
+
     }
+
+
+    function    sendBulkSMS($message, $to){
+        $sender_id = config('constant.SENDER_ID');
+        $base_url = config('constant.SMS_URL');
+        $ApiKey = config('constant.API_KEY');
+
+        $sms_array = array
+        (
+            'from' => $sender_id,
+            'to' => $to,
+            'body' => $message,
+            'api_token' => $ApiKey
+        );
+
+        $params = http_build_query($sms_array);
+        try{
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL,$base_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+
+            $response = curl_exec($ch);
+
+            curl_close($ch);
+
+            return $response;
+        }catch (\Throwable $e){
+            return $e;
+        }
+
+    }
+
+
 }

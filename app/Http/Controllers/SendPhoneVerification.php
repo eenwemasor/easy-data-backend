@@ -22,27 +22,26 @@ class SendPhoneVerification extends Controller
                 $phoneVerification->phone = $phone;
                 $phoneVerification->token = $token;
                 $phoneVerification->save();
-                $message = "EasyData DeletePhoneToken Verification token " . $token;
+                $message = "subpay phone verification token " . $token;
 
-                $senderid = 'EasyData';
+                $sender_id = config('constant.SENDER_ID');
                 $to = $phone;
-                $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
-                $baseurl = 'https://smartsmssolutions.com/api/json.php?';
+                $ApiKey = config('constant.API_KEY');
+                $base_url = config('constant.SMS_URL');
 
                 $sms_array = array
                 (
-                    'sender' => $senderid,
+                    'from' => $sender_id,
                     'to' => $to,
-                    'message' => $message,
-                    'type' => '0',
-                    'routing' => 3,
-                    'token' => $token
+                    'body' => $message,
+                    'api_token' => $ApiKey,
+                    'dnd' =>4
                 );
 
                 $params = http_build_query($sms_array);
                 $ch = curl_init();
 
-                curl_setopt($ch, CURLOPT_URL,$baseurl);
+                curl_setopt($ch, CURLOPT_URL,$base_url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
@@ -70,39 +69,38 @@ class SendPhoneVerification extends Controller
             $phone_token_exists = PhoneVerification::where('phone', $phone)->first();
             if(!$phone_token_exists){
             }else{
-                    $phone_token_exists->delete();
-                    $token = mt_rand(100000, 999999);
-                    $phoneVerification = new PhoneVerification();
-                    $phoneVerification->phone = $phone;
-                    $phoneVerification->token = $token;
-                    $phoneVerification->save();
+                $phone_token_exists->delete();
+                $token = mt_rand(100000, 999999);
+                $phoneVerification = new PhoneVerification();
+                $phoneVerification->phone = $phone;
+                $phoneVerification->token = $token;
+                $phoneVerification->save();
 
-                    if (strpos($phone, '0') === 0 && strlen($phone) === 11) {
-                        $send_phone = substr($phone, 1);
-                        $phone = "+234".$send_phone;
-                    }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
-                        $phone = "+234".$phone;
-                    }
-                    $message = "EasyData DeletePhoneToken Verification token " . $token;
-                $senderid = 'EasyData';
+                if (strpos($phone, '0') === 0 && strlen($phone) === 11) {
+                    $send_phone = substr($phone, 1);
+                    $phone = "+234".$send_phone;
+                }elseif(strpos($phone, '0') !== 0 && strlen($phone) === 10){
+                    $phone = "+234".$phone;
+                }
+                $message = "subpay phone verification token " . $token;
+                $sender_id = config('constant.SENDER_ID');
                 $to = $phone;
-                $token = 'xBhdoz1RXJ2Ib8GAdNqSRDvhoJ5LsbA6bPsQqYglwmn6zEa7qu6UZNrfvkmUTZ7TXW0dSXXNbLDxCfUMmLOAgBY2LHLo0kvPZhBP';
-                $baseurl = 'https://smartsmssolutions.com/api/json.php?';
+                $ApiKey = config('constant.API_KEY');
+                $base_url = config('constant.SMS_URL');
 
                 $sms_array = array
                 (
-                    'sender' => $senderid,
+                    'from' => $sender_id,
                     'to' => $to,
-                    'message' => $message,
-                    'type' => '0',
-                    'routing' => 3,
-                    'token' => $token
+                    'body' => $message,
+                    'api_token' => $ApiKey,
+                    'dnd' =>4
                 );
 
                 $params = http_build_query($sms_array);
                 $ch = curl_init();
 
-                curl_setopt($ch, CURLOPT_URL,$baseurl);
+                curl_setopt($ch, CURLOPT_URL,$base_url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
@@ -127,9 +125,10 @@ class SendPhoneVerification extends Controller
             $phone_user = User::where('phone', $phone_token_exists->phone)->first();
             $phone_user->phone_verified = true;
             $phone_user->save();
-            return response()->json(['message' => 'Phone Number Verified']);
+            return response()->json(
+                ['message' => 'Phone number verified'], 200);
         }else{
-            return response()->json(['message' => 'wrong token or it has expired']);
+            return response()->json(['error' => 'Wrong token or it has expired'], 404);
         }
     }
 

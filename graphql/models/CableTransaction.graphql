@@ -1,7 +1,7 @@
 type CableTransaction {
     id: ID!
     reference: String!
-    decoder:decoder!
+    decoder:cableType!
     decoder_number:String!
     beneficiary_name:String!
     plan:String!
@@ -11,11 +11,13 @@ type CableTransaction {
     status: TransactionStatus!
     method: WalletType!
     user_id: ID!
+    cable_plan: CablePlanList
+    user:User
     created_at: DateTime
     updated_at: DateTime
 }
 
-enum decoder{
+enum cableType{
     DSTV
     GOTV
     STARTIMES

@@ -1,3 +1,5 @@
 extend type Mutation @middleware(checks: ["auth:api"]){
     CreateWalletTransaction(input: CreateWalletTransactionInput! @spread): WalletTransaction @field(resolver: "WalletTransaction@resolve")
+
+    WithdrawBonusWallet(user_id: ID!): User @field(resolver: "WalletTransaction@withdraw_bonus_to_wallet")
 }

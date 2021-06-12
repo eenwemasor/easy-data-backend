@@ -1,3 +1,10 @@
 extend type Query @middleware(checks: ["auth:api"]){
     getDataTransactions(user_id: ID! @eq orderBy: [OrderByClause!] @orderBy): [DataTransaction!]! @paginate(type: "paginator" model: "App\\DataTransaction")
+
+    AllDataTransactions(
+        from_date:String,
+        to_date:String,
+        search:String,
+        status:TransactionStatus orderBy: [OrderByClause!] @orderBy): [DataTransaction!]! @paginate( model: "App\\DataTransaction" builder:"App\\GraphQL\\Queries\\GetAllDataTransactions@get_all_transactions")
+
 }

@@ -24,12 +24,7 @@ class CreateCableTransactionsTable extends Migration
             $table->float('initial_balance')->nullable();
             $table->float('amount');
             $table->float('new_balance')->nullable();
-            $table->enum('status', [
-                TransactionStatus::SENT,
-                TransactionStatus::COMPLETED,
-                TransactionStatus::PROCESSING,
-                TransactionStatus::FAILED,
-            ]);
+            $table->enum('status',  TransactionStatus::toArray());
             $table->string('method');
             $table->bigInteger('user_id');
             $table->timestamps();

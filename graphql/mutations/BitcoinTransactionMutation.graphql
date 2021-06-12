@@ -1,4 +1,0 @@
-extend type Mutation @middleware(checks: ["auth:api"]){
-    CreateBitcoinTransaction(input: CreateBitcoinTransactionInput! @spread): BitcoinTransaction @field(resolver: "BitcoinTransaction@resolve")
-
-}

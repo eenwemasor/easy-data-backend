@@ -9,4 +9,8 @@ class WalletTransaction extends Model
     protected $fillable = [
         'reference','transaction_type','description','amount', 'initial_balance', 'new_balance','wallet','beneficiary','status','user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

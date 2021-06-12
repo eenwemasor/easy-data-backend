@@ -1,0 +1,25 @@
+extend type Mutation @middleware(checks: ["auth:api"]){
+    CreateAccountLevel(input: CreateAccountLevelInput! @spread): AccountLevel @create(model: "App\\AccountLevel")
+    @can(ability: "create", model: "App\\AccountLevel")
+    @inject(context: "user", name: "user")
+
+    UpdateAccountLevel(input: UpdateAccountLevelInput! @spread): AccountLevel @update(model: "App\\AccountLevel")
+    @can(ability: "update", model: "App\\AccountLevel" find:"id")
+    @inject(context: "user", name: "user")
+
+    DeleteAccountLevel(id:ID!): AccountLevel @delete(model: "App\\AccountLevel")
+    @can(ability: "delete", model: "App\\AccountLevel" find: "id")
+    @inject(context: "user", name: "user")
+
+    CreateAccountLevelApplicable(input: CreateAccountLevelApplicableInput! @spread): AccountLevelApplicable @create(model: "App\\AccountLevelApplicable")
+    @can(ability: "create", model: "App\\AccountLevelApplicable")
+    @inject(context: "user", name: "user")
+
+    UpdateAccountLevelApplicable(input: UpdateAccountLevelApplicableInput! @spread): AccountLevelApplicable @update(model: "App\\AccountLevelApplicable")
+    @can(ability: "update", model: "App\\AccountLevelApplicable" find:"id")
+    @inject(context: "user", name: "user")
+
+    DeleteAccountLevelApplicable(id:ID!): AccountLevelApplicable @delete(model: "App\\AccountLevelApplicable")
+    @can(ability: "delete", model: "App\\AccountLevelApplicable" find: "id")
+    @inject(context: "user", name: "user")
+}

@@ -3,13 +3,21 @@ input UpdateUserInput{
     email: String
     full_name: String
     phone: String
-    password: String
-    wallet:Float
-    bonus_wallet:Float
-    active:Boolean
-    accessibility: String
-    email_confirmed: Boolean
-    phone_verified: Boolean
+    active: Boolean
+    email_confirmed:Boolean
+    phone_verified:Boolean
+    monnify_account_number:String
+    monnify_bank_name:String
+    monnify_bank_code:String
+    monnify_collection_channel:String
+    monnify_reservation_channel:String
+    password: String @bcrypt
+}
+
+input UpdateEmailStatusUserInput{
+    id:ID!
+    email_confirmed:Boolean
+
 }
 input SyncTransactionInput{
     id:ID!

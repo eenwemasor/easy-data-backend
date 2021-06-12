@@ -1,0 +1,21 @@
+input CreateResultCheckerInput {
+    examination_body: ResultCheckerExamBody
+    price: Float
+    vendor_price:Float
+    product_code: String
+    description:String
+}
+
+input UpdateResultCheckerInput{
+    id: ID!
+    examination_body: ResultCheckerExamBody
+    price: Float
+    vendor_price:Float
+    product_code: String
+    description:String
+}
+
+input CreateResultCheckTransactionInput {
+    user_id: ID!
+    result_checker_id: ID!
+}

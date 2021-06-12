@@ -22,12 +22,19 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'phone' => $faker->phoneNumber,
         'wallet' => $faker->numberBetween(1000, 2000), // password
-        'accessibility' => "user",
+        'accessibility' => \App\Enums\AccountAccessibility::USER,
         'email_confirmed' => $faker->boolean,
         'phone_verified' => $faker->boolean,
-        'unique_id' => $faker->unique()->word,
+        'unique_id' => $faker->word,
         'active' => $faker->boolean,
+        'account_level_id' => $faker->numberBetween(1,2),
+        'username' => $faker->unique()->name(),
         'bonus_wallet' => $faker->numberBetween(1000, 2000),
+        'monnify_account_number'=>$faker->numberBetween(100000000000, 900000000000),
+        'monnify_bank_name'=>'Providus Bank',
+        'monnify_bank_code'=>101,
+        'monnify_collection_channel'=>$faker->name,
+        'monnify_reservation_channel'=>$faker->name,
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
     ];
 });

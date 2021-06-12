@@ -2,12 +2,14 @@ type AirtimeTransaction {
     id: ID!
     reference: String!
     phone: String!
+    network: NetworkType
     initial_balance: Float
     amount: Float!
     new_balance: Float
-    status: TransactionStatus!
+    status: TransactionStatus
     method: WalletType!
     user_id: ID!
+    user:User
     created_at: DateTime
     updated_at: DateTime
 }

@@ -5,7 +5,6 @@ namespace App\Repositories;
 
 
 use App\Contracts\WalletTransactionContract;
-use App\Http\Controllers\Wallet;
 use App\User;
 use App\WalletTransaction;
 

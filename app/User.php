@@ -19,7 +19,26 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'phone', 'wallet','accessibility','email_confirmed','phone_verified','unique_id','active','bonus_wallet','password'
+        'full_name',
+        'email',
+        'phone',
+        'wallet',
+        'transaction_pin',
+        'accessibility',
+        'account_level_id',
+        'email_confirmed',
+        'phone_verified',
+        'unique_id',
+        'active',
+        'bonus_wallet',
+        'password',
+        'username',
+        'referrer_id',
+        'monnify_account_number',
+        'monnify_bank_name',
+        'monnify_bank_code',
+        'monnify_collection_channel',
+        'monnify_reservation_channel'
     ];
 
     /**
@@ -55,6 +74,25 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(ElectricityTransaction::class);
     }
 
+    public function wallet_transactions(){
+        return $this->hasMany(WalletTransaction::class);
+    }
+
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referrer_id', 'id');
+    }
+
+    public function account_level()
+    {
+       return $this->belongsTo(AccountLevel::class, 'account_level_id','id');
+    }
 
     public static function boot() {
         parent::boot();
@@ -70,6 +108,9 @@ class User extends Authenticatable implements MustVerifyEmail
             });
             $user->electricity_transactions()->each(function($electricity) {
                 $electricity->delete();
+            });
+            $user->wallet_transactions()->each(function($transaction) {
+                $transaction->delete();
             });
         });
     }

@@ -16,34 +16,63 @@ class PowerPlanListSeeder extends Seeder
         DB::table('power_plan_lists')->insert([
             [
                 'description' => 'Ikeja Electricity Bill Payment',
+                'disco'=>'IKEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Ikeja Electricity Token Purchase',
+                'description' => 'Eko Electric',
+                'disco'=>'EKEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Eko Electricity Distribution Prepaid',
+                'description' => 'Abuja Electric',
+                'disco'=>'AEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Eko Electricity Distribution Postpaid',
+                'description' => 'Kano Electric',
+                'disco'=>'KEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Kano Electricity Distribution Prepaid',
+                'description' => 'Enugu Electric',
+                'disco'=>'EEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Kano Electricity Distribution Postpaid',
+                'description' => 'Port Harcourt Electric',
+                'disco'=>'PHEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Abuja Prepaid',
+                'description' => 'Ibadan Electric',
+                'disco'=>'IBEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
             [
-                'description' => 'Abuja Postpaid',
+                'description' => 'Kaduna Electric',
+                'disco'=>'KAEDC',
+                'created_at' => Carbon::now()->toDateTimeString()
+            ],
+
+
+
+            [
+                'description' => 'Jos Electric',
+                'disco'=>'JEDC',
+                'created_at' => Carbon::now()->toDateTimeString()
+            ],
+
+
+            [
+                'description' => 'Benin Electric',
+                'disco'=>'BEDC',
+                'created_at' => Carbon::now()->toDateTimeString()
+            ],
+
+            [
+                'description' => 'Yola Electric',
+                'disco'=>'YEDC',
                 'created_at' => Carbon::now()->toDateTimeString()
             ],
 

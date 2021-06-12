@@ -15,6 +15,7 @@ class CreatePowerPlanListsTable extends Migration
     {
         Schema::create('power_plan_lists', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('disco');
             $table->string('description');
             $table->timestamps();
         });

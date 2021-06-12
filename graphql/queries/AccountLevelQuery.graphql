@@ -1,0 +1,3 @@
+extend type Query @middleware(checks: ["auth:api"]){
+    allAccountLevel: [AccountLevel!]! @all
+}
