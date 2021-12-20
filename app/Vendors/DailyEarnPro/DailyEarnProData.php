@@ -89,28 +89,28 @@ class DailyEarnProData extends DailyEarnProRoot
             case NetworkType::GLO: {
                     $applicables = $user->account_level->applicables()->where(
                         'service_type',
-                        ServiceType::DATA_DIRECT_GLO
+                        ServiceType::DATA_SME_GLO
                     )->get();
                     break;
                 }
             case NetworkType::MTN: {
                     $applicables = $user->account_level->applicables()->where(
                         'service_type',
-                        ServiceType::DATA_DIRECT_MTN
+                        ServiceType::DATA_SME_MTN
                     )->get();
                     break;
                 }
             case NetworkType::AIRTEL: {
                     $applicables = $user->account_level->applicables()->where(
                         'service_type',
-                        ServiceType::DATA_DIRECT_AIRTEL
+                        ServiceType::DATA_SME_AIRTEL
                     )->get();
                     break;
                 }
             case NetworkType::NINE_MOBILE: {
                     $applicables = $user->account_level->applicables()->where(
                         'service_type',
-                        ServiceType::DATA_DIRECT_9MOBILE
+                        ServiceType::DATA_SME_9MOBILE
                     )->get();
                     break;
                 }
