@@ -74,7 +74,6 @@ class DailyEarnProData extends DailyEarnProRoot
             default:
                 throw new GraphqlError("Invalid network type");
         }
-
     }
 
     /**
@@ -85,10 +84,10 @@ class DailyEarnProData extends DailyEarnProRoot
     public function apply_discount($data, $amount)
     {
         $user = User::find($data['user_id']);
-        $applicables = $user->account_level->applicables()->where('service_type',
+        $applicables = $user->account_level->applicables()->where(
+            'service_type',
             ServiceType::DATA_SME
         )->get();
         return $this->apply_applicable($amount, $applicables);
     }
-
 }
