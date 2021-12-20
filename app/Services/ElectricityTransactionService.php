@@ -174,7 +174,7 @@ class ElectricityTransactionService
     private function sendElectricityToken( $token, $phone)
     {
         $smsController = new SendSMSController();
-        $message = "Thank you for patronizing Gtserviz: Here is your Electricity token " . $token;
+        $message = "Thank you for patronizing Subpay: Here is your Electricity token " . $token;
         $smsController->sendSMS($message, $phone);
     }
 
