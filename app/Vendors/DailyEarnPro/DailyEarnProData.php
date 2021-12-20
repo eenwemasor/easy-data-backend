@@ -120,5 +120,4 @@ class DailyEarnProData extends DailyEarnProRoot
         }
         return $this->apply_applicable($dataPlan->amount, $applicables);
     }
-
 }
